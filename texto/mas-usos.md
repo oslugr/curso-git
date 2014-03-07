@@ -28,6 +28,18 @@ enteran de lo que está haciendo el resto de la empresa para venderlo
 (y no al revés, vender cosas que luego obligan al resto de la empresa
 a desarrollar).
 
+El desarrollo se divide por tanto en estas fases
+1. Trabajo con el código. Modificar ficheros, añadir nuevos.
+2. Prueba del código. La mayor parte de las metodologías de desarrollo
+hoy en día, o todas, incluyen una parte de prueba; en casi todos los
+casos esta prueba está automatizada e incluye test unitarios (que
+prueban características específicas), de integración y de cualquier
+otro tipo (calidad de código, existencia y calidad de la
+documentacion). 
+
+En casi todas estas fases puede intervenir, y de hecho lo hace, un
+sistema de control de fuentes como git. 
+
 
 
 ## Organización de un repositorio de git
