@@ -221,7 +221,45 @@ También conviene escribir `-m` para insertar el mensaje directamente
 sin que salga el editor de textos (que puede que no sea nuestro editor
 favorito). En el mensaje podemos escribir cualquier cosa, pero hay que
 tener en cuenta que lo que escribamos es un predicado cuyo sujeto son
-los cambios que hemos hecho. 
+los cambios que hemos hecho. Sobre qué hay que escribir hay
+[muchas versiones](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html),
+pero conviene que el mensaje sea informativo, hable de por qués y de
+comos más que de qués (no se puede decir "inserta una función", eso ya
+se ve en el código, sino por qué se inserta esa función) y se aconseja
+también un formato similar al siguiente
+
+    Hace tal cosa arreglando el error en el issue #666
+
+    Siguiendo la sugerencia de @foodev hemos usado el algoritmo
+    Vicentico para resolver ese error y ha quedado monísimo. 
+	
+Este formato se denomina `50+72` y consiste en usar una primera línea
+con 50 caracteres (justos, en este caso) que incluya una explicación
+extendida que esté formateada en líneas de 72 caracteres. Esto es
+difícil de hacer desde la línea de órdenes, así que tienes dos
+opciones: usar un *script* que formatee este mensaje, o bien
+configurar tu editor de forma que use ese formato. 
+
+El mensaje de *commit* también admite markdown y de hecho se
+formateará de esa forma en GitHub (posiblemente también en otros
+repos) y dentro del mismo admite ciertos atajos como referirse a una
+tarea o *issue* por el número de la misma o a un desarrollador por el
+handle. En todo caso, se formatee o no de esa forma, es informativo
+saber por qué hace lo que hace.
+
+En cuanto al `pull` es un evento diferente que el `commit` y hace más
+cosas, por lo que no debe verse como algo automático tras el
+mismo. Un `commit` es una unidad mínima de cambio, un `pull` envía los
+contenidos al repo remoto y activa una serie de actividades, como la
+integración continua, comprobación de código y otra serie de cosas
+interesantes. Además, hasta que no hacemos `pull` no comparamos
+nuestro código con el que está en `HEAD`, que en ese momento puede
+estar más adelante o más atrás. Si tienes miedo de provocar un
+conflicto o de que te lo provoque, no hagas un pull hasta estar seguro
+de que el código no rompe los tests automáticos y hasta que estés
+seguro de poder resolver los conflictos que ocurran.  ¿Cómo se pueden
+resolver estos conflictos? Lo veremos a continuación. 
+
 
 
 
