@@ -36,11 +36,21 @@ casos esta prueba está automatizada e incluye test unitarios (que
 prueban características específicas), de integración y de cualquier
 otro tipo (calidad de código, existencia y calidad de la
 documentacion). 
+3. Lanzamiento del producto. Cuando se han incorporado todas las
+características que se desean, se lanza el producto. El lanzamiento
+del producto, en el caso de web, incluye un *despliegue* (*deploy*)
+del mismo, y en el caso de tratarse de otro tipo de aplicación, de un
+*empaquetamiento*. Se suele hablar, en todo caso, de *despliegue*
+(aunque sea porque las aplicaciones web son más comunes hoy en día que
+las aplicaciones de escritorio).
+4. Resolución de errores con el código en producción. Si surge algún
+error, se trata de resolver sobre la marcha (*hotfix*), por supuesto,
+incorporándolo al código que se va a usar para desarrollos posteriores.
 
 En casi todas estas fases puede intervenir, y de hecho lo hace, un
-sistema de control de fuentes como git. 
-
-
+sistema de control de fuentes como git; en muchos casos no se trata de
+órdenes de `git`, sino de funciones a las que se puede acceder
+directamente desde sitios de gestión como GitHub.
 
 ## Organización de un repositorio de git
 
@@ -50,7 +60,119 @@ directorio. El repositorio debe estar organizado de forma que cada
 persona sólo tenga que *ver* los ficheros con los que tenga que
 trabajar y no se *distraiga* con la modificación de ficheros con los
 cuales, en principio, no tiene nada que ver; también de forma que no
-se sienta tentado en modificar esos mismos ficheros. 
+se sienta tentado en modificar esos mismos ficheros. Vamos a exponer
+aquí algunas prácticas comunes,pero en cada caso el sentido común y la
+práctica habitual de la empresa deberá imponerse...
+
+### Qué poner en el directorio principal
+
+Cuando se crea un repositorio en GitHub te anima a crear un
+`README.md`. Es importante que lo hagas, porque va a ser lo que se
+muestre cuando entres a la página principal del proyecto en GitHub y,
+además, porque te permite explicar, en pocas palabras, de qué va el
+proyecto, cómo instalarlo, qué prerrequisitos tiene, la licencia, y
+todo lo demás necesario para navegar por él. 
+
+Otros ficheros que suelen ir en el directorio principal
+
+* `INSTALL` por costumbre, suele contener las intrucciones para
+  instalar. También por convención, hoy en día se suele escribir
+  usando Markdown convirtiéndose, por tanto, en `INSTALL.md`
+  
+ * `.gitignore' posiblemente ya conocido, incluye los patrones y
+   ficheros que no se deben considerar como parte del repositorio
+   
+ * `LICENSE` incluye la licencia. También se crea automáticamente en
+   caso desde Github en caso de que se haya hecho así. No hay que
+   olvidar que también hay que incluir una cabecera en cada fichero
+   que indice a qué paquete pertenece y cuál es la licencia.
+   
+ * `TODO` es una ventana abierta a la colaboració, así como una lista
+   para recordarnos a nosotros mismos qué tareas tenemos por delante.
+   
+ * Otros ficheros de configuración, como `. travis.yml`para el sistema
+   de integración continua Travis, `Makefile.PL` o `configure` u otros
+   ficheros necesarios para configurar la librería, y ficheros
+   similares que haga falta ejecutar o ver al instalar la
+   librería. Se aconseja siempre que tengan los nombres que suelan ser
+   habituales en el lenguaje de programación, si no el usuario no
+   sabrá como usarlos. 
+   
+ En general se debe tratar de evitar cargar demasiados ficheros, fuera
+ de esos, en el directorio principal. Siempre que se pueda, se usará
+ un subdirectorio.
+ 
+### Una estructura habitual con directorio de test
+ 
+ Los fuentes del proyecto deben ir en su propio directorio, que
+ habitualmente se va a llamar `src`. Algunos lenguajes te van a pedir
+ que tengan el nombre de la librería, en cuyo caso se usará el que más
+ convenga. Si no se trata de una aplicación sino de una biblioteca, se
+ usará `lib`en vez de `src`, como en esta [biblioteca llamada *NodEO*](https://github.com/JJ/nodeo)
+ Los tests unitarios irán aparte, en un directorio
+ habitualmente llamado `test`. Finalmente, un directorio llamado
+ `examples` o `apps` o `scripts` o `bin` o `exe` incluirá ejemplos de uso de la
+ biblioteca o diferentes programas que puedan servir para entender
+ mejor la aplicación o para ejecutarla directamente.
+ 
+ ### Estructura jerárquica con submódulos
+ 
+ Un repositorio `git` tiene una estructura `plana`, en el sentido que
+ se trata de un solo bloque de ficheros que se trata como tal, a
+ diferencia de otros sistemas de gestión de fuentes centralizados como
+ CVS o Subversion en los que se podía tratar cada subdirectorio como
+ si fuera un proyecto independiente. Pero en
+ algunos casos hace falta trabajar con proyectos en los cuales haya un
+ repositorio que integre el resultado del desarrollo independiente de
+ otros, por ejemplo, una aplicación que se desarrolle conjuntamente
+ con una librería. En ese caso un repositorio `git` se puede dividir
+ en
+ [submódulos](http://git-scm.com/book/en/Git-Tools-Submodules),
+ que son básicamente repositorios independientes pero que están
+ incluidos en una misma estructura de directorios.
+ 
+ Por ejemplo, vamos a incluir el texto de este curso en el repositorio
+ de ejemplo, para poder servirlo como una web también:
+ 
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ git submodule add git@github.com:oslugr/curso-git.git curso
+Clonar en «curso»...
+remote: Reusing existing pack: 14, done.
+remote: Counting objects: 4, done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 18 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (18/18), 17.26 KiB, done.
+Resolving deltas: 100% (4/4), done.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los submódulos no se clonan directamente al clonar el repositorio. Hay
+que dar dos comandos: `git submodule init` y `git submodule update`
+dentro del directorio correspondiente; esta última orden servirá para
+actualizar submódulos también cada vez que haya un cambio en el repo
+del que dependan (y queramos actualizar nuestra copia).
+
+De esta forma, el repositorio queda (parcialmente) con esta estructura
+de directorios:
+~~~~~~~~~~~~~~~~~~~~~~
+jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ tree
+.
+├── curso
+│   ├── LICENSE
+│   ├── README.md
+│   └── texto
+│       ├── ganchos.md
+│       ├── GitHub.md
+│       └── mas-usos.md
+~~~~~~~~~~~~~~~~~~~~~~
+con el subdirectorio `curso` siendo, en realidad, otro repositorio.
+
+Por ejemplo, podíamos tener una estructura que incluyera
+subdirectorios para `cliente`(un submódulo) y `servidor` (otro
+submódulo). Con ambos se puede trabajar de forma independiente y, de
+hecho, *residen* en repositorios independientes, pero puede que, en
+caso de empaquetarlos o desplegarlos de alguna forma determinada (por
+ejemplo, a un PaaS), queramos hacerlo desde un solo repositorio, como
+en este caso.
 
 ## Flujos de trabajo con git
 
