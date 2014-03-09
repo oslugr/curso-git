@@ -29,6 +29,7 @@ enteran de lo que está haciendo el resto de la empresa para venderlo
 a desarrollar).
 
 El desarrollo se divide por tanto en estas fases
+
 1. Trabajo con el código. Modificar ficheros, añadir nuevos.
 2. Prueba del código. La mayor parte de las metodologías de desarrollo
 hoy en día, o todas, incluyen una parte de prueba; en casi todos los
@@ -79,7 +80,7 @@ Otros ficheros que suelen ir en el directorio principal
   instalar. También por convención, hoy en día se suele escribir
   usando Markdown convirtiéndose, por tanto, en `INSTALL.md`
   
- * `.gitignore' posiblemente ya conocido, incluye los patrones y
+ * `.gitignore` posiblemente ya conocido, incluye los patrones y
    ficheros que no se deben considerar como parte del repositorio
    
  * `LICENSE` incluye la licencia. También se crea automáticamente en
@@ -115,7 +116,8 @@ Otros ficheros que suelen ir en el directorio principal
  biblioteca o diferentes programas que puedan servir para entender
  mejor la aplicación o para ejecutarla directamente.
  
- ### Estructura jerárquica con submódulos
+ 
+### Estructura jerárquica con submódulos
  
  Un repositorio `git` tiene una estructura `plana`, en el sentido que
  se trata de un solo bloque de ficheros que se trata como tal, a
@@ -134,8 +136,8 @@ Otros ficheros que suelen ir en el directorio principal
  Por ejemplo, vamos a incluir el texto de este curso en el repositorio
  de ejemplo, para poder servirlo como una web también:
  
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- git submodule add git@github.com:oslugr/curso-git.git curso
+
+    git submodule add git@github.com:oslugr/curso-git.git curso
 Clonar en «curso»...
 remote: Reusing existing pack: 14, done.
 remote: Counting objects: 4, done.
@@ -143,7 +145,7 @@ remote: Compressing objects: 100% (4/4), done.
 remote: Total 18 (delta 0), reused 0 (delta 0)
 Receiving objects: 100% (18/18), 17.26 KiB, done.
 Resolving deltas: 100% (4/4), done.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 Los submódulos no se clonan directamente al clonar el repositorio. Hay
 que dar dos comandos: `git submodule init` y `git submodule update`
@@ -153,8 +155,8 @@ del que dependan (y queramos actualizar nuestra copia).
 
 De esta forma, el repositorio queda (parcialmente) con esta estructura
 de directorios:
-~~~~~~~~~~~~~~~~~~~~~~
-jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ tree
+
+    jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ tree
 .
 ├── curso
 │   ├── LICENSE
@@ -163,7 +165,8 @@ jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ tree
 │       ├── ganchos.md
 │       ├── GitHub.md
 │       └── mas-usos.md
-~~~~~~~~~~~~~~~~~~~~~~
+
+
 con el subdirectorio `curso` siendo, en realidad, otro repositorio.
 
 Por ejemplo, podíamos tener una estructura que incluyera
@@ -185,7 +188,8 @@ más predecible; también a evitar problemas y a identificarlos
 fácilmente. 
 
 El flujo de trabajo básico cuando se trabaja con un sistema de control
-de fuentes es el siguiente:
+de fuentes y lo hace un solo usuario es el siguiente:
+
 1. `git pull`
 2. Trabajo con el código; añadir nuevos ficheros fuentes con `git add`
 3. `git commit -a -m "[implícito: este commit] [hace] [Tal cosa]" (o
@@ -195,12 +199,13 @@ de fuentes es el siguiente:
 Fijémonos en el tercer paso, el commit. Primero, conviene hacer siempre `-a`,
 es decir, `-all`
 por [varias razones](http://git-scm.com/docs/git-commit):
+
 1. Porque examina todos los ficheros que están siendo seguidos, no
 sólo los del directorio actual y los que hay por debajo.
 2. Porque [hace automáticamente un `git rm` sobre los mismos](http://stackoverflow.com/questions/3541647/git-add-vs-git-commit-a), si es que
 ha sido borrados. 
 
-Lo segundo es decidir cuando se hace el commit; lo habitual es que se
+Lo segundo es decidir cuando se hace el *commit*; lo habitual es que se
 haga cada vez que se lleve a cabo un cambio significativo, pero ¿qué
 es un cambio significativo? Pues un cambio más o menos atómico, que
 incluya todos los ficheros afectados por ese cambio y, lo más
@@ -217,6 +222,8 @@ sin que salga el editor de textos (que puede que no sea nuestro editor
 favorito). En el mensaje podemos escribir cualquier cosa, pero hay que
 tener en cuenta que lo que escribamos es un predicado cuyo sujeto son
 los cambios que hemos hecho. 
+
+
 
 ## Ramas
 
