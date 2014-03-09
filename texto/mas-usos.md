@@ -307,7 +307,11 @@ que hay en la rama remota está a continuación y hasta la cadena que
 indica el número del commit en el cual está el conflicto. Resolver el
 conflicto es simplemente borrar las marcas de conflicto (los <<<<< y
 los >>>>> y los ====) y elegir el código con el que nos quedamos; en
-este caso, como se ve, es el que aparece efectivamente en este capítulo.
+este caso, como se ve, es el que aparece efectivamente en este
+capítulo.
+
+Una vez hecho eso, se puede ya hacer `push` directamente sin ningún
+problema. 
 
 ## Ramas
 
