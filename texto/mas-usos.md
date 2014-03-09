@@ -260,6 +260,7 @@ de que el código no rompe los tests automáticos y hasta que estés
 seguro de poder resolver los conflictos que ocurran.  ¿Cómo se pueden
 resolver estos conflictos? Lo veremos a continuación. 
 
+## Vamos a ver cómo se resuelven los problemas en git
 
 
 
