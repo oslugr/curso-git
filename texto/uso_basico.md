@@ -10,16 +10,16 @@ Instalar git en linux es tan simple como usar tu gestor de paquetes favorito. Po
 
 
 ####En Arch Linux
-'$ pacman -S git'
+`$ pacman -S git`
 
 ####En sistemas Debian, Ubuntu, Mint...
-'$ apt-get install git'
+`$ apt-get install git`
 
 ####En Gentoo
-'$ emerge --ask --verbose dev-vcs/git'
+`$ emerge --ask --verbose dev-vcs/git`
 
 ####En sistemas Red Hat, Fedora:
-'$ yum install git'
+`$ yum install git`
 
 
 ###En Windows
