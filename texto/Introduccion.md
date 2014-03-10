@@ -43,7 +43,7 @@ Estos sistemas nacieron para gestionar código fuente, pero pueden ser usados pa
 
 ##Tipos de Sistemas de Control de Versiones
 
-Existen muchos Sistemas de Control de Versiones como <a href="http://es.wikipedia.org/wiki/CVS">CVS</a>, <a href="http://es.wikipedia.org/wiki/Subversion">Subversion</a>, <a href="http://es.wikipedia.org/wiki/Bazaar_(software)">Bazaar</a>, <a href="http://es.wikipedia.org/wiki/Mercurial">Mercurial</a> o, por supuesto, <a href="http://es.wikipedia.org/wiki/Git">Git</a>, pero todos pueden clasificarse en dos tipos fundamentales según su modo de trabajo.
+Existen muchos Sistemas de Control de Versiones como [CVS](http://es.wikipedia.org/wiki/CVS), [Subversion](http://es.wikipedia.org/wiki/Subversion), [Bazaar](http://es.wikipedia.org/wiki/Bazaar_(software)), [Mercurial](http://es.wikipedia.org/wiki/Mercurial) o, por supuesto, [Git](http://es.wikipedia.org/wiki/Git), pero todos pueden clasificarse en dos tipos fundamentales según su modo de trabajo.
 
 
 ###Sistemas centralizados
