@@ -1,4 +1,11 @@
 
+##Objetivos
+
+Saber qué es el Software Libre
+Aprender qué es un Sistema de Control de Versiones
+Ver los Sistema de Control de Versiones y sus tipos
+Conocer las principales características de `git`
+
 
 ##Software Libre
 
@@ -38,7 +45,7 @@ Llevar a cabo la administración de estos aspectos (y de muchos otros) manualmen
 
 Debido al crecimiento en extensión y complejidad del software, los Sistemas de Control de Versiones están tomando cada vez más importancia. En especial, los proyectos de software libre, que tienden a aunar los esfuerzos de un gran número de programadores trabajando simultáneamente en múltiples versiones del código, han estado a la vanguardia del uso de estas herramientas. 
 
-Estos sistemas nacieron para gestionar código fuente, pero pueden ser usados para cualquier tipo de documentación (aunque no pueden aprovechar todo su potencial en archivos que no sean de texto plano).
+Estos sistemas nacieron para gestionar código fuente, pero pueden ser usados para cualquier tipo de documentación (aunque no pueden aprovechar todo su potencial en archivos que no sean de texto plano). Por ejemplo, este curso ha sido desarrollado bajo `git` y su código puede encontrarse en su repositorio oficial en [github.com/oslugr/curso-git](https://github.com/oslugr/curso-git) 
 
 
 ##Tipos de Sistemas de Control de Versiones
@@ -66,21 +73,25 @@ En estos sistemas no existe un servidor central, sino que cada programador tiene
 
 Hay que hacer notar que, aunque no es necesario en este tipo de arquitectura, en la práctica se suele definir un repositorio de referencia para albergar la versión "oficial" del software. 
 
-Los sistemas distribuidos más conocidos son Bazaar y, por supuesto, Git.
+Los sistemas distribuidos más conocidos son Bazaar y, por supuesto, `git`.
 
 
 
 
+##`git`
 
-##Git
-
-Git nació para ser el Sistema de Control de Versiones del kernel de Linux (de hecho, fué programado por el mismo Linus Torvals) y es por ello que está preparado para proyectos grandes, con muchos desarrolladores y un gran número de ramas.
+Git nació para ser el Sistema de Control de Versiones del kernel de Linux (de hecho, fue programado por el mismo *Linus Torvals*) y es por ello que está preparado para proyectos grandes, con muchos desarrolladores y un gran número de ramas.
 
 Se trata, como ya hemos dicho, de un Sistema de Control de Versiones distribuído, por lo que cada programador cuenta con su propio repositorio. Esto hace que, salvo cuando llega el momento de sincronizar con otro repositorio, todo el trabajo se haga en local, con ventajas como la velocidad o que se pueda trabajar sin acceso a la red. 
 
-Git es software libre, y su código está disponible en su [repositorio de Github](http://github.com/git/git).
+`git` es software libre, y su código está disponible en su [repositorio de `git`hub](http://github.com/git/git).
 
-El sitio oficial de git es [git-scm.com](http://git-scm.com/)
+El sitio oficial de `git` es [git-scm.com](http://git-scm.com/)
+
+`git` es también multilataforma, y existen versiones para Linux, Mac, Windows y Solaris. Aunque en este curso se usará Linux para los ejemplos y referencias, el uso en todas ellas es similar, por lo que no hay ningún problema a la hora de seguirlo desde otro sistema operativo.
+
+
+
 
 
 
