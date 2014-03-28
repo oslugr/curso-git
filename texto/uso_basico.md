@@ -1,6 +1,5 @@
 
 
-
 ##Instalar git
 
 
@@ -23,7 +22,9 @@ Instalar git en linux es tan simple como usar tu gestor de paquetes favorito. Po
 
 
 ###En Windows
+La Instalación Git en Windows. Simplemente descargue el archivo .exe para instalar de la página de GitHub, y ejecute:
 
+[Git for Windows](http://msysgit.github.io/ )
 
 ###En Mac
 
