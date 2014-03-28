@@ -1,4 +1,3 @@
-
 ##Instalar git
 
 
@@ -32,9 +31,9 @@ Hay dos maneras de instalar Git en Macintosh, la más fácil es utilizar el inst
 
 ##Clientes GUI para Linux, Windows y Mac
 
-[GUI](http://mac.github.com/"Mac")
+[GUI Mac](http://mac.github.com/)
 
-[GUI](http://windows.github.com/"Windows")
+[GUI Windows](http://windows.github.com/)
 
 [Guis para Linus, Windows y Mac](http://git-scm.com/downloads/guis#"Guis clients")
 
