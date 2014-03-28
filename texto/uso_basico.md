@@ -37,7 +37,10 @@ Hay dos maneras de instalar Git en Mac, la más fácil es utilizar el instalador
 
 [GUI for Linux, Windows y Mac](http://git-scm.com/downloads/guis#"Guis clients")
 
-##Abrir una cuenta en Github 
+##Abrir una cuenta en Github
+Desde la propia web de GitHub y como cualquier otro registro, nombre o nick, e-mail y contraseña:
+
+[github.com](https://github.com/)
 
 ##Empezando a usar git
 
