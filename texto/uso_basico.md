@@ -27,7 +27,7 @@ La Instalación Git en Windows. Simplemente descargue el archivo .exe para insta
 ###En Mac
 Hay dos maneras de instalar Git en Macintosh, la más fácil es utilizar el instalador gráfico:
 
-[Git for OS X](https://sourceforge.net/projects/git-osx-installer/files/"Descargar instalador desde aquí") 
+[Git for OS X](https://code.google.com/p/git-osx-installer/) 
 
 ##Clientes GUI para Linux, Windows y Mac
 
