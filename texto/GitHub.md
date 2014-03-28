@@ -51,7 +51,11 @@ contribuciones. Se puede seguir la
 pero también se puede ir un paso más allá y pulsar el botón de
 *Follow* con lo que, a entrar en la
 [página principal de GitHub](http://github.com) se te mostrará, junto
-con la actividad propia, la de esta persona.
+con la actividad propia, la de esta persona. Una persona puede ser
+también añadida a un repositorio, lo que le dará privilegios para
+realizar todo tipo de acciones sobre él. Conviene usar esto con
+moderación y sólo cuando se trate de una persona ya involucrada en el
+proyecto. 
 
 El componente *social* también se ve en repositorios específicos: los
 repositorios, como
@@ -63,7 +67,11 @@ repositorio al propio y permite trabajar con él; equivale a una *rama*
 tal como la que hemos visto anteriormente. Este *fork* respeta la
 autoría original que sigue apareciendo en todos los *commits* que se
 hayan hecho originalmente, pero permite añadir uno sus propias
-modificaciones *sin que el autor original tenga que aprobarlas*. 
+modificaciones *sin que el autor original tenga que aprobarlas*. Los
+*pull requests* permiten colaboración esporádica, ya que las
+modificaciones que se soliciten pueden aprobarse o no por parte del
+autor principal del repositorio; la persona que las haga, sin embargo,
+no tiene por qué estar añadida como colaborador permanente al mismo. 
 
 GitHub también permite comentar a diferentes niveles: se puede
 comentar un *commit*, se pueden comentar líneas de código y finalmente
@@ -75,8 +83,28 @@ se pueden hacer solicitudes y comentarios a un repo completo usando
 interaccionar con los autores de un proyecto y por supuesto también de
 que esos autores aumenten su *karma* a base de las conexiones,
 estrellas que reciban sus repositorios y comentarios, así como los
-asuntos resueltos.
+*issues* resueltos.
 
+Finalmente, los usuarios se pueden agrupar en [organizaciones](https://help.github.com/articles/creating-a-new-organization-account--2). Una
+organización es en muchos aspectos similar a un usuario; tiene las
+mismas limitaciones y las mismas ventajas, pero en una organización se
+definen *equipos* y los permisos para trabajar por repositorios se
+hacen usando estos *equipos*; cada repositorio puede tener uno o más
+equipos con diferentes niveles de privilegios y el repositorio en sí
+tendrá también un equipo que será el que pueda realizar ciertas
+acciones sobre el mismo. Generalmente se crea un equipo por
+repositorio, pero puede organizarse de cualquier otra forma.
+
+Cuando uno es añadido a un equipo de una organización, se convierte en
+otra "personalidad" que te permite, por ejemplo, hacer *fork* como
+miembro de tal organización. 
+
+En resumen, la facilidad que tiene GitHub para manejar todo tipo de
+situaciones de desarrollo y la *gamificación* y *socialización* de la
+experiencia de desarrollo es lo que ha hecho que hoy en día tenga
+tanto éxito hasta el punto de que el perfil de uno en GitHub es su
+mejor carta de presentación a la hora de conseguir unt rabajo en
+desarrollo y programación. 
 
 
 ## Cómo usar los hooks
