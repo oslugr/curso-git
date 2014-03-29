@@ -43,7 +43,7 @@ En la siguiente ventana se nos permite cambiar el nombre del grupo de programas 
 
 ![Instalación de git en Windows (5)](img/wingit5.png)
 
-Las siguientes dos opciones configuran aspectos avanzados de git, concretamenete el uso del prompt y el manejo de retornos de carro. Para un usuario novel son adecuadas las opciones por defecto.
+Las siguientes dos opciones configuran aspectos avanzados de 'git', concretamenete el uso del prompt y el manejo de retornos de carro. Para un usuario novel son adecuadas las opciones por defecto.
 
 ![Instalación de git en Windows (6)](img/wingit6.png)
 
@@ -52,6 +52,15 @@ Las siguientes dos opciones configuran aspectos avanzados de git, concretamenete
 Y, por fín, hemos finalizado nuestra instalación.
 
 ![Instalación de git en Windows (8)](img/wingit8.png)
+
+
+A partir de este momento, podemos ir al menú inicio como se indica en la imagen, y ejecutar "Git Bash", lo que abrirá una consola donde podremos interactuar con 'git' tal como se ve en este curso.
+
+![Instalación de git en Windows (9)](img/wingit9.png)
+
+![Instalación de git en Windows (10)](img/wingit10.png)
+
+(*Al terminar todos estos pasos, y como se ven en la imagen, también se instalará una versión gráfica "Git GUI", pero en este curso se seguirá la interfaz de línea de comandos*)
 
 
 ###En Mac
