@@ -120,7 +120,7 @@ Si te has equivocado al escribir alguno de estos datos o quieres cambiarlo, sól
 
 ###Iniciando un repositorio
 
-Un repositrio de git no es más que un directorio de nuestro ordenador que está bajo el control de git. En la práctia, esto significa que en el directorio raiz de nuestro proyecto hay otro directiro oculto llamado ".git" donde se guardan los archivos para el control de historiales, cambios, etc.
+Un repositorio de git no es más que un directorio de nuestro ordenador que está bajo el control de git. En la práctia, esto significa que en el directorio raiz de nuestro proyecto hay otro directiro oculto llamado ".git" donde se guardan los archivos para el control de historiales, cambios, etc.
 
 Para inicar un repositorio sólo hay que situarse en el directorio de nuestro proyecto (el que contiene o va a contener los archivos que queremos controlar) y ejecutar la siguiente orden:
 
@@ -174,17 +174,57 @@ Lo sé, es todo un poco lioso ahora mismo, pero ya se irá aclarando conforme ap
 Tú sólo manten esta secuencia en la cabeza: Directorio de trabajo -> Index -> HEAD
 
 
+###Manteniendo nuetro repositorio al día
+
+
+Tienes tu repositorio inicado (o clonado) con una serie de archivos con los que empiezas a trabajar, creándolos, editándolos, modificándolos, etc.
+
+Para que git sepa que tiene que empezar a tener en cuenta un archivo, usamos la orden `git add` de este modo:
+
+
+`git add NOMBRE_DEL_ARCHIVO`
+
+Esto, como vimos antes, añadirá el archivo indicado con `NOMBRE_DEL_ARCHIVO` al Index. No lo archivará realmente en el sistema de control de versiones ni hará nada. Sólo le iforma de que debe tener en cuenta ese archivo para futuras instrucciones (que es, básicamente, en lo que consiste el Index).
+
+Si intentas añadir al Index un archivo que no existe te dará un error.
+
+También puedes usar *comodines*, con cosas como:
+
+`git add miarchivo.*`
+
+(que reconocería, por ejemplo "miarchivo.txt", "miarchivo.cosas" y "miarchivo.png")
+
+o 
+
+`git add miarchivo$.txt`
+
+(que identificaría cosas como "miarchivo1.txt", "miarchivo2.txt" y "miarchivoZ.txt")
+
+Y, en general, todos los comodines que permita usar tu sistema operativo.
+
+Si, en lugar de un archivo, indicas un directorio, se agregarán al Index todos los archivos de ese directorio.
+
+De este modo, la forma más fácil de agregar todos los archivos al Index es mediante la orden:
+
+`git add .`
+
+
+Ahora vamos a ver una orden que será tu gran amiga:
+
+`git status`
+
+`git status` te da un resumen de cómo están las cosas ahora mismo respecto a la versión del repositorio (concretamente, respecto al HEAD). Qué archvios has modificado, que hay en el Index, etc (también te cuenta cosas como en qué rama estás, pero eso lo veremos más adelante). Cada vez que no tengas muy claro que has cambiado y qué no, consulta `git status`.
+
+Además, y esa es una cosa que vas a ver a menudo en git, te iforma de posibles acciones que puedes llevar a cabo dependiendo de las circunstancias actuales diciendo como, por ejemplo, *(use "git add <file>..." to update what will be committed)*".
+
+
+
+
+
 
 Commit. Add. Push. Pull.
 
 
-
-
-
-
-
-
-Un repositrio de git no es más que un directorio de nuestro ordenador que está bajo el control de `git`. En la práctia, esto significa que en nuestro directorio hay otro directiro oculto llamado ".git" donde se guardan los archivos de git.
 
 
 
