@@ -118,6 +118,21 @@ Hay más opciones que se pueden configurar, puedes verlas (y ver los valores que
 
 Si te has equivocado al escribir alguno de estos datos o quieres cambiarlo, sólo tienes que volver a ejecutar el comando correspondiente de nuevo, y sobrescribirá los datos anteriores.
 
+###Iniciando un repositorio
+
+Un repositrio de git no es más que un directorio de nuestro ordenador que está bajo el control de git. En la práctia, esto significa que en el directorio raiz de nuestro proyecto hay otro directiro oculto llamado ".git" donde se guardan los archivos para el control de historiales, cambios, etc.
+
+Para inicar un repositorio sólo hay que situarse en el directorio de nuestro proyecto (el que contiene o va a contener los archivos que queremos controlar) y ejecutar la siguiente orden:
+
+`git init`
+
+Si todo va bien, este comando responderá algo parecido a "Initialized empty Git repository in /ruta/a/mi/proyecto/.git/", que significa que ya tienes creado tu primer repositorio. Vacío, pero por algo hay que empezar.
+
+
+
+
+Un repositorio también puede iniciarse copaindo (*clonando*) otro ya existente.
+
 
 
 
