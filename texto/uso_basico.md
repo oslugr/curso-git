@@ -70,6 +70,8 @@ Hay dos maneras de instalar Git en Mac, la más fácil es utilizar el instalador
 
 ##Clientes GUI para Linux, Windows y Mac
 
+En este curso se seguirá la interfaz de *línea de comandos* (o *línea de órdenes*), pero existen varias aplicaciones para diversos sistemas operativos que permiten interactuar gráficamente (*Interfaz GUI*) con `git` de forma más o menos completa.
+
 [GUI Mac](http://mac.github.com/)
 
 [GUI Windows](http://windows.github.com/)
@@ -77,9 +79,12 @@ Hay dos maneras de instalar Git en Mac, la más fácil es utilizar el instalador
 [GUI for Linux, Windows y Mac](http://git-scm.com/downloads/guis#"Guis clients")
 
 ##Abrir una cuenta en Github
-Desde la propia web de GitHub y como cualquier otro registro, nombre o nick, e-mail y contraseña:
 
-[github.com](https://github.com/)
+Más adelante en este curso se hablará de Github y se darán detalles sobre su uso pero, por ahora, será suficiente para nosotros con saber abrir una cuenta (que usaremos para enviar nuestros ejercicios).
+
+Desde la propia [página principal de la web de GitHub](https://github.com/) y como cualquier otro registro, se nos solicitan sólo tres datos: nombre o nick, e-mail y contraseña:
+
+![Formulario de GitHub](img/githubform.png)
 
 ##Empezando a usar git
 
