@@ -153,6 +153,26 @@ Ahora mismo no nos sirve de mucho pero, cuando más adelante trabajemos en red c
 
 
 
+###¿Cómo funciona git?
+
+Antes de continuar, vamos a detenernos un momento para entender el funcionamiento de git.
+
+Cuando trabajas con git lo haces, evidentemente, en un directorio donde tienes tus archivos, los modificas, los borras, creas nuevos, etc.
+
+Ese directorio es lo que llamamos "Directorio de trabajo", puede contener otros directorios y, de hecho es el que contiene el directrio .git del que hablábamos al principio.
+
+Git sabe que tiene que controlar ese directorio, pero no lo hace hasta que se lo digas expresamente.
+
+Más adelante veremos con algo más de detalle la orden `git add`, pero ya te adelanto que lo que hace es preparar los archivos que le indiques poniendolos en una especie de lista virtual a la que llamamos el "Index". En Index ponelos los archivos que hemos ido modificando, pero ls cosas que están en el "Index" aun no han sido archivadas por git.
+
+Ojo, que algo esté en el index no significa que se borre de tu directorio de trabajo ni nada parecido, el Index es sólo una lista de cosas que tendrás que actualizar en el repositorio porque han cambiado.
+
+Por último, la instrucción `git commit`, que también veremos en breve, es la que realmente envía las cosas que hay en el Index al repositorio. Solo que, en lugar de "repositorio" lo vamos a llamar "HEAD", porque el lugar exacto al que va puede significar cosas distintas en segun que casos, como ya veremos cuando hablemos de ramas y esas cosas.
+
+Lo sé, es todo un poco lioso ahora mismo, pero ya se irá aclarando conforme aprendamos más cosas.
+
+Tú sólo manten esta secuencia en la cabeza: Directorio de trabajo -> Index -> HEAD
+
 
 
 Commit. Add. Push. Pull.
