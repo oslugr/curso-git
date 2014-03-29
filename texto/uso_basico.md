@@ -129,14 +129,33 @@ Para inicar un repositorio sólo hay que situarse en el directorio de nuestro pr
 Si todo va bien, este comando responderá algo parecido a "Initialized empty Git repository in /ruta/a/mi/proyecto/.git/", que significa que ya tienes creado tu primer repositorio. Vacío, pero por algo hay que empezar.
 
 
+###Clonando un repositorio
+
+Un repositorio también puede iniciarse copiando (*clonando*) otro ya existente.
+
+`git clone REPOSITORIO`
+
+por ejemplo:
+
+`git clone https://github.com/oslugr/repo-ejemplo.git`
+
+Git usa su propio protoclo "git" para el acceso remoto (también se puede clonar un repositorio local, simplemente indicando el path), pero también soporta otros protocolos como ssh, http, https...
+
+Al contrario que con `git init`, con `git clone` no es necesario crear un directorio para el proyecto. Al clonar se creará un directorio con el nombre del proyecto dentro del que te encuentres al llamar a la orden.
+
+Clonar un repositorio significa copiarlo completamente. No sólo los archivos, sino todo su historial, cambios realizados, ect. Es decir que en tu repositorio local tendrás exactamente lo mismo que había en el repositorio remoto de donde lo has clonado.
+
+Si has clonado el repositorio del ejemplo anterior (y si no, hazlo ahora), podemos ver un par de cosas interesantes. ¿Recuerdas las orden `git config --list`? Entra en el directorio del repositorio (para ello tendrás que hacer algo como `cd repo-ejemplo/`) y lista las opciones de configuración.
+
+Verás, entre otras muchas, las user.name y user.email que ya conoces. Pero hay otra que es importante, y es `remote.origin.url`, que debe contener la dirección original del repositorio del que has clonado el tuyo.
+
+Ahora mismo no nos sirve de mucho pero, cuando más adelante trabajemos en red con otros repositorios, nos va a venir bien recordarlo.
 
 
-Un repositorio también puede iniciarse copaindo (*clonando*) otro ya existente.
 
 
 
-
-Clonación de un repositorio, Commit. Add. Push. Pull. Creación de un repo en una web y localmente
+Commit. Add. Push. Pull.
 
 
 
