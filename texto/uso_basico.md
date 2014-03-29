@@ -53,7 +53,6 @@ Y, por fín, hemos finalizado nuestra instalación.
 
 ![Instalación de git en Windows (8)](img/wingit8.png)
 
-
 A partir de este momento, podemos ir al menú inicio como se indica en la imagen, y ejecutar "Git Bash", lo que abrirá una consola donde podremos interactuar con 'git' tal como se ve en este curso.
 
 ![Instalación de git en Windows (9)](img/wingit9.png)
@@ -88,4 +87,50 @@ Desde la propia [página principal de la web de GitHub](https://github.com/) y c
 
 ##Empezando a usar git
 
+###Configurar
+
+Lo primero que hay que hacer antes de empezar a usar git es configurar un par de parámetros básicos que nos identifican como usuario, que son nuestro correo electrónico y nuestro nombre.
+
+Git usará estos datos para identificar nuestros aportes o modificaciones a la hora de mostrarlos en logs etc.
+
+Configurar estos parámetros es muy fácil. Desde la línea de comandos escribimos las siguientes órdenes:
+
+`git config --global user.name "Nombre que quieras mostrar"`
+
+y
+
+`git config --global user.email "correo@electroni.com"`
+
+
+¿qué acabamos de hacer? Veamoslo, paso a paso:
+
+Todos los comandos de git empienzan con la palabra `git`.
+
+En este caso, el comando en sí mismo es `config`, que sirve para configurar varias opciones de git, en el primer caso `user.name` y en el segundo `user.email`.
+
+Habrás notado que hay un parámetro `--global` en cada uno de los comandos. Este sirve para decirle a git que esos datos se aplican a todos los repositorios que abras.
+
+Si quieres que algún repositorio concreto use unos datos distintos, puedes llamar al mismo comando, desde el directorio de ese repositorio, pero usando el parámtro `--local` en lugar de `--global`.
+
+Hay más opciones que se pueden configurar, puedes verlas (y ver los valores que tienen) con el comando:
+
+`git config --list`
+
+Si te has equivocado al escribir alguno de estos datos o quieres cambiarlo, sólo tienes que volver a ejecutar el comando correspondiente de nuevo, y sobrescribirá los datos anteriores.
+
+
+
+
 Clonación de un repositorio, Commit. Add. Push. Pull. Creación de un repo en una web y localmente
+
+
+
+
+
+
+
+
+Un repositrio de git no es más que un directorio de nuestro ordenador que está bajo el control de `git`. En la práctia, esto significa que en nuestro directorio hay otro directiro oculto llamado ".git" donde se guardan los archivos de git.
+
+
+
