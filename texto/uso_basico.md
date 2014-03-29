@@ -31,11 +31,11 @@ Nos pasará a la página de licencia (*es una licencia libre que permite copiar,
 
 ![Instalación de git en Windows (2)](img/wingit2.png)
 
-La siguiente es una ventana que nos permite elegir el lugar de instalación. Si no tenemos espeial interés en que sea otro, el que viene por defecto está bien. 
+La siguiente es una ventana que nos permite elegir el lugar de instalación. Si no tenemos especial interés en que sea otro, el que viene por defecto está bien. 
 
 ![Instalación de git en Windows (3)](img/wingit3.png)
 
-En la sugiente, podemos elegir una serie de cosas como el que aparezcan iconos de git en Inicio Rápido y el Escritorio o tener dos nuevas órdenes en el menú contenxtual (*el que aparece al hacer clic derecho con el ratón en una ventana*) para inicar una ventana de git en es carpeta.
+En la siguiente, podemos elegir una serie de cosas como el que aparezcan iconos de git en Inicio Rápido y el Escritorio o tener dos nuevas órdenes en el menú contextual (*el que aparece al hacer clic derecho con el ratón en una ventana*) para iniciar una ventana de git en es carpeta.
 
 ![Instalación de git en Windows (4)](img/wingit4.png)
 
@@ -43,13 +43,13 @@ En la siguiente ventana se nos permite cambiar el nombre del grupo de programas 
 
 ![Instalación de git en Windows (5)](img/wingit5.png)
 
-Las siguientes dos opciones configuran aspectos avanzados de 'git', concretamenete el uso del prompt y el manejo de retornos de carro. Para un usuario novel son adecuadas las opciones por defecto.
+Las siguientes dos opciones configuran aspectos avanzados de 'git', concretamente el uso del prompt y el manejo de retornos de carro. Para un usuario novel son adecuadas las opciones por defecto.
 
 ![Instalación de git en Windows (6)](img/wingit6.png)
 
 ![Instalación de git en Windows (7)](img/wingit7.png)
 
-Y, por fín, hemos finalizado nuestra instalación.
+Y, por fin, hemos finalizado nuestra instalación.
 
 ![Instalación de git en Windows (8)](img/wingit8.png)
 
@@ -104,13 +104,13 @@ y
 
 ¿qué acabamos de hacer? Veamoslo, paso a paso:
 
-Todos los comandos de git empienzan con la palabra `git`.
+Todos los comandos de git empiezan con la palabra `git`.
 
 En este caso, el comando en sí mismo es `config`, que sirve para configurar varias opciones de git, en el primer caso `user.name` y en el segundo `user.email`.
 
 Habrás notado que hay un parámetro `--global` en cada uno de los comandos. Este sirve para decirle a git que esos datos se aplican a todos los repositorios que abras.
 
-Si quieres que algún repositorio concreto use unos datos distintos, puedes llamar al mismo comando, desde el directorio de ese repositorio, pero usando el parámtro `--local` en lugar de `--global`.
+Si quieres que algún repositorio concreto use unos datos distintos, puedes llamar al mismo comando, desde el directorio de ese repositorio, pero usando el parámetro `--local` en lugar de `--global`.
 
 Hay más opciones que se pueden configurar, puedes verlas (y ver los valores que tienen) con el comando:
 
@@ -120,9 +120,9 @@ Si te has equivocado al escribir alguno de estos datos o quieres cambiarlo, sól
 
 ###Iniciando un repositorio
 
-Un repositorio de git no es más que un directorio de nuestro ordenador que está bajo el control de git. En la práctia, esto significa que en el directorio raiz de nuestro proyecto hay otro directiro oculto llamado ".git" donde se guardan los archivos para el control de historiales, cambios, etc.
+Un repositorio de git no es más que un directorio de nuestro ordenador que está bajo el control de git. En la práctica, esto significa que en el directorio raíz de nuestro proyecto hay otro directivo oculto llamado ".git" donde se guardan los archivos para el control de historiales, cambios, etc.
 
-Para inicar un repositorio sólo hay que situarse en el directorio de nuestro proyecto (el que contiene o va a contener los archivos que queremos controlar) y ejecutar la siguiente orden:
+Para iniciar un repositorio sólo hay que situarse en el directorio de nuestro proyecto (el que contiene o va a contener los archivos que queremos controlar) y ejecutar la siguiente orden:
 
 `git init`
 
@@ -139,11 +139,11 @@ por ejemplo:
 
 `git clone https://github.com/oslugr/repo-ejemplo.git`
 
-Git usa su propio protoclo "git" para el acceso remoto (también se puede clonar un repositorio local, simplemente indicando el path), pero también soporta otros protocolos como ssh, http, https...
+Git usa su propio protocolo "git" para el acceso remoto (también se puede clonar un repositorio local, simplemente indicando el path), pero también soporta otros protocolos como ssh, http, https...
 
 Al contrario que con `git init`, con `git clone` no es necesario crear un directorio para el proyecto. Al clonar se creará un directorio con el nombre del proyecto dentro del que te encuentres al llamar a la orden.
 
-Clonar un repositorio significa copiarlo completamente. No sólo los archivos, sino todo su historial, cambios realizados, ect. Es decir que en tu repositorio local tendrás exactamente lo mismo que había en el repositorio remoto de donde lo has clonado.
+Clonar un repositorio significa copiarlo completamente. No sólo los archivos, sino todo su historial, cambios realizados, etc. Es decir que en tu repositorio local tendrás exactamente lo mismo que había en el repositorio remoto de donde lo has clonado.
 
 Si has clonado el repositorio del ejemplo anterior (y si no, hazlo ahora), podemos ver un par de cosas interesantes. ¿Recuerdas las orden `git config --list`? Entra en el directorio del repositorio (para ello tendrás que hacer algo como `cd repo-ejemplo/`) y lista las opciones de configuración.
 
@@ -159,32 +159,32 @@ Antes de continuar, vamos a detenernos un momento para entender el funcionamient
 
 Cuando trabajas con git lo haces, evidentemente, en un directorio donde tienes tus archivos, los modificas, los borras, creas nuevos, etc.
 
-Ese directorio es lo que llamamos "Directorio de trabajo", puede contener otros directorios y, de hecho es el que contiene el directrio .git del que hablábamos al principio.
+Ese directorio es lo que llamamos "Directorio de trabajo", puede contener otros directorios y, de hecho es el que contiene el directorio .git del que hablábamos al principio.
 
 Git sabe que tiene que controlar ese directorio, pero no lo hace hasta que se lo digas expresamente.
 
-Más adelante veremos con algo más de detalle la orden `git add`, pero ya te adelanto que lo que hace es preparar los archivos que le indiques poniendolos en una especie de lista virtual a la que llamamos el "Index". En Index ponelos los archivos que hemos ido modificando, pero ls cosas que están en el "Index" aun no han sido archivadas por git.
+Más adelante veremos con algo más de detalle la orden `git add`, pero ya te adelanto que lo que hace es preparar los archivos que le indiques poniéndolos en una especie de lista virtual a la que llamamos el "Index". En Index ponerlos los archivos que hemos ido modificando, pero ls cosas que están en el "Index" aun no han sido archivadas por git.
 
 Ojo, que algo esté en el index no significa que se borre de tu directorio de trabajo ni nada parecido, el Index es sólo una lista de cosas que tendrás que actualizar en el repositorio porque han cambiado.
 
-Por último, la instrucción `git commit`, que también veremos en breve, es la que realmente envía las cosas que hay en el Index al repositorio. Solo que, en lugar de "repositorio" lo vamos a llamar "HEAD", porque el lugar exacto al que va puede significar cosas distintas en segun que casos, como ya veremos cuando hablemos de ramas y esas cosas.
+Por último, la instrucción `git commit`, que también veremos en breve, es la que realmente envía las cosas que hay en el Index al repositorio. Solo que, en lugar de "repositorio" lo vamos a llamar "HEAD", porque el lugar exacto al que va puede significar cosas distintas en según que casos, como ya veremos cuando hablemos de ramas y esas cosas.
 
 Lo sé, es todo un poco lioso ahora mismo, pero ya se irá aclarando conforme aprendamos más cosas.
 
-Tú sólo manten esta secuencia en la cabeza: Directorio de trabajo -> Index -> HEAD
+Tú sólo mantén esta secuencia en la cabeza: Directorio de trabajo -> Index -> HEAD
 
 
-###Manteniendo nuetro repositorio al día
+###Manteniendo nuestro repositorio al día
 
 
-Tienes tu repositorio inicado (o clonado) con una serie de archivos con los que empiezas a trabajar, creándolos, editándolos, modificándolos, etc.
+Tienes tu repositorio iniciado (o clonado) con una serie de archivos con los que empiezas a trabajar, creándolos, editándolos, modificándolos, etc.
 
 Para que git sepa que tiene que empezar a tener en cuenta un archivo, usamos la orden `git add` de este modo:
 
 
 `git add NOMBRE_DEL_ARCHIVO`
 
-Esto, como vimos antes, añadirá el archivo indicado con `NOMBRE_DEL_ARCHIVO` al Index. No lo archivará realmente en el sistema de control de versiones ni hará nada. Sólo le iforma de que debe tener en cuenta ese archivo para futuras instrucciones (que es, básicamente, en lo que consiste el Index).
+Esto, como vimos antes, añadirá el archivo indicado con `NOMBRE_DEL_ARCHIVO` al Index. No lo archivará realmente en el sistema de control de versiones ni hará nada. Sólo le informa de que debe tener en cuenta ese archivo para futuras instrucciones (que es, básicamente, en lo que consiste el Index).
 
 Si intentas añadir al Index un archivo que no existe te dará un error.
 
@@ -213,9 +213,9 @@ Ahora vamos a ver una orden que será tu gran amiga:
 
 `git status`
 
-`git status` te da un resumen de cómo están las cosas ahora mismo respecto a la versión del repositorio (concretamente, respecto al HEAD). Qué archvios has modificado, que hay en el Index, etc (también te cuenta cosas como en qué rama estás, pero eso lo veremos más adelante). Cada vez que no tengas muy claro que has cambiado y qué no, consulta `git status`.
+`git status` te da un resumen de cómo están las cosas ahora mismo respecto a la versión del repositorio (concretamente, respecto al HEAD). Qué archivos has modificado, que hay en el Index, etc (también te cuenta cosas como en qué rama estás, pero eso lo veremos más adelante). Cada vez que no tengas muy claro que has cambiado y qué no, consulta `git status`.
 
-Además, y esa es una cosa que vas a ver a menudo en git, te iforma de posibles acciones que puedes llevar a cabo dependiendo de las circunstancias actuales diciendo como, por ejemplo, *(use "git add <file>..." to update what will be committed)*".
+Además, y esa es una cosa que vas a ver a menudo en git, te informa de posibles acciones que puedes llevar a cabo dependiendo de las circunstancias actuales diciendo como, por ejemplo, *(use "git add <file>..." to update what will be committed)*".
 
 
 
