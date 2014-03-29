@@ -25,33 +25,33 @@ Para instalar git en Windows debe descargar el programa instalador en su web ofi
 
 Una vez descargado, sólo tenemos que ejecutarlo y se abrirá una ventana que nos irá solicitando paso a paso los datos necesarios para la instalación. Pulsaremos el botón "Netx" para comenzar.
 
-[Instalación de git en Windows (1)](img/wingit1.png)
+![Instalación de git en Windows (1)](img/wingit1.png)
 
 Nos pasará a la página de licencia (*es una licencia libre que permite copiar, modificar y distribuir el programa*).
 
-[Instalación de git en Windows (2)](img/wingit2.png)
+![Instalación de git en Windows (2)](img/wingit2.png)
 
 La siguiente es una ventana que nos permite elegir el lugar de instalación. Si no tenemos espeial interés en que sea otro, el que viene por defecto está bien. 
 
-[Instalación de git en Windows (3)](img/wingit3.png)
+![Instalación de git en Windows (3)](img/wingit3.png)
 
 En la sugiente, podemos elegir una serie de cosas como el que aparezcan iconos de git en Inicio Rápido y el Escritorio o tener dos nuevas órdenes en el menú contenxtual (*el que aparece al hacer clic derecho con el ratón en una ventana*) para inicar una ventana de git en es carpeta.
 
-[Instalación de git en Windows (4)](img/wingit4.png)
+![Instalación de git en Windows (4)](img/wingit4.png)
 
 En la siguiente ventana se nos permite cambiar el nombre del grupo de programas que aparecerá en el menú Inicio
 
-[Instalación de git en Windows (5)](img/wingit5.png)
+![Instalación de git en Windows (5)](img/wingit5.png)
 
 Las siguientes dos opciones configuran aspectos avanzados de git, concretamenete el uso del prompt y el manejo de retornos de carro. Para un usuario novel son adecuadas las opciones por defecto.
 
-[Instalación de git en Windows (6)](img/wingit6.png)
+![Instalación de git en Windows (6)](img/wingit6.png)
 
-[Instalación de git en Windows (7)](img/wingit7.png)
+![Instalación de git en Windows (7)](img/wingit7.png)
 
 Y, por fín, hemos finalizado nuestra instalación.
 
-[Instalación de git en Windows (8)](img/wingit8.png)
+![Instalación de git en Windows (8)](img/wingit8.png)
 
 
 ###En Mac
