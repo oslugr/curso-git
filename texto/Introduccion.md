@@ -80,11 +80,11 @@ Los sistemas distribuidos más conocidos son Bazaar y, por supuesto, `git`.
 
 ##`git`
 
-Git nació para ser el Sistema de Control de Versiones del kernel de Linux (de hecho, fue programado por el mismo *Linus Torvals*) y es por ello que está preparado para proyectos grandes, con muchos desarrolladores y un gran número de ramas.
+Git nació para ser el Sistema de Control de Versiones del kernel de Linux (de hecho, fue orignalmente programado por el mismo *Linus Torvals*) y es por ello que está preparado para proyectos grandes, con muchos desarrolladores y un gran número de ramas.
 
 Se trata, como ya hemos dicho, de un Sistema de Control de Versiones distribuído, por lo que cada programador cuenta con su propio repositorio. Esto hace que, salvo cuando llega el momento de sincronizar con otro repositorio, todo el trabajo se haga en local, con ventajas como la velocidad o que se pueda trabajar sin acceso a la red. 
 
-`git` es software libre, y su código está disponible en su [repositorio de `git`hub](http://github.com/git/git).
+`git` es software libre, y su código está disponible en su [repositorio de github](http://github.com/git/git).
 
 El sitio oficial de `git` es [git-scm.com](http://git-scm.com/)
 
