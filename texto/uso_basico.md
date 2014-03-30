@@ -18,7 +18,7 @@ Instalar git en linux es tan simple como usar tu gestor de paquetes favorito. Po
 
 ###En Windows
 
-Para instalar git en Windows debe descargar el programa instalador en su web oficial en [http://git-scm.com/downloads](http://git-scm.com/downloads).
+Para instalar git en Windows debemos descargar el programa instalador en su web oficial en [http://git-scm.com/downloads](http://git-scm.com/downloads).
 
 Una vez descargado, sólo tenemos que ejecutarlo y se abrirá una ventana que nos irá solicitando paso a paso los datos necesarios para la instalación. Pulsaremos el botón "Netx" para comenzar.
 
@@ -58,7 +58,6 @@ A partir de este momento, podemos ir al menú inicio como se indica en la imagen
 
 (*Al terminar todos estos pasos, y como se ven en la imagen, también se instalará una versión gráfica "Git GUI", pero en este curso se seguirá la interfaz de línea de comandos*)
 
-
 ###En Mac
 Hay dos maneras de instalar Git en Mac, la más fácil es utilizar el instalador gráfico:
 
@@ -83,6 +82,8 @@ Desde la propia [página principal de la web de GitHub](https://github.com/) y c
 ![Formulario de GitHub](img/githubform.png)
 
 ##Empezando a usar git
+
+Git es un programa en línea de comandos, y se te supone un conocimiento básico del manejo de esta (cosas como moverse por el árbol de directorios y poco más). No es necesario saber nada complejo, sólo los rudimentos básicos.
 
 ###Configurar
 
@@ -116,6 +117,8 @@ Hay más opciones que se pueden configurar, puedes verlas (y ver los valores que
 `git config --list`
 
 Si te has equivocado al escribir alguno de estos datos o quieres cambiarlo, sólo tienes que volver a ejecutar el comando correspondiente de nuevo, y sobrescribirá los datos anteriores.
+
+Una opción de configuración muy cómoda es `git config --global color.ui true`, que hace que el interfaz de git use (si es posible) colores para resaltar distintos aspectos en el texto de sus mensajes.
 
 ###Iniciando un repositorio
 
@@ -277,7 +280,7 @@ Para añadir otro repositorio remoto se hace con la misma instrucción `remote` 
 
 `git remote add ALIAS_DEL_REPOSITORIO DIRECCION_DEL_REPOSITORIO`
 
-Donde `ALIAS_DEL_REPOSITORIO`es un mobre corto para usar en las instrucciones de git (el equivalente al "origin" que hemos visto) y `DIRECCION_DEL_REPOSITORIO`la dirección donde se encuentra. Por ejemplo:
+Donde `ALIAS_DEL_REPOSITORIO`es un nombre corto para usar en las instrucciones de git (el equivalente al "origin" que hemos visto) y `DIRECCION_DEL_REPOSITORIO`la dirección donde se encuentra. Por ejemplo:
 
 `git remote add personal git://github.com/psicobyte/repo-ejemplo.git`
 
@@ -308,7 +311,7 @@ Ha llegado el momento de importar cambios desde un repositorio remoto. Para ello
 
 `git pull REPOSITORIO_REMOTO RAMA`
 
-el `REPOSITORIO_REMOTO` es uno de los nombres de repositorio que he mos visto antes (si no pones ninguno, se supone "origin"). Sobre las ramas se hablará un poco más adelante, pero baste decir que, si no ponemos ninguna, se supone que es la rama "master")
+el `REPOSITORIO_REMOTO` es uno de los nombres de repositorio que hemos visto antes (si no pones ninguno, se supone "origin"). Sobre las ramas se hablará un poco más adelante, pero baste decir que, si no ponemos ninguna, se supone que es la rama "master")
 
 de este modo, la forma más usual de llamar esta orden es, simplemente:
 
@@ -320,7 +323,7 @@ Esta instrucción trae del repositorio remoto indicado (o de "origin" si no indi
 
 Si el repositorio del que tratas de importar no existe o no tienes permiso de lectura, te dará un mensaje de error advirtiéndote de ello.
 
-Si hay archivos que tú has modificado pero el otro repositorio no, te quedarás con los tuyos. Cuando se trate de archivos que tú no has cambiado pero que sí son distintos en el remoto, actualizarás los tuyos a este último. Pero, si importas archivos que se han modificado en ambos repositorios ¿qué pasa con las diferencias? ¿Sobreescribirá tus archivos? ¿Perderás los del otro repositorio?
+Si hay archivos que tú has modificado pero el otro repositorio no, te quedarás con los tuyos. Cuando se trate de archivos que tú no has cambiado pero que sí son distintos en el remoto, actualizarás los tuyos a este último. Pero, si importas archivos que se han modificado en ambos repositorios ¿qué pasa con las diferencias? ¿Sobrescribirá tus archivos? ¿Perderás los del otro repositorio?
 
 Ahí es donde entra la solución de problemas, y lo veremos dentro de poco.
 
@@ -342,12 +345,20 @@ Lo que enviará nuestros cambios al servidor remoto.
 
 Salvo que algo haya cambiado allí.
 
-Si la versión que hay en el sevidor es posterior a la última que sincronizamos (es decir, alguien más ha cmabiado algo), git mostrará un error y no nos dejará hacer el push. Antes debemos hacer un pull.
+Si la versión que hay en el servidor es posterior a la última que sincronizamos (es decir, alguien más ha cambiado algo), git mostrará un error y no nos dejará hacer el push. Antes debemos hacer un pull.
 
 Sólo cuando hayamos hecho el pull (y resuelto los conflictos, si es que hubiera alguno), nos dejará hacer el push y enviar nuestra versión.
 
-Naturalmente, como ya hemos comentado, no puedes hacer push a un repositorio en el que no tengas permiso de escritura. Para eso puede ser que sea un repositorio abierto a todo el que conozca la dirección, pero eso sería muy raro (e inseguro). Lo usual es que cuentes con un usuario y contraseña que te permitan acceder (normalmente por ssh) al servidor.
+Al hacer tu push, git te retornará información de los cambio realizados, número de archivos, etc.
 
-En este caso, git te solicitará el nombre de usuario y la contraseña cada vez que hagas push. No tiene por qué ser muy amenudo, pero puede ser un engorro.
+###Contraseñas
 
-En muchos sitios puedes ahorrarte ese trabajo usando pares de claves ssh. Las instrucciones para hacer esto en github están en [esta página de ayuda](https://help.github.com/articles/generating-ssh-keys#platform-all)
+Naturalmente, como ya hemos comentado, no puedes hacer push a un repositorio en el que no tengas permiso de escritura. Para eso puede ser que sea un repositorio abierto a todo el que conozca la dirección, pero eso sería muy raro (e inseguro). Lo usual es que cuentes con un usuario y contraseña que te permitan acceder (normalmente por [ssh](http://es.wikipedia.org/wiki/Secure_Shell)) al servidor.
+
+En otros repositorios (más raros), también necesitarás usuario y contraseña para acceder a la lectura y, por tanto, para hacer pull.
+
+En ambos casos, git te solicitará el nombre de usuario y la contraseña cada vez que hagas push. No tiene por qué ser muy a menudo, pero puede ser un engorro.
+
+En muchos sitios puedes ahorrarte ese trabajo usando pares de claves ssh. Básicamente consiste en que tu ordenador y el del repositorio se reconozcan entre ellos y no tengas que andar identificándote.
+
+Las instrucciones para hacer esto en github están en [esta página de ayuda](https://help.github.com/articles/generating-ssh-keys#platform-all)
