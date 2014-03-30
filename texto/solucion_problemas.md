@@ -47,23 +47,16 @@ Otra ayuda visual es `--graph`, que dibuja (con caracteres ascii) un árbol indi
 
 Mostrará los commits en versión compacta y dibujando las ramas (cuando las haya), dando una salida parecia a esta:
 
-> \* dc78c58 Referencia para la distribución de módilos en Moodle
-
-> \* 6ad05c1 Sólo una cosilla
-
-> \*   0678363 Resuelve conflicto como ejemplo
-
-> |\\
-  
-> | \* bf454ef Prueba para crear conflictos. Así mismo.
-
-> \* | 8785174 Añade título nueva sección
-
-> |/
-  
-> \* afee5ab Acaba un-solo-usuario y listo para conflictos
-
-> \* fd04eff Corregido (más o menos) el markdown)
+```
+* 6ad05c1 Sólo una cosilla
+*   0678363 Resuelve conflicto como ejemplo
+|\  
+| * bf454ef Prueba para crear conflictos. Así mismo.
+* | 8785174 Añade título nueva sección
+|/  
+* afee5ab Acaba un-solo-usuario y listo para conflictos
+* fd04eff Corregido (más o menos) el markdown)
+```
 
 Para más detalles, recuerda que `git help log` es tu amigo.
 
