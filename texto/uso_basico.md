@@ -248,7 +248,7 @@ Recuerda lo que dijimos antes: si modificas un archivo después de haber hecho `
 
 Como sistema de control de versiones distribuido, una de las principales utilidades de git es poder mantener distintos repositorios sincronizados (es decir, que contengan la misma información), exportando e importando cambios.
 
-Para importar cambios de un repositorio remoto se necesita, lógicamente, tener acceso de lectura a ese repositorio (En sentido estricto, ya hemos importado el estado de un repositorio cuando lo clonamos al hacer `git clone`). 
+> Para importar (o exportar) cambios de un repositorio remoto se necesita, lógicamente, tener acceso de lectura a ese repositorio (En sentido estricto, ya hemos importado el estado de un repositorio cuando lo clonamos al hacer `git clone`). 
 
 Para sincronizar con uno o más repositorios remotos, debemos saber qué repositorios remotos son esos. Para ello tenemos `remote`, que se usa así:
 
@@ -302,6 +302,7 @@ Y para cambiarle el nombre:
 
 > Nota que git no comprueba si realmente existen los repositorios que agregas o si tienes permisos de lectura o escritura en ellos, de forma que el hecho de que estén ahí no significa que vayas a poder usarlos realmente.
 
+###Recibiendo cambios
 
 Ha llegado el momento de importar cambios desde un repositorio remoto. Para ello tenemos `git pull` que se usa así:
 
@@ -325,12 +326,28 @@ Ahí es donde entra la solución de problemas, y lo veremos dentro de poco.
 
 En realidad, `git pull` es la unión de dos herramientas distintas, que son `git fetch`, que trae los cambios remotos creando una nueva rama, y `git merge`, que une esos cambios con los tuyos. En ocasiones te convendrá más usarlas por separado pero, como aún no hemos visto el manejo de las ramas, dejaremos esto por ahora. 
 
+###Enviando cambios
 
+Si con `pull`importamos cambios desde otro repositorio, la instrucción `push` es la que nos permite enviar cambios a un repositorio remoto.
 
+Se usa de un modo bastante parecido:
 
-Push. Pull.
+`git push REPOSITORIO_REMOTO RAMA`
 
+Igual que hemos visto con `git pull`, los valores por defecto son "origin" para el repositorio y "master" para la rama, con lo que se puede poner simplemente:
 
+`git push`
 
+Lo que enviará nuestros cambios al servidor remoto.
 
+Salvo que algo haya cambiado allí.
 
+Si la versión que hay en el sevidor es posterior a la última que sincronizamos (es decir, alguien más ha cmabiado algo), git mostrará un error y no nos dejará hacer el push. Antes debemos hacer un pull.
+
+Sólo cuando hayamos hecho el pull (y resuelto los conflictos, si es que hubiera alguno), nos dejará hacer el push y enviar nuestra versión.
+
+Naturalmente, como ya hemos comentado, no puedes hacer push a un repositorio en el que no tengas permiso de escritura. Para eso puede ser que sea un repositorio abierto a todo el que conozca la dirección, pero eso sería muy raro (e inseguro). Lo usual es que cuentes con un usuario y contraseña que te permitan acceder (normalmente por ssh) al servidor.
+
+En este caso, git te solicitará el nombre de usuario y la contraseña cada vez que hagas push. No tiene por qué ser muy amenudo, pero puede ser un engorro.
+
+En muchos sitios puedes ahorrarte ese trabajo usando pares de claves ssh. Las instrucciones para hacer esto en github están en [esta página de ayuda](https://help.github.com/articles/generating-ssh-keys#platform-all)
