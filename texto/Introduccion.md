@@ -9,22 +9,25 @@ Conocer las principales características de git
 
 ##Software Libre
 
+En los últimos años, el software libre se ha ido extendiendo hasta abarcar la mayor parte de sistemas de Internet, supercomputadores o servicios de red, llegando finalmente a ordenadores personales, tablets, teléfonos e incluso electrodomésticos.
 
+Llamamos [Software Libre](http://es.wikipedia.org/wiki/Software_libre) al que permite al usuario ejecrcer una serie de libertades, a saber:
 
+* la libertad de usar el programa, con cualquier propósito.
+* la libertad de estudiar cómo funciona el programa y modificarlo, adaptándolo a tus necesidades.
+* la libertad de distribuir copias del programa, con lo cual puedes ayudar a tu prójimo.
+* la libertad de mejorar el programa y hacer públicas esas mejoras a los demás, de modo que toda la comunidad se beneficie.
 
-EL Software libre es software que es libre
+Para que un programa sea libre hacen falta dos requisitos fundamentales:
 
+* Una licencia que permita el uso, modificación y distribución del programa
+* Acceso al código fuente del programa
 
+Además, en la comuniad de software libre se dan algunas peculiaridaddes, como la internacionalización o el trabajo colaborativo de garn cantidad de desarrolladores, que han promovido la creación de forjas, repositorios y sistemas que permitan compartir ese código de forma abierta y además, administrar y gestionar todo ese trabajo de una forma eficiente.
 
-
-
-
-
-
-
+git es uno de estos sistemas, y es software libre.
 
 ##Sistemas de control de Versiones
-
 
 En cualquier proyecto de desarrollo es necesario gestionar los cambios, modificaciones, añadidos etc. que se han hecho a lo largo de la historia de dicho proyecto.
 
@@ -85,10 +88,4 @@ Git es también multiplataforma, y existen versiones para Linux, Mac, Windows y 
 En este curso se usará Linux para los ejemplos y referencias, y se recomienda encarecidamente su uso. Otros sistemas operativos no están tan preparador para algunas tareas como administrar sesiones remotas etc.
 
 En cualquier caso, el uso del propio git en todos ellos es similar por lo que, salvo las particularidades y limitaciones que pueda tener cada uno, no hay ningún problema a la hora de seguir este curso desde otro sistema operativo.
-
-
-
-
-
-
 
