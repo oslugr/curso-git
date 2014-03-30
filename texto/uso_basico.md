@@ -200,6 +200,10 @@ De este modo, la forma más fácil de agregar todos los archivos al Index es med
 
 `git add .`
 
+Un detalle importante es que, si mandas algo al Index con `git add` y luego lo modificas, no tendrás en Index la última versión, si no lo que hayas hecho hasta el momento del hacer el add.
+
+Esto es muy útil (a veces tienes que hacer cambios que aún no quieres "archivar") pero puede llevarte a alguna confusión.
+
 Ahora vamos a ver una orden que será tu gran amiga:
 
 `git status`
@@ -207,8 +211,6 @@ Ahora vamos a ver una orden que será tu gran amiga:
 `git status` te da un resumen de cómo están las cosas ahora mismo respecto a la versión del repositorio (concretamente, respecto al HEAD). Qué archivos has modificado, que hay en el Index, etc (también te cuenta cosas como en qué rama estás, pero eso lo veremos más adelante). Cada vez que no tengas muy claro que has cambiado y qué no, consulta `git status`.
 
 Además, y esa es una cosa que vas a ver a menudo en git, te informa de posibles acciones que puedes llevar a cabo dependiendo de las circunstancias actuales diciendo como, por ejemplo, *(use "git add <file>..." to update what will be committed)*".
-
-
 
 
 
