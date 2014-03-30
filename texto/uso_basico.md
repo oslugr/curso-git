@@ -98,7 +98,6 @@ y
 
 `git config --global user.email "correo@electroni.com"`
 
-
 ¿qué acabamos de hacer? Veamoslo, paso a paso:
 
 Todos los comandos de git empiezan con la palabra `git`.
@@ -108,6 +107,9 @@ En este caso, el comando en sí mismo es `config`, que sirve para configurar var
 Habrás notado que hay un parámetro `--global` en cada uno de los comandos. Este sirve para decirle a git que esos datos se aplican a todos los repositorios que abras.
 
 Si quieres que algún repositorio concreto use unos datos distintos, puedes llamar al mismo comando, desde el directorio de ese repositorio, pero usando el parámetro `--local` en lugar de `--global`.
+
+> Las opciones que configures como `--global` se almacenarán en un archivo de tu carpeta home, llamado `.gitconfig`.
+> Las opciones `--local` lo harán en un archivo `config` dentro del directorio .git de tu proyecto.
 
 Hay más opciones que se pueden configurar, puedes verlas (y ver los valores que tienen) con el comando:
 
@@ -124,7 +126,6 @@ Para iniciar un repositorio sólo hay que situarse en el directorio de nuestro p
 `git init`
 
 Si todo va bien, este comando responderá algo parecido a "Initialized empty Git repository in /ruta/a/mi/proyecto/.git/", que significa que ya tienes creado tu primer repositorio. Vacío, pero por algo hay que empezar.
-
 
 ###Clonando un repositorio
 
@@ -148,7 +149,7 @@ Verás, entre otras muchas, las user.name y user.email que ya conoces. Pero hay 
 
 Ahora mismo no nos sirve de mucho pero, cuando más adelante trabajemos en red con otros repositorios, nos va a venir bien recordarlo.
 
-###¿Cómo funciona git?
+##¿Cómo funciona git?
 
 Antes de continuar, vamos a detenernos un momento para entender el funcionamiento de git.
 
@@ -168,7 +169,7 @@ Lo sé, es todo un poco lioso ahora mismo, pero ya se irá aclarando conforme ap
 
 Tú sólo mantén esta secuencia en la cabeza: Directorio de trabajo -> Index -> HEAD
 
-###Manteniendo nuestro repositorio al día
+##Manteniendo nuestro repositorio al día
 
 Tienes tu repositorio iniciado (o clonado) con una serie de archivos con los que empiezas a trabajar, creándolos, editándolos, modificándolos, etc.
 
@@ -200,7 +201,9 @@ De este modo, la forma más fácil de agregar todos los archivos al Index es med
 
 `git add .`
 
-Un detalle importante es que, si mandas algo al Index con `git add` y luego lo modificas, no tendrás en Index la última versión, si no lo que hayas hecho hasta el momento del hacer el add.
+que añadirá el directorio en el que te encuentras y todo su contenido (incluyendo subdirectorios etc).
+
+Un detalle importante es que, si mandas algo al Index con `git add` y luego lo modificas, no tendrás en Index la última versión, sino lo que hayas hecho hasta el momento del hacer el add.
 
 Esto es muy útil (a veces tienes que hacer cambios que aún no quieres "archivar") pero puede llevarte a alguna confusión.
 
@@ -210,7 +213,12 @@ Ahora vamos a ver una orden que será tu gran amiga:
 
 `git status` te da un resumen de cómo están las cosas ahora mismo respecto a la versión del repositorio (concretamente, respecto al HEAD). Qué archivos has modificado, que hay en el Index, etc (también te cuenta cosas como en qué rama estás, pero eso lo veremos más adelante). Cada vez que no tengas muy claro que has cambiado y qué no, consulta `git status`.
 
-Además, y esa es una cosa que vas a ver a menudo en git, te informa de posibles acciones que puedes llevar a cabo dependiendo de las circunstancias actuales diciendo como, por ejemplo, *(use "git add <file>..." to update what will be committed)*".
+En principio, si no has modificado nada, el mensaje básico que te da `git status` es este:
+
+> # On branch master
+> nothing to commit (working directory clean)
+
+Pero, y esa es una cosa que vas a ver a menudo en git, si hay algo que hacer te informa de las posibles acciones que puedes llevar a cabo dependiendo de las circunstancias actuales diciendo como, por ejemplo, *(use "git add <file>..." to update what will be committed)*".
 
 Cuando ya has hecho los cambios que consideres necesarios y has puesto en el Index todo lo que quieras poner bajo el control de versiones, llega el momento de "hacer commit". Esto significa mandar al HEAD los cambios que tenemos en el Index, y se hace de este modo:
 
@@ -222,16 +230,27 @@ Como te estarás imaginando, aquí también puedes usar comodines del mismo modo
 
 Esto mandará todos los cambios que tengas en el Index.
 
-Recuerda lo que dijimos antes: si modificas un archivo después de haber hecho `git add`, esos cambios no estarán incluidos en tu `commit`.
+AL hacer un `commit` se abre automáticamente el editor de texto que tengas por defecto en el sistema, para que puedas añadir un comentario a los cambios efectuados. Si no añades este comentario, recibirás un error y el commit no se enviará.
+
+> Puedes cambiar el editor por otro de tu gusto con `git config --global core.editor EDITOR', por ejemplo:
+> `git config --global core.editor vim'
+
+Si no quieres que se abra el editor puedes añadir el comentario en el mismo commit del siguiente modo:
+
+`git commit -m "Comentario al commit donde describo los cambios"`
+
+Recuerda lo que dijimos antes: si modificas un archivo después de haber hecho `git add`, esos cambios no estarán incluidos en tu `commit` (si quieres incluir la última versión, no tienes más que volver a hacer `git add` antes del commit).
+
+##Sincronizando repositorios
+
+Como sistema de control de versiones distribuido, una de las principales utilidades de git es poder mantener distintos repositorios sincronizados (es decir, que contengan la misma información), exportando e importando cambios.
+
+Para importar cambios de un repositorio remoto se necesita, lógicamente, tener acceso de lectura a ese repositorio (En sentido estricto, ya hemos importado el estado de un repositorio cuando lo clonamos al hacer `git clone`). 
 
 
 
 
-
-
-
-
-Commit. Add. Push. Pull.
+Push. Pull.
 
 
 
