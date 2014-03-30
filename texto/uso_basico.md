@@ -1,23 +1,20 @@
 ##Instalar git
 
-
 ###En Linux
 
-Instalar git en linux es tan simple como usar tu gestor de paquetes favorito. Por ejemplo:
-
+Instalar git en linux es tan simple como usar tu gestor de paquetes favorito. Por ejemplo (recuerda que normalmente necesitarás privilegios de *root* para instalar cualquier programa):
 
 ####En Arch Linux
-`$ pacman -S git`
+`# pacman -S git`
 
 ####En sistemas Debian, Ubuntu, Mint...
-`$ sudo apt-get install git`
+`# apt-get install git`
 
 ####En Gentoo
-`$ emerge --ask --verbose dev-vcs/git`
+`# emerge --ask --verbose dev-vcs/git`
 
 ####En sistemas Red Hat, Fedora:
-`$ yum install git`
-
+`# yum install git`
 
 ###En Windows
 
@@ -151,8 +148,6 @@ Verás, entre otras muchas, las user.name y user.email que ya conoces. Pero hay 
 
 Ahora mismo no nos sirve de mucho pero, cuando más adelante trabajemos en red con otros repositorios, nos va a venir bien recordarlo.
 
-
-
 ###¿Cómo funciona git?
 
 Antes de continuar, vamos a detenernos un momento para entender el funcionamiento de git.
@@ -173,14 +168,11 @@ Lo sé, es todo un poco lioso ahora mismo, pero ya se irá aclarando conforme ap
 
 Tú sólo mantén esta secuencia en la cabeza: Directorio de trabajo -> Index -> HEAD
 
-
 ###Manteniendo nuestro repositorio al día
-
 
 Tienes tu repositorio iniciado (o clonado) con una serie de archivos con los que empiezas a trabajar, creándolos, editándolos, modificándolos, etc.
 
 Para que git sepa que tiene que empezar a tener en cuenta un archivo, usamos la orden `git add` de este modo:
-
 
 `git add NOMBRE_DEL_ARCHIVO`
 
@@ -207,7 +199,6 @@ Si, en lugar de un archivo, indicas un directorio, se agregarán al Index todos 
 De este modo, la forma más fácil de agregar todos los archivos al Index es mediante la orden:
 
 `git add .`
-
 
 Ahora vamos a ver una orden que será tu gran amiga:
 
