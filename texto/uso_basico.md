@@ -212,6 +212,22 @@ Ahora vamos a ver una orden que será tu gran amiga:
 
 Además, y esa es una cosa que vas a ver a menudo en git, te informa de posibles acciones que puedes llevar a cabo dependiendo de las circunstancias actuales diciendo como, por ejemplo, *(use "git add <file>..." to update what will be committed)*".
 
+Cuando ya has hecho los cambios que consideres necesarios y has puesto en el Index todo lo que quieras poner bajo el control de versiones, llega el momento de "hacer commit". Esto significa mandar al HEAD los cambios que tenemos en el Index, y se hace de este modo:
+
+`git commit NOMBRE_DEL_ARCHIVO`
+
+Como te estarás imaginando, aquí también puedes usar comodines del mismo modo que vimos en `git add`. Además, si haces simplemente
+
+`git commit`
+
+Esto mandará todos los cambios que tengas en el Index.
+
+Recuerda lo que dijimos antes: si modificas un archivo después de haber hecho `git add`, esos cambios no estarán incluidos en tu `commit`.
+
+
+
+
+
 
 
 
