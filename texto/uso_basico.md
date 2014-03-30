@@ -73,14 +73,6 @@ En este curso se seguirá la interfaz de *línea de comandos* (o *línea de órd
 
 [GUI for Linux, Windows y Mac](http://git-scm.com/downloads/guis#"Guis clients")
 
-##Abrir una cuenta en Github
-
-Más adelante en este curso se hablará de Github y se darán detalles sobre su uso pero, por ahora, será suficiente para nosotros con saber abrir una cuenta (que usaremos para enviar nuestros ejercicios).
-
-Desde la propia [página principal de la web de GitHub](https://github.com/) y como cualquier otro registro, se nos solicitan sólo tres datos: nombre o nick, e-mail y contraseña:
-
-![Formulario de GitHub](img/githubform.png)
-
 ##Empezando a usar git
 
 Git es un programa en línea de comandos, y se te supone un conocimiento básico del manejo de esta (cosas como moverse por el árbol de directorios y poco más). No es necesario saber nada complejo, sólo los rudimentos básicos.
