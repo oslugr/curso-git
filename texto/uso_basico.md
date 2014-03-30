@@ -292,7 +292,39 @@ origin	https://github.com/oslugr/repo-ejemplo.git (fetch)
 origin	https://github.com/oslugr/repo-ejemplo.git (push)
 ```
 
-Nota que git no comprueba si realmente tienes permisos de lectura o escritura en los repositorios que agregas, de forma que el hecho de que estén ahí no significa que vayas a poder usarlos realmente.
+Para eliminar un repositorio tienes:
+
+`git remote rm NOMBRE`
+
+Y para cambiarle el nombre:
+
+`git remote rename NOMBRE_ANTERIOR NOMBRE_ACTUAL`
+
+> Nota que git no comprueba si realmente existen los repositorios que agregas o si tienes permisos de lectura o escritura en ellos, de forma que el hecho de que estén ahí no significa que vayas a poder usarlos realmente.
+
+
+Ha llegado el momento de importar cambios desde un repositorio remoto. Para ello tenemos `git pull` que se usa así:
+
+`git pull REPOSITORIO_REMOTO RAMA`
+
+el `REPOSITORIO_REMOTO` es uno de los nombres de repositorio que he mos visto antes (si no pones ninguno, se supone "origin"). Sobre las ramas se hablará un poco más adelante, pero baste decir que, si no ponemos ninguna, se supone que es la rama "master")
+
+de este modo, la forma más usual de llamar esta orden es, simplemente:
+
+`git pull`
+
+(que significaría lo mismo que `git pull origin master`)
+
+Esta instrucción trae del repositorio remoto indicado (o de "origin" si no indicas nada, como hemos visto), todos los cambios que haya respecto al tuyo (lógicamente, no se molesta en traer los que son iguales).
+
+Si el repositorio del que tratas de importar no existe o no tienes permiso de lectura, te dará un mensaje de error advirtiéndote de ello.
+
+Si hay archivos que tú has modificado pero el otro repositorio no, te quedarás con los tuyos. Cuando se trate de archivos que tú no has cambiado pero que sí son distintos en el remoto, actualizarás los tuyos a este último. Pero, si importas archivos que se han modificado en ambos repositorios ¿qué pasa con las diferencias? ¿Sobreescribirá tus archivos? ¿Perderás los del otro repositorio?
+
+Ahí es donde entra la solución de problemas, y lo veremos dentro de poco.
+
+En realidad, `git pull` es la unión de dos herramientas distintas, que son `git fetch`, que trae los cambios remotos creando una nueva rama, y `git merge`, que une esos cambios con los tuyos. En ocasiones te convendrá más usarlas por separado pero, como aún no hemos visto el manejo de las ramas, dejaremos esto por ahora. 
+
 
 
 
