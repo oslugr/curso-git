@@ -2,14 +2,13 @@
 
 Lo primero que necesitamos a la hora de enfrentarnos a las dificultades es conocer nuetras herramientas.
 
-git dispone de una ayuda detallada que nos resultará muy útil. Para invocarla sólo hay que hacer 
+Git dispone de una ayuda detallada que nos resultará muy útil. Para invocarla sólo hay que hacer 
 
 `git help`
 
 también se puede obtener ayuda de un comado concreto con `git hel COMANDO`, por ejemplo:
 
 `git help commit`
-
 
 ##Viendo el historial
 
@@ -21,11 +20,12 @@ La orden `git log` te mostará un listado de todos los cambios efectuados, con s
 
 El formato de cada commit en la respuesta es como este:
 
-> commit c2ac7c356156177a50df5b4870c72ce01a88ae63
-> Author: psicobyte <psicobyte@gmail.com>
-> Date:   Sun Mar 30 11:54:15 2014 +0200
-
->    Cambios menores en las explicaciones de git add y git status
+```
+commit c2ac7c356156177a50df5b4870c72ce01a88ae63
+Author: psicobyte <psicobyte@gmail.com>
+Date:   Sun Mar 30 11:54:15 2014 +0200
+   Cambios menores en las explicaciones de git add y git status
+```
 
 La primera línea es un *hash* único que identifica al commit (y que más adelante no será muy útil), seguida del autor, la fecha en que se hizo y el comentario que acompañó al commit. 
 
@@ -39,13 +39,13 @@ Otra opción posible, si quieres ver una versión más resumida y compacta de lo
 
 Si, por el contrario, quieres más detalles, la opción `--diff` te mostrará, para cada commit, todos los cambios que se realizaron en los archivos (en formato diff).
 
-Otra ayuda visual es `--graph`, que dibuja (con caracteres ascii) un árbol indicando las ramas del proyecto (ya veremos eso un poco más adelante).
+Otra ayuda visual es `--graph`, que dibuja (con caracteres ASCII) un árbol indicando las ramas del proyecto (ya veremos eso un poco más adelante).
 
 `git log` tiene un montón de opciones más (para filtrar por autor o fecha, mostrar estadísticas...) que, además, se pueden usar en combinación. Por ejemplo, la isntrucción
 
 `git log --graph --oneline` 
 
-Mostrará los commits en versión compacta y dibujando las ramas (cuando las haya), dando una salida parecia a esta:
+Mostrará los commits en versión compacta y dibujando las ramas (cuando las haya), dando una salida parecida a esta:
 
 ```
 * 6ad05c1 Sólo una cosilla
@@ -60,30 +60,53 @@ Mostrará los commits en versión compacta y dibujando las ramas (cuando las hay
 
 Para más detalles, recuerda que `git help log` es tu amigo.
 
-##Solución de problemas con git
-Solución de conflictos. Borrado de commits. Editado de la historia.
+##Borrado de archivos
 
-## Resolviendo conflictos en `git`
+En git se pueden borrar archivos con la orden `git rm`.
+
+`git rm NOMBRE_DEL_FICHERO`
+
+FUnciona como la propia orden del sistema operativo, con la salvedad de que *tambien* borra el archivo del Index, si estuviera allí. Esto lo hace muy útil en ocasiones.
+
+Si necesitas borrar el archivo del Indez pero sin borrarlo de DIrectorio de trabajo (porque, por ejemplo, te has arrepentido y no quieres incluírlo en el próximo commit), se puede hacer con la opción `--cached` del siguiente modo:
+
+`git rm --cached NOMBRE_DEL_FICHERO`
+
+
+
+##Rehacer un commit
+
+Puedes rehacer el último commit 
+`git commit --amend`
+
+
+
+
+
+Borrado de commits. Editado de la historia.
+
+## Resolviendo conflictos
 	
 Normalmente los conflictos suceden cuando dos usuarios han modificado
     la misma línea, o bien cuando han modificado un fichero binario;
     por eso los ficheros binarios **no** deben estar en un
     repositorio. Te aparecerá un conflicto de esta forma cuando vayas
     a hacer `push`
-	
-	To git@github.com:oslugr/curso-git.git
+
+```	
+To git@github.com:oslugr/curso-git.git
  ! [rejected]        master -> master (non-fast-forward)
 error: failed to push some refs to 'git@github.com:oslugr/curso-git.git'
 consejo: Updates were rejected because the tip of your current branch is behind
 consejo: its remote counterpart. Merge the remote changes (e.g. 'git pull')
 consejo: before pushing again.
 consejo: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
 
-El error indica que la *punta* de tu rama está detrás de la rama
-remota. Rechaza por lo tanto el `push`, pero vamos a hacer `pull` para
-ver qué es lo que ha fallado
-	
-	remote: Counting objects: 7, done.
+El error indica que la *punta* de tu rama está detrás de la rama remota (es decir, que hay modificaciones posterioresa tu última sincreonización). Rechaza por lo tanto el `push`, pero vamos a hacer `pull` para ver qué es lo que ha fallado
+
+```
+remote: Counting objects: 7, done.
 remote: Compressing objects: 100% (4/4), done.
 remote: Total 4 (delta 3), reused 0 (delta 0)
 Unpacking objects: 100% (4/4), done.
@@ -92,17 +115,20 @@ De github.com:oslugr/curso-git
 Auto-merging texto/mas-usos.md
 CONFLICTO(contenido): conflicto de fusión en texto/mas-usos.md
 Automatic merge failed; fix conflicts and then commit the result.
+```
 
 El conflicto de fusión te indica que no hay forma de combinar los dos
 ficheros porque hay cambios en la misma línea. Así que hay que
 arreglar los conflictos. En general, si se trata de este tipo de
 conflictos, no es complicado. Al mirar el fichero aparecerá algo así
-	
+
+```
     <<<<<<< HEAD
     ## Resolviendo conflictos en `git`
     =======
     ## Vamos a ver cómo se resuelven los problemas en git
     >>>>>>> bf454eff1b2ea242ea0570389bc75c1ade6b7fa0
+```
 
 Lo que uno tiene está entre la primera línea y los signos de igual; lo
 que hay en la rama remota está a continuación y hasta la cadena que
@@ -113,4 +139,4 @@ este caso, como se ve, es el que aparece efectivamente en este
 capítulo.
 
 Una vez hecho eso, se puede ya hacer `push` directamente sin ningún
-problema. 
+problema.

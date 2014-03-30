@@ -6,7 +6,6 @@ Aprender qué es un Sistema de Control de Versiones
 Ver los Sistema de Control de Versiones y sus tipos
 Conocer las principales características de git
 
-
 ##Software Libre
 
 En los últimos años, el software libre se ha ido extendiendo hasta abarcar la mayor parte de sistemas de Internet, supercomputadores o servicios de red, llegando finalmente a ordenadores personales, tablets, teléfonos e incluso electrodomésticos.
