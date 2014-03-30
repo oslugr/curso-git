@@ -149,6 +149,9 @@ Verás, entre otras muchas, las user.name y user.email que ya conoces. Pero hay 
 
 Ahora mismo no nos sirve de mucho pero, cuando más adelante trabajemos en red con otros repositorios, nos va a venir bien recordarlo.
 
+> *IMPORTANTE*
+> En adelante, a menos que se diga lo contrario, todos los comandos y órdenes que se indique se deberán ejecutar en el directorio de nuestro proyecto (o uno de sus subdirectorios, lógicamente). Git reconoce el proyecto con el que está trabajando en función del lugar donde te encuentres al ejecutar los comandos
+
 ##¿Cómo funciona git?
 
 Antes de continuar, vamos a detenernos un momento para entender el funcionamiento de git.
@@ -247,6 +250,49 @@ Como sistema de control de versiones distribuido, una de las principales utilida
 
 Para importar cambios de un repositorio remoto se necesita, lógicamente, tener acceso de lectura a ese repositorio (En sentido estricto, ya hemos importado el estado de un repositorio cuando lo clonamos al hacer `git clone`). 
 
+Para sincronizar con uno o más repositorios remotos, debemos saber qué repositorios remotos son esos. Para ello tenemos `remote`, que se usa así:
+
+`git remote`
+
+Y, seguramente, te retornará algo parecido a 
+
+`origin`
+
+Lo que nos dice que el repositorio es el que le indicamos como "origen" al hacer el `clone` y, la verdad, no es mucha información.
+
+Para obtener algo más útil, prueba a hacerlo con el parámetro `-v` de este modo:
+
+`git remote -v`
+
+lo que te retornará algo parecido a esto:
+
+```
+origin	https://github.com/oslugr/repo-ejemplo.git (fetch)
+origin	https://github.com/oslugr/repo-ejemplo.git (push)
+```
+
+Esto te dice que hay un repositorio llamado "origin" que se usará tanto para recibir (fetch) como para enviar (push) los cambios. "origin" es el nombre del repositorio remoto por defecto, pero puedes tener muchos más y sincronizar con todos ellos.
+
+Para añadir otro repositorio remoto se hace con la misma instrucción `remote` de este modo:
+
+`git remote add ALIAS_DEL_REPOSITORIO DIRECCION_DEL_REPOSITORIO`
+
+Donde `ALIAS_DEL_REPOSITORIO`es un mobre corto para usar en las instrucciones de git (el equivalente al "origin" que hemos visto) y `DIRECCION_DEL_REPOSITORIO`la dirección donde se encuentra. Por ejemplo:
+
+`git remote add personal git://github.com/psicobyte/repo-ejemplo.git`
+
+Esto añade un repositorio remoto llamado "personal" con la dirección que se indica.
+
+Si ahora hacemos un `git remote -v`, veremos algo como:
+
+```
+mio	git://github.com/psicobyte/repo-ejemplo.git (fetch)
+mio	git://github.com/psicobyte/repo-ejemplo.git (push)
+origin	https://github.com/oslugr/repo-ejemplo.git (fetch)
+origin	https://github.com/oslugr/repo-ejemplo.git (push)
+```
+
+Nota que git no comprueba si realmente tienes permisos de lectura o escritura en los repositorios que agregas, de forma que el hecho de que estén ahí no significa que vayas a poder usarlos realmente.
 
 
 
