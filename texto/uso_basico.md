@@ -221,8 +221,10 @@ Ahora vamos a ver una orden que será tu gran amiga:
 
 En principio, si no has modificado nada, el mensaje básico que te da `git status` es este:
 
-> \# On branch master
-> nothing to commit (working directory clean)
+```
+# On branch master
+nothing to commit (working directory clean)
+```
 
 Pero, y esa es una cosa que vas a ver a menudo en git, si hay algo que hacer te informa de las posibles acciones que puedes llevar a cabo dependiendo de las circunstancias actuales diciendo como, por ejemplo, *(use "git add <file>..." to update what will be committed)*".
 
