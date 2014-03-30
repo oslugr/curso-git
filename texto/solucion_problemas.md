@@ -37,7 +37,7 @@ mostrará las últimas cuatro entradas en el log.
 
 Otra opción posible, si quieres ver una versión más resumida y compacta de los datos, es `--oneline`, que te muetra una versión compacta.
 
-Si, por el contrario, quieres más detalles, la opción `--diff` te mostrará, para cada commit, todos los cambios que se realizaron en los archivos (en formato diff).
+Si, por el contrario, quieres más detalles, la opción `-p` te mostrará, para cada commit, todos los cambios que se realizaron en los archivos (en formato diff).
 
 Otra ayuda visual es `--graph`, que dibuja (con caracteres ASCII) un árbol indicando las ramas del proyecto (ya veremos eso un poco más adelante).
 
@@ -72,20 +72,25 @@ Si necesitas borrar el archivo del Indez pero sin borrarlo de DIrectorio de trab
 
 `git rm --cached NOMBRE_DEL_FICHERO`
 
+Otra ocpión para hacer esto mismo es con `git reset HEAD` que se usa del siguiente modo:
 
+`git reset HEAD NOMBRE_DEL_ARCHIVO`
 
 ##Rehacer un commit
 
-Puedes rehacer el último commit 
+Puedes rehacer el último commit usando la opción `--amend` de este modo:
+
 `git commit --amend`
 
+Si no has modificado nada en tus archivos, esto simplemente te permitirá reescribir el comentario del commit pero, si por ejemplo habiás olvidado añadir algo al Index, puedes hacerlo antes del `git commit --amend` y se aplicará en el commit.
 
+##Desacer cambios en un archivo
 
+Has cambiado un archivo en tu directorio de trabajo, pero te arrepientes y quieres recuperar la versión del HEAD (la del último commit). Nada más fácil que:
 
+`git checkout -- NOMBRE_DEL_ARCHIVO`
 
-Borrado de commits. Editado de la historia.
-
-## Resolviendo conflictos
+##Resolviendo conflictos
 	
 Normalmente los conflictos suceden cuando dos usuarios han modificado
     la misma línea, o bien cuando han modificado un fichero binario;
