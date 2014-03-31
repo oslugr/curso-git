@@ -145,3 +145,16 @@ capítulo.
 
 Una vez hecho eso, se puede ya hacer `push` directamente sin ningún
 problema.
+
+##Retrocediendo al pasado
+
+Para recuperar el estado de tu directorio de trabajo tal como estaba en algún momento del pasado, primero necesitas saber qué momento es ese. Eso se consigue con `git log` que, como vimos, nos devuelve (entre otras cosas) un hash que identifica al commit.
+
+Con ese hash ya podemos hacer un `git reset` del siguiente modo:
+
+`git reset --hard HASH_DEL_COMMIT_A_RECUPERAR`
+
+Eso, en cierto modo, volverá atrás en el tiempo, deshará los commits posteriores al indicado y traerá a tu directorio de trabajo los archivos tal y como estaban entonces. Todos los cambios posteriores desaparecerán, así que mucho cuidado.
+
+Como consejo, recuerda hacer `push` antes de jugar con `git reset --hard`. De este modo, si quieres recuperar todo el trabajo poseterior, no tienes más que hacer `pull` y los recuperarás de nuevo.
+
