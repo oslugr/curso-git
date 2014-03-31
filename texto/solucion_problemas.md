@@ -158,3 +158,16 @@ Eso, en cierto modo, volverá atrás en el tiempo, deshará los commits posterio
 
 Como consejo, recuerda hacer `push` antes de jugar con `git reset --hard`. De este modo, si quieres recuperar todo el trabajo poseterior, no tienes más que hacer `pull` y los recuperarás de nuevo.
 
+##Viendo (y recuperando) archivos antiguos
+
+Puedes ver los cambios que hiciste en un commit si haces 
+
+`git show HASH_DE_UN_COMMIT`
+
+Esto puede ser muy útil, pero aun hay más. Si haces `git show HASH_DE_UN_COMMIT:ruta/a/un/archivo` te mostrará el estado de ese archivo en aquel commit.
+
+Esto nos va a servir para hacer un pequeño truco:
+
+`git show HASH_DE_UN_COMMIT:ruta/a/un/archivo > archivo_copia`
+
+La orden anterior nos permite redireccionar la salida de `git show` a un archivo llamado `archivo_copia`, con lo que obtendremos una copia del archivo tal y como estaba en el commit indicado.
