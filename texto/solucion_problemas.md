@@ -84,7 +84,7 @@ Puedes rehacer el último commit usando la opción `--amend` de este modo:
 
 Si no has modificado nada en tus archivos, esto simplemente te permitirá reescribir el comentario del commit pero, si por ejemplo habiás olvidado añadir algo al Index, puedes hacerlo antes del `git commit --amend` y se aplicará en el commit.
 
-##Desacer cambios en un archivo
+##Deshacer cambios en un archivo
 
 Has cambiado un archivo en tu directorio de trabajo, pero te arrepientes y quieres recuperar la versión del HEAD (la del último commit). Nada más fácil que:
 
