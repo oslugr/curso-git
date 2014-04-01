@@ -158,6 +158,8 @@ Eso, en cierto modo, volverá atrás en el tiempo, deshará los commits posterio
 
 Como consejo, recuerda hacer `push` antes de jugar con `git reset --hard`. De este modo, si quieres recuperar todo el trabajo poseterior, no tienes más que hacer `pull` y los recuperarás de nuevo.
 
+También te puedes salvaguardar usando otra rama para hacer el `git reset --hard` sobre ella, pero el uso de ramas es algo que veremos un poco más adelante.
+
 ##Viendo (y recuperando) archivos antiguos
 
 Puedes ver los cambios que hiciste en un commit si haces 
