@@ -171,7 +171,7 @@ Tú sólo mantén esta secuencia en la cabeza: Directorio de trabajo -> Index ->
 
 Tienes tu repositorio iniciado (o clonado) con una serie de archivos con los que empiezas a trabajar, creándolos, editándolos, modificándolos, etc.
 
-Para que git sepa que tiene que empezar a tener en cuenta un archivo, usamos la orden `git add` de este modo:
+Para que git sepa que tiene que empezar a tener en cuenta un archivo (a esto se le llama *preparar* un archivo), usamos la orden `git add` de este modo:
 
 `git add NOMBRE_DEL_ARCHIVO`
 
@@ -220,7 +220,7 @@ nothing to commit (working directory clean)
 
 Pero, y esa es una cosa que vas a ver a menudo en git, si hay algo que hacer te informa de las posibles acciones que puedes llevar a cabo dependiendo de las circunstancias actuales diciendo como, por ejemplo, *(use "git add <file>..." to update what will be committed)*".
 
-Cuando ya has hecho los cambios que consideres necesarios y has puesto en el Index todo lo que quieras poner bajo el control de versiones, llega el momento de "hacer commit". Esto significa mandar al HEAD los cambios que tenemos en el Index, y se hace de este modo:
+Cuando ya has hecho los cambios que consideres necesarios y has puesto en el Index todo lo que quieras poner bajo el control de versiones, llega el momento de "hacer commit" (también se le llama "*confirmar*"). Esto significa mandar al HEAD los cambios que tenemos en el Index, y se hace de este modo:
 
 `git commit NOMBRE_DEL_ARCHIVO`
 
@@ -239,7 +239,25 @@ Si no quieres que se abra el editor puedes añadir el comentario en el mismo com
 
 `git commit -m "Comentario al commit donde describo los cambios"`
 
-Recuerda lo que dijimos antes: si modificas un archivo después de haber hecho `git add`, esos cambios no estarán incluidos en tu `commit` (si quieres incluir la última versión, no tienes más que volver a hacer `git add` antes del commit).
+Recuerda lo que dijimos antes: si modificas un archivo después de haber hecho `git add`, esos cambios no estarán incluidos en tu `commit` (si quieres incluir la última versión, no tienes más que volver a hacer `git add` antes del `commit`).
+
+Ahora nos puede surgir un problema:
+
+Si sólo podemos confirmar con `commit` de un archivo que hayamos preparado con `add`, y sólo podemos hacer `add` de un archivo que existe en nuestro directorio de trabajo ¿Cómo le decimos a git que elimine un archivo del repositorio? Para ello tenemos la orden:
+
+`git add -u`
+
+que agregará al Index la información de los archivos que deben ser borrados.
+
+Muy similar a la anterior, `git add -A` sirve para hacer `git add -u` (preparar los archivos eliminados) y `git add .` (preparar todos los archivos modificados) en una sola orden.
+
+Un efecto parecido se puede conseguir con
+
+`git commit -a`
+
+Esta orden sirve para confirmar todos los cambios que haya en el directorio de trabajo *aunque no hayan sido preparados* (es decir, aunque no hayas hecho `add`). Esto incluye tanto los ficheros modificados como los eliminados, con lo que sería equivalente a hacer un `git add -A` seguido de un `git commit`.
+
+> Esta opción ahorra escribir órdenes, pero también te da más oportunidades de meter la pata. En general se recomienda usar por separado adds y commits, convenientemente salteados de `git status` para comprobar que todo va bien.
 
 ##Sincronizando repositorios
 
