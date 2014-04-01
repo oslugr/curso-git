@@ -363,6 +363,58 @@ Sólo cuando hayamos hecho el pull (y resuelto los conflictos, si es que hubiera
 
 Al hacer tu push, git te retornará información de los cambio realizados, número de archivos, etc.
 
+###.gitignore
+
+Cuando hacemos `git add .` o algo parecido, preparamos todos los archivos que hayan sido modificados. Esto es, sin duda, mucho más cómodo que ir añadiendo los archivos uno a uno. Pero muy a menudo hay montones de archivos en tu directorio de trabajo que no quieres que se añadan nunca. Archivos de contraseñas, temporales, borradores, binarios compilados, archivos de configuración local...
+
+> Por ejemplo, mucho editores de texto mantienen una copia temporal de los archivos que estás editando, con el mismo nombre pero terminado en el signo "~". Si haces `git add .`, estos archivos se acabarán añadiendo a tu repositorio, cosa que no tiene demasiada utilidad.
+
+Para evitar este problema y facilitarte el trabajo, git nos permite crear un archivo (varios, en realidad, como veremos enseguida) donde describir qué archivos quieres ignorar.
+
+El archivo en cuestión debe llamarse "*.gitignore*" (empezando por un punto) y ubicarse en el directorio raíz de tu proyecto.
+
+En este archivo podemos incluir los nombres de archivos que queramos ignorar. Por ejemplo, imaginemos que nuestro *.gitignore* tiene este (poco útil) contenido:
+
+```
+# Los archivos que se llamen "passwords.txt" serán ignorados
+passwords.txt
+```
+
+> Las líneas de *.gitignore* que comienzan con el signo "#" son comentarios (útiles para quién lo lea), y git las ignora.
+
+Gracias a esto, git ignorará cualquier archivo que se llame passwords.txt, y no los incluirá en tus adds.
+
+Esto es demasiado simple y no nos va a ser muy útil pero, afortunadamente, *.gitignore* permite comodines y otras herramientas útiles. Por ejemplo:
+
+
+```
+# Ignoramos todos los archivos que terminen en "~"
+*~
+
+# Ignoramos todos los archivos que terminen en ".temp"
+*.temp
+
+# Ignoramos todos los archivos que se llamen "passwords.txt", "passwords.c", "passwords.csv"...
+passwords.*
+
+```
+
+El archivo *.gitignore* permite hacer cosas mucho más complejas, aunque para la mayoría de los casos con algo como lo visto arriba es suficiente.
+
+Pese a que cada repositorio puede tener su propio *.gitignore*, puede ser útil tener además un archivo general para todos los repositorios.
+
+Git busca por defecto este archivo general en el directorio "*.config/git/ignore*" de tu directorio "Home", pero esto puede cambiarse con la siguiente orden:
+
+`git config --global core.excludesfile RUTA_AL_ARCHVO_IGNORE`
+
+Por ejemplo, para usar un archivo llamado "ignorar" en mi directorio personal, pondría algo así:
+
+`git config --global core.excludesfile ~/ignorar`
+
+> El símbolo "~" en un path significa "El directorio Home del usuario"
+
+Puedes encontrar muchos ejemplos de archivos *.gitignore* en este [repositorio de GitHub](https://github.com/github/gitignore)
+
 ###Contraseñas
 
 Naturalmente, como ya hemos comentado, no puedes hacer push a un repositorio en el que no tengas permiso de escritura. Para eso puede ser que sea un repositorio abierto a todo el que conozca la dirección, pero eso sería muy raro (e inseguro). Lo usual es que cuentes con un usuario y contraseña que te permitan acceder (normalmente por [ssh](http://es.wikipedia.org/wiki/Secure_Shell)) al servidor.
