@@ -363,7 +363,19 @@ Sólo cuando hayamos hecho el pull (y resuelto los conflictos, si es que hubiera
 
 Al hacer tu push, git te retornará información de los cambio realizados, número de archivos, etc.
 
-###.gitignore
+###Contraseñas
+
+Naturalmente, como ya hemos comentado, no puedes hacer push a un repositorio en el que no tengas permiso de escritura. Para eso puede ser que sea un repositorio abierto a todo el que conozca la dirección, pero eso sería muy raro (e inseguro). Lo usual es que cuentes con un usuario y contraseña que te permitan acceder (normalmente por [ssh](http://es.wikipedia.org/wiki/Secure_Shell)) al servidor.
+
+En otros repositorios (más raros), también necesitarás usuario y contraseña para acceder a la lectura y, por tanto, para hacer pull.
+
+En ambos casos, git te solicitará el nombre de usuario y la contraseña cada vez que hagas push. No tiene por qué ser muy a menudo, pero puede ser un engorro.
+
+En muchos sitios puedes ahorrarte ese trabajo usando pares de claves ssh. Básicamente consiste en que tu ordenador y el del repositorio se reconozcan entre ellos y no tengas que andar identificándote.
+
+Las instrucciones para hacer esto en github están en [esta página de ayuda](https://help.github.com/articles/generating-ssh-keys#platform-all)
+
+##.gitignore
 
 Cuando hacemos `git add .` o algo parecido, preparamos todos los archivos que hayan sido modificados. Esto es, sin duda, mucho más cómodo que ir añadiendo los archivos uno a uno. Pero muy a menudo hay montones de archivos en tu directorio de trabajo que no quieres que se añadan nunca. Archivos de contraseñas, temporales, borradores, binarios compilados, archivos de configuración local...
 
@@ -414,15 +426,3 @@ Por ejemplo, para usar un archivo llamado "ignorar" en mi directorio personal, p
 > El símbolo "~" en un path significa "El directorio Home del usuario"
 
 Puedes encontrar muchos ejemplos de archivos *.gitignore* en este [repositorio de GitHub](https://github.com/github/gitignore)
-
-###Contraseñas
-
-Naturalmente, como ya hemos comentado, no puedes hacer push a un repositorio en el que no tengas permiso de escritura. Para eso puede ser que sea un repositorio abierto a todo el que conozca la dirección, pero eso sería muy raro (e inseguro). Lo usual es que cuentes con un usuario y contraseña que te permitan acceder (normalmente por [ssh](http://es.wikipedia.org/wiki/Secure_Shell)) al servidor.
-
-En otros repositorios (más raros), también necesitarás usuario y contraseña para acceder a la lectura y, por tanto, para hacer pull.
-
-En ambos casos, git te solicitará el nombre de usuario y la contraseña cada vez que hagas push. No tiene por qué ser muy a menudo, pero puede ser un engorro.
-
-En muchos sitios puedes ahorrarte ese trabajo usando pares de claves ssh. Básicamente consiste en que tu ordenador y el del repositorio se reconozcan entre ellos y no tengas que andar identificándote.
-
-Las instrucciones para hacer esto en github están en [esta página de ayuda](https://help.github.com/articles/generating-ssh-keys#platform-all)
