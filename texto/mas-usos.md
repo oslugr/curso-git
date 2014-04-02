@@ -151,7 +151,9 @@ Los submódulos no se clonan directamente al clonar el repositorio. Hay
 que dar dos comandos: `git submodule init` y `git submodule update`
 dentro del directorio correspondiente; esta última orden servirá para
 actualizar submódulos también cada vez que haya un cambio en el repo
-del que dependan (y queramos actualizar nuestra copia).
+del que dependan (y queramos actualizar nuestra copia); tras ellos
+habrá que decir `git pull`, como siempre, para  traerse
+los ficheros físicamente. 
 
 De esta forma, el repositorio queda (parcialmente) con esta estructura
 de directorios:
@@ -177,6 +179,14 @@ caso de empaquetarlos o desplegarlos de alguna forma determinada (por
 ejemplo, a un PaaS), queramos hacerlo desde un solo repositorio, como
 en este caso.
 
+Los submódulos pueden ser un ejemplo de flujos de trabajo: en este
+caso, hay un flujo desde "las fuentes del manantial" (que puede
+cambiar de forma independiente su proyecto) hasta "la desembocadura"
+(nuestro proyecto, que lo usa). Dividir un proyecto en módulos y dejar
+que personas independientes se encarguen de cada uno, integrándolo
+todo en un submódulo, por tanto, es una forma simple y sin demasiadas
+complicaciones de hacerlo. 
+
 ## Flujos de trabajo con git
 
 Un *flujo de trabajo* es simplemente una forma de organizar las tareas
@@ -187,7 +197,7 @@ que se eviten conflictos y también que el resultado del trabajo sea
 más predecible; también a evitar problemas y a identificarlos
 fácilmente. 
 
-El flujo de trabajo básico cuando se trabaja con un sistema de control
+El flujo de trabajo básico, de un solo usuario, cuando se trabaja con un sistema de control
 de fuentes y lo hace un solo usuario es el siguiente:
 
 1. `git pull`
@@ -260,10 +270,87 @@ de que el código no rompe los tests automáticos y hasta que estés
 seguro de poder resolver los conflictos que ocurran.  ¿Cómo se pueden
 resolver estos conflictos? Lo veremos a continuación. 
 
-
-
+Igual que en el caso de los submódulos, no deja de ser simplemente una
+rutina de trabajo más que un flujo de trabajo si trabaja uno
+solo. Veremos cómo trabajar en diferentes ramas evitando conflictos.
 
 ## Ramas
+
+Las *ramas* son una característica de todos los sistemas de control de
+fuentes. A todos los efectos, una rama es un proyecto diferente que
+*surge* de un proyecto principal, aunque nada obliga a que contengan
+nada en común (por ejemplo, un repositorio puede incluir el código y
+las páginas web como una rama totalmente diferente). Sin embargo, las
+ramas, que más bien deberían llamarse *ramificaciones* o *caminos*,
+son *caminos divergentes* a partir de un tronco común que,
+eventualmente, pueden combinarse (aunque no es obligatorio) en uno
+sólo. En la práctica y como
+[dicen aquí](http://longair.net/blog/2009/04/16/git-fetch-and-merge/)
+una rama es un nombre para un *commit* específico y todos los commits
+que son antecesores del mismo. 
+
+En `git` las ramas son también parte natural del desarrollo de un
+proyecto, dado que se trata de un sistema de control de fuentes
+distribuido. Cada usuario trabaja en su propia rama, que se *fusiona*
+con la rama principal en el repositorio compartido cuando se hace
+*push*. Por eso en alguna ocasión puede suceder que, cuando se hace
+*pull* o incluso *push*, si se encuentra que las ramas que hay en el
+repo con el que se fusiona y localmente contienen diferente número de
+*commits*, aparecerá un mensaje que te indicará que se está fusionando
+con la rama principal; todo esto, incluso aunque no se hayan creado
+ramas explícitamente. En realidad, *pull* es combinación de dos
+operaciones: `fetch` y `merge`. De hecho
+[hay quien dice que no debe usarse nunca pull](http://longair.net/blog/2009/04/16/git-fetch-and-merge/).
+
+Por ejemplo, en caso de que se haya borrado un fichero (o, para el
+caso, hecho cualquier cambio) en un repositorio y se trate de hacer
+`push` desde el local, habrá un error de este estilo. 
+
+    To git@github.com:oslugr/repo-ejemplo.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'git@github.com:oslugr/repo-ejemplo.git'
+consejo: Updates were rejected because the tip of your current branch is behind
+consejo: its remote counterpart. Merge the remote changes (e.g. 'git pull')
+consejo: before pushing again.
+consejo: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+En este caso habrá dos ramas, en la *punta* de cada una de las cuales
+habrá un commit diferente. Se siguen instrucciones, es decir, `git
+pull`
+
+	jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull
+remote: Counting objects: 2, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 2 (delta 0), reused 0 (delta 0)
+Unpacking objects: 100% (2/2), done.
+De github.com:oslugr/repo-ejemplo
+   61253ec..2fd77db  master     -> origin/master
+Eliminando Makefile
+Merge made by the 'recursive' strategy.
+ Makefile | 3 ---
+ 1 file changed, 3 deletions(-)
+ delete mode 100644 Makefile
+
+y aparece, efectivamente, el directorio borrado. Habrá que hacer el
+push de nuevo. Una vez hecho, el repositorio se ha estructurado como
+se muestra en la imagen:
+![Fusión de dos ramas](img/conflicto.png)
+
+Esta imagen, que
+[se puede ver también en GitHub con fecha 2 de abril](https://github.com/oslugr/repo-ejemplo/network),
+y que está obtenida del programa cliente `gitk`, muestra cómo se ha
+producido la fusión. La que aparece más cerca de
+la fusión es la que se hizo inicialmente, borrando el fichero, y la
+más alejada, que aparece más a la izquierda, es la hecha a
+continuación. El último *commit* fusiona las dos ramas y crea una sola
+dentro de la rama principal.
+
+Por eso hablamos de enramamiento *natural* en `git`, porque se produce
+simplemente por que haya dos commits divergentes que procedan de la
+misma rama. Sin embargo, se pueden usar ramificaciones adrede y es lo
+que veremos a continuación. 
+
+
 
 ## Los misterios del rebase
 
