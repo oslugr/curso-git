@@ -1,0 +1,21 @@
+#!/bin/bash
+
+for fichero in $( ls *.md)
+do
+    #echo ${fichero}
+    pandoc -f markdown -t html -o html/${fichero} ${fichero}
+    mv "html/$fichero" "html/${fichero%.md}.html"
+done
+
+sed -i '1{
+    h
+    r include.css
+    D
+}
+2{
+    x
+    G
+    }' html/*.html
+
+sed -i 's/<img src="img/<img src="http:\/\/campusvirtual.ugr.es\/moodle\/file.php\/1850\/img/g' html/*.html
+
