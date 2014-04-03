@@ -83,7 +83,12 @@ se pueden hacer solicitudes y comentarios a un repo completo usando
 interaccionar con los autores de un proyecto y por supuesto también de
 que esos autores aumenten su *karma* a base de las conexiones,
 estrellas que reciban sus repositorios y comentarios, así como los
-*issues* resueltos.
+*issues* resueltos. Los *issues* se agrupan en *milestones* o hitos,
+que son simplemente grupos de temas que deben ser resueltos antes de
+pasar a otra fase del desarrollo. Agrupar los *issues* en hitos
+permite ver el progreso del mismo, ya que te va mostrando cuál es el
+grado de terminación de dicho hito. Los hitos, además, pueden fecharse
+con lo que se puede ver si se ha pasado uno de fecha o no. 
 
 Finalmente, los usuarios se pueden agrupar en [organizaciones](https://help.github.com/articles/creating-a-new-organization-account--2). Una
 organización es en muchos aspectos similar a un usuario; tiene las
@@ -97,7 +102,10 @@ repositorio, pero puede organizarse de cualquier otra forma.
 
 Cuando uno es añadido a un equipo de una organización, se convierte en
 otra "personalidad" que te permite, por ejemplo, hacer *fork* como
-miembro de tal organización. 
+miembro de tal organización. Para adoptar esa personalidad se
+selecciona el nombre de la organización de un menú que está en el
+panel de control de [GitHub (página principal)](https://github.com) justo debajo del
+logotipo del octocat. 
 
 En resumen, la facilidad que tiene GitHub para manejar todo tipo de
 situaciones de desarrollo y la *gamificación* y *socialización* de la
@@ -106,9 +114,68 @@ tanto éxito hasta el punto de que el perfil de uno en GitHub es su
 mejor carta de presentación a la hora de conseguir unt rabajo en
 desarrollo y programación. 
 
+## Creando páginas para GitHub pages
+
+Una de las partes interesantes de GitHub y en lo que coincide con
+otros más clásicos como SourceForge es en la posibilidad de publicar
+páginas relacionadas con el proyecto o, para el caso, sobre lo que uno
+quiera. A diferencia de otros sitios, son páginas estáticas (lo que
+permite, imagino, ser más rápido y eficiente a la hora de servirlas).
+
+También se pueden crear muy fácilmente: *Settings*-> se baja a la
+página donde pone "GitHub Pages", y se pulsa en *Automatic Page
+Generator* que te permitirá elegir entre unos pocos (la verdad, no hay
+muchos) *temas* el que más te guste.
+
+Lo que hace este generador automático es lo siguiente
+ * Generar una rama `gh-pages` de tu repositorio principal
+ * A partir del fichero `README.md` del directorio principal de tu
+   proyecto, genera un fichero `index.html` usando la plantilla
+   seleccionada
+ * Genera un dominio `usuario.github.io/proyecto` desde el cual se
+   puede acceder a  las páginas publicadas
+   
+El generador automático sólo funciona una vez. A partir de ese
+momento, sólo se reflejarán en el sitio general los cambios que se
+hagan desde la rama `gh-pages`. Se puede trabajar directamente con
+ella o bien usar algún tipo de `hook` para generar contenido a partir
+de la rama `master` y copiarlo a esa rama. 
+
+Tampoco es obligatorio usar el generador, que está basado en
+[Jekyll](http://jekyllrb.com/), un motor de plantillas y generador
+estático de páginas basado en Markdown u otros lenguajes
+simplificados. Jekyll es muy potente y te permite hasta
+[montar un blog](http://jekyllrb.com/docs/migrations/), pero no nos
+vamos a meter en el funcionamiento del mismo. Tampoco es necesario;
+para crear una página de proyecto sólo hay que hacer dos pasos:
+
+    git checkout -b gh-pages
+    touch index.html
+	git add index.html
+	
+(Aquí tendría que editarse el fichero HTML y meter algo, y a
+continuación)
+
+    git commit -am "Creada página del sitio"
+	git push origin gh-pages
+	
+Con esto se transmite la rama al repositorio y automáticamente se
+publica.
+
+Adicionalmente a las páginas de proyecto, cada organización y cada
+usuario puede crear también su página. Un usuario `nombredeusuario`
+tendrá una página `nombredeusuario.github.io` de la que "colgarán" el
+resto de las páginas (aunque el realidad se tratará de repositorios
+diferentes, y sólo estarán las que se hayan generado, claro). Para
+crear tanto una página de usuario como de organización simplemente se
+crea el repositorio y se pone el contenido en la rama principal, la
+`master`. Al hacer push se publica automáticamente, como la de la
+[organización que se ha creado para este curso](http://curso-git-2014.github.io/)
+
+
 
 ## Cómo usar los hooks
 
 ## Algunos *hooks* interesantes: sistemas de integración continua
 
-## Creando páginas para GitHub pages
+
