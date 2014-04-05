@@ -363,6 +363,38 @@ Sólo cuando hayamos hecho el pull (y resuelto los conflictos, si es que hubiera
 
 Al hacer tu push, git te retornará información de los cambio realizados, número de archivos, etc.
 
+##Comportamiento por defecto de push
+
+Las versiones anteriores de git tenían un comportamiento por defecto a la hora de hacer push llamado 'matching'.
+
+Este consiste en que, al hacer push, se sincronizan todas las ramas del proyecto con sendas ramas en el servidor con el mismo nombre (ya hablaremos en detalle de las ramas más adelante). Si en el servidor no existe una rama con el nombre de alguna local, se crea automáticamente.
+
+La versión 2 de git cambiará ese comportamiento, que pasará a ser `simple`, lo que significa que se sube sólo la rama que tienes activa en este momento a la rama de la que has hecho el pull, pero te dará un error si el nombre de esa rama es distinto.
+
+Mientras tanto, actualmente, git te avisa de que se va a hacer este cambio y te avisa de que puedes configurar este comportamiento por defecto.
+
+para ello sólo tienes que usar, como ya hemos visto para otras configuraciones, del comando `git config` de este modo:
+
+`git config --global push.default OPCION`
+
+Por ejemplo:
+
+`git config --global push.default matching`
+
+Usaría la opción `matching` en todos tus repositorios, pero:
+
+`git config --local push.default simple`
+
+Usaría la opción `simple` sólo en el repositorio en el que te encuentras. 
+
+Otras opciones posibles son:
+
+* current: Sube los cambios de la rama activa a una rama remota del mismo nombre. Si no existe esa rama remota, se crea. 
+
+* nothing: Esta opción sólo tiene sentido para test, debugs y esas cosas. Al hacer push no se subirá nada a repositorio remoto.
+
+* upstream: Al igual que `simple`, sube la rama que tienes activa a la rama de la que has hecho el pull pero, en este caso, *no* te dará error si el nombre de esa rama es distinto.
+
 ###Contraseñas
 
 Naturalmente, como ya hemos comentado, no puedes hacer push a un repositorio en el que no tengas permiso de escritura. Para eso puede ser que sea un repositorio abierto a todo el que conozca la dirección, pero eso sería muy raro (e inseguro). Lo usual es que cuentes con un usuario y contraseña que te permitan acceder (normalmente por [ssh](http://es.wikipedia.org/wiki/Secure_Shell)) al servidor.
