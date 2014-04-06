@@ -447,7 +447,11 @@ Switched to a new branch 'get-dir'
 Esta orden hace dos cosas: crea la rama, copia todos los ficheros en
 la rama en la que estemos (que será la `master` si no hemos hecho
 nada) a la nueva rama y te cambia a la misma; a partir de ese momento
-estarás modificando ficheros en la nueva rama.
+estarás modificando ficheros en la nueva rama. Es decir, equivale a
+dos órdenes
+
+	git branch get-dir
+	git checkout get-dir 
 
 En esta rama se puede hacer lo que se desee: modificar ficheros,
 borrarlos, añadirlos o hacer algo totalmente diferente. En todo
@@ -582,6 +586,50 @@ eso tenemos la rama borrada tanto local como remotamente.
 
 
 ## Los misterios del rebase
+
+`git` tiene múltiples formas de reescribir la historia, como si de un
+régimen totalitario se tratara. Una de las más simples es *aplanar* la
+historia como si todos los *commits* hubieran sucedido unos detrás de
+otros, en vez de en múltiples ramas como es la forma habitual de
+trabajar (en un flujo de trabajo *rama por característica* como hemos
+visto anteriormente). Por ejemplo, podemos crear una rama `img-dir`
+(sobre el repositorio de ejemplo, añade a la aplicación de forma que
+se pueda trabajar con las imágenes del tutorial) dejando el repo en el
+estado que se muestra a continuación. 
+
+![Antes del rebase](img/pre-rebase.png)
+
+tomada desde la propia rama, donde hay una rama `img-dir` con un par
+de *commits* a partir del máster (dos puntitos azules más abajo).
+
+Una vez acabado el trabajo con la rama, cambiamos a `master`(`git
+checkout master`) y podemos hacer `rebase`
+
+	git checkout master
+Switched to branch 'master'
+jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git rebase img-dir
+First, rewinding head to replay your work on top of it...
+Fast-forwarded master to img-dir.
+
+Dejando el repositorio en el estado siguiente
+
+![Después del rebase](img/post-rebase.png)
+
+El último commit es ahora parte de la rama `master`. No sólo se han
+fusionado los cambios en la rama principal, como se ve más abajo en la
+misma imagen e hicimos con la rama creada anteriormente, `get-dir`. En
+este caso, y a todos los efectos, se ha *reescrito la historia*,
+pasando los commits hecho sobre la rama anterior a formar parte de la
+rama principal. Una vez hecho esto, se limpia eliminando la rama
+creada. Sin embargo, un rebase no elimina una rama, que sigue ahí,
+sólo que en una parte diferente del árbol como se muestra a continuación
+
+![Despegando master de la rama](img/rebase-y-commit.png)
+
+Sin embargo, ahora la rama es poco menos que un *tag* como el que
+hemos visto antiguamente. No estorba así que no hace falta borrarla. 
+
+
 
 ## Quién hizo qué
 
