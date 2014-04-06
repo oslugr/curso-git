@@ -629,7 +629,68 @@ sólo que en una parte diferente del árbol como se muestra a continuación
 Sin embargo, ahora la rama es poco menos que un *tag* como el que
 hemos visto antiguamente. No estorba así que no hace falta borrarla. 
 
-
-
 ## Quién hizo qué
+
+Con todas estas ramificaciones es posible que, en un momento
+determinado, sea difícil saber quién ha hecho qué cambio. Esto puede
+ser importante no sólo para repartir las culpas cuando algo falle,
+sino también para ver quién se responsabiliza de cada rama o
+característica y, eventualmente, también para asignar méritos. La
+herramienta `gitk` que hemos usado hasta ahora te presenta en forma de
+árbos los cambios que se han venido haciendo en el repositorio, con un
+panel a la derecha que muestra quién ha hecho cada commit:
+
+![Quien ha hecho qué](img/gitk.png)
+
+En esta imagen se ve como cada commit está asignado a uno de los
+autores de este tutorial, junto con los mensajes correspondientes. Con
+`git log --pretty=short` se puede conseguir un efecto similar en la línea de órdenes:
+
+    commit 3b89bd2fffbf7f5988de16b9911b14d70c9197bd
+Author: JJ Merelo <jjmerelo@gmail.com>
+    Añadido texto sobre rebase
+commit c09756d4d296fbacd9541d2d7c23e7710a5d1f09
+Author: JJ Merelo <jjmerelo@gmail.com>
+    Añadiendo el capítulo de ramas y tags y esas cosas
+commit 8e4559325032fe1425288c4d1ab51fb7072f79b1
+Author: psicobyte <psicobyte@gmail.com>
+    Agregado ejemplo de mensaje en push
+
+(una vez más, sin líneas en blanco), con una muestra del mensaje corto
+y del commit junto con el autor. `log` es muy flexible y permite poner
+cualquier tipo de formato, pero hay todavía más herramientas. `git
+blame` permite hacer lo mismo sobre un fichero, viendo quién ha
+modificado cada una de las líneas. Por ejemplo, `git blame
+uso_basico.md` devolvería, entre otras cosas, estas líneas
+
+    6017d70c (Manu      2014-03-28 22:30:40 +0100  70) [GUI Mac](http://mac.github.c
+2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  71) 
+6017d70c (Manu      2014-03-28 22:30:40 +0100  72) [GUI Windows](http://windows.
+2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  73) 
+01b9da5a (Manu      2014-03-28 22:36:46 +0100  74) [GUI for Linux, Windows y Mac
+75b8e467 (Manu      2014-03-28 22:29:29 +0100  75) 
+2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  76) ##Empezando a usar git
+
+que muestran que la línea 70 y la 71 han sido modificadas por [Manu](http://github.com/Makova)
+mientras que el resto lo han sido por
+[Pablo](http://github.com/psicobyte). El formato que siguen es el hash
+del commit seguidos por el nombre del usuario, la fecha, el número de
+línea; finalmente está el contenido de la línea. Algo un poco más
+vistoso se puede ver en algunos repositorios como GitHub, pulsando
+sobre el botón *Blame* que aparece en cada uno de los ficheros
+
+![Visualización de culpabilidades en GitHub](img/github-blame.png)
+
+Esta es simplemente una visualización del comando anterior, que
+presenta además un enlace al usuario en GH en caso de serlo (porque,
+recordemos, git es un DVCS cuyos cambios pueden haberse fusionado en
+local por parte de cualquier tipo de usuario, que no tiene por qué
+estar necesariamente en GitHub). Con `blame` se puede saber
+[incluso quien modificó una línea en particular](http://stackoverflow.com/questions/5098256/git-blame-prior-commits). pero,
+para un uso básico, basta lo anterior.
+
+
+ 
+
+
 
