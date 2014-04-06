@@ -422,8 +422,8 @@ v0.0.2.1-1-g6dd7a8c
 que, de una forma un tanto críptica, indica que a partir de la
 etiqueta `v0.0.2.1` hay un commit `-1-` y el nombre del último objeto,
 en este caso el único `6dd7a8c`. Es otra forma de
-[http://gitfu.wordpress.com/2008/05/25/git-describe-great-another-way-to-refer-to-commits/]
-*etiquetar* un punto en la historia de una rama, o simplemente otra
+[*etiquetar* un punto en la historia de una rama](http://gitfu.wordpress.com/2008/05/25/git-describe-great-another-way-to-refer-to-commits/),
+o simplemente otra 
 forma de llamar a un commit. Es más descriptivo que simplemente el
 hash de un commit en el sentido que te indica de qué etiqueta has
 partido y lo lejos que estás de ella.
