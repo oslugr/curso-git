@@ -299,7 +299,8 @@ repo con el que se fusiona y localmente contienen diferente número de
 *commits*, aparecerá un mensaje que te indicará que se está fusionando
 con la rama principal; todo esto, incluso aunque no se hayan creado
 ramas explícitamente. En realidad, *pull* es combinación de dos
-operaciones: `fetch` y `merge`. De hecho
+operaciones: `fetch` y `merge`, como ya se ha visto en
+[el capítulo de uso básico](uso_basico.md). De hecho
 [hay quien dice que no debe usarse nunca pull](http://longair.net/blog/2009/04/16/git-fetch-and-merge/).
 
 Por ejemplo, en caso de que se haya borrado un fichero (o, para el
@@ -345,11 +346,239 @@ más alejada, que aparece más a la izquierda, es la hecha a
 continuación. El último *commit* fusiona las dos ramas y crea una sola
 dentro de la rama principal.
 
-Por eso hablamos de enramamiento *natural* en `git`, porque se produce
-simplemente por que haya dos commits divergentes que procedan de la
+Por eso hablamos de enramamiento (bueno, debería ser ramificación,
+pero esto suena mejor) *natural* en `git`, porque se produce
+simplemente por que haya dos *commits* divergentes que procedan de la
 misma rama. Sin embargo, se pueden usar ramificaciones adrede y es lo
 que veremos a continuación. 
 
+### Ramas *ligeras*: etiquetas
+
+Una *etiqueta* permite *guardar* el estado del repositorio en un
+momento determinado, siendo como una especie de *foto* del estado el
+proyecto. Se suele asociar a hitos en la historia del mismo: entrada
+en producción, despliegue de los resultados, o versión mayor o menor. 
+
+Para [etiquetar](http://git-scm.com/book/en/Git-Basics-Tagging) se usa
+la orden `tag`
+
+	git tag v0.0.2
+	
+`tag` etiqueta el último *commit*, es decir, asigna una etiqueta al
+estado en el que estaba el respositorio tras el último commit. La
+etiqueta aparecerá de forma inmediata (sin necesidad de hacer *push*,
+puesto que se añade al útlimo commit y se puede listar con
+
+	git tag
+jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git tag
+v0.0.1
+v0.0.2
+
+![La etiqueta se muestra adosada a un commit](img/tag.png)
+
+Como se ve, una etiqueta es, en realidad, un apodo para un commit
+determinado cuyo *hash* puede ser difícil de recordar. Pero por esa
+misma razón se pueden usar como salvaguarda del estado del repositorio
+en un momento determinado que, más adelante, se puede recuperar o
+fusionar con una rama.
+
+Las ramas se pueden también anotar, lo que añade una explicación
+adicional a lo que ya esté almacenado en el commit correspondiente. 
+	
+	git tag -a v0.0.2.1
+
+abrirá un editor (el que tengamos especificado por defecto) para
+añadir una anotación a esta etiqueta, lo que nos podemos ahorrar si
+usamos
+
+	git tag -a v0.0.2.1 -m "Estado estacionario del repositorio"
+	
+por ejemplo. Esta información aparecerá añadida al commit
+correspondiente (el último que hayamos hecho) cuando hagamos, por
+ejemplo, `git show v0.0.2.1` 
+
+	tag v0.0.2.1
+Tagger: JJ Merelo <jjmerelo@gmail.com>
+Date:   Sun Apr 6 09:58:12 2014 +0200
+Poco antes de pasar a producción el tema de tags
+en realidad, sólo es un ejemplo
+commit b958b16b8261fa3ca8159b3ae45e237ae1fa1dce
+Author: JJ Merelo <jjmerelo@gmail.com>
+Date:   Sun Apr 6 09:45:38 2014 +0200
+    Añadido de nuevos ficheros al servidor
+    Y edición del README para que sirva para algo
+
+(Suprimidos espacios en blanco para que aparezca como un sólo
+mensaje). Que, como se ve, añade un pequeño mensaje (al principio) al
+propio del commit (a continuación). 
+
+Finalmente, `git describe` es una orden creada precisamente para
+trabajar con las etiquetas: te indica el camino que va desde la última
+etiqueta al commit actual o al que se le indique
+
+	 git describe
+v0.0.2.1-1-g6dd7a8c
+
+que, de una forma un tanto críptica, indica que a partir de la
+etiqueta `v0.0.2.1` hay un commit `-1-` y el nombre del último objeto,
+en este caso el único `6dd7a8c`. Es otra forma de
+[http://gitfu.wordpress.com/2008/05/25/git-describe-great-another-way-to-refer-to-commits/]
+*etiquetar* un punto en la historia de una rama, o simplemente otra
+forma de llamar a un commit. Es más descriptivo que simplemente el
+hash de un commit en el sentido que te indica de qué etiqueta has
+partido y lo lejos que estás de ella.
+
+Por eso precisamente conviene, como una buena práctica, etiquetar la
+rama principal con estas *ramas ligeras* cuando suceda un hito
+importante en el desarrollo. Y también conviene recordar que, dado que
+son anotaciones locales,
+[hay que hacer explícitamente `git push --tags`](http://alblue.bandlem.com/2011/04/git-tip-of-week-tags.html)
+para que se comuniquen al repositorio remoto. 
+
+### Creando y fusionando ramas
+
+Ya que hemos visto como se crean ramas de forma implícita y de forma
+*ligera* (con etiquetas), vamos a trabajar explícitamente con
+ramas. La forma más rápida de crear una rama es usar 
+
+	git checkout -b get-dir
+Switched to a new branch 'get-dir'
+
+Esta orden hace dos cosas: crea la rama, copia todos los ficheros en
+la rama en la que estemos (que será la `master` si no hemos hecho
+nada) a la nueva rama y te cambia a la misma; a partir de ese momento
+estarás modificando ficheros en la nueva rama.
+
+En esta rama se puede hacer lo que se desee: modificar ficheros,
+borrarlos, añadirlos o hacer algo totalmente diferente. En todo
+momento 
+
+	git status
+# En la rama get-dir
+
+nos dirá en qué rama estamos; los ficheros que físicamente
+encontraremos en el directorio de trabajo serán los correspondientes a
+esa rama. Conviene hacer siempre `git status` al principio de una
+sesión para saber dónde se encuentra uno para evitar cambios y sobre
+todo pulls sobre ramas no deseadas.
+
+La rama que se ha creado sigue siendo rama local. Para crear esa rama
+en el repositorio remoto y a la vez sincronizar los dos repositorios
+haremos
+
+	git push --set-upstream origin get-dir
+	
+donde `get-dir` es el nombre de la rama que hemos creado. Las ramas de
+trabajo se pueden listar con
+
+	git branch
+* get-dir
+  master
+
+con un asterisco diciéndonos en qué rama concreata estamos; si
+queremos ver todas las que tenemos se usa
+
+	git branch --all
+* get-dir
+  master
+  remotes/heroku/master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/get-dir
+  remotes/origin/master
+
+que, una vez más, nos muestra con un asterisco que estamos trabajando
+en la rama local `get-dir`; a la vez, nos muestra todas las ramas
+remotas que hay definidas y la relación que hay con las locales, pero
+más que nada por nombre. Si queremos ver la relación real entre ellas
+y los commits que hay en cada una
+
+	jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git branch -vv
+* get-dir 389b383 [origin/get-dir] Pasado a glob
+  master  1a93e3d [origin/master] Añade palabros al diccionario
+
+con `-vv` indicando doble verbosidad. 
+
+En este ejemplo se ha mostrado un patrón habitual de uso de las ramas:
+para probar nuevas características que no sabes si van a funcionar o
+no y que, cuando funcionen, se pasan a la rama principal. En este caso
+se trataba de trabajar con *todos* los ficheros del directorio en vez
+de los ficheros que le pasemos explícitamente. Estas ramas se suelen
+denominar
+[*ramas de características* o *feature branches* y forman parte de un flujo de trabajo habitual en git](https://www.atlassian.com/es/git/workflows#!workflow-feature-branch). Sobre
+un repositorio central, se crear una rama si quieres probar algo que
+no sabes si estará bien eventualmente o si realmente será util. De
+esta forma no se *estorba* a la rama principal, que puede estar
+desarrollando o arreglando errores por otro lado. En este flujo de
+trabajo, eventualmente se integra la rama desarrollada en la
+principal, para lo que se usa pull de nuevo. El concepto de `pull` es
+usar primero `fetch` (descargarse los cambios al árbol) y
+posteriormente `merge` (incorporar los cambios del árbol al
+índice). En casos complicados esta división te da flexibilidad para
+escoger qué cambios quieres hacer, pero en un flujo de trabajo como
+este se puede usar simplemente. Supongamos, por ejemplo, que estamos
+en la rama `get-dir` y se han hecho cambios en la rama principal.
+
+	jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull origin master
+De github.com:oslugr/repo-ejemplo
+ * branch            master     -> FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ .aspell.es.pws | 3 +++
+ README.md      | 5 +++--
+ 2 files changed, 6 insertions(+), 2 deletions(-)
+
+Este mensaje te muestra que se ha fusionado usando una estrategia
+determinada. `git` examina los commits que diferencian una rama de la
+otra y te los aplica; al hacer `pull`aparecerá el editor, en el que
+pondremos el mensaje de fusión. Los cambios se propagarán a la rama
+remota haciendo `git push` y las ramas quedarán como aparece en
+[la visualización de la red con fecha 6 de abril de 2014](https://github.com/oslugr/repo-ejemplo/network);
+`master` se ha fusionado con `get-dir`. 
+
+También podemos hacer la operación inversa. Visto que los cambios de
+`master` no afectan a la funcionalidad nueva que hemos creado,
+fusionemos la rama `get-dir`en la principal. Cambiamos primero a ésta
+
+    git checkout master
+	
+`git checkout` *saca* del árbol los ficheros correspondientes (lo que
+puede afectar a los editores y a las fechas de los mismos, que
+mostrarán la del último checkout si no se han modificado) y nos
+deposita en la rama principal, desde la cual podemos fusionar, usando
+también pull
+
+    jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull origin get-dir
+De github.com:oslugr/repo-ejemplo
+ * branch            get-dir    -> FETCH_HEAD
+Updating df46a37..3705af0
+Fast-forward
+ package.json |  5 +++--
+ web.js       | 18 ++++++++++++------
+ 2 files changed, 15 insertions(+), 8 deletions(-)
+
+que, dado que no hemos hecho ningún cambio en el mismo fichero,
+fusiona sin más problema la rama. En caso de que se hubiera modificado
+las mismas líneas, es decir, que los *commits* hubieran creado una
+divergencia, se habría provocado un conflicto que se puede solucionar
+como se ha visto en el apartado correspondiente. Pero, dado que no se
+la ha habido, el resultado final será el que se muestra en el gráfico.
+
+![Volviendo al redil del master](img/fusion.png)
+
+La rama, una vez fusionada con el tronco principal, se puede
+considerar una rama muerta, así que nos la cargamos
+
+    jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git branch -d get-dir
+Deleted branch get-dir (was 3705af0).
+
+Pero eso borra solamente la rama local. Para
+[borrarla remotamente](http://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-both-locally-and-remotely):
+
+     jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git push origin :get-dir
+To git@github.com:oslugr/repo-ejemplo.git
+ - [deleted]         get-dir
+
+Una sintaxis con : que es ciertamente poco lógica, pero efectiva. Con
+eso tenemos la rama borrada tanto local como remotamente.
 
 
 ## Los misterios del rebase
