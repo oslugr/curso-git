@@ -439,7 +439,7 @@ para que se comuniquen al repositorio remoto.
 
 Ya que hemos visto como se crean ramas de forma implícita y de forma
 *ligera* (con etiquetas), vamos a trabajar explícitamente con
-ramas. La forma más rápida de crear una rama es usar 
+ramas. La [forma más rápida de crear una rama](http://git-scm.com/book/es/Ramificaciones-en-Git-Procedimientos-b%C3%A1sicos-para-ramificar-y-fusionar) es usar 
 
 	git checkout -b get-dir
 Switched to a new branch 'get-dir'
@@ -458,7 +458,7 @@ borrarlos, añadirlos o hacer algo totalmente diferente. En todo
 momento 
 
 	git status
-# En la rama get-dir
+    # En la rama get-dir
 
 nos dirá en qué rama estamos; los ficheros que físicamente
 encontraremos en el directorio de trabajo serán los correspondientes a
@@ -476,15 +476,15 @@ donde `get-dir` es el nombre de la rama que hemos creado. Las ramas de
 trabajo se pueden listar con
 
 	git branch
-* get-dir
-  master
+ * get-dir
+   master
 
 con un asterisco diciéndonos en qué rama concreata estamos; si
 queremos ver todas las que tenemos se usa
 
 	git branch --all
-* get-dir
-  master
+ * get-dir
+   master
   remotes/heroku/master
   remotes/origin/HEAD -> origin/master
   remotes/origin/get-dir
@@ -497,8 +497,8 @@ más que nada por nombre. Si queremos ver la relación real entre ellas
 y los commits que hay en cada una
 
 	jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git branch -vv
-* get-dir 389b383 [origin/get-dir] Pasado a glob
-  master  1a93e3d [origin/master] Añade palabros al diccionario
+ * get-dir 389b383 [origin/get-dir] Pasado a glob
+   master  1a93e3d [origin/master] Añade palabros al diccionario
 
 con `-vv` indicando doble verbosidad. 
 
@@ -523,9 +523,9 @@ este se puede usar simplemente. Supongamos, por ejemplo, que estamos
 en la rama `get-dir` y se han hecho cambios en la rama principal.
 
 	jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull origin master
-De github.com:oslugr/repo-ejemplo
- * branch            master     -> FETCH_HEAD
-Merge made by the 'recursive' strategy.
+  De github.com:oslugr/repo-ejemplo
+  * branch            master     -> FETCH_HEAD
+  Merge made by the 'recursive' strategy.
  .aspell.es.pws | 3 +++
  README.md      | 5 +++--
  2 files changed, 6 insertions(+), 2 deletions(-)
@@ -647,13 +647,13 @@ autores de este tutorial, junto con los mensajes correspondientes. Con
 `git log --pretty=short` se puede conseguir un efecto similar en la línea de órdenes:
 
     commit 3b89bd2fffbf7f5988de16b9911b14d70c9197bd
-Author: JJ Merelo <jjmerelo@gmail.com>
+ Author: JJ Merelo <jjmerelo@gmail.com>
     Añadido texto sobre rebase
-commit c09756d4d296fbacd9541d2d7c23e7710a5d1f09
-Author: JJ Merelo <jjmerelo@gmail.com>
+ commit c09756d4d296fbacd9541d2d7c23e7710a5d1f09
+ Author: JJ Merelo <jjmerelo@gmail.com>
     Añadiendo el capítulo de ramas y tags y esas cosas
-commit 8e4559325032fe1425288c4d1ab51fb7072f79b1
-Author: psicobyte <psicobyte@gmail.com>
+ commit 8e4559325032fe1425288c4d1ab51fb7072f79b1
+ Author: psicobyte <psicobyte@gmail.com>
     Agregado ejemplo de mensaje en push
 
 (una vez más, sin líneas en blanco), con una muestra del mensaje corto
@@ -664,12 +664,12 @@ modificado cada una de las líneas. Por ejemplo, `git blame
 uso_basico.md` devolvería, entre otras cosas, estas líneas
 
     6017d70c (Manu      2014-03-28 22:30:40 +0100  70) [GUI Mac](http://mac.github.c
-2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  71) 
-6017d70c (Manu      2014-03-28 22:30:40 +0100  72) [GUI Windows](http://windows.
-2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  73) 
-01b9da5a (Manu      2014-03-28 22:36:46 +0100  74) [GUI for Linux, Windows y Mac
-75b8e467 (Manu      2014-03-28 22:29:29 +0100  75) 
-2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  76) ##Empezando a usar git
+ 2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  71) 
+ 6017d70c (Manu      2014-03-28 22:30:40 +0100  72) [GUI Windows](http://windows.
+ 2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  73) 
+ 01b9da5a (Manu      2014-03-28 22:36:46 +0100  74) [GUI for Linux, Windows y Mac
+ 75b8e467 (Manu      2014-03-28 22:29:29 +0100  75) 
+ 2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  76) ##Empezando a usar git
 
 que muestran que la línea 70 y la 71 han sido modificadas por [Manu](http://github.com/Makova)
 mientras que el resto lo han sido por

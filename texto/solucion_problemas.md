@@ -6,7 +6,7 @@ Git dispone de una ayuda detallada que nos resultará muy útil. Para invocarla 
 
 `git help`
 
-también se puede obtener ayuda de un comado concreto con `git hel COMANDO`, por ejemplo:
+también se puede obtener ayuda de un comado concreto con `git help COMANDO`, por ejemplo:
 
 `git help commit`
 
