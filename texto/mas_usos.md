@@ -577,9 +577,11 @@ Deleted branch get-dir (was 3705af0).
 Pero eso borra solamente la rama local. Para
 [borrarla remotamente](http://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-both-locally-and-remotely):
 
+```
      jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git push origin :get-dir
 To git@github.com:oslugr/repo-ejemplo.git
  - [deleted]         get-dir
+```
 
 Una sintaxis con : que es ciertamente poco lógica, pero efectiva. Con
 eso tenemos la rama borrada tanto local como remotamente.
@@ -605,11 +607,13 @@ de *commits* a partir del máster (dos puntitos azules más abajo).
 Una vez acabado el trabajo con la rama, cambiamos a `master`(`git
 checkout master`) y podemos hacer `rebase`
 
-	git checkout master
+```	
+git checkout master
 Switched to branch 'master'
 jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git rebase img-dir
 First, rewinding head to replay your work on top of it...
 Fast-forwarded master to img-dir.
+```
 
 Dejando el repositorio en el estado siguiente
 
@@ -646,6 +650,7 @@ En esta imagen se ve como cada commit está asignado a uno de los
 autores de este tutorial, junto con los mensajes correspondientes. Con
 `git log --pretty=short` se puede conseguir un efecto similar en la línea de órdenes:
 
+```
     commit 3b89bd2fffbf7f5988de16b9911b14d70c9197bd
  Author: JJ Merelo <jjmerelo@gmail.com>
     Añadido texto sobre rebase
@@ -655,6 +660,7 @@ autores de este tutorial, junto con los mensajes correspondientes. Con
  commit 8e4559325032fe1425288c4d1ab51fb7072f79b1
  Author: psicobyte <psicobyte@gmail.com>
     Agregado ejemplo de mensaje en push
+```
 
 (una vez más, sin líneas en blanco), con una muestra del mensaje corto
 y del commit junto con el autor. `log` es muy flexible y permite poner
@@ -663,13 +669,15 @@ blame` permite hacer lo mismo sobre un fichero, viendo quién ha
 modificado cada una de las líneas. Por ejemplo, `git blame
 uso_basico.md` devolvería, entre otras cosas, estas líneas
 
-    6017d70c (Manu      2014-03-28 22:30:40 +0100  70) [GUI Mac](http://mac.github.c
+```
+ 6017d70c (Manu      2014-03-28 22:30:40 +0100  70) [GUI Mac](http://mac.github.c
  2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  71) 
  6017d70c (Manu      2014-03-28 22:30:40 +0100  72) [GUI Windows](http://windows.
  2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  73) 
  01b9da5a (Manu      2014-03-28 22:36:46 +0100  74) [GUI for Linux, Windows y Mac
  75b8e467 (Manu      2014-03-28 22:29:29 +0100  75) 
  2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  76) ##Empezando a usar git
+```
 
 que muestran que la línea 70 y la 71 han sido modificadas por [Manu](http://github.com/Makova)
 mientras que el resto lo han sido por

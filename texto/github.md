@@ -1,5 +1,11 @@
 # Usando `git` como los profesionales: GitHub
 
+## Objetivos
+
+* Conocer las características generales de los repositorios públicos de GitHub
+* Conocer las características específicas de GitHub
+* Aprovechar esas características específicas en el trabajo de desarrollo.
+
 ## Por qué GitHub
 
 GitHub se ha convertido en el sitio más popular, a pesar de encontrarse entre una cantidad de sitios que alojan también proyectos y permiten usar Git como Gitorious, BitBucket o incluso el venerable [SourceForge](http://sourceforge.net); [Gitorious](https://gitorious.org/) tiene la ventaja de que está a su vez basado en software libre, por lo que te puedes instalar tu propia copia del repositorio bajo tu control. Sea con este sotware o con [GitLab](https://www.gitlab.com/) te puedes hacer tu propia instalación de git si tienes disponible un servidor para ello. Evidentemente, para trabajar con grandes proyectos privados son una buena opción y lo más aceptable.
@@ -149,16 +155,20 @@ simplificados. Jekyll es muy potente y te permite hasta
 vamos a meter en el funcionamiento del mismo. Tampoco es necesario;
 para crear una página de proyecto sólo hay que hacer dos pasos:
 
+``` 
     git checkout -b gh-pages
     touch index.html
 	git add index.html
-	
+```
+
 (Aquí tendría que editarse el fichero HTML y meter algo, y a
 continuación)
 
+```
     git commit -am "Creada página del sitio"
 	git push origin gh-pages
-	
+```
+
 Con esto se transmite la rama al repositorio y automáticamente se
 publica.
 
@@ -173,8 +183,13 @@ crea el repositorio y se pone el contenido en la rama principal, la
 [organización que se ha creado para este curso](http://curso-git-2014.github.io/)
 
 
-
 ## Cómo usar los hooks
+
+Los *hooks* o *ganchos* son eventos que se activan cuando se produce algún tipo de acción por parte de git. En general, se usan para integrar el sistema de gestión de fuentes de git con otra serie de sistemas, principalmente de [integración continua](http://es.wikipedia.org/wiki/Integraci%C3%B3n_continua) o [entrega continua](http://en.wikipedia.org/wiki/Continuous_delivery) o, en general, cualquier tipo de sistema de notificaciones o de trabajo en grupo.
+
+GitHub puede integrar cualquier tipo de servicio que acepte una petición REST con una serie de características (esencialmente, datos sobre el repositorio y sobre el último commit), pero tiene ya una serie de servicios, casi un centenar, configurables directamente desde el panel de control yendo a *Settings* -> *Webhooks & Services* -> *Configure services*. Todos los servicios se activan cuando se hace un push a GitHub. Evidentemente, en local no se enteran, salvo que los configuremos explícitamente como vamos a ver en el tema siguiente. 
+
+Por ejemplo, uno de los servicios que hay integrados es [Twitter](http://twitter.com). Cada vez que se haga un 
 
 ## Algunos *hooks* interesantes: sistemas de integración continua
 
