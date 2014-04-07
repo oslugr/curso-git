@@ -189,8 +189,78 @@ Los *hooks* o *ganchos* son eventos que se activan cuando se produce algún tipo
 
 GitHub puede integrar cualquier tipo de servicio que acepte una petición REST con una serie de características (esencialmente, datos sobre el repositorio y sobre el último commit), pero tiene ya una serie de servicios, casi un centenar, configurables directamente desde el panel de control yendo a *Settings* -> *Webhooks & Services* -> *Configure services*. Todos los servicios se activan cuando se hace un push a GitHub. Evidentemente, en local no se enteran, salvo que los configuremos explícitamente como vamos a ver en el tema siguiente. 
 
-Por ejemplo, uno de los servicios que hay integrados es [Twitter](http://twitter.com). Cada vez que se haga un 
+Vamos a dividir los servicios que hay en varios grupos.
+* Integración continua. Servicios como TravisCI, CircleCI, Jenkins o Shippable. Los tres primeros se pueden configurar directamente desde GH, para el último hay que entrar en [su web](http://shippable.com) y activar el respositorio que haga falta. Estos servicios realizan una serie de tests o generación de código sobre el proyecto y dan un resultado indicando qué tests se han pasado o no. Para indicar qué tests se hacen y los parámetros del repositorio, cada uno usa un formato diferente, aunque son habituales los ficheros de formato YAML o XML. En [el repo de ejemplo](http://github.com/oslugr/repo-ejemplo) se han activado Travis y Shippable, y en el directorio principal se pueden ver los ficheros de configuración (del mismo nombre que el sitio).
+* Servicios de mensajería diversos, que envían mensajes cuando sucede algo. Entre estos últimos está [Twitter](http://twitter.com), que se puede configurar para que se cree un tweet con el mensaje del commit cada vez que se haga uno. Puede ser bastante útil, si se usa este sitio, para mantenerte al día de la actividad de un grupo de trabajo. También hay otros servicios como Jabber o Yammer o comerciales como Amazon SNS. 
+* Entrega continua: a veces integrados con los de, valga la redundancia, integración continua, pero que permiten directamente, cuando se hace un push sobre una rama dterminada, se despliegue en el sitio definitivo. Servicios como Azure lo permiten, pero también [CodeShip](http://codeship.io) o [Jenkins](http://lkrnac.net/blog/2014/03/16/continuous-delivery/). Generalmente en este caso hay que configurar algún tipo de *secret* o *clave* que permita a GitHub acceder al sitio y depositar la *carga* que, inmediatamente, estará disponible. De hecho, es muy fácil trabajar con esto [directamente desde el editor como Eclipse](http://java.dzone.com/articles/trigger-continuous-delivery)
+* Sistemas de trabajo en grupo, que integran GitHub con los sistemas que tengan de asignación de tareas, de resolución de incidencias incluidas por parte de clientes. Por ejemplo, Basecamp, Bugzilla o Zendesk. De hecho, el propio GitHub integra un sistema de incidencias que se puede usar fácilmente. 
+* Análisis del código como CodeClimate (que analiza una serie de parámetros del código), Depending (que analiza dependencias en PHP) o David-DM (que analiza dependencias para nodejs).
+
+Lo interesante es que se puede trabajar con la mayoría de estos sistemas de forma gratuita, aunque algunos tienen un modelo *freemium* que te cobra a partir de un nivel determinado de uso (lo que es natural, si no no podrían ofrecértelo de forma grauita). Además, integra la mayor parte de los sistemas que se usan habitualmente en la industria del software. 
 
 ## Algunos *hooks* interesantes: sistemas de integración continua
 
+GitHub resulta ideal para trabajar con cualquier sistema de integración continua, sea alojado o propio. Los sistemas de integración continua funcionan de la forma siguiente
+* Provisionan una máquina virtual con unas características determinadas para ejecutar pruebas o compilar código. 
+* Instalan el software necesario para llevar a cabo dichas pruebas
+* Ejecutan las pruebas, creando finalmente un informe que indique cuantas han fallado o acertado
+* Crear un *artefacto*, que puede ir desde un fichero con el informe en un formato estándar (suele ser XUnit o JUnit) hasta el ejecutable que se podrá descargar directamente del sitio; esto último puede incluir también su despliegue en la *nube*, un IaaS (Infraestructure as a Service) o PaaS (Platform as a Service) en caso de que haya pasado todos los tests satisfactoriamente.
+
+La integración continua forma parte de una metodología de [desarrollo basado en test o guiado por pruebas](http://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas) que consiste en crear primero las pruebas que tiene que pasar un código antes de, efectivamente, escribir tal código. Las pruebas son tests unitarios y también de integración, que prueban las capas de la aplicación a diferentes niveles (por ejemplo, acceso a datos, procesamiento de los datos, UI). Todos los lenguajes de programación modeno incluyen un aplicación que crea un protocolo para llevar a cabo los test e informar del resultado y estos sistemas van desde el humilde Makefile que se usa en diferentes lenguajes compilados hasta el complejo Maven, pasando por sistemas como los tests de Perl o los Rakefiles de Ruby. En cualquier caso, cada lenguaje suele tener una forma estándar de pasar los tests (`make test`, `npm test` o `mocha`) y los sistemas de integración continua hacen muy simple trabajar con estos tests estándar, pero también son flexibles en el sentido que se puede adaptar a todo tipo de programa.
+
+Veamos como trabajar con [Travis](http://travis-ci.com). Se hace siguiendo estos pasos
+
+1. [Darse de alta en Travis CI](http://docs.travis-ci.com/user/getting-started/) usando la propia cuenta de GitHub
+2. Activar el *hook* en [tu perfil de Travis](https://travis-ci.org/profile). 
+3. Se añade el fichero `.travis.yml` a tu repositorio. Este dependerá del lenguaje que se esté usando, aunque si lo único que quieres es comprobar la ortografía de tus documentos, lo puedes hacer [como en el repositorio ejemplo](https://github.com/oslugr/repo-ejemplo/blob/master/.travis.yml)
+4. Hacer push.
+
+La mayoría de estos repositorios suelen usar un fichero en formato estándar, YAML, XML o JSON. Veamos qué hace el fichero que hemos usado para el repo ejemplo:
+
+```
+branches:
+  except:
+    - gh-pages
+language: C
+compiler:
+  - gcc
+before_install:
+  - sudo apt-get install aspell-es 
+script: OUTPUT=`cat README.md | aspell list -d es -p ./.aspell.es.pws`; if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
+```
+
+La estructura de YAML permite expresar vectores y matrices asociativas fácilmente. En general, nos vamos a encontrar con algo del tipo `variable: valor` que será una clave y el valor correspondiente; el valor, a su vez, puede incluir otras estructuras similares. Por ejemplo, la primera
+
+```
+branches:
+  except:
+    - gh-pages
+```
+
+es una clave, `branches`, que incluye otra clave, `except`, que a su vez apunta a un vector (diferentes valores precedidos por -) con las ramas que vamos a excluir. En este caso, `gh-pages`, la de las páginas. Si hubiera otra rama a excluir, iría de esta forma
+
+```
+branches:
+  except:
+    - gh-pages
+	- a-excluir
+```
+
+es decir, como un array de dos componentes. Esto hará que, sobre nuestro repositorio, se prueben todas las ramas, inclusive por supuesto la máster. A continuación expresamos el lenguaje que se va a usar; Travis no admite cualquier lenguaje, pero algunos como C, Perl o nodejs los acepta sin problemas. Como hay varios compiladores posibles, a continuación le decimos qué compilador se va a usar (en realidad, no se usa ninguno). En otros lenguajes habría que decir qué intérprete o qué versión; estas claves son específicas del lenguaje.
+
+```
+before_install:
+  - sudo apt-get install aspell-es 
+script: OUTPUT=`cat README.md | aspell list -d es -p ./.aspell.es.pws`; if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
+```
+
+Como lo único que vamos a hacer en este caso es comprobar la ortografía del texto del fichero `README.md`, instalamos con `apt-get` (herramienta estándar para Linux) un diccionario en español; este instalará todas las dependencias a su vez.  Finalmente, la orden marcada `script` es la que lleva a cabo la comprobación. Para un programa normal sería suficiente hacer `make test` (y definir las dependencias para este objetivo, claro). No nos preocupemos mucho por lo que es, sino por lo que hace: si hay alguna palabra que no pase el test ortográfico, [fallará y enviará un mensaje de correo electrónico a la persona que haya hecho un commit indicándolo](https://travis-ci.org/oslugr/repo-ejemplo/builds/22375300). Si lo pasa sin problemas, [también enviará el mensaje indicando que todo está correcto]( https://travis-ci.org/oslugr/repo-ejemplo/builds/22377799). Este tipo de cosas resulta útil sólo por el hecho de que se ejecuten automáticamente, pero pueden servir también para hacer despliegues continuos.
+
+Travis también proporciona un *badge* que puedes incluir en tu repositorio para indicar si pasa los tests o no, que puedes incluir en tu fichero `README.md`(o donde quieras) con este código
+
+```
+[![Build Status](https://travis-ci.org/oslugr/repo-ejemplo.svg?branch=master)](https://travis-ci.org/oslugr/repo-ejemplo)
+```
+
+sustituyendo el nombre de usuario y el nombre del repo por el correspondiente, claro. Este código está escrito en MarkDown, y GitHub lo interpretará directamente sin problemas, aunque lo mejor es que pinches en la imagen que aparece arriba a la derecha que te dará el código correspondiente.
 
