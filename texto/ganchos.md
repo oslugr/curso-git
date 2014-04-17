@@ -34,7 +34,7 @@ La orden `ls-tree` nos permite ver qué tipos de objetos tenemos almacenados y s
 040000 tree 39da6b155c821af1e6a304daca9b66efb1ac651f	test
 100644 blob 94f151d9ef9340c81989b0c3fa8c517c068e1864	web.js
 ```
-En este caso tenemos objetos de tres tipos: blob, commit y tree. a `ls-tree` se le pasa un *commit-ish*, es decir, un código de un commit pero, para no preocuparnos de qué se trata esto, usaremos simplemente HEAD, que apunta como sabéis a la punta de la rama en la que nos encontramos ahora mismo. También  nos da el SHA1 de 40 caracteres que representa cada uno de los ficheros. Si editamos un fichero como el README.md, tras hacer el commit tendrá esta apariencia:
+En este caso tenemos objetos de tres tipos: blob, commit y tree. a `ls-tree` se le pasa un *tree-ish*, es decir, algo que apunte a dónde esté almacenado un árbol pero, para no preocuparnos de qué se trata esto, usaremos simplemente HEAD, que apunta como sabéis a la punta de la rama en la que nos encontramos ahora mismo. También  nos da el SHA1 de 40 caracteres que representa cada uno de los ficheros. Si editamos un fichero como el README.md, tras hacer el commit tendrá esta apariencia:
 
 ```
 ~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git ls-tree HEAD100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
@@ -42,7 +42,29 @@ En este caso tenemos objetos de tres tipos: blob, commit y tree. a `ls-tree` se 
 100644 blob da5b5121adb42e990b9e990c3edb962ef99cb76a	README.md
 ```
 
-Como vemos, ha cambiado el SHA1. Pero ls-tree va más allá y te puede mostrar también cuál es el estado del repositorio hace varios commits. Por ejemplo, podemos usar `HEAD^` para referirnos al commit anterior y `git ls-tree HEAD^` nos devolvería exactamente el mismo estado en el que estaba antes de hacer la modificación a README.md. 
+Como vemos, ha cambiado el SHA1. Pero ls-tree va más allá y te puede mostrar también cuál es el estado del repositorio hace varios commits. Por ejemplo, podemos usar `HEAD^` para referirnos al commit anterior y `git ls-tree HEAD^` nos devolvería exactamente el mismo estado en el que estaba antes de hacer la modificación a README.md. De hecho, podemos usar también la abreviatura del commit de esta forma `git ls-tree 5be23bb`, siendo este último una parte del SHA1 (o hash) del último commit; nos devolvería el último resultado. 
+
+Pero podemos ir todavía más profundamente dentro de las tuberías. `ls-tree` sólo lista los objetos que ya forman parte del árbol, del principal o de alguno de los secundarios. Puede que necesitemos acceder a aquellos objetos que se han añadido al índice, pero todavía no han pasado a ningún árbol. Para eso usamos `ls-files`. Tras añadir un fichero con `add`, podemos hacer:
+
+```
+git ls-files --stage
+100644 a6f69e4284566cd84272c6a4e4996f64643afbea 0	.aspell.es.pws
+100644 a72b52ebe897796e4a289cf95ff6270e04637aad 0	.gitignore
+100644 cc5411b5557f43c7ba2f37ad31f8dc34cccda075 0	.gitmodules
+100644 4e7b6c1b5a6cb3a962ea05874d10c943c1923f39 0	.travis.yml
+100644 d5445e7ac8422305d107420de4ab8e1ee6227cca 0	LICENSE
+100644 d1913ebe4d9e457be617ee0e786fc8c30a237902 0	Procfile
+100644 da5b5121adb42e990b9e990c3edb962ef99cb76a 0	README.md
+160000 fa8b7521968bddf235285347775b21dd121b5c11 0	curso
+100644 f8c35adaf57066d4329737c8f6ec7ce6179cc221 0	package.json
+100644 08827778af94ea4c0ddbc28194ded3081e7b0f87 0	shippable.yml
+100644 9920d80438d42e3b0a6924a0fcace2d53a6af602 0	test/route.js
+100644 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3 0	views/layout.jade
+100644 94f151d9ef9340c81989b0c3fa8c517c068e1864 0	web.js
+```
+Que nos devuelve, en penúltimo lugar, un fichero que todavía no ha pasado al árbol. Evidentemente, tras el commit:
+
+
 
 
 
