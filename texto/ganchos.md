@@ -44,7 +44,7 @@ En este caso tenemos objetos de tres tipos: blob, commit y tree. a `ls-tree` se 
 
 Como vemos, ha cambiado el SHA1. Pero ls-tree va más allá y te puede mostrar también cuál es el estado del repositorio hace varios commits. Por ejemplo, podemos usar `HEAD^` para referirnos al commit anterior y `git ls-tree HEAD^` nos devolvería exactamente el mismo estado en el que estaba antes de hacer la modificación a README.md. De hecho, podemos usar también la abreviatura del commit de esta forma `git ls-tree 5be23bb`, siendo este último una parte del SHA1 (o hash) del último commit; nos devolvería el último resultado. 
 
-Pero podemos ir todavía más profundamente dentro de las tuberías. `ls-tree` sólo lista los objetos que ya forman parte del árbol, del principal o de alguno de los secundarios. Puede que necesitemos acceder a aquellos objetos que se han añadido al índice, pero todavía no han pasado a ningún árbol. Para eso usamos `ls-files`. Tras añadir un fichero con `add`, podemos hacer:
+Pero podemos ir todavía más profundamente dentro de las tuberías. `ls-tree` sólo lista los objetos que ya forman parte del árbol, del principal o de alguno de los secundarios. Puede que necesitemos acceder a aquellos objetos que se han añadido al índice, pero todavía no han pasado a ningún árbol. Para eso usamos `ls-files`. Tras añadir un fichero que está en un subdirectorio `views` con `add`, podemos hacer:
 
 ```
 git ls-files --stage
@@ -64,14 +64,35 @@ git ls-files --stage
 ```
 Que nos devuelve, en penúltimo lugar, un fichero que todavía no ha pasado al árbol. Evidentemente, tras el commit:
 
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git ls-tree HEAD
+[...]
+040000 tree fd3846c0d6089437598004131184c61aea2b6514	views
+```
+
+Este listado nos muestra el nuevo objeto de tipo `tree` que se ha creado y nos da su SHA1, que podemos usar para examinarlo con `ls-tree`
 
 
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git ls-tree fd3846c
+100644 blob 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3	layout.jade
+```
 
+que, si queremos ver en una vista más normal, hacemos lo mismo con `ls-file`
 
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git ls-files views
+views/layout.jade
+```
 
+Hay un tercer comando, `cat-file`, que muestra el contenido de un objeto, en general. Por ejemplo, en este caso, para listar el contenido de un objeto de tipo `tree`
 
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git cat-file -p fd3846c
+100644 blob 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3	layout.jade
+```
 
-
+Hay 
 ## Concepto de *hooks*
 
 ## Programando un *hook* básico
