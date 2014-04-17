@@ -157,7 +157,7 @@ Ese directorio es lo que llamamos "Directorio de trabajo", puede contener otros 
 
 Git sabe que tiene que controlar ese directorio, pero no lo hace hasta que se lo digas expresamente.
 
-Más adelante veremos con algo más de detalle la orden `git add`, pero ya te adelanto que lo que hace es preparar los archivos que le indiques poniéndolos en una especie de lista virtual a la que llamamos el "Index". En Index ponerlos los archivos que hemos ido modificando, pero ls cosas que están en el "Index" aun no han sido archivadas por git.
+Más adelante veremos con algo más de detalle la orden `git add`, pero ya te adelanto que lo que hace es preparar los archivos que le indiques poniéndolos en una especie de lista virtual a la que llamamos el "Index". En Index ponemos los archivos que hemos ido modificando, pero las cosas que están en el "Index" aun no han sido archivadas por git.
 
 Ojo, que algo esté en el index no significa que se borre de tu directorio de trabajo ni nada parecido, el Index es sólo una lista de cosas que tendrás que actualizar en el repositorio porque han cambiado.
 
@@ -167,7 +167,7 @@ Lo sé, es todo un poco lioso ahora mismo, pero ya se irá aclarando conforme ap
 
 Tú sólo mantén esta secuencia en la cabeza: Directorio de trabajo -> Index -> HEAD
 
-##Manteniendo nuestro repositorio al día
+## Manteniendo nuestro repositorio al día
 
 Tienes tu repositorio iniciado (o clonado) con una serie de archivos con los que empiezas a trabajar, creándolos, editándolos, modificándolos, etc.
 
@@ -259,7 +259,7 @@ Esta orden sirve para confirmar todos los cambios que haya en el directorio de t
 
 > Esta opción ahorra escribir órdenes, pero también te da más oportunidades de meter la pata. En general se recomienda usar por separado adds y commits, convenientemente salteados de `git status` para comprobar que todo va bien.
 
-##Sincronizando repositorios
+## Sincronizando repositorios
 
 Como sistema de control de versiones distribuido, una de las principales utilidades de git es poder mantener distintos repositorios sincronizados (es decir, que contengan la misma información), exportando e importando cambios.
 
