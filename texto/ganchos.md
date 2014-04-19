@@ -1,22 +1,22 @@
-# *Hooks*: ejecutando código tras una orden git
+## *Hooks*: ejecutando código tras una orden git
 
-## Objetivos
+### Objetivos
 
 * Entender el concepto de *fontanería* y *loza*
 * Entender el concepto de *hooks* o *puntos de enganche*
 * Entender las órdenes menos usuales de git usadas desde los *hooks*
 * Saber adaptar *hooks* para una labor determinada
  
-## Viendo las cañerías: estructura de un repositorio `git`
+### Viendo las cañerías: estructura de un repositorio `git`
 
 Cuando se crea por primera vez un repositorio veremos que aparecen misteriosamente una serie de ficheros con esta estructura dentro del directorio `.git`.
 
 ![Estructura básica de un repositorio git](img/tree-git.png)
 
-`branches` lo dejamos de lado porque ya no se usa (aunque por alguna razón se sigue creando). `config`, `HEAD`, `refs` y `objects` son ficheros o directorios que almacenan información dinámica. 
+`branches` lo dejamos de lado porque ya no se usa (aunque por alguna razón se sigue creando). `config`, `HEAD`, `refs` y `objects` son ficheros o directorios que almacenan información dinámica, por ejemplo `config` almacena las variables de configuración 
 
 
-## Comandos de alto y bajo nivel: *fontanería* y *loza*
+### Comandos de alto y bajo nivel: *fontanería* y *loza*
 
 Para entendernos, todas las órdenes que hemos usado hasta ahora son *loza*. Es decir, es el *interfaz* del usuario de toda la instalación de fontanería que lleva a cabo realmente la labor de quitar de enmedio lo que uno depositao en las instalaciones sanitarias. Pero por debajo de la loza y pegado a ella, están las cañerías y toda la instalación de fontanería. 
 
@@ -94,16 +94,16 @@ que, si queremos ver en una vista más normal, hacemos lo mismo con `ls-file`
 views/layout.jade
 ```
 
-Hay un tercer comando, `cat-file`, que muestra el contenido de un objeto, en general. Por ejemplo, en este caso, para listar el contenido de un objeto de tipo `tree`
+Hay un tercer comando relacionado con el examen de directorios y ficheros locales, `cat-file`, que muestra el contenido de un objeto, en general. Por ejemplo, en este caso, para listar el contenido de un objeto de tipo `tree`
 
 ```
 ~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git cat-file -p fd3846c
 100644 blob 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3	layout.jade
 ```
 
-Hay 
-## Concepto de *hooks*
+ 
+### Concepto de *hooks*
 
-## Programando un *hook* básico
+### Programando un *hook* básico
 
-## Algunos *hooks* útiles explicados
+### Algunos *hooks* útiles explicados

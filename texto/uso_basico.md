@@ -482,4 +482,4 @@ Por ejemplo, para usar un archivo llamado "ignorar" en mi directorio personal, p
 
 Puedes encontrar muchos ejemplos de archivos *.gitignore* en este [repositorio de GitHub](https://github.com/github/gitignore).
 
->Las opciones que se establecen con `git config` se almacenan permanentemente en el fichero `.git/config`. Por lo pronto no nos preocupemos de este fichero, pero todas las variables anteriores (y alguna más) se pueden poner directamente en este fichero.
+>Las opciones que se establecen con `git config`  para el repositorio local se almacenan permanentemente en el fichero `.git/config`. Por lo pronto no nos preocupemos de este fichero, pero todas las variables anteriores (y alguna más) se pueden poner directamente en este fichero.

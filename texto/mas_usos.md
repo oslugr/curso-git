@@ -62,7 +62,7 @@ persona sólo tenga que *ver* los ficheros con los que tenga que
 trabajar y no se *distraiga* con la modificación de ficheros con los
 cuales, en principio, no tiene nada que ver; también de forma que no
 se sienta tentado en modificar esos mismos ficheros. Vamos a exponer
-aquí algunas prácticas comunes,pero en cada caso el sentido común y la
+aquí algunas prácticas comunes, pero en cada caso el sentido común y la
 práctica habitual de la empresa deberá imponerse...
 
 ### Qué poner en el directorio principal
@@ -78,7 +78,7 @@ Otros ficheros que suelen ir en el directorio principal
 
 * `INSTALL` por costumbre, suele contener las intrucciones para
   instalar. También por convención, hoy en día se suele escribir
-  usando Markdown convirtiéndose, por tanto, en `INSTALL.md`
+  usando Markdown convirtiéndose, por tanto, en `INSTALL.md`.
   
  * `.gitignore` posiblemente ya conocido, incluye los patrones y
    ficheros que no se deben considerar como parte del repositorio
@@ -91,7 +91,7 @@ Otros ficheros que suelen ir en el directorio principal
  * `TODO` es una ventana abierta a la colaboració, así como una lista
    para recordarnos a nosotros mismos qué tareas tenemos por delante.
    
- * Otros ficheros de configuración, como `. travis.yml`para el sistema
+ * Otros ficheros de configuración, como `.travis.yml`para el sistema
    de integración continua Travis, `Makefile.PL` o `configure` u otros
    ficheros necesarios para configurar la librería, y ficheros
    similares que haga falta ejecutar o ver al instalar la
@@ -137,7 +137,8 @@ Otros ficheros que suelen ir en el directorio principal
  de ejemplo, para poder servirlo como una web también:
  
 
-    git submodule add git@github.com:oslugr/curso-git.git curso
+```
+git submodule add git@github.com:oslugr/curso-git.git curso
 Clonar en «curso»...
 remote: Reusing existing pack: 14, done.
 remote: Counting objects: 4, done.
@@ -145,7 +146,7 @@ remote: Compressing objects: 100% (4/4), done.
 remote: Total 18 (delta 0), reused 0 (delta 0)
 Receiving objects: 100% (18/18), 17.26 KiB, done.
 Resolving deltas: 100% (4/4), done.
-
+```
 
 Los submódulos no se clonan directamente al clonar el repositorio. Hay
 que dar dos comandos: `git submodule init` y `git submodule update`
@@ -158,7 +159,8 @@ los ficheros físicamente.
 De esta forma, el repositorio queda (parcialmente) con esta estructura
 de directorios:
 
-    jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ tree
+```
+jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ tree
 .
 ├── curso
 │   ├── LICENSE
@@ -167,6 +169,7 @@ de directorios:
 │       ├── ganchos.md
 │       ├── GitHub.md
 │       └── mas-usos.md
+```
 
 
 con el subdirectorio `curso` siendo, en realidad, otro repositorio.
@@ -307,19 +310,22 @@ Por ejemplo, en caso de que se haya borrado un fichero (o, para el
 caso, hecho cualquier cambio) en un repositorio y se trate de hacer
 `push` desde el local, habrá un error de este estilo. 
 
-    To git@github.com:oslugr/repo-ejemplo.git
+```
+To git@github.com:oslugr/repo-ejemplo.git
  ! [rejected]        master -> master (non-fast-forward)
 error: failed to push some refs to 'git@github.com:oslugr/repo-ejemplo.git'
 consejo: Updates were rejected because the tip of your current branch is behind
 consejo: its remote counterpart. Merge the remote changes (e.g. 'git pull')
 consejo: before pushing again.
 consejo: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
 
 En este caso habrá dos ramas, en la *punta* de cada una de las cuales
 habrá un commit diferente. Se siguen instrucciones, es decir, `git
 pull`
 
-	jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull
+```
+jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull
 remote: Counting objects: 2, done.
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 2 (delta 0), reused 0 (delta 0)
@@ -331,6 +337,7 @@ Merge made by the 'recursive' strategy.
  Makefile | 3 ---
  1 file changed, 3 deletions(-)
  delete mode 100644 Makefile
+```
 
 y aparece, efectivamente, el directorio borrado. Habrá que hacer el
 push de nuevo. Una vez hecho, el repositorio se ha estructurado como
@@ -369,10 +376,12 @@ estado en el que estaba el respositorio tras el último commit. La
 etiqueta aparecerá de forma inmediata (sin necesidad de hacer *push*,
 puesto que se añade al útlimo commit y se puede listar con
 
-	git tag
+```
+git tag
 jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git tag
 v0.0.1
 v0.0.2
+```
 
 ![La etiqueta se muestra adosada a un commit](img/tag.png)
 
@@ -397,7 +406,8 @@ por ejemplo. Esta información aparecerá añadida al commit
 correspondiente (el último que hayamos hecho) cuando hagamos, por
 ejemplo, `git show v0.0.2.1` 
 
-	tag v0.0.2.1
+```
+tag v0.0.2.1
 Tagger: JJ Merelo <jjmerelo@gmail.com>
 Date:   Sun Apr 6 09:58:12 2014 +0200
 Poco antes de pasar a producción el tema de tags
@@ -407,6 +417,7 @@ Author: JJ Merelo <jjmerelo@gmail.com>
 Date:   Sun Apr 6 09:45:38 2014 +0200
     Añadido de nuevos ficheros al servidor
     Y edición del README para que sirva para algo
+```
 
 (Suprimidos espacios en blanco para que aparezca como un sólo
 mensaje). Que, como se ve, añade un pequeño mensaje (al principio) al
@@ -416,8 +427,10 @@ Finalmente, `git describe` es una orden creada precisamente para
 trabajar con las etiquetas: te indica el camino que va desde la última
 etiqueta al commit actual o al que se le indique
 
-	 git describe
+```
+git describe
 v0.0.2.1-1-g6dd7a8c
+```
 
 que, de una forma un tanto críptica, indica que a partir de la
 etiqueta `v0.0.2.1` hay un commit `-1-` y el nombre del último objeto,
@@ -441,8 +454,10 @@ Ya que hemos visto como se crean ramas de forma implícita y de forma
 *ligera* (con etiquetas), vamos a trabajar explícitamente con
 ramas. La [forma más rápida de crear una rama](http://git-scm.com/book/es/Ramificaciones-en-Git-Procedimientos-b%C3%A1sicos-para-ramificar-y-fusionar) es usar 
 
-	git checkout -b get-dir
+```
+git checkout -b get-dir
 Switched to a new branch 'get-dir'
+```
 
 Esta orden hace dos cosas: crea la rama, copia todos los ficheros en
 la rama en la que estemos (que será la `master` si no hemos hecho
@@ -450,15 +465,19 @@ nada) a la nueva rama y te cambia a la misma; a partir de ese momento
 estarás modificando ficheros en la nueva rama. Es decir, equivale a
 dos órdenes
 
+```
 	git branch get-dir
 	git checkout get-dir 
+```
 
 En esta rama se puede hacer lo que se desee: modificar ficheros,
 borrarlos, añadirlos o hacer algo totalmente diferente. En todo
 momento 
 
-	git status
-    # En la rama get-dir
+```
+git status
+# En la rama get-dir
+```
 
 nos dirá en qué rama estamos; los ficheros que físicamente
 encontraremos en el directorio de trabajo serán los correspondientes a
