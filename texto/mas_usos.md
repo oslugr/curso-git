@@ -470,18 +470,25 @@ La rama que se ha creado sigue siendo rama local. Para crear esa rama
 en el repositorio remoto y a la vez sincronizar los dos repositorios
 haremos
 
+```
 	git push --set-upstream origin get-dir
-	
-donde `get-dir` es el nombre de la rama que hemos creado. Las ramas de
+```
+
+donde `get-dir` es el nombre de la rama que hemos creado. Esta orden establece un origen por defecto (*upstream*) para la rama en la que estamos y además le asigna un nombre a esa rama, get-dir. 
+
+Las ramas de
 trabajo se pueden listar con
 
+```
 	git branch
  * get-dir
    master
+```
 
 con un asterisco diciéndonos en qué rama concreata estamos; si
 queremos ver todas las que tenemos se usa
 
+```
 	git branch --all
  * get-dir
    master
@@ -489,6 +496,7 @@ queremos ver todas las que tenemos se usa
   remotes/origin/HEAD -> origin/master
   remotes/origin/get-dir
   remotes/origin/master
+```
 
 que, una vez más, nos muestra con un asterisco que estamos trabajando
 en la rama local `get-dir`; a la vez, nos muestra todas las ramas
@@ -496,11 +504,13 @@ remotas que hay definidas y la relación que hay con las locales, pero
 más que nada por nombre. Si queremos ver la relación real entre ellas
 y los commits que hay en cada una
 
-	jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git branch -vv
+```
+jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git branch -vv
  * get-dir 389b383 [origin/get-dir] Pasado a glob
    master  1a93e3d [origin/master] Añade palabros al diccionario
+```
 
-con `-vv` indicando doble verbosidad. 
+con `-vv` indicando doble verbosidad, es decir, que imprima toda la información que tenga. 
 
 En este ejemplo se ha mostrado un patrón habitual de uso de las ramas:
 para probar nuevas características que no sabes si van a funcionar o
@@ -522,13 +532,15 @@ escoger qué cambios quieres hacer, pero en un flujo de trabajo como
 este se puede usar simplemente. Supongamos, por ejemplo, que estamos
 en la rama `get-dir` y se han hecho cambios en la rama principal.
 
-	jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull origin master
+```
+jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull origin master
   De github.com:oslugr/repo-ejemplo
   * branch            master     -> FETCH_HEAD
   Merge made by the 'recursive' strategy.
  .aspell.es.pws | 3 +++
  README.md      | 5 +++--
  2 files changed, 6 insertions(+), 2 deletions(-)
+```
 
 Este mensaje te muestra que se ha fusionado usando una estrategia
 determinada. `git` examina los commits que diferencian una rama de la
@@ -550,7 +562,8 @@ mostrarán la del último checkout si no se han modificado) y nos
 deposita en la rama principal, desde la cual podemos fusionar, usando
 también pull
 
-    jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull origin get-dir
+```
+jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull origin get-dir
 De github.com:oslugr/repo-ejemplo
  * branch            get-dir    -> FETCH_HEAD
 Updating df46a37..3705af0
@@ -558,6 +571,7 @@ Fast-forward
  package.json |  5 +++--
  web.js       | 18 ++++++++++++------
  2 files changed, 15 insertions(+), 8 deletions(-)
+```
 
 que, dado que no hemos hecho ningún cambio en el mismo fichero,
 fusiona sin más problema la rama. En caso de que se hubiera modificado
@@ -571,19 +585,21 @@ la ha habido, el resultado final será el que se muestra en el gráfico.
 La rama, una vez fusionada con el tronco principal, se puede
 considerar una rama muerta, así que nos la cargamos
 
-    jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git branch -d get-dir
+```
+jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git branch -d get-dir
 Deleted branch get-dir (was 3705af0).
+```
 
 Pero eso borra solamente la rama local. Para
 [borrarla remotamente](http://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-both-locally-and-remotely):
 
 ```
-     jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git push origin :get-dir
+jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git push origin :get-dir
 To git@github.com:oslugr/repo-ejemplo.git
  - [deleted]         get-dir
 ```
 
-Una sintaxis con : que es ciertamente poco lógica, pero efectiva. Con
+Una sintaxis con `:` que es ciertamente poco lógica, pero efectiva. Con
 eso tenemos la rama borrada tanto local como remotamente.
 
 

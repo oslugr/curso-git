@@ -7,6 +7,15 @@
 * Entender las órdenes menos usuales de git usadas desde los *hooks*
 * Saber adaptar *hooks* para una labor determinada
  
+## Viendo las cañerías: estructura de un repositorio `git`
+
+Cuando se crea por primera vez un repositorio veremos que aparecen misteriosamente una serie de ficheros con esta estructura dentro del directorio `.git`.
+
+![Estructura básica de un repositorio git](img/tree-git.png)
+
+`branches` lo dejamos de lado porque ya no se usa (aunque por alguna razón se sigue creando). `config`, `HEAD`, `refs` y `objects` son ficheros o directorios que almacenan información dinámica. 
+
+
 ## Comandos de alto y bajo nivel: *fontanería* y *loza*
 
 Para entendernos, todas las órdenes que hemos usado hasta ahora son *loza*. Es decir, es el *interfaz* del usuario de toda la instalación de fontanería que lleva a cabo realmente la labor de quitar de enmedio lo que uno depositao en las instalaciones sanitarias. Pero por debajo de la loza y pegado a ella, están las cañerías y toda la instalación de fontanería. 
