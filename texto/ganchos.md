@@ -72,7 +72,27 @@ La orden `ls-tree` nos permite ver qué tipos de objetos tenemos almacenados y s
 040000 tree 39da6b155c821af1e6a304daca9b66efb1ac651f	test
 100644 blob 94f151d9ef9340c81989b0c3fa8c517c068e1864	web.js
 ```
-En este caso tenemos objetos de tres tipos: blob, commit y tree. a `ls-tree` se le pasa un *tree-ish*, es decir, algo que apunte a dónde esté almacenado un árbol pero, para no preocuparnos de qué se trata esto, usaremos simplemente HEAD, que apunta como sabéis a la punta de la rama en la que nos encontramos ahora mismo. También  nos da el SHA1 de 40 caracteres que representa cada uno de los ficheros. Si editamos un fichero como el README.md, tras hacer el commit tendrá esta apariencia:
+En este caso tenemos objetos de tres tipos: blob, commit y tree. a `ls-tree` se le pasa un *tree-ish*, es decir, algo que apunte a dónde esté almacenado un árbol pero, para no preocuparnos de qué se trata esto, usaremos simplemente HEAD, que apunta como sabéis a la punta de la rama en la que nos encontramos ahora mismo. También  nos da el SHA1 de 40 caracteres que representa cada uno de los ficheros. Si queremos que se expandan los `tree` para mostrar los ficheros que hay dentro también usamos la opcion `-r`
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git ls-tree -r HEAD
+100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
+100644 blob a72b52ebe897796e4a289cf95ff6270e04637aad	.gitignore
+100644 blob cc5411b5557f43c7ba2f37ad31f8dc34cccda075	.gitmodules
+100644 blob 4e7b6c1b5a6cb3a962ea05874d10c943c1923f39	.travis.yml
+100644 blob d5445e7ac8422305d107420de4ab8e1ee6227cca	LICENSE
+100644 blob d1913ebe4d9e457be617ee0e786fc8c30a237902	Procfile
+100644 blob da5b5121adb42e990b9e990c3edb962ef99cb76a	README.md
+160000 commit fa8b7521968bddf235285347775b21dd121b5c11	curso
+100644 blob f8c35adaf57066d4329737c8f6ec7ce6179cc221	package.json
+100644 blob 08827778af94ea4c0ddbc28194ded3081e7b0f87	shippable.yml
+100644 blob 9920d80438d42e3b0a6924a0fcace2d53a6af602	test/route.js
+100644 blob 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3	views/layout.jade
+100644 blob 97c32024cda29e0fb6abebf48d3f6740f0acb9e2	web.js
+``` 
+que muestra solo los objetos de tipo `blob` (y un `commit`) con el camino completo que llega hasta ellos. 
+
+Si editamos un fichero tal como el README.md, tras hacer el commit tendrá esta apariencia:
 
 ```
 ~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git ls-tree HEAD100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
@@ -123,14 +143,47 @@ que, si queremos ver en una vista más normal, hacemos lo mismo con `ls-file`
 views/layout.jade
 ```
 
-Hay un tercer comando relacionado con el examen de directorios y ficheros locales, `cat-file`, que muestra el contenido de un objeto, en general. Por ejemplo, en este caso, para listar el contenido de un objeto de tipo `tree`
+Hay un tercer comando relacionado con el examen de directorios y ficheros locales, [`cat-file`, que muestra el contenido de un objeto](http://git-scm.com/docs/git-cat-file), en general. Por ejemplo, en este caso, para listar el contenido de un objeto de tipo `tree`
 
 ```
 ~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git cat-file -p fd3846c
 100644 blob 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3	layout.jade
 ```
 
- 
+nos muestra que ese objeto contiene un solo fichero, `layout.jade`, y sus características. Pero más curioso aún es cuando se usa sobre objetos de tipo *commit* (no sobre el objeto *commit* que aparece arriba, que se trata de un *commit* de *otro repositorio* al contener el directorio `curso` un submódulo de git. Por ejemplo, podemos hacer:
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git cat-file -p HEAD
+tree 1c40899a32c2b5ec7f930bd943e5dbb98562d373
+parent 5be23bb2a610260da013fcea807be872a4bd6981
+author JJ Merelo <jjmerelo@gmail.com> 1397752151 +0200
+committer JJ Merelo <jjmerelo@gmail.com> 1397752151 +0200
+
+Añade layout
+```
+
+que, dado que `HEAD` apunta al último commit, nos puestra *pretty-print* toda la información sobre el último *commit* y muestra el árbol de ficheros correspondiente, que podemos listar con 
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git cat-file -p 1c40899a
+100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
+100644 blob a72b52ebe897796e4a289cf95ff6270e04637aad	.gitignore
+100644 blob cc5411b5557f43c7ba2f37ad31f8dc34cccda075	.gitmodules
+100644 blob 4e7b6c1b5a6cb3a962ea05874d10c943c1923f39	.travis.yml
+100644 blob d5445e7ac8422305d107420de4ab8e1ee6227cca	LICENSE
+100644 blob d1913ebe4d9e457be617ee0e786fc8c30a237902	Procfile
+100644 blob da5b5121adb42e990b9e990c3edb962ef99cb76a	README.md
+160000 commit fa8b7521968bddf235285347775b21dd121b5c11	curso
+100644 blob f8c35adaf57066d4329737c8f6ec7ce6179cc221	package.json
+100644 blob 08827778af94ea4c0ddbc28194ded3081e7b0f87	shippable.yml
+040000 tree 39da6b155c821af1e6a304daca9b66efb1ac651f	test
+040000 tree fd3846c0d6089437598004131184c61aea2b6514	views
+100644 blob 97c32024cda29e0fb6abebf48d3f6740f0acb9e2	web.js
+```
+
+En general, si queremos ahondar en las entrañas de un punto determinado en la historia del repositorio, trabajar con `ls-files`, `cat-file` y `ls-tree` permite obtener toda la información contenida en el mismo. Esto nos va a resultar útil un poco más adelante. 
+
+
 ### Concepto de *hooks*
 
 ### Programando un *hook* básico
