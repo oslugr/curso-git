@@ -264,3 +264,14 @@ Travis también proporciona un *badge* que puedes incluir en tu repositorio para
 
 sustituyendo el nombre de usuario y el nombre del repo por el correspondiente, claro. Este código está escrito en MarkDown, y GitHub lo interpretará directamente sin problemas, aunque lo mejor es que pinches en la imagen que aparece arriba a la derecha que te dará el código correspondiente.
 
+## Cliente de GitHub
+
+
+GitHub también mantiene un [cliente de GitHub](https://github.com/github/hub), escrito en Ruby y llamado `hub`, que se puede usar para sustituir a `git` o por sí mismo. En realidad, es como `git` salvo que tiene ya definidos por omisión una serie de características específicas de GitHub, como los nombres de los repositorios o los usuarios de los mismos. Tras [instalarlo](http://hub.github.com/) puedes usarlo, por ejemplo, para clonar el repo de ejemplo usado aquí con `hub clone oslugr/repo-ejemplo` en vez de usar el camino completo a git; el formato sería siempre `usuario/nombre-del-repo`. Más órdenes que añade a git (y que se pueden usar directamente desde git si se usa, como se indica en las instrucciones, git como un alias de hub)
+
+* `hub browse`: abre un navegador en la página del respositorio correspondiente. Por ejemplo `hub browse -- issues` lo abriría en la página correspondiente a las solicitudes de ese proyecto.
+* `hub fork`: una vez clonado un repositorio de otro usuario, no hace falta hacer *fork* desde la web, se puede hacer directamente desde el repo. Se crea un origen remoto con el nombre de tu usuario, al que se puede hacer *push* de la forma normal. Desde la misma línea de órdenes se puede hacer un *pull request* al repositorio original también. 
+* Como usuario puedes aplicar también los *pull requests* desde línea de órdenes.
+* `hub compare` permite comparar entre diferentes tags o versiones o ramas.
+
+En general, ya que se tiene GitHub, conviene usar este cliente, sea o no con un alias a git. Por lo menos su uso es conveniente.
