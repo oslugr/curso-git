@@ -191,7 +191,41 @@ web.js
 En este caso el [formato es rama (circunflejo o *caret*) `{tree}`](https://gist.github.com/wfarr/1609626); el
 circunflejo se usa en la selección de referencias de `git` para
 cualificar lo que se encuentra antes de ella, pero no hay muchas más
-opciones aparte de `tree`. 
+opciones aparte de `tree`, pero sí podemos acceder a versiones
+anteriores del repositorio y a sus ficheros. 
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git show master~1
+commit 5be23bb2a610260da013fcea807be872a4bd6981
+Author: JJ Merelo <jjmerelo@gmail.com>
+Date:   Thu Apr 17 17:42:39 2014 +0200
+
+    Aclara una frase
+[...]
+```
+
+La [tilde `~`](http://www.vogella.com/tutorials/Git/article.html#commitreference) indica un ancestro, es decir, el *padre* del commit
+anterior, que, como vemos
+[corresponde al commit 5be23bb](https://github.com/oslugr/repo-ejemplo/commit/5be23bb2a610260da013fcea807be872a4bd6981). Podemos
+ir más allá hasta que nos aburramos: `~2` accederá al padre de este y
+así sucesivamente. Y, por supuesto, podemos cualificarlo con
+`^{tree}^` para que nos muestre el árbol en el estado que estaba en
+ese commit. Y también para que nos muestre un fichero sin necesidad de
+sacarlo del repositorio:
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git show master~2:README.md 
+repo-ejemplo
+============
+
+Ejemplo de repositorio para trabajar en el
+[curso de `git`](http://cevug.ugr.es/git) el contenido del cual está
+```
+
+>En esta sección hemos usado `show` para mostrar las capacidades de
+> los diferentes selectores de `git`, pero se pueden usar con
+> cualquier otra orden, como `checkout` o cualquiera que admita, en
+> general, una referencia a un objeto.
 
 
 
