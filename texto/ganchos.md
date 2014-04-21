@@ -45,9 +45,155 @@ para excluir los ficheros de copia de seguriad de Emacs (que hemos definido ante
 
 Por supuesto, el tema principal de este capítulo está en el otro directorio, *hooks*, cuyo contenido tendremos que cambiar si queremos añadir ganchos al repositorio. Pero para usarlo necesitamos también conocer algunos conceptos más de git, empezando por cómo se accede a más cañerías. 
 
-### El nombre de las cosas
+### Paso a paso
 
-Si miramos en el directorio `.git/objects` encontraremos una serie de ficheros de largos nombres, los objetos de git. Éste sigue una serie de convenciones específicas para referirse a objetos, aparte de estos nombres, 
+Si miramos en el directorio `.git/objects` encontraremos una serie de
+directorios con nombres de dos letras, dentro de los cuales están los
+objetos de git, que tienen otras 38 letras para componer las 40 letras
+que componen el nombre único de cada objeto; este nombre se genera a
+partir del contenido usando
+[SHA1](http://en.wikipedia.org/wiki/SHA-1). 
+
+`git` almacena toda la información en ese directorio y de hecho está
+[organizado para acceder a la información almacenada por contenido](http://git-scm.com/book/en/Git-Internals). Por
+eso tenemos que imaginarlo como un sistema de ficheros normal, con una
+raíz (que es HEAD, el punto en el que se encuentra el repositorio en
+este momento) y una serie de ramas que apuntan a ficheros y a
+diferentes versiones de los mismos.
+
+git, entonces, [procede de la forma siguiente](http://git-scm.com/book/en/Git-Internals-Git-Objects).
+
+1. Crea un SHA1 a partir del contenido del fichero cambiado o añadido. Este fichero
+se almacena en la zona temporal en forma de *blob*. 
+2.  El nombre del fichero se almacena en un árbol, junto con el nombre
+de otros ficheros que estén, en ese momento, en la zona temporal. Un
+árbol almacena los nombres de varios ficheros y apunta al contenido de
+los mismos, almacenado como *blob*. De este objeto, que tiene un
+formato fijo, se calcula también el SHA1 y se almacena en
+`.git/objects`. Un árbol, a su vez, puede apuntar a otros árboles
+creados de la misma forma.
+3. Cuando se hace *commit*, se crea un tercer tipo de objeto con ese
+nombre. Un *commit* contiene enlaces a un árbol (el de más alto nivel)
+y metadatos adicionales: quién lo ha hecho, cuando y por supuesto el
+mensaje de commit. 
+
+Veremos más adelante cómo se listan ficheros de todos estos tipos,
+pero por lo pronto la idea es que un comando de git de alto nivel
+involucra varias órdenes de bajo nivel que, eventualmente, van a parar
+a información que se almacena en un directorio determinado con nombres
+de fichero que se calculan usando SHA1, aparte de que se puede actuar
+a diferentes niveles, desde el más bajo de almacenar un objeto
+directamente en un árbol o crear un commit "a mano" hasta el más alto
+(que es el que estamos acostumbrados). Este sistema, además, asegura
+que no se pierda ninguna información y que podamos acceder al
+contenido de un fichero determinado hecho en un momento determinado de
+forma fácil y eficiente. Pero para poder hacerlo debe haber una forma
+única y también compacta de referirse a un elemento determinado dentro
+de ese repositorio. Es lo que explicaremos a continuación.
+
+### El nombre de las cosas: refiriéndonos a objetos en git.
+
+Como ya hemos visto antes, todos los objetos (sean *blobs*, árboles o
+*commits*) están representados por un SHA1.  Si conocemos el SHA1, se
+puede usar `show`, por ejemplo, para visualizarlo. Haciendo `git log`
+veremos, por ejemplo, los últimos commits y si hacemos `show` sobre
+uno de ellos,
+
+```
+git show fe88e5eefff7f3b7ea95be510c6dcb87054bbcb
+commit fe88e5eefff7f3b7ea95be510c6dcb87054bbcb0
+Author: JJ Merelo <jjmerelo@gmail.com>
+Date:   Thu Apr 17 18:29:11 2014 +0200
+
+    Añade layout
+
+diff --git a/views/layout.jade b/views/layout.jade
+new file mode 100644
+index 0000000..36cc059
+--- /dev/null
++++ b/views/layout.jade
+@@ -0,0 +1,6 @@
+[....]
+```
+
+El mismo resultado que obtendríamos si hacemos `git show HEAD`, que
+recordemos que es una referencia que apunta al último commit.  También
+obtendremos lo mismo si hacemos `git show master`.  En cualquiera de
+los casos, lo que está mostrando es un objeto de tipo *commit*, el
+último realizado. 
+
+
+Pero veremos como
+funciona este último ejemplo. Al lado del directorio `objects` está el
+directorio `refs`, que almacena referencias y que es como `git` sabe a
+qué commit corresponde cada cosa. Este comando:
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ tree .git/refs/
+.git/refs/
+├── heads
+│   ├── img-dir
+│   └── master
+├── remotes
+│   ├── heroku
+│   │   └── master
+│   └── origin
+│       ├── HEAD
+│       ├── img-dir
+│       └── master
+└── tags
+    ├── v0.0.1
+    ├── v0.0.2
+    ├── v0.0.2.1
+    └── v0.0.3
+
+5 directories, 10 files
+```
+
+muestra todo lo que hay almacenado en este directorio: referencia a
+las ramas locales en `heads` y a las remotas en `remotes`. Si
+mostramos el contenido de los ficheros:
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ cat .git/refs/heads/master 
+fe88e5eefff7f3b7ea95be510c6dcb87054bbcb0
+
+```
+Que muestra que, efectivamente, el hash del commit es el que
+corresponde 
+
+>Podemos mirar en .git/objects/fe a ver si efectivamente se encuentra;
+> puedes hacerlo sobre tu copia del repositorio `repo-ejemplo`, ya que
+> los hash son iguales en todos lados.
+
+Como hemos visto anteriormente, un *commit* apunta a un árbol. Podemos
+indicarle a `show` que nos muestre este árbol de esta forma:
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git show master^{tree}
+tree master^{tree}
+
+.aspell.es.pws
+.gitignore
+.gitmodules
+.travis.yml
+LICENSE
+Procfile
+README.md
+curso
+package.json
+shippable.yml
+test/
+views/
+web.js
+```
+
+En este caso el [formato es rama (circunflejo o *caret*) `{tree}`](https://gist.github.com/wfarr/1609626); el
+circunflejo se usa en la selección de referencias de `git` para
+cualificar lo que se encuentra antes de ella, pero no hay muchas más
+opciones aparte de `tree`. 
+
+
 
 ### Comandos de alto y bajo nivel: *fontanería* y *loza*
 
