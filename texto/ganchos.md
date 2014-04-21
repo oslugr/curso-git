@@ -45,6 +45,10 @@ para excluir los ficheros de copia de seguriad de Emacs (que hemos definido ante
 
 Por supuesto, el tema principal de este capítulo está en el otro directorio, *hooks*, cuyo contenido tendremos que cambiar si queremos añadir ganchos al repositorio. Pero para usarlo necesitamos también conocer algunos conceptos más de git, empezando por cómo se accede a más cañerías. 
 
+### El nombre de las cosas
+
+Si miramos en el directorio `.git/objects` encontraremos una serie de ficheros de largos nombres, los objetos de git. Éste sigue una serie de convenciones específicas para referirse a objetos, aparte de estos nombres, 
+
 ### Comandos de alto y bajo nivel: *fontanería* y *loza*
 
 Para entendernos, todas las órdenes que hemos usado hasta ahora son *loza*. Es decir, es el *interfaz* del usuario de toda la instalación de fontanería que lleva a cabo realmente la labor de quitar de enmedio lo que uno depositao en las instalaciones sanitarias. Pero por debajo de la loza y pegado a ella, están las cañerías y toda la instalación de fontanería. 
