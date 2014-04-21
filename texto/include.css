@@ -365,6 +365,20 @@ pre code {
   background: transparent;
 }
 
+
+p code {
+           background-color: #f8f8f8;
+  font-size: 15px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  background: transparent;
+}
+
 .highlight pre {
   background-color: #f8f8f8;
   border: 1px solid #cccccc;
@@ -385,7 +399,7 @@ pre {
   border-radius: 3px;
 }
 
-pre code, pre tt {
+pre code, pre tt, p code {
   background-color: transparent;
   border: none;
 }

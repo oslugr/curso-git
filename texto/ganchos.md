@@ -104,9 +104,7 @@ git show fe88e5eefff7f3b7ea95be510c6dcb87054bbcb
 commit fe88e5eefff7f3b7ea95be510c6dcb87054bbcb0
 Author: JJ Merelo <jjmerelo@gmail.com>
 Date:   Thu Apr 17 18:29:11 2014 +0200
-
     Añade layout
-
 diff --git a/views/layout.jade b/views/layout.jade
 new file mode 100644
 index 0000000..36cc059
@@ -128,8 +126,7 @@ funciona este último ejemplo. Al lado del directorio `objects` está el
 directorio `refs`, que almacena referencias y que es como `git` sabe a
 qué commit corresponde cada cosa. Este comando:
 
-```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ tree .git/refs/
+```~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ tree .git/refs/
 .git/refs/
 ├── heads
 │   ├── img-dir
@@ -146,7 +143,6 @@ qué commit corresponde cada cosa. Este comando:
     ├── v0.0.2
     ├── v0.0.2.1
     └── v0.0.3
-
 5 directories, 10 files
 ```
 
@@ -157,8 +153,8 @@ mostramos el contenido de los ficheros:
 ```
 ~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ cat .git/refs/heads/master 
 fe88e5eefff7f3b7ea95be510c6dcb87054bbcb0
-
 ```
+
 Que muestra que, efectivamente, el hash del commit es el que
 corresponde 
 
@@ -172,7 +168,6 @@ indicarle a `show` que nos muestre este árbol de esta forma:
 ```
 ~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git show master^{tree}
 tree master^{tree}
-
 .aspell.es.pws
 .gitignore
 .gitmodules
@@ -199,7 +194,6 @@ anteriores del repositorio y a sus ficheros.
 commit 5be23bb2a610260da013fcea807be872a4bd6981
 Author: JJ Merelo <jjmerelo@gmail.com>
 Date:   Thu Apr 17 17:42:39 2014 +0200
-
     Aclara una frase
 [...]
 ```
@@ -217,9 +211,9 @@ sacarlo del repositorio:
 ~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git show master~2:README.md 
 repo-ejemplo
 ============
-
 Ejemplo de repositorio para trabajar en el
 [curso de `git`](http://cevug.ugr.es/git) el contenido del cual está
+[...]
 ```
 
 >En esta sección hemos usado `show` para mostrar las capacidades de
@@ -342,7 +336,6 @@ tree 1c40899a32c2b5ec7f930bd943e5dbb98562d373
 parent 5be23bb2a610260da013fcea807be872a4bd6981
 author JJ Merelo <jjmerelo@gmail.com> 1397752151 +0200
 committer JJ Merelo <jjmerelo@gmail.com> 1397752151 +0200
-
 Añade layout
 ```
 
