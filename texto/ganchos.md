@@ -200,7 +200,15 @@ Date:   Thu Apr 17 17:42:39 2014 +0200
 
 La [tilde `~`](http://www.vogella.com/tutorials/Git/article.html#commitreference) indica un ancestro, es decir, el *padre* del commit
 anterior, que, como vemos
-[corresponde al commit 5be23bb](https://github.com/oslugr/repo-ejemplo/commit/5be23bb2a610260da013fcea807be872a4bd6981). Podemos
+[corresponde al commit 5be23bb](https://github.com/oslugr/repo-ejemplo/commit/5be23bb2a610260da013fcea807be872a4bd6981). 
+
+> La lista completa de opciones para especificar revisiones está,
+>  curiosamente, en
+>  [la página de referencia del comando `rev-parse`](https://www.kernel.org/pub/software/scm/git/docs/git-rev-parse.html)
+>  Hay un número excesivo de ellas, pero si en algún momento no se
+>  entiende qué es lo que se está usando, conviene ir ahí. 
+
+Podemos
 ir más allá hasta que nos aburramos: `~2` accederá al padre de este y
 así sucesivamente. Y, por supuesto, podemos cualificarlo con
 `^{tree}^` para que nos muestre el árbol en el estado que estaba en
@@ -278,7 +286,7 @@ Si editamos un fichero tal como el README.md, tras hacer el commit tendrá esta 
 100644 blob da5b5121adb42e990b9e990c3edb962ef99cb76a	README.md
 ```
 
-Como vemos, ha cambiado el SHA1. Pero ls-tree va más allá y te puede mostrar también cuál es el estado del repositorio hace varios commits. Por ejemplo, podemos usar `HEAD^` para referirnos al commit anterior y `git ls-tree HEAD^` nos devolvería exactamente el mismo estado en el que estaba antes de hacer la modificación a README.md. De hecho, podemos usar también la abreviatura del commit de esta forma `git ls-tree 5be23bb`, siendo este último una parte del SHA1 (o hash) del último commit; nos devolvería el último resultado. 
+Como vemos, ha cambiado el SHA1. Pero `ls-tree` va más allá y te puede mostrar también cuál es el estado del repositorio hace varios commits. Por ejemplo, podemos usar `HEAD^` para referirnos al commit anterior y `git ls-tree HEAD^` nos devolvería exactamente el mismo estado en el que estaba antes de hacer la modificación a README.md. De hecho, podemos usar también la abreviatura del commit de esta forma `git ls-tree 5be23bb`, siendo este último una parte del SHA1 (o hash) del último commit; nos devolvería el último resultado. 
 
 Pero podemos ir todavía más profundamente dentro de las tuberías. `ls-tree` sólo lista los objetos que ya forman parte del árbol, del principal o de alguno de los secundarios. Puede que necesitemos acceder a aquellos objetos que se han añadido al índice, pero todavía no han pasado a ningún árbol. Para eso usamos `ls-files`. Tras añadir un fichero que está en un subdirectorio `views` con `add`, podemos hacer:
 
@@ -339,7 +347,7 @@ committer JJ Merelo <jjmerelo@gmail.com> 1397752151 +0200
 Añade layout
 ```
 
-que, dado que `HEAD` apunta al último commit, nos puestra *pretty-print* toda la información sobre el último *commit* y muestra el árbol de ficheros correspondiente, que podemos listar con 
+que, dado que `HEAD` apunta al último commit, nos muestra en modo *pretty-print* toda la información sobre el último *commit* y muestra el árbol de ficheros correspondiente, que podemos listar con 
 
 ```
 ~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git cat-file -p 1c40899a
@@ -360,6 +368,238 @@ que, dado que `HEAD` apunta al último commit, nos puestra *pretty-print* toda l
 
 En general, si queremos ahondar en las entrañas de un punto determinado en la historia del repositorio, trabajar con `ls-files`, `cat-file` y `ls-tree` permite obtener toda la información contenida en el mismo. Esto nos va a resultar útil un poco más adelante. 
 
+#### Viva la diferencia
+
+En muchos casos para procesar los cambios dentro de un gancho
+necesitaremos saber cuál es la diferencia con versiones anteriores del
+fichero. Hay que tener en cuenta que esas diferencias, dependiendo del
+estado en el que estemos, estarán en el árbol o en el índice
+preparadas para ser enviadas al repositorio,  En general, son una
+serie de órdenes con `diff`en ellas. La más simple, `git diff`, nos
+mostrará la diferencia entre los archivos en el índice y el último
+commit
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff
+diff --git a/views/layout.jade b/views/layout.jade
+index 36cc059..2a66d58 100644
+--- a/views/layout.jade
++++ b/views/layout.jade
+@@ -1,6 +1,11 @@
+-!!! 5
++doctype html
++html(lang="en")
+ 
+-body
++html
++       head
++               title #{title} 
++       body
+ 
+-#wrapper
+-  block content
+\ No newline at end of file
++               h1 Curso de git
++
++               block content
+\ No newline at end of file
+diff --git a/web.js b/web.js
+index 97c3202..93b6255 100644
+--- a/web.js
++++ b/web.js
+@@ -27,6 +27,12 @@ app.get('/', function(req, res) {
+            res.send(routes['README']);
+ });
+ 
++app.get('/curso/:ruta', function(req, res) {
++           var ruta = "curso/texto/"+req.params.ruta;
++           console.log("Request "+req.params.ruta + " doc " + ruta + " contenido " + file_conte
++           res.render('doc', { content: routes[ruta], title: ruta });
++})
++
+ app.get('/curso/texto/:ruta', function(req, res) {
+ //         console.log("Request "+req.params.ruta);
+            var ruta_toda = "curso/texto/"+req.params.ruta;
+```
+
+Esta vista de
+[`diff`](http://git-scm.com/book/es/Fundamentos-de-Git-Guardando-cambios-en-el-repositorio)
+las diferencias sigue el formato habitual en
+[la utilidad `diff`](http://es.wikipedia.org/wiki/Diff), que permite
+generar parches para aplicarlos a conjuntos de ficheros. En concreto,
+muestra qué ficheros se están comparando (pueden ser diferentes
+ficheros, si se ha cambiado el nombre) los SHA1 de los contenidos
+correspondientes, y luego un `+` o `-` delante de cada una de las
+líneas que hay de diferencia. Este fichero se podría usar directamente
+con la utilidad `diff` de Linux, pero realmente no nos va a ser de
+mucha utilidad a la hora de saber, por ejemplo, qué ficheros se han
+modificado. Para hacer esto, [simplemente](https://www.kernel.org/pub/software/scm/git/docs/git-diff.html):
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff --name-only
+views/layout.jade
+web.js
+```
+
+que se puede hacer un poco más completa con `--name-status`:
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff --name-status
+M       views/layout.jade
+M       web.js
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff --name-status --cached
+A       views/doc.jade
+```
+
+que nos muestra, en una sola letra, qué tipo de cambio han sufrido. En
+el primer caso nos muestra que han sido Modificados, y en el segundo
+caso, además usamos otra opción, `--cached` que, en este caso, nos
+muestra los ficheros que han sido preparados para el commit; es decir,
+la
+[diferencia que hay entre la cabeza y el índice](http://stackoverflow.com/questions/1587846/how-do-i-show-the-changes-which-have-been-staged);
+en este caso, "A" indica que se trata de un fichero añadido. Podemos
+ver todo junto con
+
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff --name-status  HEAD
+A       views/doc.jade
+M       views/layout.jade
+M       web.js
+```
+
+que nos muestra la diferencia entre el comit más moderno (HEAD) y el
+área de trabajo ahora mismo: hemos cambiado dos ficheros y añadido
+uno. Un resultado similar obtendremos con `diff-index`, cuya principal
+diferencia es que compara siempre el índice con algún *árbol*, sin
+tener ningún valor por omisión:
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff-index  HEAD
+:000000 100644 0000000000000000000000000000000000000000 67e6d7e1ecbb64ff7d467dc2103fa2b2fead49d1 A	views/doc.jade
+:100644 100644 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3 0000000000000000000000000000000000000000 M	views/layout.jade
+:100644 100644 97c32024cda29e0fb6abebf48d3f6740f0acb9e2 0000000000000000000000000000000000000000 M	web.js
+```
+
+Además del estado muestra el hash inicial y final de cada uno de los
+ficheros. En este caso, como todavía no le hemos hecho commit, muestra
+0. `dif-tree`, sin embargo, sí muestra el SHA1 puesto que trabaja con
+el árbol:
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff-tree  HEAD
+fe88e5eefff7f3b7ea95be510c6dcb87054bbcb0
+:000000 040000 0000000000000000000000000000000000000000 fd3846c0d6089437598004131184c61aea2b6514 A	views
+:100644 100644 94f151d9ef9340c81989b0c3fa8c517c068e1864 97c32024cda29e0fb6abebf48d3f6740f0acb9e2 M	web.js
+```
+Aunque en este caso muestra un árbol, `views`, que ha sido cambiado
+porque se le ha añadido un fichero nuevo, `views/doc.jade`. En el
+momento que se haga el comit y pase por tanto del índice al la zona de
+*staging*, los hash ya están calculados y cambia la salida:
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff-tree  HEAD
+637c2820013188f1c4951aef0c21de20440a6fbb
+:040000 040000 fd3846c0d6089437598004131184c61aea2b6514 6bb4560a218c008bbc468f23f36f26ff639eb2e8 M	views
+:100644 100644 97c32024cda29e0fb6abebf48d3f6740f0acb9e2 93b625533c2d1752d9a8e789878512919cf92e17 M	web.js
+```
+
+`diff-index`, sin embargo, no devolverá nada puesto que todos los
+cambios que se habían hecho han pasado al árbol. 
+
+En general, lo que más nos va a interesar a la hora de hacer un gacho
+es qué ficheros han cambiado. Pero conviene conocer toda la gama de
+posibilidades que ofrece `git`, sobre todo para poder entender su
+esctructura interna. 
+
+
+#### Los dueños de las tuberías
+
+No todo el contenido que hay en el repositorio son los ficheros que
+forman parte del mismo. Hay una parte importante de la fontanería que
+son los metadatos del repositorio. Hay dos órdenes importantes, `var`
+y `config`. Con `-l` nos listan todas las variables o variables de
+configuración disponibles
+
+```
+~/txt/docencia/repo-tutoriales/curso-git/texto<master>$ git var -l
+user.email=jjmerelo@gmail.com
+user.name=JJ Merelo
+filter.obj-add.smudge=cat
+push.default=simple
+rerere.enabled=true
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=git@github.com:oslugr/curso-git.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+GIT_COMMITTER_IDENT=JJ Merelo <jjmerelo@gmail.com> 1399019391 +0200
+GIT_AUTHOR_IDENT=JJ Merelo <jjmerelo@gmail.com> 1399019391 +0200
+GIT_EDITOR=editor
+GIT_PAGER=pager
+```
+
+Todas excepto las cuatro últimas variables son variables de
+configuración que, por tanto, se pueden obtener también con `git
+config -l`. Por sí sólo, `config`o `var` listan el valor de una
+variable:
+
+```
+~/txt/docencia/repo-tutoriales/curso-git/texto<master>$ git config user.name
+JJ Merelo
+```
+
+La mayoría de estos valores están disponibles o como variables de
+entorno o en ficheros; sin embargo estas órdenes dan un interfaz común
+para todos los sistemas operativos.
+
+Todavía nos hacen falta una serie de órdenes para tomar decisiones
+sobre ficheros y sobre dónde estamos en el repositorio. La veremos a
+continuación
+
+#### Simplemente, `rev-parse`
+
+La
+[tersa descripción del comando `rev-parse`, "recoge y procesa parámetros"](https://www.kernel.org/pub/software/scm/git/docs/git-rev-parse.html)
+esconde la complejidad del mismo y su potencia, que va desde el
+proceamiento de parámetros hasta la especificación de objetos, pasando
+por la búsqueda de diferentes directorios dentro del respositorio git.
+Por ejemplo, se puede usar para verificar si un objeto existe o no:
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git rev-parse --verify HEAD
+637c2820013188f1c4951aef0c21de20440a6fbb
+```
+
+Nos muestra el SHA1 de la cabeca actual del repositorio de ejemplo,
+verificando que actualmente existe. No lo hará si acabamos de crear el
+repositorio, por ejemplo
+
+```
+/tmp/pepe<>$ git init
+Initialized empty Git repository in /tmp/pepe/.git/
+/tmp/pepe<>$ git rev-parse --verify HEAD
+fatal: Needed a single revision
+```
+
+De hecho, con él podemos encontrar todo tipo de objetos usando la
+notación que permite especificar revisiones
+
+```
+~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git rev-parse  HEAD@{1.month}
+61253ecba351921c96a1553f6c5b7f9910f286f3
+```
+
+que correspondería a
+[este commit del 9 de marzo](https://github.com/oslugr/repo-ejemplo/commit/61253ecba351921c96a1553f6c5b7f9910f286f3)
+y que podemos listar usando `show`, `describe` o cualquiera de los
+otros comandos que se pueden aplicar a objetos. En general, para esto
+se usará dentro de los *garfios*: para poder acceder a un objeto
+determinado o a sus metadatos a la hora de ver las diferencias con el
+objeto actual.
 
 ### Concepto de *hooks*
 
