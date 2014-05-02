@@ -1,13 +1,13 @@
-# Más usos de `git`
+## Más usos de `git`
 
-## Objetivos
+### Objetivos
 
 * Aprender patrones habituales de flujo de trabajo con `git`
 * Aprender a trabajar con las ramas.
 * Solucionar los conflictos cuando dos desarrolladores trabajan sobre la misma línea.
 * Interpretar la historia en sus diferentes formatos
 
-## Flujos de desarrollo de software (y quizás de otras cosas)
+### Flujos de desarrollo de software (y quizás de otras cosas)
 
 Un sistema como `git` no es independiente de una organización del
 trabajo. Aunque a priori puedes trabajar como te dé la gana, el que te
@@ -53,7 +53,7 @@ sistema de control de fuentes como git; en muchos casos no se trata de
 órdenes de `git`, sino de funciones a las que se puede acceder
 directamente desde sitios de gestión como GitHub.
 
-## Organización de un repositorio de git
+### Organización de un repositorio de git
 
 No hay reglas universales para la organización de un repositorio,
 aunque sí reglas sobre como *no* debe hacerse: todo en un sólo
@@ -65,7 +65,7 @@ se sienta tentado en modificar esos mismos ficheros. Vamos a exponer
 aquí algunas prácticas comunes, pero en cada caso el sentido común y la
 práctica habitual de la empresa deberá imponerse...
 
-### Qué poner en el directorio principal
+#### Qué poner en el directorio principal
 
 Cuando se crea un repositorio en GitHub te anima a crear un
 `README.md`. Es importante que lo hagas, porque va a ser lo que se
@@ -103,7 +103,7 @@ Otros ficheros que suelen ir en el directorio principal
  de esos, en el directorio principal. Siempre que se pueda, se usará
  un subdirectorio.
  
-### Una estructura habitual con directorio de test
+#### Una estructura habitual con directorio de test
  
  Los fuentes del proyecto deben ir en su propio directorio, que
  habitualmente se va a llamar `src`. Algunos lenguajes te van a pedir
@@ -117,7 +117,7 @@ Otros ficheros que suelen ir en el directorio principal
  mejor la aplicación o para ejecutarla directamente.
  
  
-### Estructura jerárquica con submódulos
+#### Estructura jerárquica con submódulos
  
  Un repositorio `git` tiene una estructura `plana`, en el sentido que
  se trata de un solo bloque de ficheros que se trata como tal, a
@@ -190,7 +190,7 @@ que personas independientes se encarguen de cada uno, integrándolo
 todo en un submódulo, por tanto, es una forma simple y sin demasiadas
 complicaciones de hacerlo. 
 
-## Flujos de trabajo con git
+### Flujos de trabajo con git
 
 Un *flujo de trabajo* es simplemente una forma de organizar las tareas
 de programación de forma que se conozca, de antemano, qué tareas van
@@ -277,7 +277,7 @@ Igual que en el caso de los submódulos, no deja de ser simplemente una
 rutina de trabajo más que un flujo de trabajo si trabaja uno
 solo. Veremos cómo trabajar en diferentes ramas evitando conflictos.
 
-## Ramas
+### Ramas
 
 Las *ramas* son una característica de todos los sistemas de control de
 fuentes. A todos los efectos, una rama es un proyecto diferente que
@@ -359,7 +359,7 @@ simplemente por que haya dos *commits* divergentes que procedan de la
 misma rama. Sin embargo, se pueden usar ramificaciones adrede y es lo
 que veremos a continuación. 
 
-### Ramas *ligeras*: etiquetas
+#### Ramas *ligeras*: etiquetas
 
 Una *etiqueta* permite *guardar* el estado del repositorio en un
 momento determinado, siendo como una especie de *foto* del estado el
@@ -448,7 +448,7 @@ son anotaciones locales,
 [hay que hacer explícitamente `git push --tags`](http://alblue.bandlem.com/2011/04/git-tip-of-week-tags.html)
 para que se comuniquen al repositorio remoto. 
 
-### Creando y fusionando ramas
+#### Creando y fusionando ramas
 
 Ya que hemos visto como se crean ramas de forma implícita y de forma
 *ligera* (con etiquetas), vamos a trabajar explícitamente con
@@ -471,7 +471,19 @@ dos órdenes
 ```
 
 En esta rama se puede hacer lo que se desee: modificar ficheros,
-borrarlos, añadirlos o hacer algo totalmente diferente. En todo
+borrarlos, añadirlos o hacer algo totalmente diferente. 
+
+>Un cambio de rama sobreescribirá los cambios que se hayan hecho a los
+> ficheros sin hacer *commit*. Si existen tales cambios te avisará,
+> pero puede que no quieras usar el *commit* para comprometer cambios
+> y dejar el repositorio en un estado incorrecto; en ese caso se puede
+> usar simplemente
+> [`git stash`](http://git-scm.com/book/en/Git-Tools-Stashing)  que almacena los cambios en un fichero
+> temporal que se puede recuperar más adelante usando `git stash apply
+> --index`. 
+
+
+En todo
 momento 
 
 ```
@@ -622,7 +634,7 @@ Una sintaxis con `:` que es ciertamente poco lógica, pero efectiva. Con
 eso tenemos la rama borrada tanto local como remotamente.
 
 
-## Los misterios del rebase
+### Los misterios del rebase
 
 `git` tiene múltiples formas de reescribir la historia, como si de un
 régimen totalitario se tratara. Una de las más simples es *aplanar* la
@@ -668,7 +680,7 @@ sólo que en una parte diferente del árbol como se muestra a continuación
 Sin embargo, ahora la rama es poco menos que un *tag* como el que
 hemos visto antiguamente. No estorba así que no hace falta borrarla. 
 
-## Quién hizo qué
+### Quién hizo qué
 
 Con todas estas ramificaciones es posible que, en un momento
 determinado, sea difícil saber quién ha hecho qué cambio. Esto puede
