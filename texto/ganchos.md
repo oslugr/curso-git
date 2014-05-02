@@ -215,7 +215,7 @@ así sucesivamente. Y, por supuesto, podemos cualificarlo con
 ese commit. Y también para que nos muestre un fichero sin necesidad de
 sacarlo del repositorio:
 
-```
+``` 
 ~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git show master~2:README.md 
 repo-ejemplo
 ============
@@ -377,7 +377,7 @@ estado en el que estemos, estarán en el árbol o en el índice
 preparadas para ser enviadas al repositorio,  En general, son una
 serie de órdenes con `diff`en ellas. La más simple, `git diff`, nos
 mostrará la diferencia entre los archivos en el índice y el último
-commit
+commit.
 
 ```
 ~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff
@@ -468,7 +468,7 @@ M       views/layout.jade
 M       web.js
 ```
 
-que nos muestra la diferencia entre el comit más moderno (HEAD) y el
+que nos muestra la diferencia entre el commit más moderno (HEAD) y el
 área de trabajo ahora mismo: hemos cambiado dos ficheros y añadido
 uno. Un resultado similar obtendremos con `diff-index`, cuya principal
 diferencia es que compara siempre el índice con algún *árbol*, sin
@@ -494,7 +494,7 @@ fe88e5eefff7f3b7ea95be510c6dcb87054bbcb0
 ```
 Aunque en este caso muestra un árbol, `views`, que ha sido cambiado
 porque se le ha añadido un fichero nuevo, `views/doc.jade`. En el
-momento que se haga el comit y pase por tanto del índice al la zona de
+momento que se haga el commit y pase por tanto del índice al la zona de
 *staging*, los hash ya están calculados y cambia la salida:
 
 ```
