@@ -451,7 +451,7 @@ M       web.js
 A       views/doc.jade
 ```
 
-que nos muestra, en una sola letra, qué tipo de cambio han sufrido. En
+que nos muestra, usando una sola letra, qué tipo de cambio han sufrido. En
 el primer caso nos muestra que han sido Modificados, y en el segundo
 caso, además usamos otra opción, `--cached` que, en este caso, nos
 muestra los ficheros que han sido preparados para el commit; es decir,
