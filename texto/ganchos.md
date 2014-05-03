@@ -749,7 +749,7 @@ produciendo
 [resultados sobre este mismo fichero tales como este](https://github.com/oslugr/curso-git/commit/052c8560cf2399b3d9f450693b884b5f1a6ca8f9):
 
 ```
- Mini-corrección
+Mini-corrección
 
 . Cambios en este commit
    1 file changed, 1 insertion(+)
@@ -853,7 +853,8 @@ cambios y cada una de las políticas (aunque en este caso habrá una
 sola) y saldrá con `die` si alguno de los ficheros tiene un nombre
 incorrecto. 
 
-```~/txt/docencia/repo-tutoriales/repo-plantilla<master>$ git commit -am "A ver si me deja"
+```
+~/txt/docencia/repo-tutoriales/repo-plantilla<master>$ git commit -am "A ver si me deja"
 [FORMATO]: no_underscore  at .git/hooks/pre-commit line 13.
 ~/txt/docencia/repo-tutoriales/repo-plantilla<master>$ git status
 # En la rama master
@@ -885,7 +886,8 @@ crea una plantilla para usarla en los mensajes de commit, Pero
 comprueba si se encuentra la palabra `debugger` en el fichero (es
 decir, comentarios de depuración):
 
-``` if git-rev-parse --verify HEAD >/dev/null 2>&1; then
+```
+if git-rev-parse --verify HEAD >/dev/null 2>&1; then
 	against=HEAD
 else
 	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
@@ -897,10 +899,8 @@ then
 echo $FILE ' contains debugger!'
 exit 1
 fi
-done``
-
- 
- 
+done
+``` 
  
  Lo más complicado que tiene este fichero es el uso de filtros del
  shell (algo que, por otro lado, debería aprenderse); esos filtros
