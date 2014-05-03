@@ -671,6 +671,61 @@ estos, que veremos a continuación.
 
 ### Programando un *hook* básico
 
+En general, un *hook* hará lo siguiente
+
+1. Examinar el entorno y los parámetros de entrada
+2. Hacer cambios en el entorno, los ficheros o la salida
+3. Salir con un mensaje si hay algún error, o ninguno.
+
+No son diferentes de ningún otro programa, en realidad, salvo que los
+parámetros de entrada y cómo se debe salir está establecido de
+antemano.
+
+Miremos un script simple, que actúa como gancho para preparación de un
+mensaje de commit (`prepare-commit-msg`, incluido en el
+[repositorio de ejemplo de este curso](git@github.com:JJ/repo-plantilla.git)
+
+```
+#!/bin/sh
+SOB=$(git config github.user)
+grep -qs "^$SOB" "$1" || echo ". Cambio por @$SOB" >> "$1"
+```
+
+Este script tiene toda la simplicidad de estar en dos líneas y toda la
+complicación de estar escrito para el
+*shell*. [Esta introducción](http://es.tldp.org/COMO-INSFLUG/COMOs/Bash-Prog-Intro-COMO/)
+venerable te puede ayudar a empezar a trabajar con él, pero en este
+capítulo no pretendemos que aprendas a programar, sólo que tengas las
+nociones básicas para echar a andar y posiblemente modificar
+ligeramente un gancho. 
+
+Empecemos por la primera línea: es común a todos los guiones del
+shell. Simplemente indica el camino en el que se encuentra el mismo,
+con `#!` indicando que se trata de un fichero ejecutable (junto con el
+`chmod +x`, que se lo indica al sistema de ficheros.
+
+La siguiente línea define una variable, SOB, que no es acrónimo de
+nada, cuidadito. Esa variable usa el formato de ejecución de un
+comando del shell `$()` para asignar la salida de dicho comando a la
+variable.
+
+La tercera línea, en resumen, comprueba si el nombre del usuario ya
+está en el mensaje y si no lo está le añade una "firma" que lo
+incluye. Lo hace de la forma siguiente: `grep -qs "^$SOB" "$1"`
+comprueba si el valor de la variable no (de ahí el caret `^`) está ya
+en el mensaje (cuyo nombre de fichero está en el primer argumento,
+`$1`, según vemos en la
+[chuleta de ganchos de git](http://www.analysisandsolutions.com/code/git-hooks-summary-cheat-sheet.htm). Si
+no lo está (de ahí el `||`, es decir, *O*, se escribe (`echo`) el
+valor de la variable añadiéndose (`>>`) al final del fichero cuyo
+nombre está en la variable `$1`.
+
+La variable `github.user` no tiene por qué estar definida siempre. Se
+puede sustituir por user.email, por ejemplo, o por `user.name`, que sí
+se suele definir siempre cuando se crea un repositorio.
+
+
+
 
 
 ### Algunos *hooks* útiles explicados
