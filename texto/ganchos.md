@@ -797,9 +797,74 @@ con un código de error (1), de esta forma
 [FORMATO] Primera línea > 50 caracteres
 ```
 
-
 Si no es así, simplemente deja pasar el
-mensaje. 
+mensaje. En este *hook*, curiosamente, no se usa más comando de git
+que el mensaje almacenado en el fichero; realmente, no es
+imprescindible usarlo, sólo cuando vayamos a usar información de git
+en el mismo. 
 
+El programa anterior es un ejemplo de cómo se pueden implementar
+políticas de formato o de cualquier otro tipo sobre un repositorio;
+sin embargo, la capacidad que tienen es limitada, ya que se aplican
+sólo sobre los mensajes. En realidad, el que actúen de esa forma es
+convencional, porque los programas que ejecutan los *ganchos* se
+diferencian solamente en el momento en el que actúan, no en lo que
+pueden hacer. Sin embargo, si queremos [implementar una política](http://johnkpaul.com/blog/2013/10/04/git-precommit-hook-awesomeness/) sobre
+los nombres de ficheros o el contenido de los mismos, [hay que usar un
+*gancho* que actúe cuando se añadan al repositorio](http://tech.yipit.com/2011/11/16/183772396/) como
+[el siguiente gancho `pre-commit`](https://github.com/JJ/repo-plantilla/blob/master/hooks/pre-commit.ejemplo)
+escrito en Perl:
+
+``` 
+#!/usr/bin/env perl
+my $is_head = `git rev-parse --verify HEAD`;
+my $last_commit = $is_head?"HEAD":"4b825dc642cb6eb9a060e54bf8d69288fbee4904";
+my @changes = `git diff-index --name-only $last_commit`;
+my %policies = ( no_underscore => qr/_/ );
+for my $f (@changes) {
+    for my $p ( keys %policies ) {
+		if ($f =~ /$policies{$p}/) {
+			die "[FORMATO]: $p ";
+		}
+    }
+}
+```
+
+Este programa es similar a los anteriores, pero para empezar usa un
+comando *cañería* que se encuentra mucho: `rev-parse`. Las dos
+primeras órdenes comprueban si nos encontramos en el primer *commit*
+de un repositorio (en cuyo caso `HEAD` no existe y tendremos que usar
+el *commit primigenio* que es igual en todos los repositorios de
+`git`; lo que pretenden esas dos líneas es encontrar el "último
+commit" para ver cuál es la diferencia con respecto a él. Como vamos a
+tratar con ficheros que acaban de ser añadidos al índice, usamos
+`diff-index` en la siguiente línea con un formato que nos devolverá
+solamente los ficheros cambiados desde el último commit (o desde el
+primero) sin que nos interese nada más sobre ellos.
+
+La siguiente línea define un *hash* con un nombre y una expresión
+regular que será la que se tiene que implementar. Si no conoces el
+lenguaje no te preocupes, pero si lo conoces (ese u otro) es
+relativamente fácil añadir políticas nuevas, como por ejemplo que no
+se permitan .pdfs, simplemente añadiéndole una línea.
+
+El bucle `for` posterior es que que va recorriendo cada uno de los
+cambios y cada una de las políticas (aunque en este caso habrá una
+sola) y saldrá con `die` si alguno de los ficheros tiene un nombre
+incorrecto. 
+
+```~/txt/docencia/repo-tutoriales/repo-plantilla<master>$ git commit -am "A ver si me deja"
+[FORMATO]: no_underscore  at .git/hooks/pre-commit line 13.
+~/txt/docencia/repo-tutoriales/repo-plantilla<master>$ git status
+# En la rama master
+# Cambios para hacer commit:
+#   (use «git reset HEAD <archivo>...«para eliminar stage)
+#
+#	archivo nuevo:   uno_que_no
+``` 
+
+Lo que se puede hacer ahora no es tan trivial: puedes cambiar el
+fichero de nombre a pelo, pero ya está en el índice, por eso es mejor
+hacer algo como `git mv` (o `git rm --force`).
 
 ### Algunos *hooks* útiles explicados
