@@ -603,6 +603,74 @@ objeto actual.
 
 ### Concepto de *hooks*
 
+Un *hook*. literalmente *garfio* o *gancho* es un programa que se
+ejecuta cuando sucede un evento determinado en el respositorio. Los
+*webhooks* de GitHub, por ejemplo, son un ejemplo: cuando se lleva a
+cabo un *push*, se envía información al sitio configurado para que
+ejecute un programa determinado: pase unos tests, publique un tweet, o
+lleve a cabo una serie de comprobaciones. 
+
+Los *ganchos* no son estrictamente necesarios en todo tipo de
+instalaciones; se puede trabajar con un repositorio sin tener la
+necesidad de usarlos. Sin embargo, son tremendamente útiles para
+automatizar una serie de tareas (como los tests que se usan en
+integración continua), implementar una serie de pollíticas para todos
+los usuarios de un repositorio (formato de los mensajes de *commit*,
+por ejemplo) y añadir información al repositorio de forma automática.
+
+Los *hooks* son, por tanto, programas ejecutables. Cualquier programa
+que se pueda lanzar puede servir, pero generalmente se usa o guiones
+del *shell* (si uno es suficientemente masoquista) o lenguajes de
+*scripting* tales como Perl, Python, Ruby, Javascript o, si uno es
+*realmente* masoquista, PHP. En realidad a git le da igual qué
+lenguaje se use.
+
+Los *ĥooks* van en su propio directorio, `.git/hooks` que se crea
+automáticamente y que tiene, siempre, una serie de *scripts* ejemplo,
+ninguno de ellos activados. Sólo se admite un *hook* por evento, y ese
+*hook* tendrá el nombre del evento asociado; es decir, un programa
+llamado `post-merge` en ese directorio se ejecutará siempre cada vez
+que se termine un *merge* con éxito. Como generalmente uno quiere que
+los scripts tengan un nombre razonable, la estrategia más general es
+usar un *enlace simbólico* de esta forma 
+
+```
+ln -s nombre-real-del-script.sh post-merge
+```
+y, en todo caso, no se debe olvidar 
+
+```
+chmod +x nombre-real-del-script.sh
+```
+
+para hacerlo ejecutable.
+
+> Windows seguramente tendrá su forma particular de hacer lo mismo, o
+>  ninguna. Por cualquiera de esas dos razones, nunca recomendamos
+>  Windows como una plataforma para desarrollo. Úsala para la
+>  declaración de la renta o para jugar al Unreal, pero para
+>  desarrollar usa una plataforma para desarrolladores: Linux (o Mac,
+>  que tiene un núcleo Unix por debajo). 
+
+Los *hooks* se activarán cuando se ejecute un comando determinado y
+recibirán una serie de parámetros como argumento o en algún caso como
+entrada estándar. Este
+[cuadro](http://www.analysisandsolutions.com/code/git-hooks-summary-cheat-sheet.htm)
+resume cuando se ejecutan y también qué reciben como parámetro. En
+general, también tendrán influencia en si tiene éxito o no el comando
+determinado: salir con un valor no nulo, en algunos casos, parará la
+ejecución del comando con un mensaje de error. Por ejemplo, un *hook*
+*applypatch-msg*, que se aplica desde el comando `git am` antes de que
+se ejecute, parará la aplicación del parche si se sale con un valor 1.
+
+De todos los *hooks* posibles sólo veremos los que se refieren al
+*commit*. Son los que se pueden usar en local (los referidos a *push*
+sólo se programan en remoto, y los que se aplican a `git am` o `git
+gc` quedan fueran de los temas de este libro. Hay sólo cuatro de
+estos, que veremos a continuación.
+
 ### Programando un *hook* básico
+
+
 
 ### Algunos *hooks* útiles explicados
