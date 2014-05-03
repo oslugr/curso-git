@@ -868,3 +868,44 @@ fichero de nombre a pelo, pero ya está en el índice, por eso es mejor
 hacer algo como `git mv` (o `git rm --force`).
 
 ### Algunos *hooks* útiles explicados
+
+Hay múltiples posts en blogs que
+[explican diferentes ejemplos de *hooks*](http://www.sitepoint.com/git-hooks-fun-profit/)
+y lo que se puede hacer con ellos. Por ejemplo, en
+[este conjunto](http://codeinthehole.com/writing/tips-for-using-a-Git-pre-commit-hook/)
+usa programas externos y su código de salida (`$?`) para comprobar si
+un programa es correcto o no; también usa extensivamente `git stash`
+para almacenar todos los ficheros que se hayan modificado y luego los
+recupera con `git stash
+pop`. [Este, por ejemplo](http://hugogiraudel.com/2014/03/17/git-tips-and-tricks-part-2/),
+crea una plantilla para usarla en los mensajes de commit, Pero
+[este gist](https://gist.github.com/ilyakatz/4625224) incluye algunos
+*hooks* útiles que vamos a ver. Por ejemplo,
+[el siguiente](https://gist.github.com/ilyakatz/4625224#file-pre-commit-debugger)
+comprueba si se encuentra la palabra `debugger` en el fichero (es
+decir, comentarios de depuración):
+
+``` if git-rev-parse --verify HEAD >/dev/null 2>&1; then
+	against=HEAD
+else
+	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+for FILE in `git diff-index --check --name-status $against -- | cut -c3-` ; do
+# Check if the file contains 'debugger'
+if [ "grep 'debugger' $FILE" ]
+then
+echo $FILE ' contains debugger!'
+exit 1
+fi
+done``
+
+ 
+ 
+ 
+ Lo más complicado que tiene este fichero es el uso de filtros del
+ shell (algo que, por otro lado, debería aprenderse); esos filtros
+ hacen algo similar a lo que se ha hecho antes con Perl: recorre el
+ nombre de los ficheros y le aplica el buscador de cadenas, `grep`,
+ buscando la palabra `debugger`; si la encuentra, sale. Quizás está
+ mejor explicado en
+ [la historia original](http://mark-story.com/posts/view/using-git-commit-hooks-to-prevent-stupid-mistakes) 
