@@ -492,6 +492,7 @@ fe88e5eefff7f3b7ea95be510c6dcb87054bbcb0
 :000000 040000 0000000000000000000000000000000000000000 fd3846c0d6089437598004131184c61aea2b6514 A	views
 :100644 100644 94f151d9ef9340c81989b0c3fa8c517c068e1864 97c32024cda29e0fb6abebf48d3f6740f0acb9e2 M	web.js
 ```
+
 Aunque en este caso muestra un árbol, `views`, que ha sido cambiado
 porque se le ha añadido un fichero nuevo, `views/doc.jade`. En el
 momento que se haga el commit y pase por tanto del índice al la zona de
