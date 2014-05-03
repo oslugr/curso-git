@@ -790,7 +790,15 @@ El resto, usando el modo asíncrono que es común en Node, lee el
 fichero (creando una excepción si hay algún error), lo divide en
 líneas usando `split` y a continuación comprueba si la primera línea
 (`lines[0]`) tiene más de 50 caracteres, en cuyo caso sale del proceso
-con un código de error (1). Si no es así, simplemente deja pasar el
+con un código de error (1), de esta forma
+
+```
+~/txt/docencia/repo-tutoriales/curso-git<master>$ git commit -am "Añadiendo un montón de cosas al capítulo de los ganchos y testeándolo a la vez"
+[FORMATO] Primera línea > 50 caracteres
+```
+
+
+Si no es así, simplemente deja pasar el
 mensaje. 
 
 
