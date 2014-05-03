@@ -604,7 +604,7 @@ objeto actual.
 
 ### Concepto de *hooks*
 
-Un *hook*. literalmente *garfio* o *gancho* es un programa que se
+Un [*hook*. literalmente *garfio* o *gancho*](http://githooks.com/) es un programa que se
 ejecuta cuando sucede un evento determinado en el respositorio. Los
 *webhooks* de GitHub, por ejemplo, son un ejemplo: cuando se lleva a
 cabo un *push*, se envía información al sitio configurado para que
@@ -613,8 +613,8 @@ lleve a cabo una serie de comprobaciones.
 
 Los *ganchos* no son estrictamente necesarios en todo tipo de
 instalaciones; se puede trabajar con un repositorio sin tener la
-necesidad de usarlos. Sin embargo, son tremendamente útiles para
-automatizar una serie de tareas (como los tests que se usan en
+necesidad de usarlos. Sin embargo, [son tremendamente útiles para
+automatizar una serie de tareas](http://git-scm.com/book/en/Customizing-Git-An-Example-Git-Enforced-Policy) (como los tests que se usan en
 integración continua), implementar una serie de pollíticas para todos
 los usuarios de un repositorio (formato de los mensajes de *commit*,
 por ejemplo) y añadir información al repositorio de forma automática.
@@ -725,8 +725,73 @@ La variable `github.user` no tiene por qué estar definida siempre. Se
 puede sustituir por user.email, por ejemplo, o por `user.name`, que sí
 se suele definir siempre cuando se crea un repositorio.
 
+Este
+[otro ejemplo](https://github.com/JJ/repo-plantilla/blob/master/hooks/prepare-commit-msg.otro-ejemplo)
+es todavía más minimalista, y también añade información al commit
+(que, como en el caso anterior, se puede eliminar si se edita el
+fichero de commit):
 
+```
+STATS=$(git diff --cached --shortstat)
+echo ". Cambios en este commit\n ${STATS}" >> "$1"
+```
 
+Es interesante notar, en este caso, que se usa `diff --cached` ya que
+en este caso los cambios estarán ya *staged* o *cached* y la
+diferencias (que suelen aparecer de todas formas en el mensaje que da
+el comando) serán entre HEAD y lo que hay ya almacenado el área de
+preparación de los ficheros, no entre HEAD y lo que hay en el sistema
+de ficheros; esto es así porque ya estamos *dentro* del commit y los
+ficheros están ya preparados para ser procesados en las tuberías de
+`git` por sus comandos-`tuberìa`.  En resumen, esta orden da una
+mini-estadística que dice el número de ficheros y líneas cambiadas,
+produciendo
+[resultados sobre este mismo fichero tales como este](https://github.com/oslugr/curso-git/commit/052c8560cf2399b3d9f450693b884b5f1a6ca8f9):
+
+```
+ Mini-corrección
+
+. Cambios en este commit
+   1 file changed, 1 insertion(+)
+```
+
+Otro *hook* puede servir para comprobar que los mensajes de *commit*
+son correctos. Como se ha visto anteriormente, una buena práctica es
+usar una primera línea de 50 caracteres (que aparecerán como título)
+seguida por una línea vacía y el resto del mensaje. Esto se puede
+aplicar mediante
+[un programa en Python](http://addamhardy.com/blog/2013/06/05/good-commit-messages-and-enforcing-them-with-git-hooks/)
+o el siguiente en [Node](http://nodejs.org), una versión de
+Javascript.
+
+```
+#!/usr/bin/env node
+
+var fs = require('fs');
+var msg_file = process.argv[2];
+
+fs.readFile( msg_file, 'utf8', function( err, data ) {
+    if ( err ) throw err;
+    var lines = data.split("\n");
+    if ( lines[0].length > 50 ) {
+	console.log("[FORMATO] Primera línea > 50 caracteres");
+	process.exit(1);
+    }
+})
+```
+
+La primera línea es común a los scripts, y a continuación se carga el
+módulo necesario para usar el sistema de ficheros (`fs`) y se lee el
+argumento que se pasa por línea de órdenes, el nombre del fichero que
+contiene el mensaje del commit (este mensaje estará ahí aunque lo
+hayamos pasado con `-m` desde la línea de órdenes). 
+
+El resto, usando el modo asíncrono que es común en Node, lee el
+fichero (creando una excepción si hay algún error), lo divide en
+líneas usando `split` y a continuación comprueba si la primera línea
+(`lines[0]`) tiene más de 50 caracteres, en cuyo caso sale del proceso
+con un código de error (1). Si no es así, simplemente deja pasar el
+mensaje. 
 
 
 ### Algunos *hooks* útiles explicados
