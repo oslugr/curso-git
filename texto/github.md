@@ -133,12 +133,13 @@ página donde pone "GitHub Pages", y se pulsa en *Automatic Page
 Generator* que te permitirá elegir entre unos pocos (la verdad, no hay
 muchos) *temas* el que más te guste.
 
-Lo que hace este generador automático es lo siguiente
- * Generar una rama `gh-pages` de tu repositorio principal
- * A partir del fichero `README.md` del directorio principal de tu
+Lo que hace este generador automático es lo siguiente:
+
+- Generar una rama `gh-pages` de tu repositorio principal
+- A partir del fichero `README.md` del directorio principal de tu
    proyecto, genera un fichero `index.html` usando la plantilla
    seleccionada
- * Genera un dominio `usuario.github.io/proyecto` desde el cual se
+- Genera un dominio `usuario.github.io/proyecto` desde el cual se
    puede acceder a  las páginas publicadas
    
 El generador automático sólo funciona una vez. A partir de ese
@@ -189,22 +190,66 @@ Los *hooks* o *ganchos* son eventos que se activan cuando se produce algún tipo
 
 GitHub puede integrar cualquier tipo de servicio que acepte una petición REST con una serie de características (esencialmente, datos sobre el repositorio y sobre el último commit), pero tiene ya una serie de servicios, casi un centenar, configurables directamente desde el panel de control yendo a *Settings* -> *Webhooks & Services* -> *Configure services*. Todos los servicios se activan cuando se hace un push a GitHub. Evidentemente, en local no se enteran, salvo que los configuremos explícitamente como vamos a ver en el tema siguiente. 
 
-Vamos a dividir los servicios que hay en varios grupos.
-* Integración continua. Servicios como TravisCI, CircleCI, Jenkins o Shippable. Los tres primeros se pueden configurar directamente desde GH, para el último hay que entrar en [su web](http://shippable.com) y activar el respositorio que haga falta. Estos servicios realizan una serie de tests o generación de código sobre el proyecto y dan un resultado indicando qué tests se han pasado o no. Para indicar qué tests se hacen y los parámetros del repositorio, cada uno usa un formato diferente, aunque son habituales los ficheros de formato YAML o XML. En [el repo de ejemplo](http://github.com/oslugr/repo-ejemplo) se han activado Travis y Shippable, y en el directorio principal se pueden ver los ficheros de configuración (del mismo nombre que el sitio).
-* Servicios de mensajería diversos, que envían mensajes cuando sucede algo. Entre estos últimos está [Twitter](http://twitter.com), que se puede configurar para que se cree un tweet con el mensaje del commit cada vez que se haga uno. Puede ser bastante útil, si se usa este sitio, para mantenerte al día de la actividad de un grupo de trabajo. También hay otros servicios como Jabber o Yammer o comerciales como Amazon SNS. 
-* Entrega continua: a veces integrados con los de, valga la redundancia, integración continua, pero que permiten directamente, cuando se hace un push sobre una rama dterminada, se despliegue en el sitio definitivo. Servicios como Azure lo permiten, pero también [CodeShip](http://codeship.io) o [Jenkins](http://lkrnac.net/blog/2014/03/16/continuous-delivery/). Generalmente en este caso hay que configurar algún tipo de *secret* o *clave* que permita a GitHub acceder al sitio y depositar la *carga* que, inmediatamente, estará disponible. De hecho, es muy fácil trabajar con esto [directamente desde el editor como Eclipse](http://java.dzone.com/articles/trigger-continuous-delivery)
-* Sistemas de trabajo en grupo, que integran GitHub con los sistemas que tengan de asignación de tareas, de resolución de incidencias incluidas por parte de clientes. Por ejemplo, Basecamp, Bugzilla o Zendesk. De hecho, el propio GitHub integra un sistema de incidencias que se puede usar fácilmente. 
-* Análisis del código como CodeClimate (que analiza una serie de parámetros del código), Depending (que analiza dependencias en PHP) o David-DM (que analiza dependencias para nodejs).
+Vamos a dividir los servicios que hay en varios grupos:
+
+- Integración continua. Servicios como TravisCI, CircleCI, Jenkins o
+  Shippable. Los tres primeros se pueden configurar directamente desde
+  GH, para el último hay que entrar en [su web](http://shippable.com)
+  y activar el respositorio que haga falta. Estos servicios realizan
+  una serie de tests o generación de código sobre el proyecto y dan un
+  resultado indicando qué tests se han pasado o no. Para indicar qué
+  tests se hacen y los parámetros del repositorio, cada uno usa un
+  formato diferente, aunque son habituales los ficheros de formato
+  YAML o XML. En
+  [el repo de ejemplo](http://github.com/oslugr/repo-ejemplo) se han
+  activado Travis y Shippable, y en el directorio principal se pueden
+  ver los ficheros de configuración (del mismo nombre que el sitio). 
+- Servicios de mensajería diversos, que envían mensajes cuando sucede
+  algo. Entre estos últimos está [Twitter](http://twitter.com), que se
+  puede configurar para que se cree un tweet con el mensaje del commit
+  cada vez que se haga uno. Puede ser bastante útil, si se usa este
+  sitio, para mantenerte al día de la actividad de un grupo de
+  trabajo. También hay otros servicios como Jabber o Yammer o
+  comerciales como Amazon SNS.  
+- Entrega continua: a veces integrados con los de, valga la
+  redundancia, integración continua, pero que permiten directamente,
+  cuando se hace un push sobre una rama dterminada, se despliegue en
+  el sitio definitivo. Servicios como Azure lo permiten, pero también
+  [CodeShip](http://codeship.io) o
+  [Jenkins](http://lkrnac.net/blog/2014/03/16/continuous-delivery/). Generalmente
+  en este caso hay que configurar algún tipo de *secret* o *clave* que
+  permita a GitHub acceder al sitio y depositar la *carga* que,
+  inmediatamente, estará disponible. De hecho, es muy fácil trabajar
+  con esto
+  [directamente desde el editor como Eclipse](http://java.dzone.com/articles/trigger-continuous-delivery) 
+- Sistemas de trabajo en grupo, que integran GitHub con los sistemas
+  que tengan de asignación de tareas, de resolución de incidencias
+  incluidas por parte de clientes. Por ejemplo, Basecamp, Bugzilla o
+  Zendesk. De hecho, el propio GitHub integra un sistema de
+  incidencias que se puede usar fácilmente.  
+- Análisis del código como CodeClimate (que analiza una serie de
+  parámetros del código), Depending (que analiza dependencias en PHP)
+  o David-DM (que analiza dependencias para nodejs). 
 
 Lo interesante es que se puede trabajar con la mayoría de estos sistemas de forma gratuita, aunque algunos tienen un modelo *freemium* que te cobra a partir de un nivel determinado de uso (lo que es natural, si no no podrían ofrecértelo de forma grauita). Además, integra la mayor parte de los sistemas que se usan habitualmente en la industria del software. 
 
 ### Algunos *hooks* interesantes: sistemas de integración continua
 
-GitHub resulta ideal para trabajar con cualquier sistema de integración continua, sea alojado o propio. Los sistemas de integración continua funcionan de la forma siguiente
-* Provisionan una máquina virtual con unas características determinadas para ejecutar pruebas o compilar código. 
-* Instalan el software necesario para llevar a cabo dichas pruebas
-* Ejecutan las pruebas, creando finalmente un informe que indique cuantas han fallado o acertado
-* Crear un *artefacto*, que puede ir desde un fichero con el informe en un formato estándar (suele ser XUnit o JUnit) hasta el ejecutable que se podrá descargar directamente del sitio; esto último puede incluir también su despliegue en la *nube*, un IaaS (Infraestructure as a Service) o PaaS (Platform as a Service) en caso de que haya pasado todos los tests satisfactoriamente.
+GitHub resulta ideal para trabajar con cualquier sistema de
+integración continua, sea alojado o propio. Los sistemas de
+integración continua funcionan de la forma siguiente: 
+
+- Provisionan una máquina virtual con unas características
+  determinadas para ejecutar pruebas o compilar código.  
+- Instalan el software necesario para llevar a cabo dichas pruebas.
+- Ejecutan las pruebas, creando finalmente un informe que indique
+  cuantas han fallado o acertado. 
+- Crear un *artefacto*, que puede ir desde un fichero con el informe
+  en un formato estándar (suele ser XUnit o JUnit) hasta el ejecutable
+  que se podrá descargar directamente del sitio; esto último puede
+  incluir también su despliegue en la *nube*, un IaaS (Infraestructure
+  as a Service) o PaaS (Platform as a Service) en caso de que haya
+  pasado todos los tests satisfactoriamente. 
 
 La integración continua forma parte de una metodología de [desarrollo basado en test o guiado por pruebas](http://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas) que consiste en crear primero las pruebas que tiene que pasar un código antes de, efectivamente, escribir tal código. Las pruebas son tests unitarios y también de integración, que prueban las capas de la aplicación a diferentes niveles (por ejemplo, acceso a datos, procesamiento de los datos, UI). Todos los lenguajes de programación modeno incluyen un aplicación que crea un protocolo para llevar a cabo los test e informar del resultado y estos sistemas van desde el humilde Makefile que se usa en diferentes lenguajes compilados hasta el complejo Maven, pasando por sistemas como los tests de Perl o los Rakefiles de Ruby. En cualquier caso, cada lenguaje suele tener una forma estándar de pasar los tests (`make test`, `npm test` o `mocha`) y los sistemas de integración continua hacen muy simple trabajar con estos tests estándar, pero también son flexibles en el sentido que se puede adaptar a todo tipo de programa.
 
@@ -267,7 +312,7 @@ sustituyendo el nombre de usuario y el nombre del repo por el correspondiente, c
 ### Cliente de GitHub
 
 
-GitHub también mantiene un [cliente de GitHub](https://github.com/github/hub), escrito en Ruby y llamado `hub`, que se puede usar para sustituir a `git` o por sí mismo. En realidad, es como `git` salvo que tiene ya definidos por omisión una serie de características específicas de GitHub, como los nombres de los repositorios o los usuarios de los mismos. Tras [instalarlo](http://hub.github.com/) puedes usarlo, por ejemplo, para clonar el repo de ejemplo usado aquí con `hub clone oslugr/repo-ejemplo` en vez de usar el camino completo a git; el formato sería siempre `usuario/nombre-del-repo`. Más órdenes que añade a git (y que se pueden usar directamente desde git si se usa, como se indica en las instrucciones, git como un alias de hub)
+GitHub también mantiene un [cliente de GitHub](https://github.com/github/hub), escrito en Ruby y llamado `hub`, que se puede usar para sustituir a `git` o por sí mismo. En realidad, es como `git` salvo que tiene ya definidos por omisión una serie de características específicas de GitHub, como los nombres de los repositorios o los usuarios de los mismos. Tras [instalarlo](http://hub.github.com/) puedes usarlo, por ejemplo, para clonar el repo de ejemplo usado aquí con `hub clone oslugr/repo-ejemplo` en vez de usar el camino completo a git; el formato sería siempre `usuario/nombre-del-repo`. Más órdenes que añade a git (y que se pueden usar directamente desde git si se usa, como se indica en las instrucciones, git como un alias de `hub`):
 
 * `hub browse`: abre un navegador en la página del respositorio correspondiente. Por ejemplo `hub browse -- issues` lo abriría en la página correspondiente a las solicitudes de ese proyecto.
 * `hub fork`: una vez clonado un repositorio de otro usuario, no hace falta hacer *fork* desde la web, se puede hacer directamente desde el repo. Se crea un origen remoto con el nombre de tu usuario, al que se puede hacer *push* de la forma normal. Desde la misma línea de órdenes se puede hacer un *pull request* al repositorio original también. 
