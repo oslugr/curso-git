@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+
+pandoc -S --latex-engine=xelatex  \
+    -o aprendegit.pdf aprendegit.txt --toc \
+    prologo.md  introduccion.md  uso_basico.md \
+    solucion_problemas.md mas_usos.md \
+    github.md          ganchos.md
+
+
+
