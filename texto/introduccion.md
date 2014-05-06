@@ -10,7 +10,7 @@ Conocer las principales características de git
 
 En los últimos años, el software libre se ha ido extendiendo hasta abarcar la mayor parte de sistemas de Internet, supercomputadores o servicios de red, llegando finalmente a ordenadores personales, tablets, teléfonos e incluso electrodomésticos.
 
-Llamamos [Software Libre](http://es.wikipedia.org/wiki/Software_libre) al que permite al usuario ejecrcer una serie de libertades, a saber:
+Llamamos [Software Libre](http://es.wikipedia.org/wiki/Software_libre) al que permite al usuario ejercer una serie de libertades, a saber:
 
 * la libertad de usar el programa, con cualquier propósito.
 * la libertad de estudiar cómo funciona el programa y modificarlo, adaptándolo a tus necesidades.
@@ -22,7 +22,7 @@ Para que un programa sea libre hacen falta dos requisitos fundamentales:
 * Una licencia que permita el uso, modificación y distribución del programa
 * Acceso al código fuente del programa
 
-Además, en la comuniad de software libre se dan algunas peculiaridaddes, como la internacionalización o el trabajo colaborativo de garn cantidad de desarrolladores, que han promovido la creación de forjas, repositorios y sistemas que permitan compartir ese código de forma abierta y además, administrar y gestionar todo ese trabajo de una forma eficiente.
+Además, en la comunidad de software libre se dan algunas peculiaridades, como la internacionalización o el trabajo colaborativo de gran cantidad de desarrolladores, que han promovido la creación de forjas, repositorios y sistemas que permitan compartir ese código de forma abierta y además, administrar y gestionar todo ese trabajo de una forma eficiente.
 
 git es uno de estos sistemas, y es software libre.
 
@@ -74,11 +74,11 @@ Los sistemas distribuidos más conocidos son Bazaar y, por supuesto, git.
 
 ##git
 
-Git nació para ser el Sistema de Control de Versiones del kernel de Linux (de hecho, fue orignalmente programado por el mismo *Linus Torvals*) y es por ello que está preparado para proyectos grandes, con muchos desarrolladores y un gran número de ramas.
+Git nació para ser el Sistema de Control de Versiones del kernel de Linux (de hecho, fue originalmente programado por el mismo *Linus Torvalds*) y es por ello que está preparado para proyectos grandes, con muchos desarrolladores y un gran número de ramas.
 
-Se trata, como ya hemos dicho, de un Sistema de Control de Versiones distribuído, por lo que cada programador cuenta con su propio repositorio. Esto hace que, salvo cuando llega el momento de sincronizar con otro repositorio, todo el trabajo se haga en local, con ventajas como la velocidad o que se pueda trabajar sin acceso a la red. 
+Se trata, como ya hemos dicho, de un Sistema de Control de Versiones distribuido, por lo que cada programador cuenta con su propio repositorio. Esto hace que, salvo cuando llega el momento de sincronizar con otro repositorio, todo el trabajo se haga en local, con ventajas como la velocidad o que se pueda trabajar sin acceso a la red. 
 
-git es software libre, y su código está disponible en su [repositorio de github](http://github.com/git/git).
+git es software libre, y su código está disponible en su [repositorio de GitHub](http://github.com/git/git).
 
 El sitio oficial de git es [git-scm.com](http://git-scm.com/)
 
