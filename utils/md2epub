@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+
+pandoc -S --toc --epub-metadata=../metadata.xml --epub-stylesheet=../aprendegit.css \
+    -o aprendegit.epub aprendegit.txt \
+    prologo.md  introduccion.md  uso_basico.md \
+    solucion_problemas.md mas_usos.md \
+    github.md          ganchos.md
+
+
+

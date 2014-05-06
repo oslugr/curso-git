@@ -1,8 +1,5 @@
-
-<style type="text/css">
-
 body {
-  font-family: Helvetica, arial, sans-serif;
+  font-family: Lucida, Helvetica, arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   padding-top: 10px;
@@ -41,6 +38,7 @@ a.anchor {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: Tahoma, Helvetica;
   margin: 20px 0 10px;
   padding: 0;
   font-weight: bold;
@@ -349,6 +347,7 @@ span.float-right > span {
 }
 
 code, tt {
+  font-family: Lucida console, Inconsolata, Courier new;
   margin: 0 2px;
   padding: 0 5px;
   white-space: nowrap;
@@ -403,6 +402,4 @@ pre code, pre tt, p code {
   background-color: transparent;
   border: none;
 }
-
-</style>
 
