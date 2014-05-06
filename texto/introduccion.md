@@ -2,10 +2,10 @@
 
 ###Objetivos
 
-Saber qué es el Software Libre
-Aprender qué es un Sistema de Control de Versiones
-Ver los Sistema de Control de Versiones y sus tipos
-Conocer las principales características de git
+* Saber qué es el Software Libre
+* Aprender qué es un Sistema de Control de Versiones
+* Ver los Sistema de Control de Versiones y sus tipos
+* Conocer las principales características de git
 
 ###Software Libre
 

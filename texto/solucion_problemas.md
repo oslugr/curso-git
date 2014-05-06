@@ -1,5 +1,13 @@
 ##Solución de problemas con git
 
+###Objetivos
+
+En todo desarrollo colaborativo aparecen problemas. No es difícil solucionarlos.
+
+* Saber obtener información sobre git
+* Conocer el estado e historial de nuestros proyectos
+* Modificar y recuperar estados anteriores
+* Solucionar conflictos entre repositorios
 
 ###Obtener Ayuda
 
