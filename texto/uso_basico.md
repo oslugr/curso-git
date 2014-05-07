@@ -32,7 +32,7 @@ Instalar git en linux es tan simple como usar tu gestor de paquetes favorito. Po
 
 Para instalar git en Windows debemos descargar el programa instalador en su web oficial en [http://git-scm.com/downloads](http://git-scm.com/downloads).
 
-Una vez descargado, sólo tenemos que ejecutarlo y se abrirá una ventana que nos irá solicitando paso a paso los datos necesarios para la instalación. Pulsaremos el botón "Netx" para comenzar.
+Una vez descargado, sólo tenemos que ejecutarlo y se abrirá una ventana que nos irá solicitando paso a paso los datos necesarios para la instalación. Pulsaremos el botón "Next" para comenzar.
 
 ![Instalación de git en Windows (1)](img/wingit1.png)
 
@@ -44,11 +44,11 @@ La siguiente es una ventana que nos permite elegir el lugar de instalación. Si 
 
 ![Instalación de git en Windows (3)](img/wingit3.png)
 
-En la siguiente, podemos elegir una serie de cosas como el que aparezcan iconos de git en Inicio Rápido y el Escritorio o tener dos nuevas órdenes en el menú contextual (*el que aparece al hacer clic derecho con el ratón en una ventana*) para iniciar una ventana de git en es carpeta.
+En la siguiente, podemos elegir una serie de cosas como el que aparezcan iconos de git en Inicio Rápido y el Escritorio o tener dos nuevas órdenes en el menú contextual (*el que aparece al hacer clic derecho con el ratón en una ventana*) para iniciar una ventana de git en esa carpeta.
 
 ![Instalación de git en Windows (4)](img/wingit4.png)
 
-En la siguiente ventana se nos permite cambiar el nombre del grupo de programas que aparecerá en el menú Inicio
+En la siguiente ventana se nos permite cambiar el nombre del grupo de programas que aparecerá en el menú Inicio.
 
 ![Instalación de git en Windows (5)](img/wingit5.png)
 
@@ -62,7 +62,7 @@ Y, por fin, hemos finalizado nuestra instalación.
 
 ![Instalación de git en Windows (8)](img/wingit8.png)
 
-A partir de este momento, podemos ir al menú inicio como se indica en la imagen, y ejecutar "Git Bash", lo que abrirá una consola donde podremos interactuar con 'git' tal como se ve en este curso.
+A partir de este momento podemos ir al menú inicio como se indica en la imagen, y ejecutar "Git Bash", lo que abrirá una consola donde podremos interactuar con 'git' tal como se ve en este curso.
 
 ![Instalación de git en Windows (9)](img/wingit9.png)
 
@@ -304,7 +304,7 @@ Para añadir otro repositorio remoto se hace con la misma instrucción `remote` 
 
 `git remote add ALIAS_DEL_REPOSITORIO DIRECCION_DEL_REPOSITORIO`
 
-Donde `ALIAS_DEL_REPOSITORIO`es un nombre corto para usar en las instrucciones de git (el equivalente al "origin" que hemos visto) y `DIRECCION_DEL_REPOSITORIO`la dirección donde se encuentra. Por ejemplo:
+Donde `ALIAS_DEL_REPOSITORIO` es un nombre corto para usar en las instrucciones de git (el equivalente al "origin" que hemos visto) y `DIRECCION_DEL_REPOSITORIO` la dirección donde se encuentra. Por ejemplo:
 
 `git remote add personal git://github.com/psicobyte/repo-ejemplo.git`
 
@@ -355,7 +355,7 @@ En realidad, `git pull` es la unión de dos herramientas distintas, que son `git
 
 ####Enviando cambios
 
-Si con `pull`importamos cambios desde otro repositorio, la instrucción `push` es la que nos permite enviar cambios a un repositorio remoto.
+Si con `pull` importamos cambios desde otro repositorio, la instrucción `push` es la que nos permite enviar cambios a un repositorio remoto.
 
 Se usa de un modo bastante parecido:
 

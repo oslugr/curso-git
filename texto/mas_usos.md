@@ -16,11 +16,11 @@ una serie de prácticas que son habituales en el desarrollo de software
 (y de otras cosas, como documentación o novelas) para hacer más
 productivos a los equipos de trabajo y poder predecir con más
 precisión el desarrollo de los mismos. Por eso, aunque se puede usar
-cualquier metodología de desarrollo de softare con el mismo, `git`
+cualquier metodología de desarrollo de software con el mismo, `git`
 funciona mejor con
 [metodologías ágiles](http://es.wikipedia.org/wiki/Desarrollo_%C3%A1gil_de_software)
 que tienen ciclos más rápidos de producción y de despliegue de nuevas
-características o de arreglo de las mismas. Las metodologias ágiles
+características o de arreglo de las mismas. Las metodologías ágiles
 son iterativas y en todas las iteraciones están presentes la mayoría
 de los actores del desarrollo: clientes, desarrolladores, arquitectos;
 incluso en algunas puede que esté la peña de márketing, a ver si se
@@ -36,7 +36,7 @@ hoy en día, o todas, incluyen una parte de prueba; en casi todos los
 casos esta prueba está automatizada e incluye test unitarios (que
 prueban características específicas), de integración y de cualquier
 otro tipo (calidad de código, existencia y calidad de la
-documentacion). 
+documentación). 
 3. Lanzamiento del producto. Cuando se han incorporado todas las
 características que se desean, se lanza el producto. El lanzamiento
 del producto, en el caso de web, incluye un *despliegue* (*deploy*)
@@ -86,12 +86,12 @@ Otros ficheros que suelen ir en el directorio principal
  * `LICENSE` incluye la licencia. También se crea automáticamente en
    caso desde Github en caso de que se haya hecho así. No hay que
    olvidar que también hay que incluir una cabecera en cada fichero
-   que indice a qué paquete pertenece y cuál es la licencia.
+   que indique a qué paquete pertenece y cuál es la licencia.
    
- * `TODO` es una ventana abierta a la colaboració, así como una lista
+ * `TODO` es una ventana abierta a la colaboración, así como una lista
    para recordarnos a nosotros mismos qué tareas tenemos por delante.
    
- * Otros ficheros de configuración, como `.travis.yml`para el sistema
+ * Otros ficheros de configuración, como `.travis.yml` para el sistema
    de integración continua Travis, `Makefile.PL` o `configure` u otros
    ficheros necesarios para configurar la librería, y ficheros
    similares que haga falta ejecutar o ver al instalar la
@@ -109,7 +109,7 @@ Otros ficheros que suelen ir en el directorio principal
  habitualmente se va a llamar `src`. Algunos lenguajes te van a pedir
  que tengan el nombre de la librería, en cuyo caso se usará el que más
  convenga. Si no se trata de una aplicación sino de una biblioteca, se
- usará `lib`en vez de `src`, como en esta [biblioteca llamada *NodEO*](https://github.com/JJ/nodeo)
+ usará `lib` en vez de `src`, como en esta [biblioteca llamada *NodEO*](https://github.com/JJ/nodeo)
  Los tests unitarios irán aparte, en un directorio
  habitualmente llamado `test`. Finalmente, un directorio llamado
  `examples` o `apps` o `scripts` o `bin` o `exe` incluirá ejemplos de uso de la
@@ -175,7 +175,7 @@ jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ tree
 con el subdirectorio `curso` siendo, en realidad, otro repositorio.
 
 Por ejemplo, podíamos tener una estructura que incluyera
-subdirectorios para `cliente`(un submódulo) y `servidor` (otro
+subdirectorios para `cliente` (un submódulo) y `servidor` (otro
 submódulo). Con ambos se puede trabajar de forma independiente y, de
 hecho, *residen* en repositorios independientes, pero puede que, en
 caso de empaquetarlos o desplegarlos de alguna forma determinada (por
@@ -237,7 +237,7 @@ tener en cuenta que lo que escribamos es un predicado cuyo sujeto son
 los cambios que hemos hecho. Sobre qué hay que escribir hay
 [muchas versiones](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html),
 pero conviene que el mensaje sea informativo, hable de por qués y de
-comos más que de qués (no se puede decir "inserta una función", eso ya
+cómos más que de qués (no se puede decir "inserta una función", eso ya
 se ve en el código, sino por qué se inserta esa función) y se aconseja
 también un formato similar al siguiente
 
@@ -488,6 +488,7 @@ momento
 
 ```
 git status
+
 # En la rama get-dir
 ```
 
@@ -550,7 +551,7 @@ se trataba de trabajar con *todos* los ficheros del directorio en vez
 de los ficheros que le pasemos explícitamente. Estas ramas se suelen
 denominar
 [*ramas de características* o *feature branches* y forman parte de un flujo de trabajo habitual en git](https://www.atlassian.com/es/git/workflows#!workflow-feature-branch). Sobre
-un repositorio central, se crear una rama si quieres probar algo que
+un repositorio central se creará una rama si quieres probar algo que
 no sabes si estará bien eventualmente o si realmente será util. De
 esta forma no se *estorba* a la rama principal, que puede estar
 desarrollando o arreglando errores por otro lado. En este flujo de
@@ -575,7 +576,7 @@ jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull origin maste
 
 Este mensaje te muestra que se ha fusionado usando una estrategia
 determinada. `git` examina los commits que diferencian una rama de la
-otra y te los aplica; al hacer `pull`aparecerá el editor, en el que
+otra y te los aplica; al hacer `pull` aparecerá el editor, en el que
 pondremos el mensaje de fusión. Los cambios se propagarán a la rama
 remota haciendo `git push` y las ramas quedarán como aparece en
 [la visualización de la red con fecha 6 de abril de 2014](https://github.com/oslugr/repo-ejemplo/network);
@@ -583,7 +584,7 @@ remota haciendo `git push` y las ramas quedarán como aparece en
 
 También podemos hacer la operación inversa. Visto que los cambios de
 `master` no afectan a la funcionalidad nueva que hemos creado,
-fusionemos la rama `get-dir`en la principal. Cambiamos primero a ésta
+fusionemos la rama `get-dir` en la principal. Cambiamos primero a ésta
 
     git checkout master
 	
@@ -608,7 +609,7 @@ que, dado que no hemos hecho ningún cambio en el mismo fichero,
 fusiona sin más problema la rama. En caso de que se hubiera modificado
 las mismas líneas, es decir, que los *commits* hubieran creado una
 divergencia, se habría provocado un conflicto que se puede solucionar
-como se ha visto en el apartado correspondiente. Pero, dado que no se
+como se ha visto en el apartado correspondiente. Pero, dado que no 
 la ha habido, el resultado final será el que se muestra en el gráfico.
 
 ![Volviendo al redil del master](img/fusion.png)
@@ -670,7 +671,7 @@ El último commit es ahora parte de la rama `master`. No sólo se han
 fusionado los cambios en la rama principal, como se ve más abajo en la
 misma imagen e hicimos con la rama creada anteriormente, `get-dir`. En
 este caso, y a todos los efectos, se ha *reescrito la historia*,
-pasando los commits hecho sobre la rama anterior a formar parte de la
+pasando los commits hechos sobre la rama anterior a formar parte de la
 rama principal. Una vez hecho esto, se limpia eliminando la rama
 creada. Sin embargo, un rebase no elimina una rama, que sigue ahí,
 sólo que en una parte diferente del árbol como se muestra a continuación
