@@ -29,7 +29,7 @@ Date:   Sun Mar 30 11:54:15 2014 +0200
 
 La primera línea es un *hash* único que identifica al commit (y que más adelante no será muy útil), seguida del autor, la fecha en que se hizo y el comentario que acompañó al commit. 
 
-Por defecto, `git log` nos mostrrá todas las entradas del log. para ver sólo un número determinado sólo tienes que añadirle el parámetro `-NUMERO`, donde NUMERO es el número de entradas que quieres ver, por ejemplo:
+Por defecto, `git log` nos mostrará todas las entradas del log. para ver sólo un número determinado sólo tienes que añadirle el parámetro `-NUMERO`, donde NUMERO es el número de entradas que quieres ver, por ejemplo:
 
 `git log -4`
 
@@ -66,9 +66,9 @@ En git se pueden borrar archivos con la orden `git rm`.
 
 `git rm NOMBRE_DEL_FICHERO`
 
-FUnciona como la propia orden del sistema operativo, con la salvedad de que *tambien* borra el archivo del Index, si estuviera allí. Esto lo hace muy útil en ocasiones.
+Funciona como la propia orden del sistema operativo, con la salvedad de que *tambien* borra el archivo del Index, si estuviera allí. Esto lo hace muy útil en ocasiones.
 
-Si necesitas borrar el archivo del Indez pero sin borrarlo de DIrectorio de trabajo (porque, por ejemplo, te has arrepentido y no quieres incluírlo en el próximo commit), se puede hacer con la opción `--cached` del siguiente modo:
+Si necesitas borrar el archivo del Index pero sin borrarlo de directorio de trabajo (porque, por ejemplo, te has arrepentido y no quieres incluirlo en el próximo commit), se puede hacer con la opción `--cached` del siguiente modo:
 
 `git rm --cached NOMBRE_DEL_FICHERO`
 
@@ -108,7 +108,7 @@ consejo: before pushing again.
 consejo: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
 
-El error indica que la *punta* de tu rama está detrás de la rama remota (es decir, que hay modificaciones posterioresa tu última sincreonización). Rechaza por lo tanto el `push`, pero vamos a hacer `pull` para ver qué es lo que ha fallado
+El error indica que la *punta* de tu rama está detrás de la rama remota (es decir, que hay modificaciones posteriores a tu última sincronización). Rechaza por lo tanto el `push`, pero vamos a hacer `pull` para ver qué es lo que ha fallado
 
 ```
 remote: Counting objects: 7, done.
