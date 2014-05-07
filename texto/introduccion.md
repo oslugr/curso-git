@@ -33,7 +33,7 @@ En cualquier proyecto de desarrollo es necesario gestionar los cambios, modifica
 
 Si se trata de un trabajo pequeño, de corta duración y es llevado a cabo por un solo programador, quizás un archivo histórico de copias de seguridad pueda ser suficiente, pero esto se vuelve claramente insuficiente al crecer la complejidad del proyecto.
 
-Alguno de los problemas más habituales a los que se enfrenta cualquier persona que participe en un desarrollo informático son:
+Algunos de los problemas más habituales a los que se enfrenta cualquier persona que participe en un desarrollo informático son:
 
 * Dos o más programadores modifican el mismo archivo de código y hay que gestionar ese conflicto.
 
@@ -43,9 +43,9 @@ Alguno de los problemas más habituales a los que se enfrenta cualquier persona 
 
 * Se inicia un "fork" o proyecto derivado a partir del estado actual del proyecto.
 
-Llevar a cabo la administración de estos aspectos (y de muchos otros) manualmente es materialmente imposible, y es para ello para lo que se inventaros los Sistemas de Control de Versiones.
+Llevar a cabo la administración de estos aspectos (y de muchos otros) manualmente es materialmente imposible, y es para ello para lo que se inventaron los Sistemas de Control de Versiones.
 
-Debido al crecimiento en extensión y complejidad del software, los Sistemas de Control de Versiones están tomando cada vez más importancia. En especial, los proyectos de software libre, que tienden a aunar los esfuerzos de un gran número de programadores trabajando simultáneamente en múltiples versiones del código, han estado a la vanguardia del uso de estas herramientas. 
+Debido al crecimiento en extensión y complejidad del software los Sistemas de Control de Versiones están tomando cada vez más importancia. En especial, los proyectos de software libre, que tienden a aunar los esfuerzos de un gran número de programadores trabajando simultáneamente en múltiples versiones del código, han estado a la vanguardia del uso de estas herramientas. 
 
 Estos sistemas nacieron para gestionar código fuente, pero pueden ser usados para cualquier tipo de documentación (aunque no pueden aprovechar todo su potencial en archivos que no sean de texto plano). Por ejemplo, este curso ha sido desarrollado bajo git y su código puede encontrarse en su repositorio oficial en [github.com/oslugr/curso-git](https://github.com/oslugr/curso-git) 
 
@@ -75,7 +75,7 @@ Los sistemas distribuidos más conocidos son Bazaar y, por supuesto, git.
 
 ###git
 
-Git nació para ser el Sistema de Control de Versiones del kernel de Linux (de hecho, fue originalmente programado por el mismo *Linus Torvalds*) y es por ello que está preparado para proyectos grandes, con muchos desarrolladores y un gran número de ramas.
+Git nació para ser el Sistema de Control de Versiones del kernel de Linux (de hecho, fue originalmente programado por el mismo *Linus Torvalds*) y por ello está preparado para proyectos grandes, con muchos desarrolladores y un gran número de ramas.
 
 Se trata, como ya hemos dicho, de un Sistema de Control de Versiones distribuido, por lo que cada programador cuenta con su propio repositorio. Esto hace que, salvo cuando llega el momento de sincronizar con otro repositorio, todo el trabajo se haga en local, con ventajas como la velocidad o que se pueda trabajar sin acceso a la red. 
 
@@ -85,7 +85,7 @@ El sitio oficial de git es [git-scm.com](http://git-scm.com/)
 
 Git es también multiplataforma, y existen versiones para Linux, Mac, Windows y Solaris.
 
-En este curso se usará Linux para los ejemplos y referencias, y se recomienda encarecidamente su uso. Otros sistemas operativos no están tan preparador para algunas tareas como administrar sesiones remotas etc.
+En este curso se usará Linux para los ejemplos y referencias, y se recomienda encarecidamente su uso. Otros sistemas operativos no están tan preparador para algunas tareas como administrar sesiones remotas, etc.
 
 En cualquier caso, el uso del propio git en todos ellos es similar por lo que, salvo las particularidades y limitaciones que pueda tener cada uno, no hay ningún problema a la hora de seguir este curso desde otro sistema operativo.
 
