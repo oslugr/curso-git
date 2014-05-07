@@ -1,4 +1,15 @@
-##Obtener Ayuda
+##Solución de problemas con git
+
+###Objetivos
+
+En todo desarrollo colaborativo aparecen problemas. No es difícil solucionarlos.
+
+* Saber obtener información sobre git
+* Conocer el estado e historial de nuestros proyectos
+* Modificar y recuperar estados anteriores
+* Solucionar conflictos entre repositorios
+
+###Obtener Ayuda
 
 Lo primero que necesitamos a la hora de enfrentarnos a las dificultades es conocer nuetras herramientas.
 
@@ -10,7 +21,7 @@ también se puede obtener ayuda de un comado concreto con `git help COMANDO`, po
 
 `git help commit`
 
-##Viendo el historial
+###Viendo el historial
 
 Has hecho una serie de modificaciones seguidas de commits con sus comentarios ¿Cómo puedes ver todo eso? Para ello tienes la instrucción
 
@@ -60,7 +71,7 @@ Mostrará los commits en versión compacta y dibujando las ramas (cuando las hay
 
 Para más detalles, recuerda que `git help log` es tu amigo.
 
-##Borrado de archivos
+###Borrado de archivos
 
 En git se pueden borrar archivos con la orden `git rm`.
 
@@ -76,7 +87,7 @@ Otra ocpión para hacer esto mismo es con `git reset HEAD` que se usa del siguie
 
 `git reset HEAD NOMBRE_DEL_ARCHIVO`
 
-##Rehacer un commit
+###Rehacer un commit
 
 Puedes rehacer el último commit usando la opción `--amend` de este modo:
 
@@ -84,13 +95,13 @@ Puedes rehacer el último commit usando la opción `--amend` de este modo:
 
 Si no has modificado nada en tus archivos, esto simplemente te permitirá reescribir el comentario del commit pero, si por ejemplo habiás olvidado añadir algo al Index, puedes hacerlo antes del `git commit --amend` y se aplicará en el commit.
 
-##Deshacer cambios en un archivo
+###Deshacer cambios en un archivo
 
 Has cambiado un archivo en tu directorio de trabajo, pero te arrepientes y quieres recuperar la versión del HEAD (la del último commit). Nada más fácil que:
 
 `git checkout -- NOMBRE_DEL_ARCHIVO`
 
-##Resolviendo conflictos
+###Resolviendo conflictos
 	
 Normalmente los conflictos suceden cuando dos usuarios han modificado
     la misma línea, o bien cuando han modificado un fichero binario;
@@ -146,7 +157,7 @@ capítulo.
 Una vez hecho eso, se puede ya hacer `push` directamente sin ningún
 problema.
 
-##Retrocediendo al pasado
+###Retrocediendo al pasado
 
 Para recuperar el estado de tu directorio de trabajo tal como estaba en algún momento del pasado, primero necesitas saber qué momento es ese. Eso se consigue con `git log` que, como vimos, nos devuelve (entre otras cosas) un hash que identifica al commit.
 
@@ -160,7 +171,7 @@ Como consejo, recuerda hacer `push` antes de jugar con `git reset --hard`. De es
 
 También te puedes salvaguardar usando otra rama para hacer el `git reset --hard` sobre ella, pero el uso de ramas es algo que veremos un poco más adelante.
 
-##Viendo (y recuperando) archivos antiguos
+###Viendo (y recuperando) archivos antiguos
 
 Puedes ver los cambios que hiciste en un commit si haces 
 
