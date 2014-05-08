@@ -68,9 +68,18 @@ A partir de este momento podemos ir al menú inicio como se indica en la imagen,
 
 ![Instalación de git en Windows (10)](img/wingit10.png)
 
-(*Al terminar todos estos pasos, y como se ven en la imagen, también se instalará una versión gráfica "Git GUI", pero en este curso se seguirá la interfaz de línea de comandos*)
+(*Al terminar todos estos pasos, y como se ven en la imagen, también
+se instalará una versión gráfica "Git GUI", pero en este curso se
+seguirá la interfaz de línea de comandos*)
 
-####En Mac
+>Los autores de este libro no somos partidarios del uso de Windows
+> para desarrollo de software. Pero, si tienes que hacerlo porque no
+> te queda otro remedio o porque te gusta, otra alternativa es usar
+> [git for Windows o `msysgit`](http://msysgit.github.io/), un entorno
+> completo que incluye un intérprete de órdenes y un entorno gráfico
+> para trabajar desde él. 
+
+#### En Mac
 Hay dos maneras de instalar Git en Mac, la más fácil es utilizar el instalador gráfico:
 
 [Git for OS X](https://code.google.com/p/git-osx-installer/) 
