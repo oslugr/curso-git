@@ -12,11 +12,6 @@ Incluye seis módulos usados en el
 o
 [comprar en Amazon](https://www.amazon.es/dp/B00K515GL2?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B00K515GL2&adid=0MNVCEFMSN6CVHJCCJEH&):
 
-<iframe
-src="http://rcm-eu.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=atalaya-21&o=30&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00K515GL2"
-style="width:120px;height:240px;" scrolling="no" marginwidth="0"
-marginheight="0" frameborder="0"></iframe>
-
 ## Índice
 
 1. [Introducción](texto/introduccion.md).
