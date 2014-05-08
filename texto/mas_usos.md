@@ -342,6 +342,7 @@ Merge made by the 'recursive' strategy.
 y aparece, efectivamente, el directorio borrado. Habrá que hacer el
 push de nuevo. Una vez hecho, el repositorio se ha estructurado como
 se muestra en la imagen:
+
 ![Fusión de dos ramas](img/conflicto.png)
 
 Esta imagen, que
