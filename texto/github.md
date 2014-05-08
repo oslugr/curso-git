@@ -55,7 +55,7 @@ email que uses en GH* para que aparezca tu avatar junto a tus
 contribuciones. Se puede seguir la
 [actividad](https://github.com/oslugr?tab=activity) de un usuario,
 pero también se puede ir un paso más allá y pulsar el botón de
-*Follow* con lo que, a entrar en la
+*Follow* con lo que, al entrar en la
 [página principal de GitHub](http://github.com) se te mostrará, junto
 con la actividad propia, la de esta persona. Una persona puede ser
 también añadida a un repositorio, lo que le dará privilegios para
@@ -117,7 +117,7 @@ En resumen, la facilidad que tiene GitHub para manejar todo tipo de
 situaciones de desarrollo y la *gamificación* y *socialización* de la
 experiencia de desarrollo es lo que ha hecho que hoy en día tenga
 tanto éxito hasta el punto de que el perfil de uno en GitHub es su
-mejor carta de presentación a la hora de conseguir unt rabajo en
+mejor carta de presentación a la hora de conseguir un trabajo en
 desarrollo y programación. 
 
 ### Creando páginas para GitHub pages
@@ -195,7 +195,7 @@ Vamos a dividir los servicios que hay en varios grupos:
 - Integración continua. Servicios como TravisCI, CircleCI, Jenkins o
   Shippable. Los tres primeros se pueden configurar directamente desde
   GH, para el último hay que entrar en [su web](http://shippable.com)
-  y activar el respositorio que haga falta. Estos servicios realizan
+  y activar el repositorio que haga falta. Estos servicios realizan
   una serie de tests o generación de código sobre el proyecto y dan un
   resultado indicando qué tests se han pasado o no. Para indicar qué
   tests se hacen y los parámetros del repositorio, cada uno usa un
@@ -251,7 +251,7 @@ integración continua funcionan de la forma siguiente:
   as a Service) o PaaS (Platform as a Service) en caso de que haya
   pasado todos los tests satisfactoriamente. 
 
-La integración continua forma parte de una metodología de [desarrollo basado en test o guiado por pruebas](http://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas) que consiste en crear primero las pruebas que tiene que pasar un código antes de, efectivamente, escribir tal código. Las pruebas son tests unitarios y también de integración, que prueban las capas de la aplicación a diferentes niveles (por ejemplo, acceso a datos, procesamiento de los datos, UI). Todos los lenguajes de programación modeno incluyen un aplicación que crea un protocolo para llevar a cabo los test e informar del resultado y estos sistemas van desde el humilde Makefile que se usa en diferentes lenguajes compilados hasta el complejo Maven, pasando por sistemas como los tests de Perl o los Rakefiles de Ruby. En cualquier caso, cada lenguaje suele tener una forma estándar de pasar los tests (`make test`, `npm test` o `mocha`) y los sistemas de integración continua hacen muy simple trabajar con estos tests estándar, pero también son flexibles en el sentido que se puede adaptar a todo tipo de programa.
+La integración continua forma parte de una metodología de [desarrollo basado en test o guiado por pruebas](http://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas) que consiste en crear primero las pruebas que tiene que pasar un código antes de, efectivamente, escribir tal código. Las pruebas son tests unitarios y también de integración, que prueban las capas de la aplicación a diferentes niveles (por ejemplo, acceso a datos, procesamiento de los datos, UI). Todos los lenguajes de programación moderno incluyen una aplicación que crea un protocolo para llevar a cabo los test e informar del resultado y estos sistemas van desde el humilde Makefile que se usa en diferentes lenguajes compilados hasta el complejo Maven, pasando por sistemas como los tests de Perl o los Rakefiles de Ruby. En cualquier caso, cada lenguaje suele tener una forma estándar de pasar los tests (`make test`, `npm test` o `mocha`) y los sistemas de integración continua hacen muy simple trabajar con estos tests estándar, pero también son flexibles en el sentido que se puede adaptar a todo tipo de programa.
 
 Veamos como trabajar con [Travis](http://travis-ci.com). Se hace siguiendo estos pasos
 
@@ -314,7 +314,7 @@ sustituyendo el nombre de usuario y el nombre del repo por el correspondiente, c
 
 GitHub también mantiene un [cliente de GitHub](https://github.com/github/hub), escrito en Ruby y llamado `hub`, que se puede usar para sustituir a `git` o por sí mismo. En realidad, es como `git` salvo que tiene ya definidos por omisión una serie de características específicas de GitHub, como los nombres de los repositorios o los usuarios de los mismos. Tras [instalarlo](http://hub.github.com/) puedes usarlo, por ejemplo, para clonar el repo de ejemplo usado aquí con `hub clone oslugr/repo-ejemplo` en vez de usar el camino completo a git; el formato sería siempre `usuario/nombre-del-repo`. Más órdenes que añade a git (y que se pueden usar directamente desde git si se usa, como se indica en las instrucciones, git como un alias de `hub`):
 
-* `hub browse`: abre un navegador en la página del respositorio correspondiente. Por ejemplo `hub browse -- issues` lo abriría en la página correspondiente a las solicitudes de ese proyecto.
+* `hub browse`: abre un navegador en la página del repositorio correspondiente. Por ejemplo `hub browse -- issues` lo abriría en la página correspondiente a las solicitudes de ese proyecto.
 * `hub fork`: una vez clonado un repositorio de otro usuario, no hace falta hacer *fork* desde la web, se puede hacer directamente desde el repo. Se crea un origen remoto con el nombre de tu usuario, al que se puede hacer *push* de la forma normal. Desde la misma línea de órdenes se puede hacer un *pull request* al repositorio original también. 
 * Como usuario puedes aplicar también los *pull requests* desde línea de órdenes.
 * `hub compare` permite comparar entre diferentes tags o versiones o ramas.
@@ -329,7 +329,7 @@ Crear un lanzamiento es fácil en GitHub: simplemente se crea una etiqueta como 
 
 Desde este interfaz web se puede añadir alguna información más que desde la línea de comandos: se puede crear la etiqueta si no existe y se pueden añadir imágenes, ficheros binarios generados de cualquier otra forma (o automáticamente) y, en general, lo que uno desee. También se puede marcar como *pre-release* y [darle un título como a las versiones de Ubuntu, con animalitos o nombres de días de la semana o lo que sea](https://github.com/oslugr/repo-ejemplo/releases/tag/v0.0.3). 
 
-En general, si no se usa ningún repositorio de módulos o aplicaciones para publicar la aplicación, o simplemente se quiere publicar junto con los fuentes, manuales y lo qeu se desee, es conveniente usar esta característica de GitHub para mantener un archivo de versiones descargables de la misma y también para que puedan acceder a ella fácilmente quienes no quieran usar simplemente `git` para descargársela.
+En general, si no se usa ningún repositorio de módulos o aplicaciones para publicar la aplicación, o simplemente se quiere publicar junto con los fuentes, manuales y lo que se desee, es conveniente usar esta característica de GitHub para mantener un archivo de versiones descargables de la misma y también para que puedan acceder a ella fácilmente quienes no quieran usar simplemente `git` para descargársela.
 
 >Vais a decir que ya podían instalarse `git` y demás herramientas necesarias para compilar o ejecutar la aplicación, pero en muchos casos no tiene por qué ser fácil o factible; no se va a instalar uno un compilador de fortran simplemente para compilar una aplicación nuestra, por ejemplo. 
 

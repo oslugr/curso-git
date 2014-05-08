@@ -8,7 +8,7 @@ a Manuel Cogolludo, que se revisó el material y nos hizo grandes
 sugerencias. 
 
 También es una primera edición, por lo que seguramente habrá algún
-(ciento de) fallos. Pero dado que es un libro libre, puedes corregir
+(ciento de) fallo. Pero dado que es un libro libre, puedes corregir
 esos fallos y hacerte tu propia versión en GitHub o
 [hacernos sugerencias y comentarios](https://github.com/oslugr/curso-git/issues)
 que atenderemos rápida y debidamente. Si te atreves una vez escrito el

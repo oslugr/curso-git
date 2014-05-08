@@ -74,7 +74,7 @@ formato fijo, se calcula también el SHA1 y se almacena en
 creados de la misma forma.
 3. Cuando se hace *commit*, se crea un tercer tipo de objeto con ese
 nombre. Un *commit* contiene enlaces a un árbol (el de más alto nivel)
-y metadatos adicionales: quién lo ha hecho, cuando y por supuesto el
+y metadatos adicionales: quién lo ha hecho, cuándo y por supuesto el
 mensaje de commit. 
 
 Veremos más adelante cómo se listan ficheros de todos estos tipos,
@@ -233,7 +233,7 @@ Ejemplo de repositorio para trabajar en el
 
 ### Comandos de alto y bajo nivel: *fontanería* y *loza*
 
-Para entendernos, todas las órdenes que hemos usado hasta ahora son *loza*. Es decir, es el *interfaz* del usuario de toda la instalación de fontanería que lleva a cabo realmente la labor de quitar de enmedio lo que uno depositao en las instalaciones sanitarias. Pero por debajo de la loza y pegado a ella, están las cañerías y toda la instalación de fontanería. 
+Para entendernos, todas las órdenes que hemos usado hasta ahora son *loza*. Es decir, es el *interfaz* del usuario de toda la instalación de fontanería que lleva a cabo realmente la labor de quitar de enmedio lo que uno deposita en las instalaciones sanitarias. Pero por debajo de la loza y pegado a ella, están las cañerías y toda la instalación de fontanería. 
 
 Los comandos de `git` se dividen en [dos tipos](http://git-scm.com/book/ch9-1.html): *fontanería* o *cañería*, que son comandos que *generalmente* no ve el usuario y *loza*, que son los que ve y los que usa. Sin embargo, este capítulo trata realmente de esa fontanería, porque van a ser una serie de órdenes que se van a llevar a cabo *después* de que se ejecuten las órdenes de *loza*, o, quizás *dentro* de esas órdenes de loza.
 
@@ -375,7 +375,7 @@ necesitaremos saber cuál es la diferencia con versiones anteriores del
 fichero. Hay que tener en cuenta que esas diferencias, dependiendo del
 estado en el que estemos, estarán en el árbol o en el índice
 preparadas para ser enviadas al repositorio,  En general, son una
-serie de órdenes con `diff`en ellas. La más simple, `git diff`, nos
+serie de órdenes con `diff` en ellas. La más simple, `git diff`, nos
 mostrará la diferencia entre los archivos en el índice y el último
 commit.
 
@@ -508,7 +508,7 @@ momento que se haga el commit y pase por tanto del índice al la zona de
 `diff-index`, sin embargo, no devolverá nada puesto que todos los
 cambios que se habían hecho han pasado al árbol. 
 
-En general, lo que más nos va a interesar a la hora de hacer un gacho
+En general, lo que más nos va a interesar a la hora de hacer un gancho
 es qué ficheros han cambiado. Pero conviene conocer toda la gama de
 posibilidades que ofrece `git`, sobre todo para poder entender su
 esctructura interna. 
@@ -545,7 +545,7 @@ GIT_PAGER=pager
 
 Todas excepto las cuatro últimas variables son variables de
 configuración que, por tanto, se pueden obtener también con `git
-config -l`. Por sí sólo, `config`o `var` listan el valor de una
+config -l`. Por sí sólo, `config` o `var` listan el valor de una
 variable:
 
 ```
@@ -566,7 +566,7 @@ continuación
 La
 [tersa descripción del comando `rev-parse`, "recoge y procesa parámetros"](https://www.kernel.org/pub/software/scm/git/docs/git-rev-parse.html)
 esconde la complejidad del mismo y su potencia, que va desde el
-proceamiento de parámetros hasta la especificación de objetos, pasando
+procesamiento de parámetros hasta la especificación de objetos, pasando
 por la búsqueda de diferentes directorios dentro del respositorio git.
 Por ejemplo, se puede usar para verificar si un objeto existe o no:
 
@@ -575,7 +575,7 @@ Por ejemplo, se puede usar para verificar si un objeto existe o no:
 637c2820013188f1c4951aef0c21de20440a6fbb
 ```
 
-Nos muestra el SHA1 de la cabeca actual del repositorio de ejemplo,
+Nos muestra el SHA1 de la cabeza actual del repositorio de ejemplo,
 verificando que actualmente existe. No lo hará si acabamos de crear el
 repositorio, por ejemplo
 
@@ -604,7 +604,7 @@ objeto actual.
 
 ### Concepto de *hooks*
 
-Un [*hook*. literalmente *garfio* o *gancho*](http://githooks.com/) es un programa que se
+Un [*hook* literalmente *garfio* o *gancho*](http://githooks.com/) es un programa que se
 ejecuta cuando sucede un evento determinado en el respositorio. Los
 *webhooks* de GitHub, por ejemplo, son un ejemplo: cuando se lleva a
 cabo un *push*, se envía información al sitio configurado para que
@@ -626,7 +626,7 @@ del *shell* (si uno es suficientemente masoquista) o lenguajes de
 *realmente* masoquista, PHP. En realidad a git le da igual qué
 lenguaje se use.
 
-Los *ĥooks* van en su propio directorio, `.git/hooks` que se crea
+Los *hooks* van en su propio directorio, `.git/hooks` que se crea
 automáticamente y que tiene, siempre, una serie de *scripts* ejemplo,
 ninguno de ellos activados. Sólo se admite un *hook* por evento, y ese
 *hook* tendrá el nombre del evento asociado; es decir, un programa
@@ -743,7 +743,7 @@ el comando) serán entre HEAD y lo que hay ya almacenado el área de
 preparación de los ficheros, no entre HEAD y lo que hay en el sistema
 de ficheros; esto es así porque ya estamos *dentro* del commit y los
 ficheros están ya preparados para ser procesados en las tuberías de
-`git` por sus comandos-`tuberìa`.  En resumen, esta orden da una
+`git` por sus comandos-`tubería`.  En resumen, esta orden da una
 mini-estadística que dice el número de ficheros y líneas cambiadas,
 produciendo
 [resultados sobre este mismo fichero tales como este](https://github.com/oslugr/curso-git/commit/052c8560cf2399b3d9f450693b884b5f1a6ca8f9):
