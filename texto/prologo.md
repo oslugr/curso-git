@@ -24,3 +24,11 @@ formas si estás acostumbrado a usar la línea de órdenes. Sólo al final
 hay algunos programas con la idea de que se aprenda a modificarlos
 para usarlos en git, no tanto a dominarlos. En general, git va bien
 con cualquier lenguaje de programación. 
+
+### Agradecimientos adicionales
+
+Muchas personas han contribuido con
+[correcciones o aportaciones y están todas ahí, en el gráfico de GitHub](https://github.com/oslugr/curso-git/graphs/contributors)
+pero está bien nombrarlas; agradecemos a Miguel Ángel Pedregosa,
+Alfonso Romero y a [Juanmi](http://stephenchow.es) su revisión
+extensiva de los fuentes y las correcciones aportadas.
