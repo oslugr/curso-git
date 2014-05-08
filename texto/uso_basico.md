@@ -1,6 +1,6 @@
-##Uso básico de git
+## Uso básico de git
 
-###Objetivos
+### Objetivos
 
 En este apartado veremos cómo se usa git de forma básica para trabajar en modo monousuario y con un repositorio centralizado.
 
@@ -10,7 +10,11 @@ En este apartado veremos cómo se usa git de forma básica para trabajar en modo
 * Sincronizar dos o más repositorios
 * Tareas básicas de git
 
-###Instalar git
+### Instalar git
+
+`git` es software libre y se puede instalar en cualquier sistema
+operativo. A continuación los más populares, empezando por el que
+aconsejamos para desarrollar software en general, Linux.
 
 ####En Linux
 
@@ -28,7 +32,12 @@ Instalar git en Linux es tan simple como usar tu gestor de paquetes favorito. Po
 #####En sistemas Red Hat, Fedora:
 `# yum install git`
 
-####En Windows
+#### En Mac
+Hay dos maneras de instalar Git en Mac, la más fácil es utilizar el instalador gráfico:
+
+[Git for OS X](https://code.google.com/p/git-osx-installer/) 
+
+#### En Windows
 
 Para instalar git en Windows debemos descargar el programa instalador en su web oficial en [http://git-scm.com/downloads](http://git-scm.com/downloads).
 
@@ -79,10 +88,6 @@ seguirá la interfaz de línea de comandos*)
 > completo que incluye un intérprete de órdenes y un entorno gráfico
 > para trabajar desde él. 
 
-#### En Mac
-Hay dos maneras de instalar Git en Mac, la más fácil es utilizar el instalador gráfico:
-
-[Git for OS X](https://code.google.com/p/git-osx-installer/) 
 
 ###Clientes GUI para Linux, Windows y Mac
 
