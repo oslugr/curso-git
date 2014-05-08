@@ -8,13 +8,13 @@ En este apartado veremos cómo se usa git de forma básica para trabajar en modo
 * Crear un repositorio
 * Mantener un control de cambios sobre nuestros archivos
 * Sincronizar dos o más repositorios
-* Taras básicas de git
+* Tareas básicas de git
 
 ###Instalar git
 
 ####En Linux
 
-Instalar git en linux es tan simple como usar tu gestor de paquetes favorito. Por ejemplo (recuerda que normalmente necesitarás privilegios de *root* para instalar cualquier programa):
+Instalar git en Linux es tan simple como usar tu gestor de paquetes favorito. Por ejemplo (recuerda que normalmente necesitarás privilegios de *root* para instalar cualquier programa):
 
 #####En Arch Linux
 `# pacman -S git`
