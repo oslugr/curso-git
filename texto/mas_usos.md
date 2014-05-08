@@ -206,7 +206,7 @@ de fuentes y lo hace un solo usuario es el siguiente:
 1. `git pull`
 2. Trabajo con el código; añadir nuevos ficheros fuentes con `git add`
 3. `git commit -a -m "[implícito: este commit] [hace] [Tal cosa]" (o
-`git -am`, que es lo mismo)
+ `git -am`, que es lo mismo)
 4. `git push`
 
 Fijémonos en el tercer paso, el commit. Primero, conviene hacer siempre `-a`,
