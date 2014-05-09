@@ -552,7 +552,7 @@ se trataba de trabajar con *todos* los ficheros del directorio en vez
 de los ficheros que le pasemos explícitamente. Estas ramas se suelen
 denominar
 [*ramas de características* o *feature branches* y forman parte de un flujo de trabajo habitual en git](https://www.atlassian.com/es/git/workflows#!workflow-feature-branch). Sobre
-un repo\-sitorio central se creará una rama si quieres probar algo que
+un repositorio central se creará una rama si quieres probar algo que
 no sabes si estará bien eventualmente o si realmente será util. De
 esta forma no se *estorba* a la rama principal, que puede estar
 desarrollando o arreglando errores por otro lado. En este flujo de
