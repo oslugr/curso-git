@@ -1,12 +1,13 @@
 #!/bin/bash
 
+# Necesita su plantilla LaTeX específica, que está en ../utils y que tendrás
+# que copiar a su directorio de plantillas de Pandoc.
 
-
-pandoc -S --latex-engine=xelatex  \
-    -o aprendegit.pdf aprendegit.txt --toc \
+pandoc --template=plantilla.latex -V language=spanish -S --latex-engine=xelatex  \
+    -o aprendegit.pdf aprendegit.txt \
     prologo.md  introduccion.md  uso_basico.md \
     solucion_problemas.md mas_usos.md \
-    github.md          ganchos.md
+    github.md          ganchos.md --toc
 
 
 

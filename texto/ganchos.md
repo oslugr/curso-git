@@ -126,7 +126,7 @@ funciona este último ejemplo. Al lado del directorio `objects` está el
 directorio `refs`, que almacena referencias y que es como `git` sabe a
 qué commit corresponde cada cosa. Este comando:
 
-```~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ tree .git/refs/
+```~/repos-git/repo-ejemplo<master>$ tree .git/refs/
 .git/refs/
 ├── heads
 │   ├── img-dir
@@ -151,7 +151,7 @@ las ramas locales en `heads` y a las remotas en `remotes`. Si
 mostramos el contenido de los ficheros:
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ cat .git/refs/heads/master 
+~/repos-git/repo-ejemplo<master>$ cat .git/refs/heads/master 
 fe88e5eefff7f3b7ea95be510c6dcb87054bbcb0
 ```
 
@@ -166,7 +166,7 @@ Como hemos visto anteriormente, un *commit* apunta a un árbol. Podemos
 indicarle a `show` que nos muestre este árbol de esta forma:
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git show master^{tree}
+~/repos-git/repo-ejemplo<master>$ git show master^{tree}
 tree master^{tree}
 .aspell.es.pws
 .gitignore
@@ -190,7 +190,7 @@ opciones aparte de `tree`, pero sí podemos acceder a versiones
 anteriores del repositorio y a sus ficheros. 
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git show master~1
+~/repos-git/repo-ejemplo<master>$ git show master~1
 commit 5be23bb2a610260da013fcea807be872a4bd6981
 Author: JJ Merelo <jjmerelo@gmail.com>
 Date:   Thu Apr 17 17:42:39 2014 +0200
@@ -216,7 +216,7 @@ ese commit. Y también para que nos muestre un fichero sin necesidad de
 sacarlo del repositorio:
 
 ``` 
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git show master~2:README.md 
+~/repos-git/repo-ejemplo<master>$ git show master~2:README.md 
 repo-ejemplo
 ============
 Ejemplo de repositorio para trabajar en el
@@ -244,7 +244,7 @@ Los *objetos* son, en general, información que está almacenada en el repositor
 La orden `ls-tree` nos permite ver qué tipos de objetos tenemos almacenados y sus códigos SHA1, que son los nombres de ficheros calculados a partir del contenido del mismo. Aunque todos están almacenados en el directorio `.git/objects`, esta orden nos permite ver también de qué tipo son:
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git ls-tree HEAD
+~/repos-git/repo-ejemplo<master>$ git ls-tree HEAD
 100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
 100644 blob a72b52ebe897796e4a289cf95ff6270e04637aad	.gitignore
 100644 blob cc5411b5557f43c7ba2f37ad31f8dc34cccda075	.gitmodules
@@ -261,7 +261,7 @@ La orden `ls-tree` nos permite ver qué tipos de objetos tenemos almacenados y s
 En este caso tenemos objetos de tres tipos: blob, commit y tree. a `ls-tree` se le pasa un *tree-ish*, es decir, algo que apunte a dónde esté almacenado un árbol pero, para no preocuparnos de qué se trata esto, usaremos simplemente HEAD, que apunta como sabéis a la punta de la rama en la que nos encontramos ahora mismo. También  nos da el SHA1 de 40 caracteres que representa cada uno de los ficheros. Si queremos que se expandan los `tree` para mostrar los ficheros que hay dentro también usamos la opcion `-r`
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git ls-tree -r HEAD
+~/repos-git/repo-ejemplo<master>$ git ls-tree -r HEAD
 100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
 100644 blob a72b52ebe897796e4a289cf95ff6270e04637aad	.gitignore
 100644 blob cc5411b5557f43c7ba2f37ad31f8dc34cccda075	.gitmodules
@@ -281,7 +281,7 @@ que muestra solo los objetos de tipo `blob` (y un `commit`) con el camino comple
 Si editamos un fichero tal como el README.md, tras hacer el commit tendrá esta apariencia:
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git ls-tree HEAD100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
+~/repos-git/repo-ejemplo<master>$ git ls-tree HEAD100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
 [...]
 100644 blob da5b5121adb42e990b9e990c3edb962ef99cb76a	README.md
 ```
@@ -309,7 +309,7 @@ git ls-files --stage
 Que nos devuelve, en penúltimo lugar, un fichero que todavía no ha pasado al árbol. Evidentemente, tras el commit:
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git ls-tree HEAD
+~/repos-git/repo-ejemplo<master>$ git ls-tree HEAD
 [...]
 040000 tree fd3846c0d6089437598004131184c61aea2b6514	views
 ```
@@ -318,28 +318,28 @@ Este listado nos muestra el nuevo objeto de tipo `tree` que se ha creado y nos d
 
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git ls-tree fd3846c
+~/repos-git/repo-ejemplo<master>$ git ls-tree fd3846c
 100644 blob 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3	layout.jade
 ```
 
 que, si queremos ver en una vista más normal, hacemos lo mismo con `ls-file`
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git ls-files views
+~/repos-git/repo-ejemplo<master>$ git ls-files views
 views/layout.jade
 ```
 
 Hay un tercer comando relacionado con el examen de directorios y ficheros locales, [`cat-file`, que muestra el contenido de un objeto](http://git-scm.com/docs/git-cat-file), en general. Por ejemplo, en este caso, para listar el contenido de un objeto de tipo `tree`
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git cat-file -p fd3846c
+~/repos-git/repo-ejemplo<master>$ git cat-file -p fd3846c
 100644 blob 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3	layout.jade
 ```
 
 nos muestra que ese objeto contiene un solo fichero, `layout.jade`, y sus características. Pero más curioso aún es cuando se usa sobre objetos de tipo *commit* (no sobre el objeto *commit* que aparece arriba, que se trata de un *commit* de *otro repositorio* al contener el directorio `curso` un submódulo de git. Por ejemplo, podemos hacer:
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git cat-file -p HEAD
+~/repos-git/repo-ejemplo<master>$ git cat-file -p HEAD
 tree 1c40899a32c2b5ec7f930bd943e5dbb98562d373
 parent 5be23bb2a610260da013fcea807be872a4bd6981
 author JJ Merelo <jjmerelo@gmail.com> 1397752151 +0200
@@ -350,7 +350,7 @@ Añade layout
 que, dado que `HEAD` apunta al último commit, nos muestra en modo *pretty-print* toda la información sobre el último *commit* y muestra el árbol de ficheros correspondiente, que podemos listar con 
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git cat-file -p 1c40899a
+~/repos-git/repo-ejemplo<master>$ git cat-file -p 1c40899a
 100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
 100644 blob a72b52ebe897796e4a289cf95ff6270e04637aad	.gitignore
 100644 blob cc5411b5557f43c7ba2f37ad31f8dc34cccda075	.gitmodules
@@ -380,7 +380,7 @@ mostrará la diferencia entre los archivos en el índice y el último
 commit.
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff
+~/repos-git/repo-ejemplo<master>$ git diff
 diff --git a/views/layout.jade b/views/layout.jade
 index 36cc059..2a66d58 100644
 --- a/views/layout.jade
@@ -436,7 +436,7 @@ mucha utilidad a la hora de saber, por ejemplo, qué ficheros se han
 modificado. Para hacer esto, [simplemente](https://www.kernel.org/pub/software/scm/git/docs/git-diff.html):
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff --name-only
+~/repos-git/repo-ejemplo<master>$ git diff --name-only
 views/layout.jade
 web.js
 ```
@@ -444,10 +444,10 @@ web.js
 que se puede hacer un poco más completa con `--name-status`:
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff --name-status
+~/repos-git/repo-ejemplo<master>$ git diff --name-status
 M       views/layout.jade
 M       web.js
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff --name-status --cached
+~/repos-git/repo-ejemplo<master>$ git diff --name-status --cached
 A       views/doc.jade
 ```
 
@@ -462,7 +462,7 @@ ver todo junto con
 
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff --name-status  HEAD
+~/repos-git/repo-ejemplo<master>$ git diff --name-status  HEAD
 A       views/doc.jade
 M       views/layout.jade
 M       web.js
@@ -475,7 +475,7 @@ diferencia es que compara siempre el índice con algún *árbol*, sin
 tener ningún valor por omisión:
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff-index  HEAD
+~/repos-git/repo-ejemplo<master>$ git diff-index  HEAD
 :000000 100644 0000000000000000000000000000000000000000 67e6d7e1ecbb64ff7d467dc2103fa2b2fead49d1 A	views/doc.jade
 :100644 100644 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3 0000000000000000000000000000000000000000 M	views/layout.jade
 :100644 100644 97c32024cda29e0fb6abebf48d3f6740f0acb9e2 0000000000000000000000000000000000000000 M	web.js
@@ -487,7 +487,7 @@ ficheros. En este caso, como todavía no le hemos hecho commit, muestra
 el árbol:
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff-tree  HEAD
+~/repos-git/repo-ejemplo<master>$ git diff-tree  HEAD
 fe88e5eefff7f3b7ea95be510c6dcb87054bbcb0
 :000000 040000 0000000000000000000000000000000000000000 fd3846c0d6089437598004131184c61aea2b6514 A	views
 :100644 100644 94f151d9ef9340c81989b0c3fa8c517c068e1864 97c32024cda29e0fb6abebf48d3f6740f0acb9e2 M	web.js
@@ -499,7 +499,7 @@ momento que se haga el commit y pase por tanto del índice al la zona de
 *staging*, los hash ya están calculados y cambia la salida:
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git diff-tree  HEAD
+~/repos-git/repo-ejemplo<master>$ git diff-tree  HEAD
 637c2820013188f1c4951aef0c21de20440a6fbb
 :040000 040000 fd3846c0d6089437598004131184c61aea2b6514 6bb4560a218c008bbc468f23f36f26ff639eb2e8 M	views
 :100644 100644 97c32024cda29e0fb6abebf48d3f6740f0acb9e2 93b625533c2d1752d9a8e789878512919cf92e17 M	web.js
@@ -523,7 +523,7 @@ y `config`. Con `-l` nos listan todas las variables o variables de
 configuración disponibles
 
 ```
-~/txt/docencia/repo-tutoriales/curso-git/texto<master>$ git var -l
+~/repos-git/curso-git/texto<master>$ git var -l
 user.email=jjmerelo@gmail.com
 user.name=JJ Merelo
 filter.obj-add.smudge=cat
@@ -549,7 +549,7 @@ config -l`. Por sí sólo, `config` o `var` listan el valor de una
 variable:
 
 ```
-~/txt/docencia/repo-tutoriales/curso-git/texto<master>$ git config user.name
+~/repos-git/curso-git/texto<master>$ git config user.name
 JJ Merelo
 ```
 
@@ -571,7 +571,7 @@ por la búsqueda de diferentes directorios dentro del respositorio git.
 Por ejemplo, se puede usar para verificar si un objeto existe o no:
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git rev-parse --verify HEAD
+~/repos-git/repo-ejemplo<master>$ git rev-parse --verify HEAD
 637c2820013188f1c4951aef0c21de20440a6fbb
 ```
 
@@ -590,7 +590,7 @@ De hecho, con él podemos encontrar todo tipo de objetos usando la
 notación que permite especificar revisiones
 
 ```
-~/txt/docencia/repo-tutoriales/repo-ejemplo<master>$ git rev-parse  HEAD@{1.month}
+~/repos-git/repo-ejemplo<master>$ git rev-parse  HEAD@{1.month}
 61253ecba351921c96a1553f6c5b7f9910f286f3
 ```
 
@@ -793,7 +793,7 @@ líneas usando `split` y a continuación comprueba si la primera línea
 con un código de error (1), de esta forma
 
 ```
-~/txt/docencia/repo-tutoriales/curso-git<master>$ git commit -am "Añadiendo un montón de cosas al capítulo de los ganchos y testeándolo a la vez"
+~/repos-git/curso-git<master>$ git commit -am "Añadiendo un montón de cosas al capítulo de los ganchos y testeándolo a la vez"
 [FORMATO] Primera línea > 50 caracteres
 ```
 
@@ -854,9 +854,9 @@ sola) y saldrá con `die` si alguno de los ficheros tiene un nombre
 incorrecto. 
 
 ```
-~/txt/docencia/repo-tutoriales/repo-plantilla<master>$ git commit -am "A ver si me deja"
+~/repos-git/repo-plantilla<master>$ git commit -am "A ver si me deja"
 [FORMATO]: no_underscore  at .git/hooks/pre-commit line 13.
-~/txt/docencia/repo-tutoriales/repo-plantilla<master>$ git status
+~/repos-git/repo-plantilla<master>$ git status
 # En la rama master
 # Cambios para hacer commit:
 #   (use «git reset HEAD <archivo>...«para eliminar stage)

@@ -487,7 +487,8 @@ Esto es demasiado simple y no nos va a ser muy útil pero, afortunadamente, *.gi
 ## Ignoramos todos los archivos que terminen en ".temp"
 *.temp
 
-## Ignoramos todos los archivos que se llamen "passwords.txt", "passwords.c", "passwords.csv"...
+## Ignoramos todos los archivos que se llamen 
+## "passwords.txt", "passwords.c", "passwords.csv"...
 passwords.*
 
 ```

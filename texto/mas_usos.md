@@ -236,7 +236,7 @@ favorito). En el mensaje podemos escribir cualquier cosa, pero hay que
 tener en cuenta que lo que escribamos es un predicado cuyo sujeto son
 los cambios que hemos hecho. Sobre qué hay que escribir hay
 [muchas versiones](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html),
-pero conviene que el mensaje sea informativo, hable de por qués y de
+pero conviene que el mensaje sea informativo, hable de porqués y de
 cómos más que de qués (no se puede decir "inserta una función", eso ya
 se ve en el código, sino por qué se inserta esa función) y se aconseja
 también un formato similar al siguiente
