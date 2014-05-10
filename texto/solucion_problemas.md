@@ -27,7 +27,7 @@ Has hecho una serie de modificaciones seguidas de commits con sus comentarios ¿
 
 `git log`
 
-La orden `git log` te mostará un listado de todos los cambios efectuados, con sus respectivos comentarios, empezando desde el más reciente hasta el más antiguo.
+La orden `git log` te mostrará un listado de todos los cambios efectuados, con sus respectivos comentarios, empezando desde el más reciente hasta el más antiguo.
 
 El formato de cada commit en la respuesta es como este:
 
@@ -46,7 +46,7 @@ Por defecto, `git log` nos mostrará todas las entradas del log. para ver sólo 
 
 mostrará las últimas cuatro entradas en el log.
 
-Otra opción posible, si quieres ver una versión más resumida y compacta de los datos, es `--oneline`, que te muetra una versión compacta.
+Otra opción posible, si quieres ver una versión más resumida y compacta de los datos, es `--oneline`, que te muestra una versión compacta.
 
 Si, por el contrario, quieres más detalles, la opción `-p` te mostrará, para cada commit, todos los cambios que se realizaron en los archivos (en formato diff).
 
@@ -167,7 +167,7 @@ Con ese hash ya podemos hacer un `git reset` del siguiente modo:
 
 Eso, en cierto modo, volverá atrás en el tiempo, deshará los commits posteriores al indicado y traerá a tu directorio de trabajo los archivos tal y como estaban entonces. Todos los cambios posteriores desaparecerán, así que mucho cuidado.
 
-Como consejo, recuerda hacer `push` antes de jugar con `git reset --hard`. De este modo, si quieres recuperar todo el trabajo poseterior, no tienes más que hacer `pull` y los recuperarás de nuevo.
+Como consejo, recuerda hacer `push` antes de jugar con `git reset --hard`. De este modo, si quieres recuperar todo el trabajo posterior, no tienes más que hacer `pull` y los recuperarás de nuevo.
 
 También te puedes salvaguardar usando otra rama para hacer el `git reset --hard` sobre ella, pero el uso de ramas es algo que veremos un poco más adelante.
 
