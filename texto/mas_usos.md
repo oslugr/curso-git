@@ -196,8 +196,8 @@ Un *flujo de trabajo* es simplemente una forma de organizar las tareas
 de programación de forma que se conozca, de antemano, qué tareas van
 detrás de qué tareas y cuál es el destino, en cada momento, del código
 que se está haciendo. El tener un flujo de trabajo consistente hace
-que se eviten conflictos y también que el resultado del trabajo sea
-más predecible; también a evitar problemas y a identificarlos
+que se eviten conflictos , que el resultado del trabajo sea
+más predecible, y que por tanto, se subsanen los  problemas al poder identificarlos
 fácilmente. 
 
 El flujo de trabajo básico, de un solo usuario, cuando se trabaja con un sistema de control
@@ -216,7 +216,7 @@ por [varias razones](http://git-scm.com/docs/git-commit):
 1. Porque examina todos los ficheros que están siendo seguidos, no
 sólo los del directorio actual y los que hay por debajo.
 2. Porque [hace automáticamente un `git rm` sobre los mismos](http://stackoverflow.com/questions/3541647/git-add-vs-git-commit-a), si es que
-ha sido borrados. 
+han sido borrados. 
 
 Lo segundo es decidir cuando se hace el *commit*; lo habitual es que se
 haga cada vez que se lleve a cabo un cambio significativo, pero ¿qué
@@ -375,7 +375,7 @@ la orden `tag`
 `tag` etiqueta el último *commit*, es decir, asigna una etiqueta al
 estado en el que estaba el respositorio tras el último commit. La
 etiqueta aparecerá de forma inmediata (sin necesidad de hacer *push*,
-puesto que se añade al útlimo commit y se puede listar con
+puesto que se añade al último commit y se puede listar con
 
 ```
 git tag
