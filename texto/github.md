@@ -43,7 +43,7 @@ privado.
 
 ### El GitHub *social*
 
-En realidad, GitHub es una red social de gente que hace cosas y
+GitHub es una red social de gente que hace cosas y
 escribe texto como este o aplicaciones en diferentes lenguajes de
 programación. Cada usuario tiene
 [un perfil](https://github.com/oslugr) y en él puede contar cosas como
