@@ -126,7 +126,8 @@ funciona este último ejemplo. Al lado del directorio `objects` está el
 directorio `refs`, que almacena referencias y que es como `git` sabe a
 qué commit corresponde cada cosa. Este comando:
 
-```~/repos-git/repo-ejemplo<master>$ tree .git/refs/
+```
+~/repos-git/repo-ejemplo<master>$ tree .git/refs/
 .git/refs/
 ├── heads
 │   ├── img-dir
