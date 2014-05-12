@@ -8,9 +8,10 @@ con [Pandoc](http://johnmacfarlane.net/pandoc/‎).
 
 Incluye seis módulos usados en el
 [curso virtual de Git](http://cevug.ugr.es/git), que también
-[puedes descargarte en cualquiera de las versiones en ePub](https://github.com/oslugr/curso-git/releases)
+[puedes descargarte en cualquiera de las versiones en ePub](https://github.com/oslugr/curso-git/releases), 
+[comprar en Amazon](https://www.amazon.es/dp/B00K515GL2?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B00K515GL2&adid=0MNVCEFMSN6CVHJCCJEH&)
 o
-[comprar en Amazon](https://www.amazon.es/dp/B00K515GL2?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B00K515GL2&adid=0MNVCEFMSN6CVHJCCJEH&):
+[en Bubok en formato físico](http://www.bubok.es/libros/233274/Aprende-git). 
 
 ## Índice
 
@@ -34,4 +35,8 @@ forma alternativa a los que se instalan por omisión.
 Como alternativa a este libro tienes
 [el libro de Git: Pro Git](http://git-scm.com/book/es), que también te
 puedes descargar en diferentes formatos. 
+
+También puedes [seguir el blog](http://blog.aprendeg.it) con trucos e
+información diversa sobre git.
+
 

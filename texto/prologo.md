@@ -40,6 +40,26 @@ Alfonso Romero y a [Juanmi](http://stephenchow.es),
 [Fernando Tricas](http://fernand0.blogalia.com) y [Diego](http://guadatech.blogspot.com.es/) su revisión
 extensiva de los fuentes y las correcciones aportadas.
 
+## Un libro libre
+
+Este libro es libre. Puedes haberlo recibido de un amigo, generado por
+tu cuenta [a partir del repositorio](https://git.aprendeg.it) o
+comprado. En cualquiera de los casos, está a la venta
+[para el Kindle en Amazon](https://www.amazon.es/dp/B00K515GL2?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B00K515GL2&adid=0J52A22GWS1MQTV0S7Y2&)
+y en
+[formato libro o PDF en Bubok](http://www.bubok.es/libros/233274/Aprende-git),
+en ambos casos a precios populares. Los autores te agradeceremos que
+lo recomiendes, hables de él, digas que te ha parecido y, por
+supuesto, que lo compres. 
+
+## Aprende git, el blog
+
+Hemos creado [un blog](http://blog.aprendeg.it/) en que iremos
+publicando noticias relacionadas con el libro, cursos, trucos y todo
+lo que se nos ocurra sobre git. Suscríbete en alguno de tus lectores
+habituales.
+
+
 # A quién va dirigido este texto
 
 O, dicho de otro modo, qué es lo que hace falta para entender el
