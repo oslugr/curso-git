@@ -1,18 +1,24 @@
-## Usando `git` como los profesionales: GitHub
+# Usando `git` como los profesionales: GitHub
 
-### Objetivos
+## Objetivos
 
 * Conocer las características generales de los repositorios públicos de GitHub
 * Conocer las características específicas de GitHub
 * Aprovechar esas características específicas en el trabajo de desarrollo.
 
-### Por qué GitHub
+## Por qué GitHub
 
 GitHub se ha convertido en el sitio más popular, a pesar de encontrarse entre una cantidad de sitios que alojan también proyectos y permiten usar Git como Gitorious, BitBucket o incluso el venerable [SourceForge](http://sourceforge.net); [Gitorious](https://gitorious.org/) tiene la ventaja de que está a su vez basado en software libre, por lo que te puedes instalar tu propia copia del repositorio bajo tu control. Sea con este sotware o con [GitLab](https://www.gitlab.com/) te puedes hacer tu propia instalación de git si tienes disponible un servidor para ello. Evidentemente, para trabajar con grandes proyectos privados son una buena opción y lo más aceptable.
 
 Sin embargo, hay buenas razones para usar GitHub. Aparte del uso de git, GitHub en realidad funciona como una comunidad de programadores que te permite interaccionar muy fácilmente con otros programadores que usen las mismas herramientas que uno. Ninguno de los otros repositorios tiene esas características; aunque todos tienen ciertas capacidades *sociales*, lo cierto es que la mayoría de los programadores de software libre usan hoy GitHub. De hecho, GitHub con sus métricas, características de *gamificación* (poner estrellas a proyectos, por ejemplo), continuo desarrollo, enganche a plataformas de programación diversas y cliente móvil es hoy en día la mejor opción para desarrollar software libre (y novelas y [cursos de Git](http://github.com/JJ/curso-git)).
 
-Adicionalmente, GitHub se usa como repositorio por defecto para módulos de diferentes lenguajes de programación; por ejemplo, `npm`, el gestor de módulos de Node, lo usa para alojar y descargar las fuentes; otros marcos como Joomla lo usan también para definir sus plugins. Incluso GitHub se incluye ya en flujos de trabajo de ciertos entornos, como [la (futura o pasada) revista científica Push](http://push.cwcon.org). 
+Adicionalmente, GitHub se usa como repositorio por defecto para
+módulos de diferentes lenguajes de programación; por ejemplo, `npm`,
+el gestor de módulos de Node, lo usa para alojar y descargar las
+fuentes; otros marcos como Joomla lo usan también para definir sus
+plugins. Incluso GitHub se incluye ya en flujos de trabajo de ciertos
+entornos, como
+[la (futura o pasada) revista científica Push](http://push.cwcon.org).  
 
 En resumen, GitHub es la primera, segunda y tercera mejor opción de un
 programador de software libre a la hora de alojar sus proyectos. La
@@ -22,7 +28,7 @@ estarían el resto. En este curso veremos principalmente, por esa
 razón, GitHub y sus características específicas, algunas de las cuales
 se han venido usando ya el resto del curso.  
 
-### Repositorios públicos y privados
+## Repositorios públicos y privados
 
 Por omisión, los repositorios de GitHub son públicos. Para conseguir
 un repositorio privado hay que hacer una de dos cosas
@@ -41,7 +47,7 @@ de almacenamiento ilimitado y un número ilimitado de colaboradores,
 por lo que no hace falta adquirir una cuenta ni tener un repositorio
 privado. 
 
-### El GitHub *social*
+## El GitHub *social*
 
 GitHub es una red social de gente que hace cosas y
 escribe texto como este o aplicaciones en diferentes lenguajes de
@@ -120,7 +126,7 @@ tanto éxito hasta el punto de que el perfil de uno en GitHub es su
 mejor carta de presentación a la hora de conseguir un trabajo en
 desarrollo y programación. 
 
-### Creando páginas para GitHub pages
+## Creando páginas para GitHub pages
 
 Una de las partes interesantes de GitHub y en lo que coincide con
 otros más clásicos como SourceForge es en la posibilidad de publicar
@@ -184,7 +190,7 @@ crea el repositorio y se pone el contenido en la rama principal, la
 [organización que se ha creado para este curso](http://curso-git-2014.github.io/)
 
 
-### Cómo usar los hooks
+## Cómo usar los hooks
 
 Los *hooks* o *ganchos* son eventos que se activan cuando se produce algún tipo de acción por parte de git. En general, se usan para integrar el sistema de gestión de fuentes de git con otra serie de sistemas, principalmente de [integración continua](http://es.wikipedia.org/wiki/Integraci%C3%B3n_continua) o [entrega continua](http://en.wikipedia.org/wiki/Continuous_delivery) o, en general, cualquier tipo de sistema de notificaciones o de trabajo en grupo.
 
@@ -233,7 +239,7 @@ Vamos a dividir los servicios que hay en varios grupos:
 
 Lo interesante es que se puede trabajar con la mayoría de estos sistemas de forma gratuita, aunque algunos tienen un modelo *freemium* que te cobra a partir de un nivel determinado de uso (lo que es natural, si no no podrían ofrecértelo de forma grauita). Además, integra la mayor parte de los sistemas que se usan habitualmente en la industria del software. 
 
-### Algunos *hooks* interesantes: sistemas de integración continua
+## Algunos *hooks* interesantes: sistemas de integración continua
 
 GitHub resulta ideal para trabajar con cualquier sistema de
 integración continua, sea alojado o propio. Los sistemas de
@@ -309,28 +315,65 @@ Travis también proporciona un *badge* que puedes incluir en tu repositorio para
 
 sustituyendo el nombre de usuario y el nombre del repo por el correspondiente, claro. Este código está escrito en MarkDown, y GitHub lo interpretará directamente sin problemas, aunque lo mejor es que pinches en la imagen que aparece arriba a la derecha que te dará el código correspondiente.
 
-### Cliente de GitHub
-
+## Cliente de GitHub
 
 GitHub también mantiene un [cliente de GitHub](https://github.com/github/hub), escrito en Ruby y llamado `hub`, que se puede usar para sustituir a `git` o por sí mismo. En realidad, es como `git` salvo que tiene ya definidos por omisión una serie de características específicas de GitHub, como los nombres de los repositorios o los usuarios de los mismos. Tras [instalarlo](http://hub.github.com/) puedes usarlo, por ejemplo, para clonar el repo de ejemplo usado aquí con `hub clone oslugr/repo-ejemplo` en vez de usar el camino completo a git; el formato sería siempre `usuario/nombre-del-repo`. Más órdenes que añade a git (y que se pueden usar directamente desde git si se usa, como se indica en las instrucciones, git como un alias de `hub`):
 
-* `hub browse`: abre un navegador en la página del repositorio correspondiente. Por ejemplo `hub browse -- issues` lo abriría en la página correspondiente a las solicitudes de ese proyecto.
+* `hub browse`: abre un navegador en la página del repositorio
+  correspondiente. Por ejemplo `hub browse -- issues` lo abriría en la
+  página correspondiente a las solicitudes de ese proyecto. 
 * `hub fork`: una vez clonado un repositorio de otro usuario, no hace falta hacer *fork* desde la web, se puede hacer directamente desde el repo. Se crea un origen remoto con el nombre de tu usuario, al que se puede hacer *push* de la forma normal. Desde la misma línea de órdenes se puede hacer un *pull request* al repositorio original también. 
 * Como usuario puedes aplicar también los *pull requests* desde línea de órdenes.
 * `hub compare` permite comparar entre diferentes tags o versiones o ramas.
 
-En general, ya que se tiene GitHub, conviene usar este cliente, sea o no con un alias a git. Por lo menos su uso es conveniente.
+En general, ya que se tiene GitHub, conviene usar este cliente, sea o
+no con un alias a `git`. Por lo menos su uso es conveniente. 
 
-### Listo para el lanzamiento: publicación en GitHub
+## Listo para el lanzamiento: publicación en GitHub
 
-GitHub, como cualquier otro repositorio git, permite usar una rama específica para depositar las versiones descargables; una forma de hacerlo, por ejemplo, es usar la rama `gh-pages` para no mezclarlo con el resto de los ficheros que están en el repositorio y, por tanto, versionados. Sin embargo, no es una buena idea poner ficheros binarios bajo control de git, porque es muy fácil provocar conflictos con ellos y no tan fácil resolverlos (o es un fichero o es otro, los algoritmos de diferencias de texto no trabajan sobre ficheros que no sean binarios); además, en general, estos ficheros se generan a partir del fuente de una forma más o menos automática: usando `Makefiles`, por ejemplo, en C, o en general compilando; si se trata de paquetes, cada lenguaje tiene mecanismos específicos para crearlos a partir de los fuentes, por lo tanto no es necesario colocar tales ficheros en el repositorio. Por eso es mejor colocarlos *fuera* del repositorio, y es lo que hace GitHub, en un apartado llamado *archivos*.
+GitHub, como cualquier otro repositorio git, permite usar una rama
+específica para depositar las versiones descargables; una forma de
+hacerlo, por ejemplo, es usar la rama `gh-pages` para no mezclarlo con
+el resto de los ficheros que están en el repositorio y, por tanto,
+versionados. Sin embargo, no es una buena idea poner ficheros binarios
+bajo control de git, porque es muy fácil provocar conflictos con ellos
+y no tan fácil resolverlos (o es un fichero o es otro, los algoritmos
+de diferencias de texto no trabajan sobre ficheros que no sean
+binarios); además, en general, estos ficheros se generan a partir del
+fuente de una forma más o menos automática: usando `Makefiles`, por
+ejemplo, en C, o en general compilando; si se trata de paquetes, cada
+lenguaje tiene mecanismos específicos para crearlos a partir de los
+fuentes, por lo tanto no es necesario colocar tales ficheros en el
+repositorio. Por eso es mejor colocarlos *fuera* del repositorio, y es
+lo que hace GitHub, en un apartado llamado *archivos*. 
 
-Crear un lanzamiento es fácil en GitHub: simplemente se crea una etiqueta como se ha visto anteriormente, con `git tag`. Por ejemplo, [este es el fichero correspondiente a la etiqueta `v0.0.1` que se definió en el repositorio de ejemplo](https://github.com/oslugr/repo-ejemplo/releases/tag/v0.0.1). Al pinchar en [*Releases*](https://github.com/oslugr/repo-ejemplo/releases) te aparecen las versiones que ya has creado o un botón con *Draft a new release* para crear una nueva.
+Hacer un lanzamiento de un producto es fácil en GitHub: simplemente se crea una
+etiqueta como se ha visto anteriormente, con `git tag`. Por ejemplo,
+[este es el fichero correspondiente a la etiqueta `v0.0.1` que se definió en el repositorio de ejemplo](https://github.com/oslugr/repo-ejemplo/releases/tag/v0.0.1). Al
+pinchar en
+[*Releases*](https://github.com/oslugr/repo-ejemplo/releases) te
+aparecen las versiones que ya has creado o un botón con *Draft a new
+release* para crear una nueva. 
 
-Desde este interfaz web se puede añadir alguna información más que desde la línea de comandos: se puede crear la etiqueta si no existe y se pueden añadir imágenes, ficheros binarios generados de cualquier otra forma (o automáticamente) y, en general, lo que uno desee. También se puede marcar como *pre-release* y [darle un título como a las versiones de Ubuntu, con animalitos o nombres de días de la semana o lo que sea](https://github.com/oslugr/repo-ejemplo/releases/tag/v0.0.3). 
+Desde este interfaz web se puede añadir alguna información más que
+desde la línea de comandos: se puede crear la etiqueta si no existe y
+se pueden añadir imágenes, ficheros binarios generados de cualquier
+otra forma (o automáticamente) y, en general, lo que uno
+desee. También se puede marcar como *pre-release* y
+[darle un título como a las versiones de Ubuntu, con animalitos o nombres de días de la semana o lo que sea](https://github.com/oslugr/repo-ejemplo/releases/tag/v0.0.3).   
 
-En general, si no se usa ningún repositorio de módulos o aplicaciones para publicar la aplicación, o simplemente se quiere publicar junto con los fuentes, manuales y lo que se desee, es conveniente usar esta característica de GitHub para mantener un archivo de versiones descargables de la misma y también para que puedan acceder a ella fácilmente quienes no quieran usar simplemente `git` para descargársela.
+En general, si no se usa ningún repositorio de módulos o aplicaciones
+para publicar la aplicación, o simplemente se quiere publicar junto
+con los fuentes, manuales y lo que se desee, es conveniente usar esta
+característica de GitHub para mantener un archivo de versiones
+descargables de la misma y también para que puedan acceder a ella
+fácilmente quienes no quieran usar simplemente `git` para
+descargársela. 
 
->Vais a decir que ya podían instalarse `git` y demás herramientas necesarias para compilar o ejecutar la aplicación, pero en muchos casos no tiene por qué ser fácil o factible; no se va a instalar uno un compilador de fortran simplemente para compilar una aplicación nuestra, por ejemplo. 
+>Vais a decir que ya podían instalarse `git` y demás herramientas
+> necesarias para compilar o ejecutar la aplicación, pero en muchos
+> casos no tiene por qué ser fácil o factible; no se va a instalar uno
+> un compilador de fortran simplemente para compilar una aplicación
+> nuestra, por ejemplo.  
 
 

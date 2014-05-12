@@ -909,4 +909,5 @@ done
  nombre de los ficheros y le aplica el buscador de cadenas, `grep`,
  buscando la palabra `debugger`; si la encuentra, sale. Quizás está
  mejor explicado en
- [la historia original](http://mark-story.com/posts/view/using-git-commit-hooks-to-prevent-stupid-mistakes) 
+ [la historia original](http://mark-story.com/posts/view/using-git-commit-hooks-to-prevent-stupid-mistakes). 
+ 
