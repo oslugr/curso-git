@@ -1,10 +1,10 @@
-## Licencia
+# Licencia
 
 Esta obra está sujeta a la licencia Reconocimiento-CompartirIgual 4.0 Internacional de Creative Commons. Para ver una copia de esta licencia, visite http://creativecommons.org/licenses/by-sa/4.0/.
 
 ![cc-by-sa](img/by-sa.png)
 
-## Prólogo y agradecimientos
+# Prólogo y agradecimientos
 
 Este libro se escribió originalmente para el
 [curso de git](http://cevug.ugr.es/git) impartido en el Centro de
@@ -31,7 +31,7 @@ hay algunos programas con la idea de que se aprenda a modificarlos
 para usarlos en git, no tanto a dominarlos. En general, git va bien
 con cualquier lenguaje de programación. 
 
-### Agradecimientos adicionales
+## Agradecimientos adicionales
 
 Muchas personas han contribuido con
 [correcciones o aportaciones y están todas ahí, en el gráfico de GitHub](https://github.com/oslugr/curso-git/graphs/contributors)
@@ -39,3 +39,29 @@ pero está bien nombrarlas; agradecemos a Miguel Ángel Pedregosa,
 Alfonso Romero y a [Juanmi](http://stephenchow.es),
 [Fernando Tricas](http://fernand0.blogalia.com) y [Diego](http://guadatech.blogspot.com.es/) su revisión
 extensiva de los fuentes y las correcciones aportadas.
+
+# A quién va dirigido este texto
+
+O, dicho de otro modo, qué es lo que hace falta para entender el
+contenido de este texto. En unas palabras, iría dirigido a personas
+con conocimientos de programación que no le tengan miedo a la línea de
+órdenes. Más en concreto, es conveniente saber algo de
+
+* Trabajo en Linux u OSX, aunque no pasa nada si se trabaja con
+  Windows y no se le tiene miedo a la línea de órdenes (y, más en
+  concreto, a  instalar herramientas que trabajen como la línea de
+  órdenes de Linux y OSX).
+  
+* Programación básica. Salvo en el último capítulo, no hacen falta
+  conocimientos de programación y en ese capítulo basta con que se
+  sepa lo suficiente para entender y modificar un programa. En
+  realidad, tampoco es imprescindible, pero si quieres conocer git es
+  muy probable que lo vayas a usar para programar, así que tampoco
+  viene de más haber sabido algo antes de ponerse con este libro. No
+  hace falta, por cierto, ningún lenguaje de programación concreto.
+  
+* Manejo básico de Internet: nada del otro mundo, darse de alta,
+  instalarse cosas, rellenar formularios. Si sabes las dos cosas de
+  antes, es posible que también sepas esta. 
+  
+  

@@ -1,13 +1,13 @@
-## *Hooks*: ejecutando código tras una orden git
+# *Hooks*: ejecutando código tras una orden git
 
-### Objetivos
+## Objetivos
 
 * Entender el concepto de *fontanería* y *loza*
 * Entender el concepto de *hooks* o *puntos de enganche*
 * Entender las órdenes menos usuales de git usadas desde los *hooks*
 * Saber adaptar *hooks* para una labor determinada
  
-### Viendo las cañerías: estructura de un repositorio `git`
+## Viendo las cañerías: estructura de un repositorio `git`
 
 Cuando se crea por primera vez un repositorio veremos que aparecen misteriosamente una serie de ficheros con esta estructura dentro del directorio `.git`.
 
@@ -45,7 +45,7 @@ para excluir los ficheros de copia de seguriad de Emacs (que hemos definido ante
 
 Por supuesto, el tema principal de este capítulo está en el otro directorio, *hooks*, cuyo contenido tendremos que cambiar si queremos añadir ganchos al repositorio. Pero para usarlo necesitamos también conocer algunos conceptos más de git, empezando por cómo se accede a más cañerías. 
 
-### Paso a paso
+## Paso a paso
 
 Si miramos en el directorio `.git/objects` encontraremos una serie de
 directorios con nombres de dos letras, dentro de los cuales están los
@@ -91,7 +91,7 @@ forma fácil y eficiente. Pero para poder hacerlo debe haber una forma
 única y también compacta de referirse a un elemento determinado dentro
 de ese repositorio. Es lo que explicaremos a continuación.
 
-### El nombre de las cosas: refiriéndonos a objetos en git.
+## El nombre de las cosas: refiriéndonos a objetos en git.
 
 Como ya hemos visto antes, todos los objetos (sean *blobs*, árboles o
 *commits*) están representados por un SHA1.  Si conocemos el SHA1, se
@@ -232,7 +232,7 @@ Ejemplo de repositorio para trabajar en el
 
 
 
-### Comandos de alto y bajo nivel: *fontanería* y *loza*
+## Comandos de alto y bajo nivel: *fontanería* y *loza*
 
 Para entendernos, todas las órdenes que hemos usado hasta ahora son *loza*. Es decir, es el *interfaz* del usuario de toda la instalación de fontanería que lleva a cabo realmente la labor de quitar de enmedio lo que uno deposita en las instalaciones sanitarias. Pero por debajo de la loza y pegado a ella, están las cañerías y toda la instalación de fontanería. 
 
@@ -369,7 +369,7 @@ que, dado que `HEAD` apunta al último commit, nos muestra en modo *pretty-print
 
 En general, si queremos ahondar en las entrañas de un punto determinado en la historia del repositorio, trabajar con `ls-files`, `cat-file` y `ls-tree` permite obtener toda la información contenida en el mismo. Esto nos va a resultar útil un poco más adelante. 
 
-#### Viva la diferencia
+### Viva la diferencia
 
 En muchos casos para procesar los cambios dentro de un gancho
 necesitaremos saber cuál es la diferencia con versiones anteriores del
@@ -515,7 +515,7 @@ posibilidades que ofrece `git`, sobre todo para poder entender su
 esctructura interna. 
 
 
-#### Los dueños de las tuberías
+### Los dueños de las tuberías
 
 No todo el contenido que hay en el repositorio son los ficheros que
 forman parte del mismo. Hay una parte importante de la fontanería que
@@ -562,7 +562,7 @@ Todavía nos hacen falta una serie de órdenes para tomar decisiones
 sobre ficheros y sobre dónde estamos en el repositorio. La veremos a
 continuación
 
-#### Simplemente, `rev-parse`
+### Simplemente, `rev-parse`
 
 La
 [tersa descripción del comando `rev-parse`, "recoge y procesa parámetros"](https://www.kernel.org/pub/software/scm/git/docs/git-rev-parse.html)
@@ -603,7 +603,7 @@ se usará dentro de los *garfios*: para poder acceder a un objeto
 determinado o a sus metadatos a la hora de ver las diferencias con el
 objeto actual.
 
-### Concepto de *hooks*
+## Concepto de *hooks*
 
 Un [*hook* literalmente *garfio* o *gancho*](http://githooks.com/) es un programa que se
 ejecuta cuando sucede un evento determinado en el respositorio. Los
@@ -671,7 +671,7 @@ sólo se programan en remoto, y los que se aplican a `git am` o `git
 gc` quedan fueran de los temas de este libro. Hay sólo cuatro de
 estos, que veremos a continuación.
 
-### Programando un *hook* básico
+## Programando un *hook* básico
 
 En general, un *hook* hará lo siguiente
 
@@ -869,7 +869,7 @@ Lo que se puede hacer ahora no es tan trivial: puedes cambiar el
 fichero de nombre a pelo, pero ya está en el índice, por eso es mejor
 hacer algo como `git mv` (o `git rm --force`).
 
-### Algunos *hooks* útiles explicados
+## Algunos *hooks* útiles explicados
 
 Hay múltiples posts en blogs que
 [explican diferentes ejemplos de *hooks*](http://www.sitepoint.com/git-hooks-fun-profit/)
