@@ -303,7 +303,7 @@ repo con el que se fusiona y localmente contienen diferente número de
 con la rama principal; todo esto, incluso aunque no se hayan creado
 ramas explícitamente. En realidad, *pull* es combinación de dos
 operaciones: `fetch` y `merge`, como ya se ha visto en
-[el capítulo de uso básico](uso_basico.md). De hecho
+el capítulo de uso básico. De hecho
 [hay quien dice que no debe usarse nunca pull](http://longair.net/blog/2009/04/16/git-fetch-and-merge/).
 
 Por ejemplo, en caso de que se haya borrado un fichero (o, para el

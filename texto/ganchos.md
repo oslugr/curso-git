@@ -684,8 +684,8 @@ parámetros de entrada y cómo se debe salir está establecido de
 antemano.
 
 Miremos un script simple, que actúa como gancho para preparación de un
-mensaje de commit (`prepare-commit-msg`, incluido en el
-[repositorio de ejemplo de este curso](git@github.com:JJ/repo-plantilla.git)
+mensaje de commit (`prepare-commit-msg`, incluido en
+[la plantilla de repositorio usado en este curso](https://github.com/JJ/repo-plantilla/blob/master/hooks/prepare-commit-msg.ejemplo)
 
 ```
 #!/bin/sh

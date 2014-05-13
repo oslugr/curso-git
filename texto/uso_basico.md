@@ -1,6 +1,6 @@
-## Uso básico de git
+# Uso básico de git
 
-### Objetivos
+## Objetivos
 
 En este apartado veremos cómo se usa git de forma básica para trabajar en modo monousuario y con un repositorio centralizado.
 
@@ -10,34 +10,34 @@ En este apartado veremos cómo se usa git de forma básica para trabajar en modo
 * Sincronizar dos o más repositorios
 * Tareas básicas de git
 
-### Instalar git
+## Instalar git
 
 `git` es software libre y se puede instalar en cualquier sistema
 operativo. A continuación los más populares, empezando por el que
 aconsejamos para desarrollar software en general, Linux.
 
-####En Linux
+###En Linux
 
 Instalar git en Linux es tan simple como usar tu gestor de paquetes favorito. Por ejemplo (recuerda que normalmente necesitarás privilegios de *root* para instalar cualquier programa):
 
-#####En Arch Linux
+####En Arch Linux
 `# pacman -S git`
 
-#####En sistemas Debian, Ubuntu, Mint...
+####En sistemas Debian, Ubuntu, Mint...
 `# apt-get install git`
 
-#####En Gentoo
+####En Gentoo
 `# emerge --ask --verbose dev-vcs/git`
 
-#####En sistemas Red Hat, Fedora:
+####En sistemas Red Hat, Fedora:
 `# yum install git`
 
-#### En Mac
+### En Mac
 Hay dos maneras de instalar Git en Mac, la más fácil es utilizar el instalador gráfico:
 
 [Git for OS X](https://code.google.com/p/git-osx-installer/) 
 
-#### En Windows
+### En Windows
 
 Para instalar git en Windows debemos descargar el programa instalador en su web oficial en [http://git-scm.com/downloads](http://git-scm.com/downloads).
 
@@ -89,7 +89,7 @@ seguirá la interfaz de línea de comandos*)
 > para trabajar desde él. 
 
 
-###Clientes GUI para Linux, Windows y Mac
+##Clientes GUI para Linux, Windows y Mac
 
 En este curso se seguirá la interfaz de *línea de comandos* (o *línea de órdenes*), pero existen varias aplicaciones para diversos sistemas operativos que permiten interactuar gráficamente (*Interfaz GUI*) con `git` de forma más o menos completa.
 
@@ -99,11 +99,11 @@ En este curso se seguirá la interfaz de *línea de comandos* (o *línea de órd
 
 [GUI for Linux, Windows y Mac](http://git-scm.com/downloads/guis#"Guis clients")
 
-###Empezando a usar git
+##Empezando a usar git
 
 Git es un programa en línea de comandos, y se te supone un conocimiento básico del manejo de esta (cosas como moverse por el árbol de directorios y poco más). No es necesario saber nada complejo, sólo los rudimentos básicos.
 
-####Configurar
+###Configurar
 
 Lo primero que hay que hacer antes de empezar a usar git es configurar un par de parámetros básicos que nos identifican como usuario, que son nuestro correo electrónico y nuestro nombre.
 
@@ -138,7 +138,7 @@ Si te has equivocado al escribir alguno de estos datos o quieres cambiarlo, sól
 
 Una opción de configuración muy cómoda es `git config --global color.ui true`, que hace que el interfaz de git use (si es posible) colores para resaltar distintos aspectos en el texto de sus mensajes.
 
-####Iniciando un repositorio
+###Iniciando un repositorio
 
 Un repositorio de git no es más que un directorio de nuestro ordenador que está bajo el control de git. En la práctica, esto significa que en el directorio raíz de nuestro proyecto hay otro directivo oculto llamado ".git" donde se guardan, por ejemplo, los archivos para el control de historiales y los cambios.
 
@@ -148,7 +148,7 @@ Para iniciar un repositorio sólo hay que situarse en el directorio de nuestro p
 
 Si todo va bien, este comando responderá algo parecido a "Initialized empty Git repository in /ruta/a/mi/proyecto/.git/", que significa que ya tienes creado tu primer repositorio. Vacío, pero por algo hay que empezar.
 
-####Clonando un repositorio
+###Clonando un repositorio
 
 Un repositorio también puede iniciarse copiando (*clonando*) otro ya existente.
 
@@ -173,7 +173,7 @@ Ahora mismo no nos sirve de mucho pero, cuando más adelante trabajemos en red c
 > *IMPORTANTE*
 > En adelante, a menos que se diga lo contrario, todos los comandos y órdenes que se indique se deberán ejecutar en el directorio de nuestro proyecto (o uno de sus subdirectorios, lógicamente). Git reconoce el proyecto con el que está trabajando en función del lugar donde te encuentres al ejecutar los comandos
 
-###¿Cómo funciona git?
+##¿Cómo funciona git?
 
 Antes de continuar, vamos a detenernos un momento para entender el funcionamiento de git.
 
@@ -193,7 +193,7 @@ Lo sé, es todo un poco lioso ahora mismo, pero ya se irá aclarando conforme ap
 
 Tú sólo mantén esta secuencia en la cabeza: Directorio de trabajo -> Index -> HEAD
 
-### Manteniendo nuestro repositorio al día
+## Manteniendo nuestro repositorio al día
 
 Tienes tu repositorio iniciado (o clonado) con una serie de archivos con los que empiezas a trabajar, creándolos, editándolos, modificándolos, etc.
 
@@ -285,7 +285,7 @@ Esta orden sirve para confirmar todos los cambios que haya en el directorio de t
 
 > Esta opción ahorra escribir órdenes, pero también te da más oportunidades de meter la pata. En general se recomienda usar por separado adds y commits, convenientemente salteados de `git status` para comprobar que todo va bien.
 
-### Sincronizando repositorios
+## Sincronizando repositorios
 
 Como sistema de control de versiones distribuido, una de las principales utilidades de git es poder mantener distintos repositorios sincronizados (es decir, que contengan la misma información), exportando e importando cambios.
 
@@ -343,7 +343,7 @@ Y para cambiarle el nombre:
 
 > Nota que git no comprueba si realmente existen los repositorios que agregas o si tienes permisos de lectura o escritura en ellos, de forma que el hecho de que estén ahí no significa que vayas a poder usarlos realmente.
 
-####Recibiendo cambios
+###Recibiendo cambios
 
 Ha llegado el momento de importar cambios desde un repositorio remoto. Para ello tenemos `git pull` que se usa así:
 
@@ -367,7 +367,7 @@ Ahí es donde entra la solución de problemas, y lo veremos dentro de poco.
 
 En realidad, `git pull` es la unión de dos herramientas distintas, que son `git fetch`, que trae los cambios remotos creando una nueva rama, y `git merge`, que une esos cambios con los tuyos. En ocasiones te convendrá más usarlas por separado pero, como aún no hemos visto el manejo de las ramas, dejaremos esto por ahora. 
 
-####Enviando cambios
+###Enviando cambios
 
 Si con `pull` importamos cambios desde otro repositorio, la instrucción `push` es la que nos permite enviar cambios a un repositorio remoto.
 
@@ -389,7 +389,7 @@ Sólo cuando hayamos hecho el pull (y resuelto los conflictos, si es que hubiera
 
 Al hacer tu push, git te retornará información de los cambio realizados, número de archivos, etc.
 
-####Contraseñas
+###Contraseñas
 
 Naturalmente, como ya hemos comentado, no puedes hacer push a un repositorio en el que no tengas permiso de escritura. Para eso puede ser que sea un repositorio abierto a todo el que conozca la dirección, pero eso sería muy raro (e inseguro). Lo usual es que cuentes con un usuario y contraseña que te permitan acceder (normalmente por [ssh](http://es.wikipedia.org/wiki/Secure_Shell)) al servidor.
 
@@ -401,7 +401,7 @@ En muchos sitios puedes ahorrarte ese trabajo usando pares de claves ssh. Básic
 
 Las instrucciones para hacer esto en github están en [esta página de ayuda](https://help.github.com/articles/generating-ssh-keys#platform-all)
 
-###Comportamiento por defecto de push
+##Comportamiento por defecto de push
 
 Las versiones anteriores de git tenían un comportamiento por defecto a la hora de hacer push llamado 'matching'.
 
@@ -456,7 +456,7 @@ Otras opciones posibles son:
 
 * upstream: Al igual que `simple`, sube la rama que tienes activa a la rama de la que has hecho el pull pero, en este caso, *no* te dará error si el nombre de esa rama es distinto.
 
-###El archivo .gitignore
+##El archivo .gitignore
 
 Cuando hacemos `git add .` o algo parecido, preparamos todos los archivos que hayan sido modificados. Esto es, sin duda, mucho más cómodo que ir añadiendo los archivos uno a uno. Pero muy a menudo hay montones de archivos en tu directorio de trabajo que no quieres que se añadan nunca. Archivos de contraseñas, temporales, borradores, binarios compilados, archivos de configuración local...
 
