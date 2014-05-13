@@ -3,7 +3,8 @@
 # Necesita su plantilla LaTeX específica, que está en ../utils y que tendrás
 # que copiar a su directorio de plantillas de Pandoc.
 
-pandoc --template=plantilla.latex -V language=spanish \
+pandoc --template=plantilla.latex \
+    -V language=spanish \
     -S --latex-engine=xelatex  \
     -o aprendegit.pdf aprendegit.txt \
     prologo.md  introduccion.md  uso_basico.md \
