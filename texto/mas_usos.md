@@ -9,14 +9,13 @@
 
 ## Flujos de desarrollo de software (y quizás de otras cosas)
 
-Un sistema como `git` no es independiente de una organización del
-trabajo. Aunque a priori puedes trabajar como te dé la gana, el que te
-facilite el uso de ciertas herramientas hace que sea más fácil usar
+El uso sistema como `git` tiene una serie de consecuencias en la organización del trabajo. Aunque a priori puedes desarrollar y modificar los ficheros como te dé la gana, el que te
+ haga usar las herramientas de una forma determinada hace que sea más fácil emplear
 una serie de prácticas que son habituales en el desarrollo de software
 (y de otras cosas, como documentación o novelas) para hacer más
 productivos a los equipos de trabajo y poder predecir con más
-precisión el desarrollo de los mismos. Por eso, aunque se puede usar
-cualquier metodología de desarrollo de software con el mismo, `git`
+precisión cómo va a evolucionar el desarrollo de los mismos. Por eso, aunque se puede usar
+cualquier metodología de desarrollo de software con él, `git`
 funciona mejor con
 [metodologías ágiles](http://es.wikipedia.org/wiki/Desarrollo_%C3%A1gil_de_software)
 que tienen ciclos más rápidos de producción y de despliegue de nuevas
@@ -484,8 +483,7 @@ borrarlos, añadirlos o hacer algo totalmente diferente.
 > --index`. 
 
 
-En todo
-momento 
+En todo momento 
 
 ```
 git status
