@@ -365,7 +365,11 @@ Si hay archivos que tú has modificado pero el otro repositorio no, te quedarás
 
 Ahí es donde entra la solución de problemas, y lo veremos dentro de poco.
 
-En realidad, `git pull` es la unión de dos herramientas distintas, que son `git fetch`, que trae los cambios remotos creando una nueva rama, y `git merge`, que une esos cambios con los tuyos. En ocasiones te convendrá más usarlas por separado pero, como aún no hemos visto el manejo de las ramas, dejaremos esto por ahora. 
+En realidad, `git pull` es la concatenación de dos acciones distintas, que
+son `git fetch`, que trae los cambios remotos creando una nueva rama,
+y `git merge`, que une esos cambios con los tuyos. En ocasiones te
+convendrá más usarlas por separado pero, como aún no hemos visto el
+manejo de las ramas, dejaremos esto por ahora.  
 
 ###Enviando cambios
 

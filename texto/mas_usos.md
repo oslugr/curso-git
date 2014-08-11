@@ -633,6 +633,32 @@ To git@github.com:oslugr/repo-ejemplo.git
 Una sintaxis con `:` que es ciertamente poco lógica, pero efectiva. Con
 eso tenemos la rama borrada tanto local como remotamente.
 
+`checkout` también te permite *pasar* ficheros de una rama a otra sin
+tener que fusionar una rama completa. Por ejemplo, queremos pasar
+algún fichero a `gh-pages` desde la rama `master`
+
+```
+git checkout gh-pages
+git checkout master README.md
+```
+
+Tras el checkout, el fichero se actualiza (si ya existe) o se añade al
+índice, quedando de esta forma:
+
+```
+# On branch gh-pages
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   README.md
+#
+```
+
+(si es que no existía antes en el repositorio, que era el caso). De
+hecho, se puede sustituir `gh-pages` con cualquier *tree-ish*: un
+*commit*, por ejemplo, permitiendo recuperar versiones anteriores de
+cualquier fichero, o, de hecho, del repositorio completo. 
+
 
 ## Los misterios del rebase
 
