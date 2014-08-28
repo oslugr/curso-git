@@ -84,7 +84,7 @@ Otros ficheros que suelen ir en el directorio principal
    ficheros que no se deben considerar como parte del repositorio
    
  * `LICENSE` incluye la licencia. También se crea automáticamente en
-   caso desde Github en caso de que se haya hecho así. No hay que
+   caso desde GitHub en caso de que se haya hecho así. No hay que
    olvidar que también hay que incluir una cabecera en cada fichero
    que indique a qué paquete pertenece y cuál es la licencia.
    
@@ -374,7 +374,7 @@ la orden `tag`
 `tag` etiqueta el último *commit*, es decir, asigna una etiqueta al
 estado en el que estaba el respositorio tras el último commit. La
 etiqueta aparecerá de forma inmediata (sin necesidad de hacer *push*,
-puesto que se añade al útlimo commit y se puede listar con
+puesto que se añade al último commit y se puede listar con
 
 ```
 git tag
@@ -517,7 +517,7 @@ trabajo se pueden listar con
    master
 ```
 
-con un asterisco diciéndonos en qué rama concreata estamos; si
+con un asterisco diciéndonos en qué rama concreta estamos; si
 queremos ver todas las que tenemos se usa
 
 ```
@@ -689,7 +689,7 @@ ser importante no sólo para repartir las culpas cuando algo falle,
 sino también para ver quién se responsabiliza de cada rama o
 característica y, eventualmente, también para asignar méritos. La
 herramienta `gitk` que hemos usado hasta ahora te presenta en forma de
-árbos los cambios que se han venido haciendo en el repositorio, con un
+árbol los cambios que se han venido haciendo en el repositorio, con un
 panel a la derecha que muestra quién ha hecho cada commit:
 
 ![Quien ha hecho qué](img/gitk.png)
