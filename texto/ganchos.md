@@ -41,7 +41,7 @@ Otro fichero dentro de este directorio que se puede modificar es `.git/info/excl
 # *.[oa]
 *~
 ``` 
-para excluir los ficheros de copia de seguriad de Emacs (que hemos definido antes como editor) que nos interesa evitar a nosotros, pero que puede que tengan un significado especial para otro usuario del repo y que por tanto no quiera evitar. 
+para excluir los ficheros de copia de seguridad de Emacs (que hemos definido antes como editor) que nos interesa evitar a nosotros, pero que puede que tengan un significado especial para otro usuario del repo y que por tanto no quiera evitar. 
 
 Por supuesto, el tema principal de este capítulo está en el otro directorio, *hooks*, cuyo contenido tendremos que cambiar si queremos añadir ganchos al repositorio. Pero para usarlo necesitamos también conocer algunos conceptos más de git, empezando por cómo se accede a más cañerías. 
 
@@ -233,7 +233,7 @@ Ejemplo de repositorio para trabajar en el
 
 ### Comandos de alto y bajo nivel: *fontanería* y *loza*
 
-Para entendernos, todas las órdenes que hemos usado hasta ahora son *loza*. Es decir, es el *interfaz* del usuario de toda la instalación de fontanería que lleva a cabo realmente la labor de quitar de enmedio lo que uno deposita en las instalaciones sanitarias. Pero por debajo de la loza y pegado a ella, están las cañerías y toda la instalación de fontanería. 
+Para entendernos, todas las órdenes que hemos usado hasta ahora son *loza*. Es decir, es el *interfaz* del usuario de toda la instalación de fontanería que lleva a cabo realmente la labor de quitar de en medio lo que uno deposita en las instalaciones sanitarias. Pero por debajo de la loza y pegado a ella, están las cañerías y toda la instalación de fontanería. 
 
 Los comandos de `git` se dividen en [dos tipos](http://git-scm.com/book/ch9-1.html): *fontanería* o *cañería*, que son comandos que *generalmente* no ve el usuario y *loza*, que son los que ve y los que usa. Sin embargo, este capítulo trata realmente de esa fontanería, porque van a ser una serie de órdenes que se van a llevar a cabo *después* de que se ejecuten las órdenes de *loza*, o, quizás *dentro* de esas órdenes de loza.
 
@@ -615,7 +615,7 @@ Los *ganchos* no son estrictamente necesarios en todo tipo de
 instalaciones; se puede trabajar con un repositorio sin tener la
 necesidad de usarlos. Sin embargo, [son tremendamente útiles para
 automatizar una serie de tareas](http://git-scm.com/book/en/Customizing-Git-An-Example-Git-Enforced-Policy) (como los tests que se usan en
-integración continua), implementar una serie de pollíticas para todos
+integración continua), implementar una serie de políticas para todos
 los usuarios de un repositorio (formato de los mensajes de *commit*,
 por ejemplo) y añadir información al repositorio de forma automática.
 
