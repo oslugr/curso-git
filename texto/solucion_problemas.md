@@ -11,7 +11,7 @@ En todo desarrollo colaborativo aparecen problemas. No es difícil solucionarlos
 
 ###Obtener Ayuda
 
-Lo primero que necesitamos a la hora de enfrentarnos a las dificultades es conocer nuetras herramientas.
+Lo primero que necesitamos a la hora de enfrentarnos a las dificultades es conocer nuestras herramientas.
 
 Git dispone de una ayuda detallada que nos resultará muy útil. Para invocarla sólo hay que hacer 
 
@@ -27,7 +27,7 @@ Has hecho una serie de modificaciones seguidas de commits con sus comentarios ¿
 
 `git log`
 
-La orden `git log` te mostará un listado de todos los cambios efectuados, con sus respectivos comentarios, empezando desde el más reciente hasta el más antiguo.
+La orden `git log` te mostrará un listado de todos los cambios efectuados, con sus respectivos comentarios, empezando desde el más reciente hasta el más antiguo.
 
 El formato de cada commit en la respuesta es como este:
 
@@ -46,13 +46,13 @@ Por defecto, `git log` nos mostrará todas las entradas del log. para ver sólo 
 
 mostrará las últimas cuatro entradas en el log.
 
-Otra opción posible, si quieres ver una versión más resumida y compacta de los datos, es `--oneline`, que te muetra una versión compacta.
+Otra opción posible, si quieres ver una versión más resumida y compacta de los datos, es `--oneline`, que te muestra una versión compacta.
 
 Si, por el contrario, quieres más detalles, la opción `-p` te mostrará, para cada commit, todos los cambios que se realizaron en los archivos (en formato diff).
 
 Otra ayuda visual es `--graph`, que dibuja (con caracteres ASCII) un árbol indicando las ramas del proyecto (ya veremos eso un poco más adelante).
 
-`git log` tiene un montón de opciones más (para filtrar por autor o fecha, mostrar estadísticas...) que, además, se pueden usar en combinación. Por ejemplo, la isntrucción
+`git log` tiene un montón de opciones más (para filtrar por autor o fecha, mostrar estadísticas...) que, además, se pueden usar en combinación. Por ejemplo, la instrucción
 
 `git log --graph --oneline` 
 
@@ -77,7 +77,7 @@ En git se pueden borrar archivos con la orden `git rm`.
 
 `git rm NOMBRE_DEL_FICHERO`
 
-Funciona como la propia orden del sistema operativo, con la salvedad de que *tambien* borra el archivo del Index, si estuviera allí. Esto lo hace muy útil en ocasiones.
+Funciona como la propia orden del sistema operativo, con la salvedad de que *también* borra el archivo del Index, si estuviera allí. Esto lo hace muy útil en ocasiones.
 
 Si necesitas borrar el archivo del Index pero sin borrarlo de directorio de trabajo (porque, por ejemplo, te has arrepentido y no quieres incluirlo en el próximo commit), se puede hacer con la opción `--cached` del siguiente modo:
 
@@ -93,7 +93,7 @@ Puedes rehacer el último commit usando la opción `--amend` de este modo:
 
 `git commit --amend`
 
-Si no has modificado nada en tus archivos, esto simplemente te permitirá reescribir el comentario del commit pero, si por ejemplo habiás olvidado añadir algo al Index, puedes hacerlo antes del `git commit --amend` y se aplicará en el commit.
+Si no has modificado nada en tus archivos, esto simplemente te permitirá reescribir el comentario del commit pero, si por ejemplo habías olvidado añadir algo al Index, puedes hacerlo antes del `git commit --amend` y se aplicará en el commit.
 
 ###Deshacer cambios en un archivo
 
@@ -167,7 +167,7 @@ Con ese hash ya podemos hacer un `git reset` del siguiente modo:
 
 Eso, en cierto modo, volverá atrás en el tiempo, deshará los commits posteriores al indicado y traerá a tu directorio de trabajo los archivos tal y como estaban entonces. Todos los cambios posteriores desaparecerán, así que mucho cuidado.
 
-Como consejo, recuerda hacer `push` antes de jugar con `git reset --hard`. De este modo, si quieres recuperar todo el trabajo poseterior, no tienes más que hacer `pull` y los recuperarás de nuevo.
+Como consejo, recuerda hacer `push` antes de jugar con `git reset --hard`. De este modo, si quieres recuperar todo el trabajo posterior, no tienes más que hacer `pull` y los recuperarás de nuevo.
 
 También te puedes salvaguardar usando otra rama para hacer el `git reset --hard` sobre ella, pero el uso de ramas es algo que veremos un poco más adelante.
 
