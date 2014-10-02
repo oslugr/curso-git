@@ -1,7 +1,7 @@
 Aprende git
 =========
 
-Repositorio con el material para el curso de Git virtual. Está escrito usando
+Repositorio con el material para el curso de Git virtual. Se escribió originalmente usando
 [Markdown en su versión Kramdown](http://kramdown.gettalong.org/quickref.html),
 aunque finalmente hemos encontrado que funciona mejor transformándolo
 con [Pandoc](http://johnmacfarlane.net/pandoc/‎).
@@ -11,7 +11,7 @@ Incluye seis módulos usados en el
 [puedes descargarte en cualquiera de las versiones en ePub](https://github.com/oslugr/curso-git/releases), 
 [comprar en Amazon](https://www.amazon.es/dp/B00K515GL2?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B00K515GL2&adid=0MNVCEFMSN6CVHJCCJEH&)
 o
-[en Bubok en formato físico](http://www.bubok.es/libros/233274/Aprende-git). 
+[en Bubok en formato físico](http://www.bubok.es/libros/233274/Aprende-git). Si necesitas generar otro formato, puedes inspirarte en los conversores que [hay en el directorio `utils`](utils/).
 
 ## Índice
 
@@ -20,7 +20,7 @@ o
 3. [Resolviendo conflictos y otros problemas](texto/solucion_problemas.md).
 4. [Flujos de trabajo y otras buenas prácticas](texto/mas_usos.md).
 5. [Trabajando en GitHub](texto/github.md).
-6. [Trabajando con *hooks* y otras cosas de fontanería](texto/ganchos.md).
+6. [Trabajando con *hooks* y otros temas de fontanería](texto/ganchos.md).
 
 ## Más información
 
@@ -37,6 +37,6 @@ Como alternativa a este libro tienes
 puedes descargar en diferentes formatos. 
 
 También puedes [seguir el blog](http://blog.aprendeg.it) con trucos e
-información diversa sobre git.
+información diversa sobre git; se actualiza una vez al mes, más o menos. 
 
 
