@@ -1,11 +1,11 @@
 #!/bin/bash
 
 mkdir -p html # It creates the directory if it does not exist
-
+cp ../aprendegit.css html
 for fichero in $( ls *.md)
 do
     #echo ${fichero}
-    pandoc -f markdown -s -t html -o html/${fichero} ${fichero}
+    pandoc -f markdown -s -t html -c aprendegit.css -o html/${fichero} ${fichero} 
     mv "html/$fichero" "html/${fichero%.md}.html"
 done
 

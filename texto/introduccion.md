@@ -11,7 +11,7 @@
 
 En los últimos años, el software libre se ha ido extendiendo hasta abarcar la mayor parte de sistemas de Internet, supercomputadores o servicios de red, llegando finalmente a ordenadores personales, tablets, teléfonos e incluso electrodomésticos.
 
-Llamamos [Software Libre](http://es.wikipedia.org/wiki/Software_libre) al que permite al usuario ejercer una serie de libertades, a saber:
+Llamamos [*software libre*](http://es.wikipedia.org/wiki/Software_libre) al que permite al usuario ejercer una serie de libertades, a saber:
 
 * la libertad de usar el programa, con cualquier propósito.
 * la libertad de estudiar cómo funciona el programa y modificarlo, adaptándolo a tus necesidades.
