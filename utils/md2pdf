@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# Necesita su plantilla LaTeX específica, que está en ../utils y que tendrás
-# que copiar a su directorio de plantillas de Pandoc.
+# Cambia la plantilla de latex al directorio donde esté
 
-pandoc --template=plantilla.latex \
+pandoc --template=/home/jmerelo/Libros/curso-git/utils/plantilla.latex \
     -V language=spanish -V lang=spanish \
     -V author='Pablo Hinojosa, JJ Merelo' -V title='Aprende Git'\
     -V documentclass=book\

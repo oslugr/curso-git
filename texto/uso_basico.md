@@ -146,7 +146,9 @@ Para iniciar un repositorio sólo hay que situarse en el directorio de nuestro p
 
 `git init`
 
-Si todo va bien, este comando responderá algo parecido a "Initialized empty Git repository in /ruta/a/mi/proyecto/.git/", que significa que ya tienes creado tu primer repositorio. Vacío, pero por algo hay que empezar.
+Si todo va bien, este comando responderá algo parecido a
+`Initialized empty Git repository in /ruta/a/mi/proyecto/.git/`
+, que significa que ya tienes creado tu primer repositorio. Vacío, pero por algo hay que empezar.
 
 ###Clonando un repositorio
 
@@ -258,7 +260,7 @@ Esto mandará todos los cambios que tengas en el Index.
 
 AL hacer un `commit` se abre automáticamente el editor de texto que tengas por defecto en el sistema, para que puedas añadir un comentario a los cambios efectuados. Si no añades este comentario, recibirás un error y el commit no se enviará.
 
-> Puedes cambiar el editor por otro de tu gusto con `git config --global core.editor EDITOR', por ejemplo:
+> Puedes cambiar el editor por otro de tu gusto con `git config --global core.editor EDITOR`, por ejemplo:
 > `git config --global core.editor vim'
 
 Si no quieres que se abra el editor puedes añadir el comentario en el mismo commit del siguiente modo:
@@ -267,9 +269,7 @@ Si no quieres que se abra el editor puedes añadir el comentario en el mismo com
 
 Recuerda lo que dijimos antes: si modificas un archivo después de haber hecho `git add`, esos cambios no estarán incluidos en tu `commit` (si quieres incluir la última versión, no tienes más que volver a hacer `git add` antes del `commit`).
 
-Ahora nos puede surgir un problema:
-
-Si sólo podemos confirmar con `commit` de un archivo que hayamos preparado con `add`, y sólo podemos hacer `add` de un archivo que existe en nuestro directorio de trabajo ¿Cómo le decimos a git que elimine un archivo del repositorio? Para ello tenemos la orden:
+Ahora nos puede surgir un problema: Si sólo podemos confirmar con `commit` de un archivo que hayamos preparado con `add`, y sólo podemos hacer `add` de un archivo que existe en nuestro directorio de trabajo, ¿cómo le decimos a git que elimine un archivo del repositorio? Para ello tenemos la orden:
 
 `git add -u`
 
