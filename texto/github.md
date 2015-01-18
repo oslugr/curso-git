@@ -338,7 +338,7 @@ el resto de los ficheros que están en el repositorio y, por tanto,
 versionados. Sin embargo, no es una buena idea poner ficheros binarios
 bajo control de git, porque es muy fácil provocar conflictos con ellos
 y no tan fácil resolverlos (o es un fichero o es otro, los algoritmos
-de diferencias de texto no trabajan sobre ficheros que no sean
+de diferencias de texto no trabajan sobre ficheros que sean
 binarios); además, en general, estos ficheros se generan a partir del
 fuente de una forma más o menos automática: usando `Makefiles`, por
 ejemplo, en C, o en general compilando; si se trata de paquetes, cada
