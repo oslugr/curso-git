@@ -189,7 +189,7 @@ Más adelante veremos con algo más de detalle la orden `git add`, pero ya te ad
 
 Ojo, que algo esté en el index no significa que se borre de tu directorio de trabajo ni nada parecido, el Index es sólo una lista de cosas que tendrás que actualizar en el repositorio porque han cambiado.
 
-Por último, la instrucción `git commit`, que también veremos en breve, es la que realmente envía las cosas que hay en el Index al repositorio. Solo que, en lugar de "repositorio" lo vamos a llamar "HEAD", porque el lugar exacto al que va puede significar cosas distintas en según que casos, como ya veremos cuando hablemos de ramas y esas cosas.
+Por último, la instrucción `git commit`, que también veremos en breve, es la que realmente envía las cosas que hay en el Index al repositorio. Solo que en lugar de "repositorio" lo vamos a llamar "HEAD", porque el lugar exacto al que va puede significar cosas distintas en según que casos, como ya veremos cuando hablemos de ramas y esas cosas.
 
 Lo sé, es todo un poco lioso ahora mismo, pero ya se irá aclarando conforme aprendamos más cosas.
 
@@ -322,13 +322,13 @@ Donde `ALIAS_DEL_REPOSITORIO` es un nombre corto para usar en las instrucciones 
 
 `git remote add personal git://github.com/psicobyte/repo-ejemplo.git`
 
-Esto añade un repositorio remoto llamado "personal" con la dirección que se indica.
+Esto añade un repositorio remoto llamado `personal` con la dirección que se indica.
 
 Si ahora hacemos un `git remote -v`, veremos algo como:
 
 ```
-mio	git://github.com/psicobyte/repo-ejemplo.git (fetch)
-mio	git://github.com/psicobyte/repo-ejemplo.git (push)
+personal	git://github.com/psicobyte/repo-ejemplo.git (fetch)
+personal	git://github.com/psicobyte/repo-ejemplo.git (push)
 origin	https://github.com/oslugr/repo-ejemplo.git (fetch)
 origin	https://github.com/oslugr/repo-ejemplo.git (push)
 ```
@@ -355,7 +355,7 @@ de este modo, la forma más usual de llamar esta orden es, simplemente:
 
 `git pull`
 
-(que significaría lo mismo que `git pull origin master`)
+(que significaría lo mismo que `git pull origin master`).
 
 Esta instrucción trae del repositorio remoto indicado (o de "origin" si no indicas nada, como hemos visto), todos los cambios que haya respecto al tuyo (lógicamente, no se molesta en traer los que son iguales).
 

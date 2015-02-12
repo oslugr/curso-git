@@ -2,12 +2,12 @@
 
 ##Objetivos
 
-En todo desarrollo colaborativo aparecen problemas. No es difícil solucionarlos.
+En todo desarrollo colaborativo aparecen problemas. No es difícil solucionarlos. Estos son los objetivos que perseguimos en este capítulo.
 
-* Saber obtener información sobre git
-* Conocer el estado e historial de nuestros proyectos
-* Modificar y recuperar estados anteriores
-* Solucionar conflictos entre repositorios
+* Saber dónde obtener información sobre git.
+* Conocer el estado e historial de nuestros proyectos.
+* Modificar y recuperar estados anteriores.
+* Solucionar conflictos entre repositorios.
 
 ##Obtener Ayuda
 
@@ -38,7 +38,7 @@ Date:   Sun Mar 30 11:54:15 2014 +0200
    Cambios menores en las explicaciones de git add y git status
 ```
 
-La primera línea es un *hash* único que identifica al commit (y que más adelante no será muy útil), seguida del autor, la fecha en que se hizo y el comentario que acompañó al commit. 
+La primera línea es un *hash* único que identifica al commit (y que más adelante nos será muy útil), seguida del autor, la fecha en que se hizo y el comentario que acompañó al commit. 
 
 Por defecto, `git log` nos mostrará todas las entradas del log. para ver sólo un número determinado sólo tienes que añadirle el parámetro `-NUMERO`, donde NUMERO es el número de entradas que quieres ver, por ejemplo:
 

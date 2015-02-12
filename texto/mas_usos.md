@@ -267,9 +267,9 @@ integración continua, comprobación de código y otra serie de cosas
 interesantes. Además, hasta que no hacemos `push` no comparamos
 nuestro código con el que está en `HEAD`, que en ese momento puede
 estar más adelante o más atrás. Si tienes miedo de provocar un
-conflicto o de que te lo provoque, no hagas un pull hasta estar seguro
+conflicto o de que te lo provoque, no hagas un `push` hasta estar seguro
 de que el código no rompe los tests automáticos y hasta que estés
-seguro de poder resolver los conflictos que ocurran.  ¿Cómo se pueden
+seguro de poder resolver los conflictos que ocurran cuando tu código se combine con el que ya está en el repo.  ¿Cómo se pueden
 resolver estos conflictos? Lo veremos a continuación. 
 
 Igual que en el caso de los submódulos, no deja de ser simplemente una

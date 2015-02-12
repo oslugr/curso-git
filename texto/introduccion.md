@@ -25,7 +25,7 @@ Para que un programa sea libre hacen falta dos requisitos fundamentales:
 
 Además, en la comunidad de software libre se dan algunas peculiaridades, como la internacionalización o el trabajo colaborativo de gran cantidad de desarrolladores, que han promovido la creación de forjas, repositorios y sistemas que permitan compartir ese código de forma abierta y además, administrar y gestionar todo ese trabajo de una forma eficiente.
 
-git es uno de estos sistemas, y es software libre.
+Git es uno de estos sistemas, y es software libre.
 
 ## Sistemas de control de Versiones
 
@@ -79,7 +79,7 @@ Git nació para ser el Sistema de Control de Versiones del kernel de Linux (de h
 
 Se trata, como ya hemos dicho, de un Sistema de Control de Versiones distribuido, por lo que cada programador cuenta con su propio repositorio. Esto hace que, salvo cuando llega el momento de sincronizar con otro repositorio, todo el trabajo se haga en local, con ventajas como la velocidad o que se pueda trabajar sin acceso a la red.
 
-git es software libre, y su código está disponible en su [repositorio de GitHub](http://github.com/git/git); el sitio oficial de git es [git-scm.com](http://git-scm.com/). Git es también multiplataforma y existen versiones para Linux, Mac, Windows y Solaris.
+Git es software libre, y su código está disponible en su [repositorio de GitHub](http://github.com/git/git); el sitio oficial de git es [git-scm.com](http://git-scm.com/). Git es también multiplataforma y existen versiones para Linux, Mac, Windows y Solaris.
 
 En este curso se usará Linux para los ejemplos y referencias y se recomienda encarecidamente su uso. Otros sistemas operativos no están tan preparados para algunas tareas como administrar sesiones remotas, etc.
 
