@@ -38,7 +38,7 @@ Muchas personas han contribuido con
 pero está bien nombrarlas; agradecemos a Miguel Ángel Pedregosa,
 Alfonso Romero y a [Juanmi](http://stephenchow.es),
 [Fernando Tricas](http://fernand0.blogalia.com) y [Diego](http://guadatech.blogspot.com.es/) su revisión
-extensiva de los fuentes y las correcciones aportadas.
+extensiva de los fuentes y las correcciones aportadas. Israel Santana nos mandó también diversas correcciones. 
 
 ## Un libro libre
 
