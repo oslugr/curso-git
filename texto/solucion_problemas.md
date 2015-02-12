@@ -83,7 +83,7 @@ Si necesitas borrar el archivo del Index pero sin borrarlo de directorio de trab
 
 `git rm --cached NOMBRE_DEL_FICHERO`
 
-Otra ocpión para hacer esto mismo es con `git reset HEAD` que se usa del siguiente modo:
+Otra opción para hacer esto mismo es con `git reset HEAD` que se usa del siguiente modo:
 
 `git reset HEAD NOMBRE_DEL_ARCHIVO`
 
