@@ -56,7 +56,7 @@ directamente desde sitios de gestión como GitHub.
 ### Organización de un repositorio de git
 
 No hay reglas universales para la organización de un repositorio,
-aunque sí reglas sobre como *no* debe hacerse: todo en un sólo
+aunque sí reglas sobre como *no* debe hacerse: todo en un único
 directorio. El repositorio debe estar organizado de forma que cada
 persona sólo tenga que *ver* los ficheros con los que tenga que
 trabajar y no se *distraiga* con la modificación de ficheros con los
@@ -83,8 +83,8 @@ Otros ficheros que suelen ir en el directorio principal
  * `.gitignore` posiblemente ya conocido, incluye los patrones y
    ficheros que no se deben considerar como parte del repositorio
    
- * `LICENSE` incluye la licencia. También se crea automáticamente en
-   caso desde GitHub en caso de que se haya hecho así. No hay que
+ * `LICENSE` incluye la licencia. También se crea automáticamente
+   desde GitHub en caso de que se haya hecho así. No hay que
    olvidar que también hay que incluir una cabecera en cada fichero
    que indique a qué paquete pertenece y cuál es la licencia.
    
@@ -287,7 +287,7 @@ las páginas web como una rama totalmente diferente). Sin embargo, las
 ramas, que más bien deberían llamarse *ramificaciones* o *caminos*,
 son *caminos divergentes* a partir de un tronco común que,
 eventualmente, pueden combinarse (aunque no es obligatorio) en uno
-sólo. En la práctica y como
+solo. En la práctica y como
 [dicen aquí](http://longair.net/blog/2009/04/16/git-fetch-and-merge/)
 una rama es un nombre para un *commit* específico y todos los commits
 que son antecesores del mismo. 
@@ -419,7 +419,7 @@ Date:   Sun Apr 6 09:45:38 2014 +0200
     Y edición del README para que sirva para algo
 ```
 
-(Suprimidos espacios en blanco para que aparezca como un sólo
+(Suprimidos espacios en blanco para que aparezca como un solo
 mensaje). Que, como se ve, añade un pequeño mensaje (al principio) al
 propio del commit (a continuación). 
 
@@ -434,7 +434,7 @@ v0.0.2.1-1-g6dd7a8c
 
 que, de una forma un tanto críptica, indica que a partir de la
 etiqueta `v0.0.2.1` hay un commit `-1-` y el nombre del último objeto,
-en este caso el único `6dd7a8c`. Es otra forma de
+en este caso el único, `6dd7a8c`. Es otra forma de
 [*etiquetar* un punto en la historia de una rama](http://gitfu.wordpress.com/2008/05/25/git-describe-great-another-way-to-refer-to-commits/),
 o simplemente otra 
 forma de llamar a un commit. Es más descriptivo que simplemente el
