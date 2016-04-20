@@ -279,17 +279,32 @@ En este caso tenemos objetos de tres tipos: blob, commit y tree. a `ls-tree` se 
 ``` 
 que muestra solo los objetos de tipo `blob` (y un `commit`) con el camino completo que llega hasta ellos. 
 
-Si editamos un fichero tal como el README.md, tras hacer el commit tendrá esta apariencia:
+Si editamos un fichero tal como el README.md, el repositorio tendrá esta apariencia tras hacer el commit:
 
 ```
-~/repos-git/repo-ejemplo<master>$ git ls-tree HEAD100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
+~/repos-git/repo-ejemplo<master>$ git ls-tree HEAD
+100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
 [...]
 100644 blob da5b5121adb42e990b9e990c3edb962ef99cb76a	README.md
 ```
 
-Como vemos, ha cambiado el SHA1. Pero `ls-tree` va más allá y te puede mostrar también cuál es el estado del repositorio hace varios commits. Por ejemplo, podemos usar `HEAD^` para referirnos al commit anterior y `git ls-tree HEAD^` nos devolvería exactamente el mismo estado en el que estaba antes de hacer la modificación a README.md. De hecho, podemos usar también la abreviatura del commit de esta forma `git ls-tree 5be23bb`, siendo este último una parte del SHA1 (o hash) del último commit; nos devolvería el último resultado. 
+Como vemos, ha cambiado el SHA1 (comienza con `da5`, comparadlo con el
+listado más arriba en el que comienza con `c5b`. Pero `ls-tree` va más
+allá y te puede mostrar también cuál es el estado del repositorio hace
+varios commits. Por ejemplo, podemos usar `HEAD^` para referirnos al
+commit anterior y `git ls-tree HEAD^` nos devolvería exactamente el
+mismo estado en el que estaba antes de hacer la modificación a
+README.md. De hecho, podemos usar también la abreviatura del commit de
+esta forma `git ls-tree 5be23bb`, siendo este último una parte del
+SHA1 (o hash) del último commit; nos devolvería el último resultado.  
 
-Pero podemos ir todavía más profundamente dentro de las tuberías. `ls-tree` sólo lista los objetos que ya forman parte del árbol, del principal o de alguno de los secundarios. Puede que necesitemos acceder a aquellos objetos que se han añadido al índice, pero todavía no han pasado a ningún árbol. Para eso usamos `ls-files`. Tras añadir un fichero que está en un subdirectorio `views` con `add`, podemos hacer:
+Pero podemos ir todavía a una profundidad mayor dentro de las
+tuberías. `ls-tree` sólo lista los objetos que ya forman parte del
+árbol, del principal o de alguno de los secundarios. Puede que
+necesitemos acceder a aquellos objetos que se han añadido al índice,
+pero todavía no han pasado a ningún árbol. Para eso usamos
+`ls-files`. Tras añadir un fichero que está en un subdirectorio
+`views` con `add`, podemos hacer: 
 
 ```
 git ls-files --stage
