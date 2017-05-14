@@ -256,9 +256,9 @@ Como te estarás imaginando, aquí también puedes usar comodines del mismo modo
 
 `git commit`
 
-Esto mandará todos los cambios que tengas en el Index.
+Esto registrará todos los cambios que tengas en el Index.
 
-AL hacer un `commit` se abre automáticamente el editor de texto que tengas por defecto en el sistema, para que puedas añadir un comentario a los cambios efectuados. Si no añades este comentario, recibirás un error y el commit no se enviará.
+Al hacer un `commit` se abre automáticamente el editor de texto que tengas por defecto en el sistema, para que puedas añadir un comentario a los cambios efectuados. Si no añades este comentario, recibirás un error y el commit no se enviará.
 
 > Puedes cambiar el editor por otro de tu gusto con `git config --global core.editor EDITOR`, por ejemplo:
 > `git config --global core.editor vim'
