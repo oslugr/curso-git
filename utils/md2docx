@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pandoc -s --toc  \
+       -o aprendegit.docx aprendegit.txt prologo.md  introduccion.md  uso_basico.md \
+    solucion_problemas.md mas_usos.md \
+    github.md          ganchos.md
+   
