@@ -49,11 +49,11 @@ Debido al crecimiento en extensión y complejidad del software los Sistemas de C
 
 Estos sistemas nacieron para gestionar código fuente, pero pueden ser usados para cualquier tipo de documentación (aunque no pueden aprovechar todo su potencial en archivos que no sean de texto plano). Por ejemplo, este curso ha sido desarrollado bajo git y su código puede encontrarse en su repositorio oficial en [github.com/oslugr/curso-git](https://github.com/oslugr/curso-git)
 
-##Tipos de Sistemas de Control de Versiones
+## Tipos de Sistemas de Control de Versiones
 
 Existen muchos Sistemas de Control de Versiones como [CVS](http://es.wikipedia.org/wiki/CVS), [Subversion](http://es.wikipedia.org/wiki/Subversion), [Bazaar](http://es.wikipedia.org/wiki/Bazaar_(software)), [Mercurial](http://es.wikipedia.org/wiki/Mercurial) o, por supuesto, [Git](http://es.wikipedia.org/wiki/Git), pero todos pueden clasificarse en dos tipos fundamentales según su modo de trabajo.
 
-###Sistemas centralizados
+### Sistemas centralizados
 
 Los sistemas de control de versiones centralizados fueron los primeros en aparecer y son los de funcionamiento más simple e intuitivo.
 
@@ -63,7 +63,7 @@ Es decir, la versión "oficial" de referencia es la que hay en ese repositorio, 
 
 Los programas más conocidos de este tipo son CVS y Subversion.
 
-###Sistemas distribuidos.
+### Sistemas distribuidos.
 
 Los sistemas distribuidos son más complejos, pero a cambio ofrecen una mayor flexibilidad.
 
@@ -73,13 +73,13 @@ Hay que hacer notar que, aunque no es necesario en este tipo de arquitectura, en
 
 Los sistemas distribuidos más conocidos son Bazaar y, por supuesto, git.
 
-##git
+## git
 
 Git nació para ser el Sistema de Control de Versiones del kernel de Linux (de hecho, fue originalmente programado por el mismo *Linus Torvalds*) y por ello está preparado para proyectos grandes, con muchos desarrolladores y un gran número de ramas.
 
 Se trata, como ya hemos dicho, de un Sistema de Control de Versiones distribuido, por lo que cada programador cuenta con su propio repositorio. Esto hace que, salvo cuando llega el momento de sincronizar con otro repositorio, todo el trabajo se haga en local, con ventajas como la velocidad o que se pueda trabajar sin acceso a la red.
 
-Git es software libre, y su código está disponible en su [repositorio de GitHub](http://github.com/git/git); el sitio oficial de git es [git-scm.com](http://git-scm.com/). Git es también multiplataforma y existen versiones para Linux, Mac, Windows y Solaris.
+Git es software libre, y su código está disponible en su [repositorio de GitHub](https://github.com/git/git); el sitio oficial de git es [git-scm.com](https://git-scm.com/). Git es también multiplataforma y existen versiones para Linux, Mac, Windows y Solaris.
 
 En este curso se usará Linux para los ejemplos y referencias y se recomienda encarecidamente su uso. Otros sistemas operativos no están tan preparados para algunas tareas como administrar sesiones remotas, etc.
 
