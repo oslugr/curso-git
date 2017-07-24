@@ -767,7 +767,8 @@ presenta además un enlace al usuario en GH en caso de serlo (porque,
 recordemos, git es un DVCS cuyos cambios pueden haberse fusionado en
 local por parte de cualquier tipo de usuario, que no tiene por qué
 estar necesariamente en GitHub). Con `blame` se puede saber
-[incluso quién modificó una línea en particular](http://stackoverflow.com/questions/5098256/git-blame-prior-commits), aunque,
+
+[incluso quien modificó una línea en particular](http://stackoverflow.com/questions/5098256/git-blame-prior-commits). Pero,
 para un uso básico, basta lo anterior.
 
 
