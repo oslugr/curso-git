@@ -36,7 +36,4 @@ Como alternativa a este libro tienes
 [el libro de Git: Pro Git](http://git-scm.com/book/es), que también te
 puedes descargar en diferentes formatos. 
 
-~~También puedes [seguir el blog](http://blog.aprendeg.it) con trucos e
-información diversa sobre git; se actualiza una vez al mes, más o menos.~~
-
 

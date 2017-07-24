@@ -16,7 +16,7 @@ sugerencias.
 También es una primera edición, por lo que seguramente habrá algún
 (ciento de) fallo. Pero dado que es un libro libre, puedes corregir
 esos fallos y hacerte tu propia versión en GitHub o
-[hacernos sugerencias y comentarios en `git.aprendeg.it`](https://github.com/oslugr/curso-git/issues)
+[hacernos sugerencias y comentarios en GitHub](https://github.com/oslugr/curso-git/issues)
 que atenderemos rápida y debidamente. Si te atreves una vez escrito el
 libro a hacer los cambios tú mismo y a solicitarnos la incorporación a
 versiones posteriores del libro, te lo agradeceremos aún más y
@@ -43,21 +43,14 @@ extensiva de los fuentes y las correcciones aportadas. Israel Santana nos mandó
 ## Un libro libre
 
 Este libro es libre. Puedes haberlo recibido de un amigo, generado por
-tu cuenta [a partir del repositorio](https://git.aprendeg.it) o
+tu cuenta [a partir del repositorio](https://github.com/oslugr/curso-git) o
 comprado. En cualquiera de los casos, está a la venta
-[para el Kindle en Amazon en `compra.aprendeg.it`](https://www.amazon.es/dp/B00K515GL2?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B00K515GL2&adid=0J52A22GWS1MQTV0S7Y2&)
+[para el Kindle en Amazon en `amzn.to/2qggwRf`](https://www.amazon.es/dp/B00K515GL2?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B00K515GL2&adid=0J52A22GWS1MQTV0S7Y2&)
 y en
-[formato libro o PDF en Bubok `libro-de.aprendeg.it`](http://www.bubok.es/libros/233274/Aprende-git),
+[formato libro o PDF en Bubok `bubok.es/libros/233274/Aprende-git`](http://www.bubok.es/libros/233274/Aprende-git),
 en ambos casos a precios populares. Los autores te agradeceremos que
 lo recomiendes, hables de él, digas que te ha parecido y, por
 supuesto, que lo compres. 
-
-## Aprende git, el blog
-
-Hemos creado [un blog, `blog.aprendeg.it`](http://blog.aprendeg.it/) en que iremos
-publicando noticias relacionadas con el libro, cursos, trucos y todo
-lo que se nos ocurra sobre git. Suscríbete en alguno de tus lectores
-habituales.
 
 
 # A quién va dirigido este texto
@@ -67,12 +60,15 @@ contenido de este texto. En unas palabras, iría dirigido a personas
 con conocimientos de programación que no le tengan miedo a la línea de
 órdenes. Más en concreto, es conveniente saber algo de
 
-* Trabajo en Linux u OSX, aunque no pasa nada si se trabaja con
+* Trabajo en Linux, OSX, línea de órdenes instalada con el cliente de
+  GitHub para Windows u OSX o Ubuntu para Windows 10, aunque no pasa nada si se trabaja con
   Windows y no se le tiene miedo a la línea de órdenes (y, más en
   concreto, a  instalar herramientas que trabajen como la línea de
   órdenes de Linux y OSX).
   
-* Programación básica. Salvo en el último capítulo, no hacen falta
+* Manejo básico de editores de texto, especialmente los usados por los
+  programadores, como Atom, Emacs, vim, GEdit o cualquier entorno de
+  programación como NetBeans o Eclipse. Salvo en el último capítulo, no hacen falta
   conocimientos de programación y en ese capítulo basta con que se
   sepa lo suficiente para entender y modificar un programa. En
   realidad, tampoco es imprescindible, pero si quieres conocer git es
@@ -82,6 +78,6 @@ con conocimientos de programación que no le tengan miedo a la línea de
   
 * Manejo básico de Internet: nada del otro mundo, darse de alta,
   instalarse cosas, rellenar formularios. Si sabes las dos cosas de
-  antes, es posible que también sepas esta. 
+  antes, hay una probabilidad enorme de que también sepas esta. 
   
   
