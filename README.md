@@ -4,7 +4,7 @@ Aprende git
 Repositorio con el material para el curso de Git virtual. Se escribió originalmente usando
 [Markdown en su versión Kramdown](http://kramdown.gettalong.org/quickref.html),
 aunque finalmente hemos encontrado que funciona mejor transformándolo
-con [Pandoc](http://johnmacfarlane.net/pandoc/‎).
+con [Pandoc](http://pandoc.org/).
 
 Incluye seis módulos usados en el
 [curso virtual de Git](http://cevug.ugr.es/git), que también
@@ -36,7 +36,7 @@ Como alternativa a este libro tienes
 [el libro de Git: Pro Git](http://git-scm.com/book/es), que también te
 puedes descargar en diferentes formatos. 
 
-También puedes [seguir el blog](http://blog.aprendeg.it) con trucos e
-información diversa sobre git; se actualiza una vez al mes, más o menos. 
+~~También puedes [seguir el blog](http://blog.aprendeg.it) con trucos e
+información diversa sobre git; se actualiza una vez al mes, más o menos.~~
 
 
