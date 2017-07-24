@@ -343,7 +343,7 @@ Y para cambiarle el nombre:
 
 > Nota que git no comprueba si realmente existen los repositorios que agregas o si tienes permisos de lectura o escritura en ellos, de forma que el hecho de que estén ahí no significa que vayas a poder usarlos realmente.
 
-###Recibiendo cambios
+### Recibiendo cambios
 
 Ha llegado el momento de importar cambios desde un repositorio remoto. Para ello tenemos `git pull` que se usa así:
 
