@@ -140,7 +140,7 @@ Una opción de configuración muy cómoda es `git config --global color.ui true`
 
 ### Iniciando un repositorio
 
-Un repositorio de git no es más que un directorio de nuestro ordenador que está bajo el control de git. En la práctica, esto significa que en el directorio raíz de nuestro proyecto hay otro directivo oculto llamado ".git" donde se guardan, por ejemplo, los archivos para el control de historiales y los cambios.
+Un repositorio de git no es más que un directorio de nuestro ordenador que está bajo el control de git. En la práctica, esto significa que en el directorio raíz de nuestro proyecto hay otro directorio oculto llamado ".git" donde se guardan, por ejemplo, los archivos para el control de historiales y los cambios.
 
 Para iniciar un repositorio sólo hay que situarse en el directorio de nuestro proyecto (el que contiene o va a contener los archivos que queremos controlar) y ejecutar la siguiente orden:
 
