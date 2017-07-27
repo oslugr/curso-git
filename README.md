@@ -9,9 +9,9 @@ con [Pandoc](http://pandoc.org/).
 Incluye seis módulos usados en el
 [curso virtual de Git](http://cevug.ugr.es/git), que también
 [puedes descargarte en cualquiera de las versiones en ePub](https://github.com/oslugr/curso-git/releases), 
-[comprar en Amazon](https://www.amazon.es/dp/B00K515GL2?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B00K515GL2&adid=0MNVCEFMSN6CVHJCCJEH&)
+[comprar en Amazon en formato ebook](https://www.amazon.es/dp/B00K515GL2?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B00K515GL2&adid=0MNVCEFMSN6CVHJCCJEH&)
 o
-[en Bubok en formato físico](http://www.bubok.es/libros/233274/Aprende-git). Si necesitas generar otro formato, puedes inspirarte en los conversores que [hay en el directorio `utils`](utils/).
+[en formato físico](https://www.amazon.es/Aprende-Git-y-camino-GitHub/dp/1521889619/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1411621815&sr=1-2). Si necesitas generar otro formato, puedes inspirarte en los conversores que [hay en el directorio `utils`](utils/).
 
 ## Índice
 
@@ -26,7 +26,7 @@ o
 
 Este repositorio está acompañado de un
 [repositorio de ejemplo](https://github.com/oslugr/repo-ejemplo) sobre
-el que se ponen en práctica casi todo lo que se muestra y de una
+el que se ponen en práctica casi todo lo que se muestra en el libro y de una
 [plantilla de repositorio](https://github.com/JJ/repo-plantilla) usada
 sobre todo para los temas de fontanería; también contiene una serie de
 ganchos de ejemplo que puedes instalar fácilmente en tu repositorio de
@@ -34,6 +34,9 @@ forma alternativa a los que se instalan por omisión.
 
 Como alternativa a este libro tienes
 [el libro de Git: Pro Git](http://git-scm.com/book/es), que también te
-puedes descargar en diferentes formatos. 
+puedes descargar en diferentes formatos. También
+la
+[chuleta de órdenes](https://elbauldelprogramador.com/mini-tutorial-y-chuleta-de-comandos-git/) de
+El Baúl del Programador. 
 
 
