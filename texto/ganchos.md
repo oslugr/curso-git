@@ -31,7 +31,7 @@ Estos ficheros forman parte de las cañerías de `git` y podemos cambiar su comp
 
 Estos ficheros de configuración siguen un formato similar al de los ficheros `.ini`, es decir, bloques definidos entre corchetes y variables con valor, dentro de ese bloque, a las que se le asigna usando `=`. En este caso [definimos dos alias](http://wildlyinaccurate.com/useful-git-configuration-items) y un editor o, mejor dicho, *el* editor. Esto podemos hacerlo tanto en el fichero global como en el local si queremos que afecte sólo a nuestro repositorio.
 
-Otro fichero dentro de este directorio que se puede modificar es `.git/info/exclude`; es similar a `.gitignore`, salvo que en este caso afectará solamente a nuestra copia local del repositorio y no a todas las copias del mismo. Por ejemplo, podemos editerlo de esta forma
+Otro fichero dentro de este directorio que se puede modificar es `.git/info/exclude`; es similar a `.gitignore`, salvo que en este caso afectará solamente a nuestra copia local del repositorio y no a todas las copias del mismo. Por ejemplo, podemos editarlo de esta forma
 
 ```
 # git ls-files --others --exclude-from=.git/info/exclude
@@ -199,7 +199,7 @@ Date:   Thu Apr 17 17:42:39 2014 +0200
 [...]
 ```
 
-La [tilde `~`](http://www.vogella.com/tutorials/Git/article.html#commitreference) indica un ancestro, es decir, el *padre* del commit
+La [virgulilla o palito `~`](http://www.vogella.com/tutorials/Git/article.html#commitreference) indica un ancestro, es decir, el *padre* del commit
 anterior, que, como vemos
 [corresponde al commit 5be23bb](https://github.com/oslugr/repo-ejemplo/commit/5be23bb2a610260da013fcea807be872a4bd6981). 
 
@@ -511,7 +511,7 @@ fe88e5eefff7f3b7ea95be510c6dcb87054bbcb0
 
 Aunque en este caso muestra un árbol, `views`, que ha sido cambiado
 porque se le ha añadido un fichero nuevo, `views/doc.jade`. En el
-momento que se haga el commit y pase por tanto del índice al la zona de
+momento que se haga el commit y pase por tanto del índice a la zona de
 *staging*, los hash ya están calculados y cambia la salida:
 
 ```
@@ -755,7 +755,7 @@ echo ". Cambios en este commit\n ${STATS}" >> "$1"
 Es interesante notar, en este caso, que se usa `diff --cached` ya que
 en este caso los cambios estarán ya *staged* o *cached* y la
 diferencias (que suelen aparecer de todas formas en el mensaje que da
-el comando) serán entre HEAD y lo que hay ya almacenado el área de
+el comando) serán entre HEAD y lo que hay ya almacenado en el área de
 preparación de los ficheros, no entre HEAD y lo que hay en el sistema
 de ficheros; esto es así porque ya estamos *dentro* del commit y los
 ficheros están ya preparados para ser procesados en las tuberías de
@@ -864,7 +864,7 @@ lenguaje no te preocupes, pero si lo conoces (ese u otro) es
 relativamente fácil añadir políticas nuevas, como por ejemplo que no
 se permitan .pdfs, simplemente añadiéndole una línea.
 
-El bucle `for` posterior es que que va recorriendo cada uno de los
+El bucle `for` posterior es el que va recorriendo cada uno de los
 cambios y cada una de las políticas (aunque en este caso habrá una
 sola) y saldrá con `die` si alguno de los ficheros tiene un nombre
 incorrecto. 
