@@ -17,7 +17,7 @@ Cuando se crea por primera vez un repositorio veremos que aparecen misteriosamen
 
 Esta plantilla la podemos modificar y cambiar. La plantilla que se usa por omisión se encuentra en `/usr/share/git-core/templates/` y contiene una serie de ficheros junto con ejemplos (*samples*) para ganchos. Sin embargo, podemos personalizar nuestra plantilla editando (con permiso de superusuario) estos ficheros o bien usando la opción `--template <nombre de directorio>` de `clone` o `init`. En ese caso, en vez de copiar los ficheros por omisión, copiará los contenidos en ese directorio.
 
-Por ejemplo, se puede usar [esta plantilla](http://jj.github.io/repo-plantilla) que elimina los ficheros de ejemplo, sustituye por otro y traduce los contenidos de los otros ficheros al castellano; también mete en los patrones ignorados (sin necesidad de usar `.gitignore`) los ficheros que terminan en `~`, que produce Emacs como copia de seguridad.
+Por ejemplo, se puede usar [esta plantilla](http://jj.github.io/repo-plantilla/) que elimina los ficheros de ejemplo, sustituye por otro y traduce los contenidos de los otros ficheros al castellano; también mete en los patrones ignorados (sin necesidad de usar `.gitignore`) los ficheros que terminan en `~`, que produce Emacs como copia de seguridad.
 
 Estos ficheros forman parte de las cañerías de `git` y podemos cambiar su comportamiento editando `config` como ya se ha visto en el capítulo de uso básico; de hecho, existe también un fichero de configuración a nivel global, `.gitconfig` que sigue el mismo formato y que ya hemos visto
 
@@ -29,7 +29,7 @@ Estos ficheros forman parte de las cañerías de `git` y podemos cambiar su comp
 	editor = emacs
 ```
 
-Estos ficheros de configuración siguen un formato similar al de los ficheros `.ini`, es decir, bloques definidos entre corchetes y variables con valor, dentro de ese bloque, a las que se le asigna usando `=`. En este caso [definimos dos alias](http://wildlyinaccurate.com/useful-git-configuration-items) y un editor o, mejor dicho, *el* editor. Esto podemos hacerlo tanto en el fichero global como en el local si queremos que afecte sólo a nuestro repositorio.
+Estos ficheros de configuración siguen un formato similar al de los ficheros `.ini`, es decir, bloques definidos entre corchetes y variables con valor, dentro de ese bloque, a las que se le asigna usando `=`. En este caso [definimos dos alias](https://wildlyinaccurate.com/useful-git-configuration-items) y un editor o, mejor dicho, *el* editor. Esto podemos hacerlo tanto en el fichero global como en el local si queremos que afecte sólo a nuestro repositorio.
 
 Otro fichero dentro de este directorio que se puede modificar es `.git/info/exclude`; es similar a `.gitignore`, salvo que en este caso afectará solamente a nuestra copia local del repositorio y no a todas las copias del mismo. Por ejemplo, podemos editarlo de esta forma
 
@@ -52,16 +52,16 @@ directorios con nombres de dos letras, dentro de los cuales están los
 objetos de git, que tienen otras 38 letras para componer las 40 letras
 que componen el nombre único de cada objeto; este nombre se genera a
 partir del contenido usando
-[SHA1](http://en.wikipedia.org/wiki/SHA-1). 
+[SHA1](https://en.wikipedia.org/wiki/SHA-1). 
 
 `git` almacena toda la información en ese directorio y de hecho está
-[organizado para acceder a la información almacenada por contenido](http://git-scm.com/book/en/Git-Internals). Por
+[organizado para acceder a la información almacenada por contenido](https://git-scm.com/book/en/Git-Internals). Por
 eso tenemos que imaginarlo como un sistema de ficheros normal, con una
 raíz (que es HEAD, el punto en el que se encuentra el repositorio en
 este momento) y una serie de ramas que apuntan a ficheros y a
 diferentes versiones de los mismos.
 
-git, entonces, [procede de la forma siguiente](http://git-scm.com/book/en/Git-Internals-Git-Objects).
+git, entonces, [procede de la forma siguiente](https://git-scm.com/book/en/Git-Internals-Git-Objects).
 
 1. Crea un SHA1 a partir del contenido del fichero cambiado o añadido. Este fichero
 se almacena en la zona temporal en forma de *blob*. 
@@ -236,7 +236,7 @@ Ejemplo de repositorio para trabajar en el
 
 Para entendernos, todas las órdenes que hemos usado hasta ahora son *loza*. Es decir, es el *interfaz* del usuario de toda la instalación de fontanería que lleva a cabo realmente la labor de quitar de en medio lo que uno deposita en las instalaciones sanitarias. Pero por debajo de la loza y pegado a ella, están las cañerías y toda la instalación de fontanería. 
 
-Los comandos de `git` se dividen en [dos tipos](http://git-scm.com/book/ch9-1.html): *fontanería* o *cañería*, que son comandos que *generalmente* no ve el usuario y *loza*, que son los que ve y los que usa. Sin embargo, este capítulo trata realmente de esa fontanería, porque van a ser una serie de órdenes que se van a llevar a cabo *después* de que se ejecuten las órdenes de *loza*, o, quizás *dentro* de esas órdenes de loza.
+Los comandos de `git` se dividen en [dos tipos](https://git-scm.com/book/ch9-1.html): *fontanería* o *cañería*, que son comandos que *generalmente* no ve el usuario y *loza*, que son los que ve y los que usa. Sin embargo, este capítulo trata realmente de esa fontanería, porque van a ser una serie de órdenes que se van a llevar a cabo *después* de que se ejecuten las órdenes de *loza*, o, quizás *dentro* de esas órdenes de loza.
 
 Pero antes de usar esas órdenes de fontanería tenemos que entender cómo son las cañerías. Una parte se ha visto anteriormente: el *index* o índice que contiene todos los objetos a los que `git` debe prestarles atención a la hora de hacer un commit. Pero existen además [los objetos y las referencias](http://teohm.com/blog/2011/05/30/learning-git-internals-by-example/).
 
@@ -345,7 +345,7 @@ que, si queremos ver en una vista más normal, hacemos lo mismo con `ls-file`
 views/layout.jade
 ```
 
-Hay un tercer comando relacionado con el examen de directorios y ficheros locales, [`cat-file`, que muestra el contenido de un objeto](http://git-scm.com/docs/git-cat-file), en general. Por ejemplo, en este caso, para listar el contenido de un objeto de tipo `tree`
+Hay un tercer comando relacionado con el examen de directorios y ficheros locales, [`cat-file`, que muestra el contenido de un objeto](https://git-scm.com/docs/git-cat-file), en general. Por ejemplo, en este caso, para listar el contenido de un objeto de tipo `tree`
 
 ```
 ~/repos-git/repo-ejemplo<master>$ git cat-file -p fd3846c
@@ -439,9 +439,9 @@ index 97c3202..93b6255 100644
 ```
 
 Esta vista de
-[`diff`](http://git-scm.com/book/es/Fundamentos-de-Git-Guardando-cambios-en-el-repositorio)
+[`diff`](https://git-scm.com/book/es/Fundamentos-de-Git-Guardando-cambios-en-el-repositorio)
 las diferencias sigue el formato habitual en
-[la utilidad `diff`](http://es.wikipedia.org/wiki/Diff), que permite
+[la utilidad `diff`](https://es.wikipedia.org/wiki/Diff), que permite
 generar parches para aplicarlos a conjuntos de ficheros. En concreto,
 muestra qué ficheros se están comparando (pueden ser diferentes
 ficheros, si se ha cambiado el nombre) los SHA1 de los contenidos
@@ -472,7 +472,7 @@ el primer caso nos muestra que han sido Modificados, y en el segundo
 caso, además usamos otra opción, `--cached` que, en este caso, nos
 muestra los ficheros que han sido preparados para el commit; es decir,
 la
-[diferencia que hay entre la cabeza y el índice](http://stackoverflow.com/questions/1587846/how-do-i-show-the-changes-which-have-been-staged);
+[diferencia que hay entre la cabeza y el índice](https://stackoverflow.com/questions/1587846/how-do-i-show-the-changes-which-have-been-staged);
 en este caso, "A" indica que se trata de un fichero añadido. Podemos
 ver todo junto con
 
@@ -630,7 +630,7 @@ lleve a cabo una serie de comprobaciones.
 Los *ganchos* no son estrictamente necesarios en todo tipo de
 instalaciones; se puede trabajar con un repositorio sin tener la
 necesidad de usarlos. Sin embargo, [son tremendamente útiles para
-automatizar una serie de tareas](http://git-scm.com/book/en/Customizing-Git-An-Example-Git-Enforced-Policy) (como los tests que se usan en
+automatizar una serie de tareas](https://git-scm.com/book/en/Customizing-Git-An-Example-Git-Enforced-Policy) (como los tests que se usan en
 integración continua), implementar una serie de políticas para todos
 los usuarios de un repositorio (formato de los mensajes de *commit*,
 por ejemplo) y añadir información al repositorio de forma automática.
@@ -672,7 +672,7 @@ para hacerlo ejecutable.
 Los *hooks* se activarán cuando se ejecute un comando determinado y
 recibirán una serie de parámetros como argumento o en algún caso como
 entrada estándar. Este
-[cuadro](http://www.analysisandsolutions.com/code/git-hooks-summary-cheat-sheet.htm)
+[cuadro](https://www.analysisandsolutions.com/code/git-hooks-summary-cheat-sheet.htm)
 resume cuando se ejecutan y también qué reciben como parámetro. En
 general, también tendrán influencia en si tiene éxito o no el comando
 determinado: salir con un valor no nulo, en algunos casos, parará la
@@ -775,10 +775,8 @@ Otro *hook* puede servir para comprobar que los mensajes de *commit*
 son correctos. Como se ha visto anteriormente, una buena práctica es
 usar una primera línea de 50 caracteres (que aparecerán como título)
 seguida por una línea vacía y el resto del mensaje. Esto se puede
-aplicar mediante
-[un programa en Python](http://addamhardy.com/blog/2013/06/05/good-commit-messages-and-enforcing-them-with-git-hooks/)
-o el siguiente en [Node](http://nodejs.org), una versión de
-Javascript.
+aplicar mediante programas en cualquier lenguaje, como [este en Ruby](https://gist.github.com/jasonrobertfox/8057124), o el siguiente
+en [Node](https://nodejs.org), una implementación de Javascript.
 
 ```
 #!/usr/bin/env node
@@ -887,14 +885,14 @@ hacer algo como `git mv` (o `git rm --force`).
 ## Algunos *hooks* útiles explicados
 
 Hay múltiples posts en blogs que
-[explican diferentes ejemplos de *hooks*](http://www.sitepoint.com/git-hooks-fun-profit/)
+[explican diferentes ejemplos de *hooks*](https://www.sitepoint.com/git-hooks-fun-profit/)
 y lo que se puede hacer con ellos. Por ejemplo, en
-[este conjunto](http://codeinthehole.com/writing/tips-for-using-a-Git-pre-commit-hook/)
+[este conjunto](http://codeinthehole.com/tips/tips-for-using-a-Git-pre-commit-hook/)
 usa programas externos y su código de salida (`$?`) para comprobar si
 un programa es correcto o no; también usa extensivamente `git stash`
 para almacenar todos los ficheros que se hayan modificado y luego los
 recupera con `git stash
-pop`. [Este, por ejemplo](http://hugogiraudel.com/2014/03/17/git-tips-and-tricks-part-2/),
+pop`. [Este, por ejemplo](https://hugogiraudel.com/2014/03/17/git-tips-and-tricks-part-2/),
 crea una plantilla para usarla en los mensajes de commit, Pero
 [este gist](https://gist.github.com/ilyakatz/4625224) incluye algunos
 *hooks* útiles que vamos a ver. Por ejemplo,
