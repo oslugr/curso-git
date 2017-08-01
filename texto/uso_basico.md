@@ -298,7 +298,7 @@ Esto registrará todos los cambios que tengas en el Index.
 Al hacer un `commit` se abre automáticamente el editor de texto que tengas por defecto en el sistema, para que puedas añadir un comentario a los cambios efectuados. Si no añades este comentario, recibirás un error y el commit no se enviará.
 
 > Puedes cambiar el editor por otro de tu gusto con `git config --global core.editor EDITOR`, por ejemplo:
-> `git config --global core.editor vim'
+> `git config --global core.editor vim`
 
 Si no quieres que se abra el editor puedes añadir el comentario en el mismo commit del siguiente modo:
 
