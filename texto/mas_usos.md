@@ -77,7 +77,7 @@ todo lo demás necesario para navegar por él.
 
 Otros ficheros que suelen ir en el directorio principal
 
-* `INSTALL` por costumbre, suele contener las intrucciones para
+* `INSTALL` por costumbre, suele contener las instrucciones para
   instalar. También por convención, hoy en día se suele escribir
   usando Markdown convirtiéndose, por tanto, en `INSTALL.md`.
   
