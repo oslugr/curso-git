@@ -11,7 +11,7 @@
 
 En los últimos años, el software libre se ha ido extendiendo hasta abarcar la mayor parte de sistemas de Internet, supercomputadores o servicios de red, llegando finalmente a ordenadores personales, tablets, teléfonos e incluso electrodomésticos.
 
-Llamamos [*software libre*](http://es.wikipedia.org/wiki/Software_libre) al que permite al usuario ejercer una serie de libertades, a saber:
+Llamamos [*software libre*](https://es.wikipedia.org/wiki/Software_libre) al que permite al usuario ejercer una serie de libertades, a saber:
 
 * la libertad de usar el programa, con cualquier propósito.
 * la libertad de estudiar cómo funciona el programa y modificarlo, adaptándolo a tus necesidades.
@@ -51,7 +51,7 @@ Estos sistemas nacieron para gestionar código fuente, pero pueden ser usados pa
 
 ## Tipos de Sistemas de Control de Versiones
 
-Existen muchos Sistemas de Control de Versiones como [CVS](http://es.wikipedia.org/wiki/CVS), [Subversion](http://es.wikipedia.org/wiki/Subversion), [Bazaar](http://es.wikipedia.org/wiki/Bazaar_(software)), [Mercurial](http://es.wikipedia.org/wiki/Mercurial) o, por supuesto, [Git](http://es.wikipedia.org/wiki/Git), pero todos pueden clasificarse en dos tipos fundamentales según su modo de trabajo.
+Existen muchos Sistemas de Control de Versiones como [CVS](https://es.wikipedia.org/wiki/CVS), [Subversion](https://es.wikipedia.org/wiki/Subversion), [Bazaar](https://es.wikipedia.org/wiki/Bazaar_(software)), [Mercurial](https://es.wikipedia.org/wiki/Mercurial) o, por supuesto, [Git](https://es.wikipedia.org/wiki/Git), pero todos pueden clasificarse en dos tipos fundamentales según su modo de trabajo.
 
 ### Sistemas centralizados
 
