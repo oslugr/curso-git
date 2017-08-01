@@ -35,11 +35,11 @@ Instalar git en Linux es tan simple como usar tu gestor de paquetes favorito. Po
 ### En Mac
 Hay dos maneras de instalar Git en Mac, la más fácil es utilizar el instalador gráfico:
 
-[Git for OS X](https://code.google.com/p/git-osx-installer/) 
+[Git for OS X](https://git-scm.com/download/mac) 
 
 ### En Windows
 
-Para instalar git en Windows debemos descargar el programa instalador en su web oficial en [http://git-scm.com/downloads](http://git-scm.com/downloads).
+Para instalar git en Windows debemos descargar el programa instalador en su web oficial en [https://git-scm.com/downloads](https://git-scm.com/downloads).
 
 Una vez descargado, sólo tenemos que ejecutarlo y se abrirá una ventana que nos irá solicitando paso a paso los datos necesarios para la instalación. Pulsaremos el botón "Next" para comenzar.
 
@@ -93,11 +93,9 @@ seguirá la interfaz de línea de comandos*)
 
 En este curso se seguirá la interfaz de *línea de comandos* (o *línea de órdenes*), pero existen varias aplicaciones para diversos sistemas operativos que permiten interactuar gráficamente (*Interfaz GUI*) con `git` de forma más o menos completa.
 
-[GUI Mac](http://mac.github.com/)
+[Interfac gráfico para Mac y Windows](http://desktop.github.com/)
 
-[GUI Windows](http://windows.github.com/)
-
-[GUI for Linux, Windows y Mac](http://git-scm.com/downloads/guis# "Guis clients")
+[GUI for Linux, Windows y Mac]https://git-scm.com/downloads/guis# "Clientes gráficos")
 
 ## Empezando a usar git
 
@@ -395,7 +393,7 @@ Al hacer tu push, git te retornará información de los cambio realizados, núme
 
 ### Contraseñas
 
-Naturalmente, como ya hemos comentado, no puedes hacer push a un repositorio en el que no tengas permiso de escritura. Para eso puede ser que sea un repositorio abierto a todo el que conozca la dirección, pero eso sería muy raro (e inseguro). Lo usual es que cuentes con un usuario y contraseña que te permitan acceder (normalmente por [ssh](http://es.wikipedia.org/wiki/Secure_Shell)) al servidor.
+Naturalmente, como ya hemos comentado, no puedes hacer push a un repositorio en el que no tengas permiso de escritura. Para eso puede ser que sea un repositorio abierto a todo el que conozca la dirección, pero eso sería muy raro (e inseguro). Lo usual es que cuentes con un usuario y contraseña que te permitan acceder (normalmente por [ssh](https://es.wikipedia.org/wiki/Secure_Shell)) al servidor.
 
 En otros repositorios (más raros), también necesitarás usuario y contraseña para acceder a la lectura y, por tanto, para hacer pull.
 
