@@ -21,9 +21,9 @@ entornos, como
 [la (futura o pasada) revista científica Push](http://push.cwcon.org).  
 
 En resumen, GitHub es la primera, segunda y tercera mejor opción de un
-programador de software libre a la hora de alojar sus proyectos. La
-cuarta sería gitorious, por el hecho de que efectivamente todo el
-software que usa está liberado y la quinta Bitbucket. Más atrás
+programador de software libre a la hora de alojar sus proyectos públicamente. La
+cuarta sería Gitorious, por el hecho de que efectivamente todo el
+software que usa está liberado; la quinta sería Bitbucket. Más atrás
 estarían el resto. En este curso veremos principalmente, por esa
 razón, GitHub y sus características específicas, algunas de las cuales
 se han venido usando ya el resto del curso.  
@@ -134,14 +134,18 @@ páginas relacionadas con el proyecto o, para el caso, sobre lo que uno
 quiera. A diferencia de otros sitios, son páginas estáticas (lo que
 permite, imagino, ser más rápido y eficiente a la hora de servirlas).
 
-También se pueden crear muy fácilmente: *Settings*-> se baja a la
+También se pueden crear muy fácilmente. Primero se elige dónde van a
+estar las página alojadas. Aunque inicialmente sólo se permitía la
+opción de alojarlas en una rama separada llamada `gh-pages`, ahora te
+permite publicar automáticamente desde el directorio principal o desde
+un subdirectorio `docs`. Una vez elegido el lugar, se puede generar
+esta automáticamente. Se procede a *Settings*  → se baja a la
 página donde pone "GitHub Pages", y se pulsa en *Automatic Page
 Generator* que te permitirá elegir entre unos pocos (la verdad, no hay
 muchos) *temas* el que más te guste.
 
 Lo que hace este generador automático es lo siguiente:
 
-- Generar una rama `gh-pages` de tu repositorio principal
 - A partir del fichero `README.md` del directorio principal de tu
    proyecto, genera un fichero `index.html` usando la plantilla
    seleccionada
@@ -150,7 +154,7 @@ Lo que hace este generador automático es lo siguiente:
    
 El generador automático sólo funciona una vez. A partir de ese
 momento, sólo se reflejarán en el sitio general los cambios que se
-hagan desde la rama `gh-pages`. Se puede trabajar directamente con
+hagan desde la rama `gh-pages` o directorio que se haya elegido. Se puede trabajar directamente con
 ella o bien usar algún tipo de `hook` para generar contenido a partir
 de la rama `master` y copiarlo a esa rama. 
 
@@ -219,7 +223,7 @@ Vamos a dividir los servicios que hay en varios grupos:
   comerciales como Amazon SNS.  
 - Entrega continua: a veces integrados con los de, valga la
   redundancia, integración continua, pero que permiten directamente,
-  cuando se hace un push sobre una rama dterminada, se despliegue en
+  cuando se hace un push sobre una rama determinada, se despliegue en
   el sitio definitivo. Servicios como Azure lo permiten, pero también
   [CodeShip](https://codeship.io) o
   [Jenkins](https://lkrnac.net/blog/2014/03/16/continuous-delivery/). Generalmente
