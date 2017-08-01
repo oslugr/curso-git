@@ -182,7 +182,7 @@ publica.
 Adicionalmente a las páginas de proyecto, cada organización y cada
 usuario puede crear también su página. Un usuario `nombredeusuario`
 tendrá una página `nombredeusuario.github.io` de la que "colgarán" el
-resto de las páginas (aunque el realidad se tratará de repositorios
+resto de las páginas (aunque en realidad se tratará de repositorios
 diferentes, y sólo estarán las que se hayan generado, claro). Para
 crear tanto una página de usuario como de organización simplemente se
 crea el repositorio y se pone el contenido en la rama principal, la
@@ -227,7 +227,7 @@ Vamos a dividir los servicios que hay en varios grupos:
   permita a GitHub acceder al sitio y depositar la *carga* que,
   inmediatamente, estará disponible. De hecho, es muy fácil trabajar
   con esto
-  [directamente desde el editor como Eclipse](http://java.dzone.com/articles/trigger-continuous-delivery) 
+  [directamente desde un editor como Eclipse](http://java.dzone.com/articles/trigger-continuous-delivery) 
 - Sistemas de trabajo en grupo, que integran GitHub con los sistemas
   que tengan de asignación de tareas, de resolución de incidencias
   incluidas por parte de clientes. Por ejemplo, Basecamp, Bugzilla o
