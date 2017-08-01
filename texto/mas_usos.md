@@ -17,7 +17,7 @@ productivos a los equipos de trabajo y poder predecir con más
 precisión cómo va a evolucionar el desarrollo de los mismos. Por eso, aunque se puede usar
 cualquier metodología de desarrollo de software con él, `git`
 funciona mejor con
-[metodologías ágiles](http://es.wikipedia.org/wiki/Desarrollo_%C3%A1gil_de_software)
+[metodologías ágiles](https://es.wikipedia.org/wiki/Desarrollo_%C3%A1gil_de_software)
 que tienen ciclos más rápidos de producción y de despliegue de nuevas
 características o de arreglo de las mismas. Las metodologías ágiles
 son iterativas y en todas las iteraciones están presentes la mayoría
@@ -128,7 +128,7 @@ Otros ficheros que suelen ir en el directorio principal
  otros, por ejemplo, una aplicación que se desarrolle conjuntamente
  con una librería. En ese caso un repositorio `git` se puede dividir
  en
- [submódulos](http://git-scm.com/book/en/Git-Tools-Submodules),
+ [submódulos](https://git-scm.com/book/en/Git-Tools-Submodules),
  que son básicamente repositorios independientes pero que están
  incluidos en una misma estructura de directorios.
  
@@ -210,11 +210,11 @@ de fuentes y lo hace un solo usuario es el siguiente:
 
 Fijémonos en el tercer paso, el commit. Primero, conviene hacer siempre `-a`,
 es decir, `-all`
-por [varias razones](http://git-scm.com/docs/git-commit):
+por [varias razones](https://git-scm.com/docs/git-commit):
 
 1. Porque examina todos los ficheros que están siendo seguidos, no
 sólo los del directorio actual y los que hay por debajo.
-2. Porque [hace automáticamente un `git rm` sobre los mismos](http://stackoverflow.com/questions/3541647/git-add-vs-git-commit-a), si es que
+2. Porque [hace automáticamente un `git rm` sobre los mismos](https://stackoverflow.com/questions/3541647/git-add-vs-git-commit-a), si es que
 han sido borrados. 
 
 Lo segundo es decidir cuando se hace el *commit*; lo habitual es que se
@@ -303,7 +303,7 @@ con la rama principal; todo esto, incluso aunque no se hayan creado
 ramas explícitamente. En realidad, *pull* es combinación de dos
 operaciones: `fetch` y `merge`, como ya se ha visto en
 el capítulo de uso básico. De hecho
-[hay quien dice que no debe usarse nunca pull](http://longair.net/blog/2009/04/16/git-fetch-and-merge/).
+[hay quien dice que no debe usarse nunca pull](https://longair.net/blog/2009/04/16/git-fetch-and-merge/).
 
 Por ejemplo, en caso de que se haya borrado un fichero (o, para el
 caso, hecho cualquier cambio) en un repositorio y se trate de hacer
@@ -366,7 +366,7 @@ momento determinado, siendo como una especie de *foto* del estado el
 proyecto. Se suele asociar a hitos en la historia del mismo: entrada
 en producción, despliegue de los resultados, o versión mayor o menor. 
 
-Para [etiquetar](http://git-scm.com/book/en/Git-Basics-Tagging) se usa
+Para [etiquetar](https://git-scm.com/book/en/Git-Basics-Tagging) se usa
 la orden `tag`
 
 	git tag v0.0.2
@@ -435,7 +435,7 @@ v0.0.2.1-1-g6dd7a8c
 que, de una forma un tanto críptica, indica que a partir de la
 etiqueta `v0.0.2.1` hay un commit `-1-` y el nombre del último objeto,
 en este caso el único, `6dd7a8c`. Es otra forma de
-[*etiquetar* un punto en la historia de una rama](http://gitfu.wordpress.com/2008/05/25/git-describe-great-another-way-to-refer-to-commits/),
+[*etiquetar* un punto en la historia de una rama](https://gitfu.wordpress.com/2008/05/25/git-describe-great-another-way-to-refer-to-commits/),
 o simplemente otra 
 forma de llamar a un commit. Es más descriptivo que simplemente el
 hash de un commit en el sentido que te indica de qué etiqueta has
@@ -452,7 +452,7 @@ para que se comuniquen al repositorio remoto.
 
 Ya que hemos visto como se crean ramas de forma implícita y de forma
 *ligera* (con etiquetas), vamos a trabajar explícitamente con
-ramas. La [forma más rápida de crear una rama](http://git-scm.com/book/es/Ramificaciones-en-Git-Procedimientos-b%C3%A1sicos-para-ramificar-y-fusionar) es usar 
+ramas. La [forma más rápida de crear una rama](https://git-scm.com/book/es/Ramificaciones-en-Git-Procedimientos-b%C3%A1sicos-para-ramificar-y-fusionar) es usar 
 
 ```
 git checkout -b get-dir
@@ -478,7 +478,7 @@ borrarlos, añadirlos o hacer algo totalmente diferente.
 > pero puede que no quieras usar el *commit* para comprometer cambios
 > y dejar el repositorio en un estado incorrecto; en ese caso se puede
 > usar simplemente
-> [`git stash`](http://git-scm.com/book/en/Git-Tools-Stashing)  que almacena los cambios en un fichero
+> [`git stash`](https://git-scm.com/book/en/Git-Tools-Stashing)  que almacena los cambios en un fichero
 > temporal que se puede recuperar más adelante usando `git stash apply
 > --index`. 
 
@@ -549,7 +549,7 @@ no y que, cuando funcionen, se pasan a la rama principal. En este caso
 se trataba de trabajar con *todos* los ficheros del directorio en vez
 de los ficheros que le pasemos explícitamente. Estas ramas se suelen
 denominar
-[*ramas de características* o *feature branches* y forman parte de un flujo de trabajo habitual en git](https://www.atlassian.com/es/git/workflows#!workflow-feature-branch). Sobre
+[*ramas de características* o *feature branches* y forman parte de un flujo de trabajo habitual en git](https://es.atlassian.com/git/tutorials/comparing-workflows). Sobre
 un repositorio central se creará una rama si quieres probar algo que
 no sabes si estará bien eventualmente o si realmente será util. De
 esta forma no se *estorba* a la rama principal, que puede estar
@@ -622,7 +622,7 @@ Deleted branch get-dir (was 3705af0).
 ```
 
 Pero eso borra solamente la rama local. Para
-[borrarla remotamente](http://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-both-locally-and-remotely):
+[borrarla remotamente](https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-both-locally-and-remotely):
 
 ```
 jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git push origin :get-dir
@@ -768,7 +768,7 @@ recordemos, git es un DVCS cuyos cambios pueden haberse fusionado en
 local por parte de cualquier tipo de usuario, que no tiene por qué
 estar necesariamente en GitHub). Con `blame` se puede saber
 
-[incluso quien modificó una línea en particular](http://stackoverflow.com/questions/5098256/git-blame-prior-commits). Pero,
+[incluso quien modificó una línea en particular](https://stackoverflow.com/questions/5098256/git-blame-prior-commits). Pero,
 para un uso básico, basta lo anterior.
 
 
