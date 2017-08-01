@@ -21,18 +21,31 @@ aconsejamos para desarrollar software en general, Linux.
 Instalar git en Linux es tan simple como usar tu gestor de paquetes favorito. Por ejemplo (recuerda que normalmente necesitarás privilegios de *root* para instalar cualquier programa):
 
 #### En Arch Linux
-`# pacman -S git`
+
+```
+# pacman -S git
+```
 
 #### En sistemas Debian, Ubuntu, Mint...
-`# apt-get install git`
+
+```
+# apt-get install git
+```
 
 #### En Gentoo
-`# emerge --ask --verbose dev-vcs/git`
+
+```
+# emerge --ask --verbose dev-vcs/git
+```
 
 #### En sistemas Red Hat, Fedora:
-`# yum install git`
+
+```
+# yum install git
+```
 
 ### En Mac
+
 Hay dos maneras de instalar Git en Mac, la más fácil es utilizar el instalador gráfico:
 
 [Git for OS X](https://git-scm.com/download/mac) 
@@ -77,12 +90,13 @@ A partir de este momento podemos ir al menú inicio como se indica en la imagen,
 
 ![Instalación de git en Windows (10)](img/wingit10.png)
 
-(*Al terminar todos estos pasos, y como se ven en la imagen, también
+Al terminar todos estos pasos, y como se ven en la imagen, también
 se instalará una versión gráfica "Git GUI", pero en este curso se
-seguirá la interfaz de línea de comandos*)
+seguirá la interfaz de línea de comandos. 
 
 >Los autores de este libro no somos partidarios del uso de Windows
-> para desarrollo de software. Pero, si tienes que hacerlo porque no
+> para desarrollo de software, aunque git no sólo se usa para eso. Por
+> ello si tienes que hacerlo porque no
 > te queda otro remedio o porque te gusta, otra alternativa es usar
 > [git for Windows o `msysgit`](http://msysgit.github.io/), un entorno
 > completo que incluye un intérprete de órdenes y un entorno gráfico
@@ -109,13 +123,17 @@ Git usará estos datos para identificar nuestros aportes o modificaciones a la h
 
 Configurar estos parámetros es muy fácil. Desde la línea de comandos escribimos las siguientes órdenes:
 
-`git config --global user.name "Nombre que quieras mostrar"`
+```
+git config --global user.name "Nombre que quieras mostrar"
+```
 
 y
 
-`git config --global user.email "correo@electroni.com"`
+```
+git config --global user.email "correo@electroni.com"
+```
 
-¿qué acabamos de hacer? Veámoslo, paso a paso:
+¿Qué acabamos de hacer? Veámoslo, paso a paso:
 
 Todos los comandos de git empiezan con la palabra `git`.
 
@@ -130,7 +148,9 @@ Si quieres que algún repositorio concreto use unos datos distintos, puedes llam
 
 Hay más opciones que se pueden configurar, puedes verlas (y ver los valores que tienen) con el comando:
 
-`git config --list`
+```
+git config --list
+```
 
 Si te has equivocado al escribir alguno de estos datos o quieres cambiarlo, sólo tienes que volver a ejecutar el comando correspondiente de nuevo, y sobrescribirá los datos anteriores.
 
@@ -142,21 +162,31 @@ Un repositorio de git no es más que un directorio de nuestro ordenador que est�
 
 Para iniciar un repositorio sólo hay que situarse en el directorio de nuestro proyecto (el que contiene o va a contener los archivos que queremos controlar) y ejecutar la siguiente orden:
 
-`git init`
+```
+git init
+```
 
 Si todo va bien, este comando responderá algo parecido a
-`Initialized empty Git repository in /ruta/a/mi/proyecto/.git/`
+
+```
+Initialized empty Git repository in /ruta/a/mi/proyecto/.git/
+```
+
 , que significa que ya tienes creado tu primer repositorio. Vacío, pero por algo hay que empezar.
 
 ### Clonando un repositorio
 
 Un repositorio también puede iniciarse copiando (*clonando*) otro ya existente.
 
-`git clone REPOSITORIO`
+```
+git clone REPOSITORIO
+```
 
 por ejemplo:
 
-`git clone https://github.com/oslugr/repo-ejemplo.git`
+```
+git clone https://github.com/oslugr/repo-ejemplo.git
+```
 
 Git usa su propio protocolo "git" para el acceso remoto (también se puede clonar un repositorio local, simplemente indicando el path), pero también soporta otros protocolos como `ssh`, `http`, https...
 
@@ -199,7 +229,9 @@ Tienes tu repositorio iniciado (o clonado) con una serie de archivos con los que
 
 Para que git sepa que tiene que empezar a tener en cuenta un archivo (a esto se le llama *preparar* un archivo), usamos la orden `git add` de este modo:
 
-`git add NOMBRE_DEL_ARCHIVO`
+```
+git add NOMBRE_DEL_ARCHIVO
+```
 
 Esto, como vimos antes, añadirá el archivo indicado con `NOMBRE_DEL_ARCHIVO` al Index. No lo archivará realmente en el sistema de control de versiones ni hará nada. Sólo le informa de que debe tener en cuenta ese archivo para futuras instrucciones (que es, básicamente, en lo que consiste el Index).
 
@@ -207,13 +239,17 @@ Si intentas añadir al Index un archivo que no existe te dará un error.
 
 También puedes usar *comodines*, con cosas como:
 
-`git add miarchivo.*`
+```
+git add miarchivo.*
+```
 
 (que reconocería, por ejemplo "miarchivo.txt", "miarchivo.cosas" y "miarchivo.png")
 
 o 
 
-`git add miarchivo$.txt`
+```
+git add miarchivo$.txt
+```
 
 (que identificaría cosas como "miarchivo1.txt", "miarchivo2.txt" y "miarchivoZ.txt")
 
@@ -221,11 +257,8 @@ Y, en general, todos los comodines que permita usar tu sistema operativo.
 
 Si, en lugar de un archivo, indicas un directorio, se agregarán al Index todos los archivos de ese directorio.
 
-De este modo, la forma más fácil de agregar todos los archivos al Index es mediante la orden:
-
-`git add .`
-
-que añadirá el directorio en el que te encuentras y todo su contenido (incluyendo subdirectorios etc).
+De este modo, la forma más fácil de agregar todos los archivos al
+Index es mediante la orden: `git add .`, que añadirá el directorio en el que te encuentras y todo su contenido (incluyendo subdirectorios etc).
 
 Un detalle importante es que, si mandas algo al Index con `git add` y luego lo modificas, no tendrás en Index la última versión, sino lo que hayas hecho hasta el momento del hacer el add.
 
@@ -233,7 +266,9 @@ Esto es muy útil (a veces tienes que hacer cambios que aún no quieres "archiva
 
 Ahora vamos a ver una orden que será tu gran amiga:
 
-`git status`
+```
+git status
+```
 
 `git status` te da un resumen de cómo están las cosas ahora mismo respecto a la versión del repositorio (concretamente, respecto al HEAD). Qué archivos has modificado, que hay en el Index, etc (también te cuenta cosas como en qué rama estás, pero eso lo veremos más adelante). Cada vez que no tengas muy claro que has cambiado y qué no, consulta `git status`.
 
@@ -248,11 +283,15 @@ Pero, y esa es una cosa que vas a ver a menudo en git, si hay algo que hacer te 
 
 Cuando ya has hecho los cambios que consideres necesarios y has puesto en el Index todo lo que quieras poner bajo el control de versiones, llega el momento de "hacer commit" (también se le llama "*confirmar*"). Esto significa mandar al HEAD los cambios que tenemos en el Index, y se hace de este modo:
 
-`git commit NOMBRE_DEL_ARCHIVO`
+```
+git commit NOMBRE_DEL_ARCHIVO
+```
 
 Como te estarás imaginando, aquí también puedes usar comodines del mismo modo que vimos en `git add`. Además, si haces simplemente
 
-`git commit`
+```
+git commit
+```
 
 Esto registrará todos los cambios que tengas en el Index.
 
@@ -263,13 +302,17 @@ Al hacer un `commit` se abre automáticamente el editor de texto que tengas por 
 
 Si no quieres que se abra el editor puedes añadir el comentario en el mismo commit del siguiente modo:
 
-`git commit -m "Comentario al commit donde describo los cambios"`
+```
+git commit -m "Comentario al commit donde describo los cambios"
+```
 
 Recuerda lo que dijimos antes: si modificas un archivo después de haber hecho `git add`, esos cambios no estarán incluidos en tu `commit` (si quieres incluir la última versión, no tienes más que volver a hacer `git add` antes del `commit`).
 
 Ahora nos puede surgir un problema: Si sólo podemos confirmar con `commit` de un archivo que hayamos preparado con `add`, y sólo podemos hacer `add` de un archivo que existe en nuestro directorio de trabajo, ¿cómo le decimos a git que elimine un archivo del repositorio? Para ello tenemos la orden:
 
-`git add -u`
+```
+git add -u
+```
 
 que agregará al Index la información de los archivos que deben ser borrados.
 
@@ -277,7 +320,9 @@ Muy similar a la anterior, `git add -A` sirve para hacer `git add -u` (preparar 
 
 Un efecto parecido se puede conseguir con
 
-`git commit -a`
+```
+git commit -a
+```
 
 Esta orden sirve para confirmar todos los cambios que haya en el directorio de trabajo *aunque no hayan sido preparados* (es decir, aunque no hayas hecho `add`). Esto incluye tanto los ficheros modificados como los eliminados, con lo que sería equivalente a hacer un `git add -A` seguido de un `git commit`.
 
@@ -291,17 +336,16 @@ Como sistema de control de versiones distribuido, una de las principales utilida
 
 Para sincronizar con uno o más repositorios remotos, debemos saber qué repositorios remotos son esos. Para ello tenemos `remote`, que se usa así:
 
-`git remote`
-
-Y, seguramente, te retornará algo parecido a 
-
-`origin`
-
-Lo que nos dice que el repositorio es el que le indicamos como "origen" al hacer el `clone` y, la verdad, no es mucha información.
+```
+git remote
+```
+Y, seguramente, te retornará algo parecido a `origin`, lo que nos dice que el repositorio es el que le indicamos como "origen" al hacer el `clone` y, la verdad, no es mucha información.
 
 Para obtener algo más útil, prueba a hacerlo con el parámetro `-v` de este modo:
 
-`git remote -v`
+```
+git remote -v
+```
 
 lo que te retornará algo parecido a esto:
 
@@ -314,11 +358,15 @@ Esto te dice que hay un repositorio llamado "origin" que se usará tanto para re
 
 Para añadir otro repositorio remoto se hace con la misma instrucción `remote` de este modo:
 
-`git remote add ALIAS_DEL_REPOSITORIO DIRECCION_DEL_REPOSITORIO`
+```
+git remote add ALIAS_DEL_REPOSITORIO DIRECCION_DEL_REPOSITORIO
+```
 
 Donde `ALIAS_DEL_REPOSITORIO` es un nombre corto para usar en las instrucciones de git (el equivalente al "origin" que hemos visto) y `DIRECCION_DEL_REPOSITORIO` la dirección donde se encuentra. Por ejemplo:
 
-`git remote add personal git://github.com/psicobyte/repo-ejemplo.git`
+```
+git remote add personal git://github.com/psicobyte/repo-ejemplo.git
+```
 
 Esto añade un repositorio remoto llamado `personal` con la dirección que se indica.
 
@@ -333,13 +381,20 @@ origin	https://github.com/oslugr/repo-ejemplo.git (push)
 
 Para eliminar un repositorio tienes:
 
-`git remote rm NOMBRE`
+```
+git remote rm NOMBRE
+```
 
 Y para cambiarle el nombre:
 
-`git remote rename NOMBRE_ANTERIOR NOMBRE_ACTUAL`
+```
+git remote rename NOMBRE_ANTERIOR NOMBRE_ACTUAL
+```
 
-> Nota que git no comprueba si realmente existen los repositorios que agregas o si tienes permisos de lectura o escritura en ellos, de forma que el hecho de que estén ahí no significa que vayas a poder usarlos realmente.
+> Nota que git no comprueba si realmente existen los repositorios que
+> agregas o si tienes permisos de lectura o escritura en ellos, de
+> forma que el hecho de que estén ahí no significa que vayas a poder
+> usarlos realmente. 
 
 ### Recibiendo cambios
 
@@ -349,11 +404,13 @@ Ha llegado el momento de importar cambios desde un repositorio remoto. Para ello
 git pull REPOSITORIO_REMOTO RAMA
 ```
 
-el `REPOSITORIO_REMOTO` es uno de los nombres de repositorio que hemos visto antes (si no pones ninguno, se supone "origin"). Sobre las ramas se hablará un poco más adelante, pero baste decir que, si no ponemos ninguna, se supone que es la rama "master")
+El `REPOSITORIO_REMOTO` es uno de los nombres de repositorio que hemos visto antes (si no pones ninguno, se supone "origin"). Sobre las ramas se hablará un poco más adelante, pero baste decir que, si no ponemos ninguna, se supone que es la rama "master")
 
 de este modo, la forma más usual de llamar esta orden es, simplemente:
 
-`git pull`
+```
+git pull
+```
 
 (que significaría lo mismo que `git pull origin master`).
 
@@ -383,7 +440,9 @@ git push REPOSITORIO_REMOTO RAMA
 
 Igual que hemos visto con `git pull`, los valores por defecto son "origin" para el repositorio y "master" para la rama, con lo que se puede poner simplemente:
 
-`git push`
+```
+git push
+```
 
 Lo que enviará nuestros cambios al servidor remoto.
 
@@ -442,25 +501,31 @@ See 'git help config' and search for 'push.default' for further information.
 
 Para elegir el comportamiento que prefieres sólo tienes que usar, como ya hemos visto para otras configuraciones, el comando `git config` de este modo:
 
-`git config --global push.default OPCION`
+```
+git config --global push.default OPCION
+```
 
 Por ejemplo:
 
-`git config --global push.default matching`
+```
+git config --global push.default matching
+```
 
 Usaría la opción `matching` en todos tus repositorios, pero:
 
-`git config --local push.default simple`
+```
+git config --local push.default simple
+```
 
 Usaría la opción `simple` sólo en el repositorio en el que te encuentras. 
 
 Otras opciones posibles son:
 
-* current: Sube los cambios de la rama activa a una rama remota del mismo nombre. Si no existe esa rama remota, se crea. 
+* `current`: Sube los cambios de la rama activa a una rama remota del mismo nombre. Si no existe esa rama remota, se crea. 
 
-* nothing: Esta opción sólo tiene sentido para test, debugs y esas cosas. Al hacer push no se subirá nada a repositorio remoto.
+* `nothing`: Esta opción sólo tiene sentido para test, debugs y esas cosas. Al hacer push no se subirá nada a repositorio remoto.
 
-* upstream: Al igual que `simple`, sube la rama que tienes activa a la rama de la que has hecho el pull pero, en este caso, *no* te dará error si el nombre de esa rama es distinto.
+* `upstream`: Al igual que `simple`, sube la rama que tienes activa a la rama de la que has hecho el pull pero, en este caso, *no* te dará error si el nombre de esa rama es distinto.
 
 ## El archivo .gitignore
 
@@ -505,14 +570,19 @@ Pese a que cada repositorio puede tener su propio *.gitignore*, puede ser útil 
 
 Git busca por defecto este archivo general en el directorio "*.config/git/ignore*" de tu directorio "Home", pero esto puede cambiarse con la siguiente orden:
 
-`git config --global core.excludesfile RUTA_AL_ARCHVO_IGNORE`
+```
+git config --global core.excludesfile RUTA_AL_ARCHVO_IGNORE
+```
 
 Por ejemplo, para usar un archivo llamado "ignorar" en mi directorio personal, pondría algo así:
 
-`git config --global core.excludesfile ~/ignorar`
+```
+git config --global core.excludesfile ~/ignorar
+```
 
-> El símbolo "~" en un path significa "El directorio Home del usuario"
+> El símbolo "~" en un *path* o camino significa "El directorio Home del usuario".
 
-Puedes encontrar muchos ejemplos de archivos *.gitignore* en este [repositorio de GitHub](https://github.com/github/gitignore).
+Puedes encontrar muchos ejemplos de archivos *.gitignore* en
+este [repositorio de GitHub](https://github.com/github/gitignore).
 
 >Las opciones que se establecen con `git config`  para el repositorio local se almacenan permanentemente en el fichero `.git/config`. Por lo pronto no nos preocupemos de este fichero, pero todas las variables anteriores (y alguna más) se pueden poner directamente en este fichero.
