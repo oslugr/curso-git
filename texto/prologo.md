@@ -35,7 +35,8 @@ con cualquier lenguaje de programación.
 
 Muchas personas han contribuido con
 [correcciones o aportaciones y están todas ahí, en el gráfico de GitHub](https://github.com/oslugr/curso-git/graphs/contributors)
-pero está bien nombrarlas; agradecemos a Miguel Ángel Pedregosa,
+pero está bien nombrarlas; agradecemos
+a [`manuti`](http://twitter.com/manuti) su muy exhaustiva revisión; a Miguel Ángel Pedregosa,
 Alfonso Romero y a [Juanmi](http://stephenchow.es),
 [Fernando Tricas](http://fernand0.blogalia.com) y [Diego](http://guadatech.blogspot.com.es/) su revisión
 extensiva de los fuentes y las correcciones aportadas. Israel Santana nos mandó también diversas correcciones. 
