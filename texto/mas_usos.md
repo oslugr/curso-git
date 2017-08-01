@@ -9,7 +9,9 @@
 
 ## Flujos de desarrollo de software (y quizás de otras cosas)
 
-El uso sistema como `git` tiene una serie de consecuencias en la organización del trabajo. Aunque a priori puedes desarrollar y modificar los ficheros como te dé la gana, el que te
+El uso de un sistema como `git` tiene una serie de consecuencias en la
+ organización del trabajo de codificación o de preparación de un documento. Aunque a priori puedes desarrollar y
+ modificar los ficheros como te dé la gana, el que te 
  haga usar las herramientas de una forma determinada hace que sea más fácil emplear
 una serie de prácticas que son habituales en el desarrollo de software
 (y de otras cosas, como documentación o novelas) para hacer más
@@ -27,7 +29,7 @@ enteran de lo que está haciendo el resto de la empresa para venderlo
 (y no al revés, vender cosas que luego obligan al resto de la empresa
 a desarrollar).
 
-El desarrollo se divide por tanto en estas fases
+El desarrollo se divide por tanto en estas fases:
 
 1. Trabajo con el código. Modificar ficheros, añadir nuevos.
 2. Prueba del código. La mayor parte de las metodologías de desarrollo
