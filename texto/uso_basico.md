@@ -345,7 +345,9 @@ Y para cambiarle el nombre:
 
 Ha llegado el momento de importar cambios desde un repositorio remoto. Para ello tenemos `git pull` que se usa así:
 
-`git pull REPOSITORIO_REMOTO RAMA`
+```
+git pull REPOSITORIO_REMOTO RAMA
+```
 
 el `REPOSITORIO_REMOTO` es uno de los nombres de repositorio que hemos visto antes (si no pones ninguno, se supone "origin"). Sobre las ramas se hablará un poco más adelante, pero baste decir que, si no ponemos ninguna, se supone que es la rama "master")
 
@@ -375,7 +377,9 @@ Si con `pull` importamos cambios desde otro repositorio, la instrucción `push` 
 
 Se usa de un modo bastante parecido:
 
-`git push REPOSITORIO_REMOTO RAMA`
+```
+git push REPOSITORIO_REMOTO RAMA
+```
 
 Igual que hemos visto con `git pull`, los valores por defecto son "origin" para el repositorio y "master" para la rama, con lo que se puede poner simplemente:
 
