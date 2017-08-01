@@ -85,9 +85,9 @@ En este curso se usará Linux para los ejemplos y referencias y se recomienda en
 
 En cualquier caso, el uso del propio git en todos ellos es similar por lo que, salvo las particularidades y limitaciones que pueda tener cada uno, no hay ningún problema a la hora de seguir este curso desde otro sistema operativo.
 
-## Abrir una cuenta en Github
+## Abrir una cuenta en GitHub
 
-Más adelante en este curso se hablará de Github y se darán detalles sobre su uso; por ahora, será suficiente para nosotros con saber abrir una cuenta (que usaremos para enviar nuestros ejercicios).
+Más adelante en este curso se hablará de GitHub y se darán detalles sobre su uso; por ahora, será suficiente para nosotros con saber abrir una cuenta (que usaremos para enviar nuestros ejercicios).
 
 Desde la propia [página principal de la web de GitHub](https://github.com/) y como cualquier otro registro, se nos solicitan sólo tres datos: nombre o nick, e-mail y contraseña:
 

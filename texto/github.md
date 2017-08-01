@@ -305,7 +305,7 @@ before_install:
 script: OUTPUT=`cat README.md | aspell list -d es -p ./.aspell.es.pws`; if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
 ```
 
-Como lo único que vamos a hacer en este caso es comprobar la ortografía del texto del fichero `README.md`, instalamos con `apt-get` (herramienta estándar para Linux) un diccionario en español; este instalará todas las dependencias a su vez.  Finalmente, la orden marcada `script` es la que lleva a cabo la comprobación. Para un programa normal sería suficiente hacer `make test` (y definir las dependencias para este objetivo, claro). No nos preocupemos mucho por lo que es, sino por lo que hace: si hay alguna palabra que no pase el test ortográfico, [fallará y enviará un mensaje de correo electrónico a la persona que haya hecho un commit indicándolo](https://travis-ci.org/oslugr/repo-ejemplo/builds/22375300). Si lo pasa sin problemas, [también enviará el mensaje indicando que todo está correcto]( https://travis-ci.org/oslugr/repo-ejemplo/builds/22377799). Este tipo de cosas resulta útil sólo por el hecho de que se ejecuten automáticamente, pero pueden servir también para hacer despliegues continuos.
+Como lo único que vamos a hacer en este caso es comprobar la ortografía del texto del fichero `README.md`, instalamos con `apt-get` (herramienta estándar para Linux) un diccionario en español; este instalará todas las dependencias a su vez.  Finalmente, la orden marcada `script` es la que lleva a cabo la comprobación. Para un programa normal sería suficiente hacer `make test` (y definir las dependencias para este objetivo, claro). No nos preocupemos mucho por lo que es, sino por lo que hace: si hay alguna palabra que no pase el test ortográfico, [fallará y enviará un mensaje de correo electrónico a la persona que haya hecho un commit indicándolo](https://travis-ci.org/oslugr/repo-ejemplo/builds/22375300). Si lo pasa sin problemas, [también enviará el mensaje indicando que todo está correcto](https://travis-ci.org/oslugr/repo-ejemplo/builds/22377799). Este tipo de cosas resulta útil sólo por el hecho de que se ejecuten automáticamente, pero pueden servir también para hacer despliegues continuos.
 
 Travis también proporciona un *badge* que puedes incluir en tu repositorio para indicar si pasa los tests o no, que puedes incluir en tu fichero `README.md`(o donde quieras) con este código
 
@@ -373,7 +373,7 @@ descargársela.
 >Vais a decir que ya podían instalarse `git` y demás herramientas
 > necesarias para compilar o ejecutar la aplicación, pero en muchos
 > casos no tiene por qué ser fácil o factible; no se va a instalar uno
-> un compilador de fortran simplemente para compilar una aplicación
+> un compilador de Fortran simplemente para compilar una aplicación
 > nuestra, por ejemplo.  
 
 
