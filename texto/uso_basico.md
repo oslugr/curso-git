@@ -93,9 +93,9 @@ seguirá la interfaz de línea de comandos*)
 
 En este curso se seguirá la interfaz de *línea de comandos* (o *línea de órdenes*), pero existen varias aplicaciones para diversos sistemas operativos que permiten interactuar gráficamente (*Interfaz GUI*) con `git` de forma más o menos completa.
 
-[Interfac gráfico para Mac y Windows](http://desktop.github.com/)
+[Interfaz gráfico para Mac y Windows](http://desktop.github.com/)
 
-[GUI for Linux, Windows y Mac]https://git-scm.com/downloads/guis# "Clientes gráficos")
+[GUI for Linux, Windows y Mac](https://git-scm.com/downloads/guis# "Clientes gráficos")
 
 ## Empezando a usar git
 
@@ -115,7 +115,7 @@ y
 
 `git config --global user.email "correo@electroni.com"`
 
-¿qué acabamos de hacer? Veamoslo, paso a paso:
+¿qué acabamos de hacer? Veámoslo, paso a paso:
 
 Todos los comandos de git empiezan con la palabra `git`.
 

@@ -241,7 +241,7 @@ Vamos a dividir los servicios que hay en varios grupos:
   parámetros del código), Depending (que analiza dependencias en PHP)
   o David-DM (que analiza dependencias para nodejs). 
 
-Lo interesante es que se puede trabajar con la mayoría de estos sistemas de forma gratuita, aunque algunos tienen un modelo *freemium* que te cobra a partir de un nivel determinado de uso (lo que es natural, si no no podrían ofrecértelo de forma grauita). Además, integra la mayor parte de los sistemas que se usan habitualmente en la industria del software. 
+Lo interesante es que se puede trabajar con la mayoría de estos sistemas de forma gratuita, aunque algunos tienen un modelo *freemium* que te cobra a partir de un nivel determinado de uso (lo que es natural, si no no podrían ofrecértelo de forma gratuita). Además, integra la mayor parte de los sistemas que se usan habitualmente en la industria del software. 
 
 ## Algunos *hooks* interesantes: sistemas de integración continua
 
