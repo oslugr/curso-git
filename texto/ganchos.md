@@ -527,7 +527,7 @@ cambios que se habían hecho han pasado al árbol.
 En general, lo que más nos va a interesar a la hora de hacer un gancho
 es qué ficheros han cambiado. Pero conviene conocer toda la gama de
 posibilidades que ofrece `git`, sobre todo para poder entender su
-esctructura interna. 
+estructura interna. 
 
 
 ### Los dueños de las tuberías
@@ -583,7 +583,7 @@ La
 [tersa descripción del comando `rev-parse`, "recoge y procesa parámetros"](https://www.kernel.org/pub/software/scm/git/docs/git-rev-parse.html)
 esconde la complejidad del mismo y su potencia, que va desde el
 procesamiento de parámetros hasta la especificación de objetos, pasando
-por la búsqueda de diferentes directorios dentro del respositorio git.
+por la búsqueda de diferentes directorios dentro del repositorio git.
 Por ejemplo, se puede usar para verificar si un objeto existe o no:
 
 ```
@@ -621,7 +621,7 @@ objeto actual.
 ## Concepto de *hooks*
 
 Un [*hook* literalmente *garfio* o *gancho*](http://githooks.com/) es un programa que se
-ejecuta cuando sucede un evento determinado en el respositorio. Los
+ejecuta cuando sucede un evento determinado en el repositorio. Los
 *webhooks* de GitHub, por ejemplo, son un ejemplo: cuando se lleva a
 cabo un *push*, se envía información al sitio configurado para que
 ejecute un programa determinado: pase unos tests, publique un tweet, o
@@ -629,8 +629,7 @@ lleve a cabo una serie de comprobaciones.
 
 Los *ganchos* no son estrictamente necesarios en todo tipo de
 instalaciones; se puede trabajar con un repositorio sin tener la
-necesidad de usarlos. Sin embargo, [son tremendamente útiles para
-automatizar una serie de tareas](https://git-scm.com/book/en/Customizing-Git-An-Example-Git-Enforced-Policy) (como los tests que se usan en
+necesidad de usarlos. Sin embargo, [son tremendamente útiles para automatizar una serie de tareas](https://git-scm.com/book/en/Customizing-Git-An-Example-Git-Enforced-Policy) (como los tests que se usan en
 integración continua), implementar una serie de políticas para todos
 los usuarios de un repositorio (formato de los mensajes de *commit*,
 por ejemplo) y añadir información al repositorio de forma automática.
@@ -824,8 +823,8 @@ sólo sobre los mensajes. En realidad, el que actúen de esa forma es
 convencional, porque los programas que ejecutan los *ganchos* se
 diferencian solamente en el momento en el que actúan, no en lo que
 pueden hacer. Sin embargo, si queremos [implementar una política](http://johnkpaul.com/blog/2013/10/04/git-precommit-hook-awesomeness/) sobre
-los nombres de ficheros o el contenido de los mismos, [hay que usar un
-*gancho* que actúe cuando se añadan al repositorio](http://tech.yipit.com/2011/11/16/183772396/) como
+los nombres de ficheros o el contenido de los
+mismos, [hay que usar un *gancho* que actúe cuando se añadan al repositorio](http://tech.yipit.com/2011/11/16/183772396/) como
 [el siguiente gancho `pre-commit`](https://github.com/JJ/repo-plantilla/blob/master/hooks/pre-commit.ejemplo)
 escrito en Perl:
 
