@@ -374,7 +374,7 @@ la orden `tag`
 	git tag v0.0.2
 	
 `tag` etiqueta el último *commit*, es decir, asigna una etiqueta al
-estado en el que estaba el respositorio tras el último commit. La
+estado en el que estaba el repositorio tras el último commit. La
 etiqueta aparecerá de forma inmediata (sin necesidad de hacer *push*,
 puesto que se añade al último commit y se puede listar con
 
