@@ -259,7 +259,7 @@ La orden `ls-tree` nos permite ver qué tipos de objetos tenemos almacenados y s
 040000 tree 39da6b155c821af1e6a304daca9b66efb1ac651f	test
 100644 blob 94f151d9ef9340c81989b0c3fa8c517c068e1864	web.js
 ```
-En este caso tenemos objetos de tres tipos: blob, commit y tree. a `ls-tree` se le pasa un *tree-ish*, es decir, algo que apunte a dónde esté almacenado un árbol pero, para no preocuparnos de qué se trata esto, usaremos simplemente HEAD, que apunta como sabéis a la punta de la rama en la que nos encontramos ahora mismo. También  nos da el SHA1 de 40 caracteres que representa cada uno de los ficheros. Si queremos que se expandan los `tree` para mostrar los ficheros que hay dentro también usamos la opcion `-r`
+En este caso tenemos objetos de tres tipos: *blob*, *commit* y *tree*. a `ls-tree` se le pasa un *tree-ish*, es decir, algo que apunte a dónde esté almacenado un árbol pero, para no preocuparnos de qué se trata esto, usaremos simplemente HEAD, que apunta como sabéis a la punta de la rama en la que nos encontramos ahora mismo. También  nos da el SHA1 de 40 caracteres que representa cada uno de los ficheros. Si queremos que se expandan los `tree` para mostrar los ficheros que hay dentro también usamos la opción `-r`
 
 ```
 ~/repos-git/repo-ejemplo<master>$ git ls-tree -r HEAD
