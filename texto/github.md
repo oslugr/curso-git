@@ -8,7 +8,7 @@
 
 ## Por qué GitHub
 
-GitHub se ha convertido en el sitio más popular, a pesar de encontrarse entre una cantidad de sitios que alojan también proyectos y permiten usar Git como Gitorious, BitBucket o incluso el venerable [SourceForge](http://sourceforge.net); [Gitorious](https://gitorious.org/) tiene la ventaja de que está a su vez basado en software libre, por lo que te puedes instalar tu propia copia del repositorio bajo tu control. Sea con este software o con [GitLab](https://www.gitlab.com/) te puedes hacer tu propia instalación de git si tienes disponible un servidor para ello. Evidentemente, para trabajar con grandes proyectos privados son una buena opción y lo más aceptable.
+GitHub se ha convertido en el sitio más popular, a pesar de encontrarse entre una cantidad de sitios que alojan también proyectos y permiten usar Git como Gitorious, BitBucket o incluso el venerable [SourceForge](https://sourceforge.net); [Gitorious](https://gitorious.org/) tiene la ventaja de que está a su vez basado en software libre, por lo que te puedes instalar tu propia copia del repositorio bajo tu control. Sea con este software o con [GitLab](https://about.gitlab.com/) te puedes hacer tu propia instalación de git si tienes disponible un servidor para ello. Evidentemente, para trabajar con grandes proyectos privados son una buena opción y lo más aceptable.
 
 Sin embargo, hay buenas razones para usar GitHub. Aparte del uso de git, GitHub en realidad funciona como una comunidad de programadores que te permite interaccionar muy fácilmente con otros programadores que usen las mismas herramientas que uno. Ninguno de los otros repositorios tiene esas características; aunque todos tienen ciertas capacidades *sociales*, lo cierto es que la mayoría de los programadores de software libre usan hoy GitHub. De hecho, GitHub con sus métricas, características de *gamificación* (poner estrellas a proyectos, por ejemplo), continuo desarrollo, enganche a plataformas de programación diversas y cliente móvil es hoy en día la mejor opción para desarrollar software libre (y novelas y [cursos de Git](http://github.com/JJ/curso-git)).
 
@@ -102,7 +102,7 @@ permite ver el progreso del mismo, ya que te va mostrando cuál es el
 grado de terminación de dicho hito. Los hitos, además, pueden fecharse
 con lo que se puede ver si se ha pasado uno de fecha o no. 
 
-Finalmente, los usuarios se pueden agrupar en [organizaciones](https://help.github.com/articles/creating-a-new-organization-account--2). Una
+Finalmente, los usuarios se pueden agrupar en [organizaciones](https://help.github.com/articles/creating-a-new-organization-from-scratch/). Una
 organización es en muchos aspectos similar a un usuario; tiene las
 mismas limitaciones y las mismas ventajas, pero en una organización se
 definen *equipos* y los permisos para trabajar por repositorios se
@@ -200,7 +200,7 @@ Vamos a dividir los servicios que hay en varios grupos:
 
 - Integración continua. Servicios como TravisCI, CircleCI, Jenkins o
   Shippable. Los tres primeros se pueden configurar directamente desde
-  GH, para el último hay que entrar en [su web](http://shippable.com)
+  GH, para el último hay que entrar en [su web](https://shippable.com)
   y activar el repositorio que haga falta. Estos servicios realizan
   una serie de tests o generación de código sobre el proyecto y dan un
   resultado indicando qué tests se han pasado o no. Para indicar qué
@@ -211,7 +211,7 @@ Vamos a dividir los servicios que hay en varios grupos:
   activado Travis y Shippable, y en el directorio principal se pueden
   ver los ficheros de configuración (del mismo nombre que el sitio). 
 - Servicios de mensajería diversos, que envían mensajes cuando sucede
-  algo. Entre estos últimos está [Twitter](http://twitter.com), que se
+  algo. Entre estos últimos está [Twitter](https://twitter.com), que se
   puede configurar para que se cree un tweet con el mensaje del commit
   cada vez que se haga uno. Puede ser bastante útil, si se usa este
   sitio, para mantenerte al día de la actividad de un grupo de
@@ -221,13 +221,13 @@ Vamos a dividir los servicios que hay en varios grupos:
   redundancia, integración continua, pero que permiten directamente,
   cuando se hace un push sobre una rama dterminada, se despliegue en
   el sitio definitivo. Servicios como Azure lo permiten, pero también
-  [CodeShip](http://codeship.io) o
-  [Jenkins](http://lkrnac.net/blog/2014/03/16/continuous-delivery/). Generalmente
+  [CodeShip](https://codeship.io) o
+  [Jenkins](https://lkrnac.net/blog/2014/03/16/continuous-delivery/). Generalmente
   en este caso hay que configurar algún tipo de *secret* o *clave* que
   permita a GitHub acceder al sitio y depositar la *carga* que,
   inmediatamente, estará disponible. De hecho, es muy fácil trabajar
   con esto
-  [directamente desde un editor como Eclipse](http://java.dzone.com/articles/trigger-continuous-delivery) 
+  [directamente desde un editor como Eclipse](https://java.dzone.com/articles/trigger-continuous-delivery) 
 - Sistemas de trabajo en grupo, que integran GitHub con los sistemas
   que tengan de asignación de tareas, de resolución de incidencias
   incluidas por parte de clientes. Por ejemplo, Basecamp, Bugzilla o
@@ -259,9 +259,9 @@ integración continua funcionan de la forma siguiente:
 
 La integración continua forma parte de una metodología de [desarrollo basado en test o guiado por pruebas](http://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas) que consiste en crear primero las pruebas que tiene que pasar un código antes de, efectivamente, escribir tal código. Las pruebas son tests unitarios y también de integración, que prueban las capas de la aplicación a diferentes niveles (por ejemplo, acceso a datos, procesamiento de los datos, UI). Todos los lenguajes de programación moderno incluyen una aplicación que crea un protocolo para llevar a cabo los test e informar del resultado y estos sistemas van desde el humilde Makefile que se usa en diferentes lenguajes compilados hasta el complejo Maven, pasando por sistemas como los tests de Perl o los Rakefiles de Ruby. En cualquier caso, cada lenguaje suele tener una forma estándar de pasar los tests (`make test`, `npm test` o `mocha`) y los sistemas de integración continua hacen muy simple trabajar con estos tests estándar, pero también son flexibles en el sentido que se puede adaptar a todo tipo de programa.
 
-Veamos como trabajar con [Travis](http://travis-ci.com). Se hace siguiendo estos pasos
+Veamos como trabajar con [Travis](https://travis-ci.com). Se hace siguiendo estos pasos
 
-1. [Darse de alta en Travis CI](http://docs.travis-ci.com/user/getting-started/) usando la propia cuenta de GitHub
+1. [Darse de alta en Travis CI](https://docs.travis-ci.com/user/getting-started/) usando la propia cuenta de GitHub
 2. Activar el *hook* en [tu perfil de Travis](https://travis-ci.org/profile). 
 3. Se añade el fichero `.travis.yml` a tu repositorio. Este dependerá del lenguaje que se esté usando, aunque si lo único que quieres es comprobar la ortografía de tus documentos, lo puedes hacer [como en el repositorio ejemplo](https://github.com/oslugr/repo-ejemplo/blob/master/.travis.yml)
 4. Hacer push.
@@ -317,7 +317,7 @@ sustituyendo el nombre de usuario y el nombre del repo por el correspondiente, c
 
 ## Cliente de GitHub
 
-GitHub también mantiene un [cliente de GitHub](https://github.com/github/hub), escrito en Ruby y llamado `hub`, que se puede usar para sustituir a `git` o por sí mismo. En realidad, es como `git` salvo que tiene ya definidos por omisión una serie de características específicas de GitHub, como los nombres de los repositorios o los usuarios de los mismos. Tras [instalarlo](http://hub.github.com/) puedes usarlo, por ejemplo, para clonar el repo de ejemplo usado aquí con `hub clone oslugr/repo-ejemplo` en vez de usar el camino completo a git; el formato sería siempre `usuario/nombre-del-repo`. Más órdenes que añade a git (y que se pueden usar directamente desde git si se usa, como se indica en las instrucciones, git como un alias de `hub`):
+GitHub también mantiene un [cliente de GitHub](https://github.com/github/hub), escrito en Ruby y llamado `hub`, que se puede usar para sustituir a `git` o por sí mismo. En realidad, es como `git` salvo que tiene ya definidos por omisión una serie de características específicas de GitHub, como los nombres de los repositorios o los usuarios de los mismos. Tras [instalarlo](https://hub.github.com/) puedes usarlo, por ejemplo, para clonar el repo de ejemplo usado aquí con `hub clone oslugr/repo-ejemplo` en vez de usar el camino completo a git; el formato sería siempre `usuario/nombre-del-repo`. Más órdenes que añade a git (y que se pueden usar directamente desde git si se usa, como se indica en las instrucciones, git como un alias de `hub`):
 
 * `hub browse`: abre un navegador en la página del repositorio
   correspondiente. Por ejemplo `hub browse -- issues` lo abriría en la
