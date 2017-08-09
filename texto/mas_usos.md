@@ -2,10 +2,10 @@
 
 ## Objetivos
 
-* Aprender patrones habituales de flujo de trabajo con `git`
+* Aprender patrones habituales de flujo de trabajo con `git`.
 * Aprender a trabajar con las ramas.
 * Solucionar los conflictos cuando dos desarrolladores trabajan sobre la misma línea.
-* Interpretar la historia en sus diferentes formatos
+* Interpretar la historia en sus diferentes formatos.
 
 ## Flujos de desarrollo de software (y quizás de otras cosas)
 
@@ -24,7 +24,7 @@ que tienen ciclos más rápidos de producción y de despliegue de nuevas
 características o de arreglo de las mismas. Las metodologías ágiles
 son iterativas y en todas las iteraciones están presentes la mayoría
 de los actores del desarrollo: clientes, desarrolladores, arquitectos;
-incluso en algunas puede que esté la peña de márketing, a ver si se
+incluso en algunas puede que esté la peña de *marketing*, a ver si se
 enteran de lo que está haciendo el resto de la empresa para venderlo
 (y no al revés, vender cosas que luego obligan al resto de la empresa
 a desarrollar).
@@ -75,21 +75,21 @@ además, porque te permite explicar, en pocas palabras, de qué va el
 proyecto, cómo instalarlo, qué prerrequisitos tiene, la licencia, y
 todo lo demás necesario para navegar por él. 
 
-Otros ficheros que suelen ir en el directorio principal
+Otros ficheros que suelen ir en el directorio principal:
 
-* `INSTALL` por costumbre, suele contener las instrucciones para
+* `INSTALL`: por costumbre, suele contener las instrucciones para
   instalar. También por convención, hoy en día se suele escribir
   usando Markdown convirtiéndose, por tanto, en `INSTALL.md`.
   
- * `.gitignore` posiblemente ya conocido, incluye los patrones y
-   ficheros que no se deben considerar como parte del repositorio
+ * `.gitignore`: posiblemente ya conocido, incluye los patrones y
+   ficheros que no se deben considerar como parte del repositorio.
    
- * `LICENSE` incluye la licencia. También se crea automáticamente
+ * `LICENSE`: incluye la licencia. También se crea automáticamente
    desde GitHub en caso de que se haya hecho así. No hay que
    olvidar que también hay que incluir una cabecera en cada fichero
    que indique a qué paquete pertenece y cuál es la licencia.
    
- * `TODO` es una ventana abierta a la colaboración, así como una lista
+ * `TODO`: es una ventana abierta a la colaboración, así como una lista
    para recordarnos a nosotros mismos qué tareas tenemos por delante.
    
  * Otros ficheros de configuración, como `.travis.yml` para el sistema
@@ -98,7 +98,7 @@ Otros ficheros que suelen ir en el directorio principal
    similares que haga falta ejecutar o ver al instalar la
    librería. Se aconseja siempre que tengan los nombres que suelan ser
    habituales en el lenguaje de programación, si no el usuario no
-   sabrá como usarlos. 
+   sabrá cómo usarlos. 
    
  En general se debe tratar de evitar cargar demasiados ficheros, fuera
  de esos, en el directorio principal. Siempre que se pueda, se usará
@@ -110,7 +110,7 @@ Otros ficheros que suelen ir en el directorio principal
  habitualmente se va a llamar `src`. Algunos lenguajes te van a pedir
  que tengan el nombre de la librería, en cuyo caso se usará el que más
  convenga. Si no se trata de una aplicación sino de una biblioteca, se
- usará `lib` en vez de `src`, como en esta [biblioteca llamada *NodEO*](https://github.com/JJ/nodeo)
+ usará `lib` en vez de `src`, como en esta [biblioteca llamada *NodEO*](https://github.com/JJ/nodeo).
  Los tests unitarios irán aparte, en un directorio
  habitualmente llamado `test`. Finalmente, un directorio llamado
  `examples` o `apps` o `scripts` o `bin` o `exe` incluirá ejemplos de uso de la
@@ -197,21 +197,21 @@ Un *flujo de trabajo* es simplemente una forma de organizar las tareas
 de programación de forma que se conozca, de antemano, qué tareas van
 detrás de qué tareas y cuál es el destino, en cada momento, del código
 que se está haciendo. El tener un flujo de trabajo consistente hace
-que se eviten conflictos , que el resultado del trabajo sea
+que se eviten conflictos, que el resultado del trabajo sea
 más predecible, y que por tanto, se subsanen los  problemas al poder identificarlos
 fácilmente. 
 
 El flujo de trabajo básico, de un solo usuario, cuando se trabaja con un sistema de control
 de fuentes y lo hace un solo usuario es el siguiente:
 
-1. `git pull`
-2. Trabajo con el código; añadir nuevos ficheros fuentes con `git add`
+1. `git pull`.
+2. Trabajo con el código; añadir nuevos ficheros fuentes con `git add`.
 3. `git commit -a -m "[implícito: este commit] [hace] [Tal cosa]"` (o
-`git -am`, que es lo mismo)
-4. `git push`
+`git commit -am`, que es lo mismo).
+4. `git push`.
 
 Fijémonos en el tercer paso, el commit. Primero, conviene hacer siempre `-a`,
-es decir, `-all`
+es decir, `-all`,
 por [varias razones](https://git-scm.com/docs/git-commit):
 
 1. Porque examina todos los ficheros que están siendo seguidos, no
@@ -240,7 +240,7 @@ los cambios que hemos hecho. Sobre qué hay que escribir hay
 pero conviene que el mensaje sea informativo, hable de porqués y de
 cómos más que de qués (no se puede decir "inserta una función", eso ya
 se ve en el código, sino por qué se inserta esa función) y se aconseja
-también un formato similar al siguiente
+también un formato similar al siguiente:
 
     Hace tal cosa arreglando el error en el issue #666
 
@@ -289,7 +289,7 @@ ramas, que más bien deberían llamarse *ramificaciones* o *caminos*,
 son *caminos divergentes* a partir de un tronco común que,
 eventualmente, pueden combinarse (aunque no es obligatorio) en uno
 solo. En la práctica y como
-[dicen aquí](http://longair.net/blog/2009/04/16/git-fetch-and-merge/)
+[dicen aquí](http://longair.net/blog/2009/04/16/git-fetch-and-merge/),
 una rama es un nombre para un *commit* específico y todos los commits
 que son antecesores del mismo. 
 
@@ -369,17 +369,16 @@ proyecto. Se suele asociar a hitos en la historia del mismo: entrada
 en producción, despliegue de los resultados, o versión mayor o menor. 
 
 Para [etiquetar](https://git-scm.com/book/en/Git-Basics-Tagging) se usa
-la orden `tag`
+la orden `tag`:
 
 	git tag v0.0.2
 	
 `tag` etiqueta el último *commit*, es decir, asigna una etiqueta al
 estado en el que estaba el repositorio tras el último commit. La
 etiqueta aparecerá de forma inmediata (sin necesidad de hacer *push*,
-puesto que se añade al último commit y se puede listar con
+puesto que se añade al último commit) y se puede listar con `git tag`:
 
 ```
-git tag
 jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git tag
 v0.0.1
 v0.0.2
