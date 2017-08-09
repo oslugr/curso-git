@@ -9,11 +9,11 @@ En todo desarrollo colaborativo aparecen problemas. No es difícil solucionarlos
 * Modificar y recuperar estados anteriores.
 * Solucionar conflictos entre repositorios.
 
-## Obtener Ayuda
+## Obtener ayuda
 
 Lo primero que necesitamos a la hora de enfrentarnos a las dificultades es conocer nuestras herramientas.
 
-Git dispone de una ayuda detallada que nos resultará muy útil. Para invocarla sólo hay que hacer 
+Git dispone de una ayuda detallada que nos resultará muy útil. Para invocarla solo hay que hacer 
 
 `git help`
 
@@ -23,7 +23,7 @@ también se puede obtener ayuda de una orden concreta con `git help COMANDO`, po
 
 ## Viendo el historial
 
-Has hecho una serie de modificaciones seguidas de commits con sus comentarios ¿Cómo puedes ver todo eso? Para ello tienes la instrucción
+Has hecho una serie de modificaciones seguidas de commits con sus comentarios. ¿Cómo puedes ver todo eso? Para ello tienes la instrucción
 
 `git log`
 
@@ -40,7 +40,7 @@ Date:   Sun Mar 30 11:54:15 2014 +0200
 
 La primera línea es un *hash* único que identifica al commit (y que más adelante nos será muy útil), seguida del autor, la fecha en que se hizo y el comentario que acompañó al commit. 
 
-Por defecto, `git log` nos mostrará todas las entradas del log. para ver sólo un número determinado sólo tienes que añadirle el parámetro `-NUMERO`, donde NUMERO es el número de entradas que quieres ver, por ejemplo:
+Por defecto, `git log` nos mostrará todas las entradas del log. Para ver un número determinado solo tienes que añadirle el parámetro `-NUMERO`, donde NUMERO es el número de entradas que quieres ver, por ejemplo:
 
 `git log -4`
 
@@ -56,7 +56,7 @@ Otra ayuda visual es `--graph`, que dibuja (con caracteres ASCII) un árbol indi
 
 `git log --graph --oneline` 
 
-Mostrará los commits en versión compacta y dibujando las ramas (cuando las haya), dando una salida parecida a esta:
+mostrará los commits en versión compacta y dibujando las ramas (cuando las haya), dando una salida parecida a esta:
 
 ```
 * 6ad05c1 Sólo una cosilla
@@ -73,7 +73,7 @@ Para más detalles, recuerda que `git help log` es tu amigo.
 
 ## Borrado de archivos
 
-En git se pueden borrar archivos con la orden `git rm`.
+En git se pueden borrar archivos con la orden `git rm`:
 
 `git rm NOMBRE_DEL_FICHERO`
 
@@ -97,7 +97,7 @@ Si no has modificado nada en tus archivos, esto simplemente te permitirá reescr
 
 ## Deshacer cambios en un archivo
 
-Has cambiado un archivo en tu directorio de trabajo, pero te arrepientes y quieres recuperar la versión del HEAD (la del último commit). Nada más fácil que:
+Has cambiado un archivo en tu directorio de trabajo, pero te arrepientes y quieres recuperar la versión del HEAD (la del último commit). Nada más fácil que
 
 `git checkout -- NOMBRE_DEL_ARCHIVO`
 
@@ -107,7 +107,7 @@ Normalmente los conflictos suceden cuando dos usuarios han modificado
     la misma línea, o bien cuando han modificado un fichero binario;
     por eso los ficheros binarios **no** deben estar en un
     repositorio. Te aparecerá un conflicto de esta forma cuando vayas
-    a hacer `push`
+    a hacer `push`:
 
 ```	
 To git@github.com:oslugr/curso-git.git
@@ -119,7 +119,7 @@ consejo: before pushing again.
 consejo: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
 
-El error indica que la *punta* de tu rama está detrás de la rama remota (es decir, que hay modificaciones posteriores a tu última sincronización). Rechaza por lo tanto el `push`, pero vamos a hacer `pull` para ver qué es lo que ha fallado
+El error indica que la *punta* de tu rama está detrás de la rama remota (es decir, que hay modificaciones posteriores a tu última sincronización). Rechaza por lo tanto el `push`, pero vamos a hacer `pull` para ver qué es lo que ha fallado:
 
 ```
 remote: Counting objects: 7, done.
@@ -136,7 +136,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 El conflicto de fusión te indica que no hay forma de combinar los dos
 ficheros porque hay cambios en la misma línea. Así que hay que
 arreglar los conflictos. En general, si se trata de este tipo de
-conflictos, no es complicado. Al mirar el fichero aparecerá algo así
+conflictos, no es complicado. Al mirar el fichero aparecerá algo así:
 
 ```
     <<<<<<< HEAD
@@ -177,7 +177,7 @@ Puedes ver los cambios que hiciste en un commit si haces
 
 `git show HASH_DE_UN_COMMIT`
 
-Esto puede ser muy útil, pero aun hay más. Si haces `git show HASH_DE_UN_COMMIT:ruta/a/un/archivo` te mostrará el estado de ese archivo en aquel commit.
+Esto puede ser muy útil, pero aun hay más. Si haces `git show HASH_DE_UN_COMMIT:ruta/a/un/archivo`, te mostrará el estado de ese archivo en aquel commit.
 
 Esto nos va a servir para hacer un pequeño truco:
 
