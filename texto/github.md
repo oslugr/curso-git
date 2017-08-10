@@ -2,8 +2,8 @@
 
 ## Objetivos
 
-* Conocer las características generales de los repositorios públicos de GitHub
-* Conocer las características específicas de GitHub
+* Conocer las características generales de los repositorios públicos de GitHub.
+* Conocer las características específicas de GitHub.
 * Aprovechar esas características específicas en el trabajo de desarrollo.
 
 ## Por qué GitHub
@@ -66,7 +66,7 @@ pero también se puede ir un paso más allá y pulsar el botón de
 con la actividad propia, la de esta persona. Una persona puede ser
 también añadida a un repositorio, lo que le dará privilegios para
 realizar todo tipo de acciones sobre él. Conviene usar esto con
-moderación y sólo cuando se trate de una persona ya involucrada en el
+moderación y solo cuando se trate de una persona ya involucrada en el
 proyecto. 
 
 El componente *social* también se ve en repositorios específicos: los
@@ -82,7 +82,7 @@ hayan hecho originalmente, pero permite añadir uno sus propias
 modificaciones *sin que el autor original tenga que aprobarlas*. Los
 *pull requests* permiten colaboración esporádica, ya que las
 modificaciones que se soliciten pueden aprobarse o no por parte del
-autor principal del repositorio; la persona que las haga, sin embargo,
+autor principal del repositorio y así la persona que las haga
 no tiene por qué estar añadida como colaborador permanente al mismo. 
 
 GitHub también permite comentar a diferentes niveles: se puede
@@ -135,7 +135,7 @@ quiera. A diferencia de otros sitios, son páginas estáticas (lo que
 permite, imagino, ser más rápido y eficiente a la hora de servirlas).
 
 También se pueden crear muy fácilmente. Primero se elige dónde van a
-estar las página alojadas. Aunque inicialmente sólo se permitía la
+estar las páginas alojadas. Aunque inicialmente solo se permitía la
 opción de alojarlas en una rama separada llamada `gh-pages`, ahora te
 permite publicar automáticamente desde el directorio principal o desde
 un subdirectorio `docs`. Una vez elegido el lugar, se puede generar
@@ -148,12 +148,12 @@ Lo que hace este generador automático es lo siguiente:
 
 - A partir del fichero `README.md` del directorio principal de tu
    proyecto, genera un fichero `index.html` usando la plantilla
-   seleccionada
+   seleccionada.
 - Genera un dominio `usuario.github.io/proyecto` desde el cual se
-   puede acceder a  las páginas publicadas
+   puede acceder a  las páginas publicadas.
    
-El generador automático sólo funciona una vez. A partir de ese
-momento, sólo se reflejarán en el sitio general los cambios que se
+El generador automático solamente funciona una vez. A partir de ese
+momento, solo se reflejarán en el sitio general los cambios que se
 hagan desde la rama `gh-pages` o directorio que se haya elegido. Se puede trabajar directamente con
 ella o bien usar algún tipo de `hook` para generar contenido a partir
 de la rama `master` y copiarlo a esa rama. 
@@ -164,7 +164,7 @@ estático de páginas basado en Markdown u otros lenguajes
 simplificados. Jekyll es muy potente y te permite hasta
 [montar un blog](http://jekyllrb.com/docs/migrations/), pero no nos
 vamos a meter en el funcionamiento del mismo. Tampoco es necesario;
-para crear una página de proyecto sólo hay que hacer dos pasos:
+para crear una página de proyecto solo hay que hacer dos pasos:
 
 ``` 
     git checkout -b gh-pages
@@ -177,7 +177,7 @@ continuación)
 
 ```
     git commit -am "Creada página del sitio"
-	git push origin gh-pages
+	git push -u origin gh-pages
 ```
 
 Con esto se transmite la rama al repositorio y automáticamente se
@@ -187,11 +187,11 @@ Adicionalmente a las páginas de proyecto, cada organización y cada
 usuario puede crear también su página. Un usuario `nombredeusuario`
 tendrá una página `nombredeusuario.github.io` de la que "colgarán" el
 resto de las páginas (aunque en realidad se tratará de repositorios
-diferentes, y sólo estarán las que se hayan generado, claro). Para
+diferentes, y solo estarán las que se hayan generado, claro). Para
 crear tanto una página de usuario como de organización simplemente se
 crea el repositorio y se pone el contenido en la rama principal, la
 `master`. Al hacer push se publica automáticamente, como la de la
-[organización que se ha creado para este curso](http://curso-git-2014.github.io/)
+[organización que se ha creado para este curso](http://curso-git-2014.github.io/).
 
 
 ## Cómo usar los hooks
@@ -231,7 +231,7 @@ Vamos a dividir los servicios que hay en varios grupos:
   permita a GitHub acceder al sitio y depositar la *carga* que,
   inmediatamente, estará disponible. De hecho, es muy fácil trabajar
   con esto
-  [directamente desde un editor como Eclipse](https://java.dzone.com/articles/trigger-continuous-delivery) 
+  [directamente desde un editor como Eclipse](https://java.dzone.com/articles/trigger-continuous-delivery).
 - Sistemas de trabajo en grupo, que integran GitHub con los sistemas
   que tengan de asignación de tareas, de resolución de incidencias
   incluidas por parte de clientes. Por ejemplo, Basecamp, Bugzilla o
@@ -241,7 +241,7 @@ Vamos a dividir los servicios que hay en varios grupos:
   parámetros del código), Depending (que analiza dependencias en PHP)
   o David-DM (que analiza dependencias para nodejs). 
 
-Lo interesante es que se puede trabajar con la mayoría de estos sistemas de forma gratuita, aunque algunos tienen un modelo *freemium* que te cobra a partir de un nivel determinado de uso (lo que es natural, si no no podrían ofrecértelo de forma gratuita). Además, integra la mayor parte de los sistemas que se usan habitualmente en la industria del software. 
+Lo interesante es que se puede trabajar con la mayoría de estos sistemas de forma gratuita, aunque algunos tienen un modelo *freemium* que te cobra a partir de un nivel determinado de uso (lo que es natural, si no, no podrían ofrecértelo de forma gratuita). Además, integra la mayor parte de los sistemas que se usan habitualmente en la industria del software. 
 
 ## Algunos *hooks* interesantes: sistemas de integración continua
 
@@ -253,21 +253,21 @@ integración continua funcionan de la forma siguiente:
   determinadas para ejecutar pruebas o compilar código.  
 - Instalan el software necesario para llevar a cabo dichas pruebas.
 - Ejecutan las pruebas, creando finalmente un informe que indique
-  cuantas han fallado o acertado. 
-- Crear un *artefacto*, que puede ir desde un fichero con el informe
+  cuántas han fallado o acertado. 
+- Crean un *artefacto*, que puede ir desde un fichero con el informe
   en un formato estándar (suele ser XUnit o JUnit) hasta el ejecutable
   que se podrá descargar directamente del sitio; esto último puede
   incluir también su despliegue en la *nube*, un IaaS (Infraestructure
   as a Service) o PaaS (Platform as a Service) en caso de que haya
   pasado todos los tests satisfactoriamente. 
 
-La integración continua forma parte de una metodología de [desarrollo basado en test o guiado por pruebas](http://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas) que consiste en crear primero las pruebas que tiene que pasar un código antes de, efectivamente, escribir tal código. Las pruebas son tests unitarios y también de integración, que prueban las capas de la aplicación a diferentes niveles (por ejemplo, acceso a datos, procesamiento de los datos, UI). Todos los lenguajes de programación moderno incluyen una aplicación que crea un protocolo para llevar a cabo los test e informar del resultado y estos sistemas van desde el humilde Makefile que se usa en diferentes lenguajes compilados hasta el complejo Maven, pasando por sistemas como los tests de Perl o los Rakefiles de Ruby. En cualquier caso, cada lenguaje suele tener una forma estándar de pasar los tests (`make test`, `npm test` o `mocha`) y los sistemas de integración continua hacen muy simple trabajar con estos tests estándar, pero también son flexibles en el sentido que se puede adaptar a todo tipo de programa.
+La integración continua forma parte de una metodología de [desarrollo basado en test o guiado por pruebas](http://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas) que consiste en crear primero las pruebas que tiene que pasar un código antes de, efectivamente, escribir tal código. Las pruebas son tests unitarios y también de integración, que prueban las capas de la aplicación a diferentes niveles (por ejemplo, acceso a datos, procesamiento de los datos, UI). Todos los lenguajes de programación moderno incluyen una aplicación que crea un protocolo para llevar a cabo los test e informar del resultado y estos sistemas van desde el humilde Makefile que se usa en diferentes lenguajes compilados hasta el complejo Maven, pasando por sistemas como los tests de Perl o los Rakefiles de Ruby. En cualquier caso, cada lenguaje suele tener una forma estándar de pasar los tests (`make test`, `npm test` o `mocha`) y los sistemas de integración continua hacen muy simple trabajar con estos tests estándar, pero también son flexibles en el sentido que se pueden adaptar a todo tipo de programa.
 
-Veamos como trabajar con [Travis](https://travis-ci.com). Se hace siguiendo estos pasos
+Veamos como trabajar con [Travis](https://travis-ci.com). Se hace siguiendo estos pasos:
 
-1. [Darse de alta en Travis CI](https://docs.travis-ci.com/user/getting-started/) usando la propia cuenta de GitHub
+1. [Darse de alta en Travis CI](https://docs.travis-ci.com/user/getting-started/) usando la propia cuenta de GitHub.
 2. Activar el *hook* en [tu perfil de Travis](https://travis-ci.org/profile). 
-3. Se añade el fichero `.travis.yml` a tu repositorio. Este dependerá del lenguaje que se esté usando, aunque si lo único que quieres es comprobar la ortografía de tus documentos, lo puedes hacer [como en el repositorio ejemplo](https://github.com/oslugr/repo-ejemplo/blob/master/.travis.yml)
+3. Se añade el fichero `.travis.yml` a tu repositorio. Este dependerá del lenguaje que se esté usando, aunque si lo único que quieres es comprobar la ortografía de tus documentos, lo puedes hacer [como en el repositorio ejemplo](https://github.com/oslugr/repo-ejemplo/blob/master/.travis.yml).
 4. Hacer push.
 
 La mayoría de estos repositorios suelen usar un fichero en formato estándar, YAML, XML o JSON. Veamos qué hace el fichero que hemos usado para el repo ejemplo:
@@ -284,7 +284,7 @@ before_install:
 script: OUTPUT=`cat README.md | aspell list -d es -p ./.aspell.es.pws`; if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
 ```
 
-La estructura de YAML permite expresar vectores y matrices asociativas fácilmente. En general, nos vamos a encontrar con algo del tipo `variable: valor` que será una clave y el valor correspondiente; el valor, a su vez, puede incluir otras estructuras similares. Por ejemplo, la primera
+La estructura de YAML permite expresar vectores y matrices asociativas fácilmente. En general, nos vamos a encontrar con algo del tipo `variable: valor` que será una clave y el valor correspondiente; el valor, a su vez, puede incluir otras estructuras similares. Por ejemplo, la primera:
 
 ```
 branches:
@@ -292,7 +292,7 @@ branches:
     - gh-pages
 ```
 
-es una clave, `branches`, que incluye otra clave, `except`, que a su vez apunta a un vector (diferentes valores precedidos por -) con las ramas que vamos a excluir. En este caso, `gh-pages`, la de las páginas. Si hubiera otra rama a excluir, iría de esta forma
+es una clave, `branches`, que incluye otra clave, `except`, que a su vez apunta a un vector (diferentes valores precedidos por -) con las ramas que vamos a excluir. En este caso, `gh-pages`, la de las páginas. Si hubiera otra rama a excluir, iría de esta forma:
 
 ```
 branches:
@@ -309,9 +309,9 @@ before_install:
 script: OUTPUT=`cat README.md | aspell list -d es -p ./.aspell.es.pws`; if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
 ```
 
-Como lo único que vamos a hacer en este caso es comprobar la ortografía del texto del fichero `README.md`, instalamos con `apt-get` (herramienta estándar para Linux) un diccionario en español; este instalará todas las dependencias a su vez.  Finalmente, la orden marcada `script` es la que lleva a cabo la comprobación. Para un programa normal sería suficiente hacer `make test` (y definir las dependencias para este objetivo, claro). No nos preocupemos mucho por lo que es, sino por lo que hace: si hay alguna palabra que no pase el test ortográfico, [fallará y enviará un mensaje de correo electrónico a la persona que haya hecho un commit indicándolo](https://travis-ci.org/oslugr/repo-ejemplo/builds/22375300). Si lo pasa sin problemas, [también enviará el mensaje indicando que todo está correcto](https://travis-ci.org/oslugr/repo-ejemplo/builds/22377799). Este tipo de cosas resulta útil sólo por el hecho de que se ejecuten automáticamente, pero pueden servir también para hacer despliegues continuos.
+Como lo único que vamos a hacer en este caso es comprobar la ortografía del texto del fichero `README.md`, instalamos con `apt-get` (herramienta estándar para Linux) un diccionario en español; este instalará todas las dependencias a su vez.  Finalmente, la orden marcada `script` es la que lleva a cabo la comprobación. Para un programa normal sería suficiente hacer `make test` (y definir las dependencias para este objetivo, claro). No nos preocupemos mucho por lo que es, sino por lo que hace: si hay alguna palabra que no pase el test ortográfico, [fallará y enviará un mensaje de correo electrónico a la persona que haya hecho un commit indicándolo](https://travis-ci.org/oslugr/repo-ejemplo/builds/22375300). Si lo pasa sin problemas, [también enviará el mensaje indicando que todo está correcto](https://travis-ci.org/oslugr/repo-ejemplo/builds/22377799). Este tipo de cosas resulta útil solo por el hecho de que se ejecuten automáticamente, pero pueden servir también para hacer despliegues continuos.
 
-Travis también proporciona un *badge* que puedes incluir en tu repositorio para indicar si pasa los tests o no, que puedes incluir en tu fichero `README.md`(o donde quieras) con este código
+Travis también proporciona un *badge* que puedes incluir en tu repositorio para indicar si pasa los tests o no, que puedes incluir en tu fichero `README.md` (o donde quieras) con este código:
 
 ```
 [![Build Status](https://travis-ci.org/oslugr/repo-ejemplo.svg?branch=master)](https://travis-ci.org/oslugr/repo-ejemplo)
@@ -328,7 +328,7 @@ GitHub también mantiene un [cliente de GitHub](https://github.com/github/hub), 
   página correspondiente a las solicitudes de ese proyecto. 
 * `hub fork`: una vez clonado un repositorio de otro usuario, no hace falta hacer *fork* desde la web, se puede hacer directamente desde el repo. Se crea un origen remoto con el nombre de tu usuario, al que se puede hacer *push* de la forma normal. Desde la misma línea de órdenes se puede hacer un *pull request* al repositorio original también. 
 * Como usuario puedes aplicar también los *pull requests* desde línea de órdenes.
-* `hub compare` permite comparar entre diferentes tags o versiones o ramas.
+* `hub compare`: permite comparar entre diferentes tags o versiones o ramas.
 
 En general, ya que se tiene GitHub, conviene usar este cliente, sea o
 no con un alias a `git`. Por lo menos su uso es conveniente. 
@@ -359,7 +359,7 @@ pinchar en
 aparecen las versiones que ya has creado o un botón con *Draft a new
 release* para crear una nueva. 
 
-Desde este interfaz web se puede añadir alguna información más que
+Desde esta interfaz web se puede añadir alguna información más que
 desde la línea de comandos: se puede crear la etiqueta si no existe y
 se pueden añadir imágenes, ficheros binarios generados de cualquier
 otra forma (o automáticamente) y, en general, lo que uno

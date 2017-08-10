@@ -2,10 +2,10 @@
 
 ## Objetivos
 
-* Entender el concepto de *fontanería* y *loza*
-* Entender el concepto de *hooks* o *puntos de enganche*
-* Entender las órdenes menos usuales de git usadas desde los *hooks*
-* Saber adaptar *hooks* para una labor determinada
+* Entender el concepto de *fontanería* y *loza*.
+* Entender el concepto de *hooks* o *puntos de enganche*.
+* Entender las órdenes menos usuales de git usadas desde los *hooks*.
+* Saber adaptar *hooks* para una labor determinada.
  
 ## Viendo las cañerías: estructura de un repositorio `git`
 
@@ -17,7 +17,7 @@ Cuando se crea por primera vez un repositorio veremos que aparecen misteriosamen
 
 Esta plantilla la podemos modificar y cambiar. La plantilla que se usa por omisión se encuentra en `/usr/share/git-core/templates/` y contiene una serie de ficheros junto con ejemplos (*samples*) para ganchos. Sin embargo, podemos personalizar nuestra plantilla editando (con permiso de superusuario) estos ficheros o bien usando la opción `--template <nombre de directorio>` de `clone` o `init`. En ese caso, en vez de copiar los ficheros por omisión, copiará los contenidos en ese directorio.
 
-Por ejemplo, se puede usar [esta plantilla](http://jj.github.io/repo-plantilla/) que elimina los ficheros de ejemplo, sustituye por otro y traduce los contenidos de los otros ficheros al castellano; también mete en los patrones ignorados (sin necesidad de usar `.gitignore`) los ficheros que terminan en `~`, que produce Emacs como copia de seguridad.
+Por ejemplo, se puede usar [esta plantilla](http://jj.github.io/repo-plantilla/) que elimina los ficheros de ejemplo, sustituye por otro y traduce los contenidos de los otros ficheros al castellano; también mete en los patrones ignorados (sin necesidad de usar `.gitignore`) los ficheros que terminan en `~`, producidos por Emacs como copia de seguridad.
 
 Estos ficheros forman parte de las cañerías de `git` y podemos cambiar su comportamiento editando `config` como ya se ha visto en el capítulo de uso básico; de hecho, existe también un fichero de configuración a nivel global, `.gitconfig` que sigue el mismo formato y que ya hemos visto
 
@@ -29,9 +29,9 @@ Estos ficheros forman parte de las cañerías de `git` y podemos cambiar su comp
 	editor = emacs
 ```
 
-Estos ficheros de configuración siguen un formato similar al de los ficheros `.ini`, es decir, bloques definidos entre corchetes y variables con valor, dentro de ese bloque, a las que se le asigna usando `=`. En este caso [definimos dos alias](https://wildlyinaccurate.com/useful-git-configuration-items) y un editor o, mejor dicho, *el* editor. Esto podemos hacerlo tanto en el fichero global como en el local si queremos que afecte sólo a nuestro repositorio.
+Estos ficheros de configuración siguen un formato similar al de los ficheros `.ini`, es decir, bloques definidos entre corchetes y variables con valor, dentro de ese bloque, a las que se le asigna usando `=`. En este caso [definimos dos alias](https://wildlyinaccurate.com/useful-git-configuration-items) y un editor o, mejor dicho, *el* editor. Esto podemos hacerlo tanto en el fichero global como en el local si queremos que afecte solo a nuestro repositorio.
 
-Otro fichero dentro de este directorio que se puede modificar es `.git/info/exclude`; es similar a `.gitignore`, salvo que en este caso afectará solamente a nuestra copia local del repositorio y no a todas las copias del mismo. Por ejemplo, podemos editarlo de esta forma
+Otro fichero dentro de este directorio que se puede modificar es `.git/info/exclude`; es similar a `.gitignore`, salvo que en este caso afectará solamente a nuestra copia local del repositorio y no a todas las copias del mismo. Por ejemplo, podemos editarlo de esta forma:
 
 ```
 # git ls-files --others --exclude-from=.git/info/exclude
@@ -61,7 +61,7 @@ raíz (que es HEAD, el punto en el que se encuentra el repositorio en
 este momento) y una serie de ramas que apuntan a ficheros y a
 diferentes versiones de los mismos.
 
-git, entonces, [procede de la forma siguiente](https://git-scm.com/book/en/Git-Internals-Git-Objects).
+git, entonces, [procede de la forma siguiente](https://git-scm.com/book/en/Git-Internals-Git-Objects):
 
 1. Crea un SHA1 a partir del contenido del fichero cambiado o añadido. Este fichero
 se almacena en la zona temporal en forma de *blob*. 
@@ -91,7 +91,7 @@ forma fácil y eficiente. Pero para poder hacerlo debe haber una forma
 única y también compacta de referirse a un elemento determinado dentro
 de ese repositorio. Es lo que explicaremos a continuación.
 
-## El nombre de las cosas: refiriéndonos a objetos en git.
+## El nombre de las cosas: refiriéndonos a objetos en git
 
 Como ya hemos visto antes, todos los objetos (sean *blobs*, árboles o
 *commits*) están representados por un SHA1.  Si conocemos el SHA1, se
@@ -157,7 +157,7 @@ fe88e5eefff7f3b7ea95be510c6dcb87054bbcb0
 ```
 
 Que muestra que, efectivamente, el hash del commit es el que
-corresponde 
+corresponde.
 
 >Podemos mirar en .git/objects/fe a ver si efectivamente se encuentra;
 > puedes hacerlo sobre tu copia del repositorio `repo-ejemplo`, ya que
@@ -187,8 +187,8 @@ web.js
 En este caso el [formato es rama (circunflejo o *caret*) `{tree}`](https://gist.github.com/wfarr/1609626); el
 circunflejo se usa en la selección de referencias de `git` para
 cualificar lo que se encuentra antes de ella, pero no hay muchas más
-opciones aparte de `tree`, pero sí podemos acceder a versiones
-anteriores del repositorio y a sus ficheros. 
+opciones aparte de `tree`, aunque sí podemos acceder a versiones
+anteriores del repositorio y a sus ficheros:
 
 ```
 ~/repos-git/repo-ejemplo<master>$ git show master~1
@@ -200,19 +200,19 @@ Date:   Thu Apr 17 17:42:39 2014 +0200
 ```
 
 La [virgulilla o palito `~`](http://www.vogella.com/tutorials/Git/article.html#commitreference) indica un ancestro, es decir, el *padre* del commit
-anterior, que, como vemos
+anterior, que, como vemos,
 [corresponde al commit 5be23bb](https://github.com/oslugr/repo-ejemplo/commit/5be23bb2a610260da013fcea807be872a4bd6981). 
 
 > La lista completa de opciones para especificar revisiones está,
 >  curiosamente, en
->  [la página de referencia del comando `rev-parse`](https://www.kernel.org/pub/software/scm/git/docs/git-rev-parse.html)
+>  [la página de referencia del comando `rev-parse`](https://www.kernel.org/pub/software/scm/git/docs/git-rev-parse.html).
 >  Hay un número excesivo de ellas, pero si en algún momento no se
 >  entiende qué es lo que se está usando, conviene ir ahí. 
 
 Podemos
 ir más allá hasta que nos aburramos: `~2` accederá al padre de este y
 así sucesivamente. Y, por supuesto, podemos cualificarlo con
-`^{tree}^` para que nos muestre el árbol en el estado que estaba en
+`^{tree}` para que nos muestre el árbol en el estado que estaba en
 ese commit. Y también para que nos muestre un fichero sin necesidad de
 sacarlo del repositorio:
 
@@ -234,9 +234,9 @@ Ejemplo de repositorio para trabajar en el
 
 ## Comandos de alto y bajo nivel: *fontanería* y *loza*
 
-Para entendernos, todas las órdenes que hemos usado hasta ahora son *loza*. Es decir, es el *interfaz* del usuario de toda la instalación de fontanería que lleva a cabo realmente la labor de quitar de en medio lo que uno deposita en las instalaciones sanitarias. Pero por debajo de la loza y pegado a ella, están las cañerías y toda la instalación de fontanería. 
+Para entendernos, todas las órdenes que hemos usado hasta ahora son *loza*. Es decir, es la *interfaz* del usuario de toda la instalación de fontanería que lleva a cabo realmente la labor de quitar de en medio lo que uno deposita en las instalaciones sanitarias. Pero por debajo de la loza y pegado a ella, están las cañerías y toda la instalación de fontanería. 
 
-Los comandos de `git` se dividen en [dos tipos](https://git-scm.com/book/ch9-1.html): *fontanería* o *cañería*, que son comandos que *generalmente* no ve el usuario y *loza*, que son los que ve y los que usa. Sin embargo, este capítulo trata realmente de esa fontanería, porque van a ser una serie de órdenes que se van a llevar a cabo *después* de que se ejecuten las órdenes de *loza*, o, quizás *dentro* de esas órdenes de loza.
+Los comandos de `git` se dividen en [dos tipos](https://git-scm.com/book/ch9-1.html): *fontanería* o *cañería*, que son comandos que *generalmente* no ve el usuario, y *loza*, que son los que ve y los que usa. Sin embargo, este capítulo trata realmente de esa fontanería, porque van a ser una serie de órdenes que se van a llevar a cabo *después* de que se ejecuten las órdenes de *loza*, o quizás *dentro* de esas órdenes de loza.
 
 Pero antes de usar esas órdenes de fontanería tenemos que entender cómo son las cañerías. Una parte se ha visto anteriormente: el *index* o índice que contiene todos los objetos a los que `git` debe prestarles atención a la hora de hacer un commit. Pero existen además [los objetos y las referencias](http://teohm.com/blog/2011/05/30/learning-git-internals-by-example/).
 
@@ -259,7 +259,7 @@ La orden `ls-tree` nos permite ver qué tipos de objetos tenemos almacenados y s
 040000 tree 39da6b155c821af1e6a304daca9b66efb1ac651f	test
 100644 blob 94f151d9ef9340c81989b0c3fa8c517c068e1864	web.js
 ```
-En este caso tenemos objetos de tres tipos: *blob*, *commit* y *tree*. a `ls-tree` se le pasa un *tree-ish*, es decir, algo que apunte a dónde esté almacenado un árbol pero, para no preocuparnos de qué se trata esto, usaremos simplemente HEAD, que apunta como sabéis a la punta de la rama en la que nos encontramos ahora mismo. También  nos da el SHA1 de 40 caracteres que representa cada uno de los ficheros. Si queremos que se expandan los `tree` para mostrar los ficheros que hay dentro también usamos la opción `-r`
+En este caso tenemos objetos de tres tipos: *blob*, *commit* y *tree*. A `ls-tree` se le pasa un *tree-ish*, es decir, algo que apunte a donde esté almacenado un árbol pero, para no preocuparnos de qué se trata esto, usaremos simplemente HEAD, que apunta como sabéis a la punta de la rama en la que nos encontramos ahora mismo. También  nos da el SHA1 de 40 caracteres que representa cada uno de los ficheros. Si queremos que se expandan los `tree` para mostrar los ficheros que hay dentro también usamos la opción `-r`:
 
 ```
 ~/repos-git/repo-ejemplo<master>$ git ls-tree -r HEAD
@@ -289,7 +289,7 @@ Si editamos un fichero tal como el README.md, el repositorio tendrá esta aparie
 ```
 
 Como vemos, ha cambiado el SHA1 (comienza con `da5`, comparadlo con el
-listado más arriba en el que comienza con `c5b`. Pero `ls-tree` va más
+listado más arriba en el que comienza con `c5b`). Pero `ls-tree` va más
 allá y te puede mostrar también cuál es el estado del repositorio hace
 varios commits. Por ejemplo, podemos usar `HEAD^` para referirnos al
 commit anterior y `git ls-tree HEAD^` nos devolvería exactamente el
@@ -299,7 +299,7 @@ esta forma `git ls-tree 5be23bb`, siendo este último una parte del
 SHA1 (o hash) del último commit; nos devolvería el último resultado.  
 
 Pero podemos ir todavía a una profundidad mayor dentro de las
-tuberías. `ls-tree` sólo lista los objetos que ya forman parte del
+tuberías. `ls-tree` solo lista los objetos que ya forman parte del
 árbol, del principal o de alguno de los secundarios. Puede que
 necesitemos acceder a aquellos objetos que se han añadido al índice,
 pero todavía no han pasado a ningún árbol. Para eso usamos
@@ -322,7 +322,7 @@ git ls-files --stage
 100644 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3 0	views/layout.jade
 100644 94f151d9ef9340c81989b0c3fa8c517c068e1864 0	web.js
 ```
-Que nos devuelve, en penúltimo lugar, un fichero que todavía no ha pasado al árbol. Evidentemente, tras el commit:
+que nos devuelve, en penúltimo lugar, un fichero que todavía no ha pasado al árbol. Evidentemente, tras el commit:
 
 ```
 ~/repos-git/repo-ejemplo<master>$ git ls-tree HEAD
@@ -330,7 +330,7 @@ Que nos devuelve, en penúltimo lugar, un fichero que todavía no ha pasado al �
 040000 tree fd3846c0d6089437598004131184c61aea2b6514	views
 ```
 
-Este listado nos muestra el nuevo objeto de tipo `tree` que se ha creado y nos da su SHA1, que podemos usar para examinarlo con `ls-tree`
+este listado nos muestra el nuevo objeto de tipo `tree` que se ha creado y nos da su SHA1, que podemos usar para examinarlo con `ls-tree`:
 
 
 ```
@@ -338,21 +338,21 @@ Este listado nos muestra el nuevo objeto de tipo `tree` que se ha creado y nos d
 100644 blob 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3	layout.jade
 ```
 
-que, si queremos ver en una vista más normal, hacemos lo mismo con `ls-file`
+que, si queremos ver en una vista más normal, hacemos lo mismo con `ls-file`:
 
 ```
 ~/repos-git/repo-ejemplo<master>$ git ls-files views
 views/layout.jade
 ```
 
-Hay un tercer comando relacionado con el examen de directorios y ficheros locales, [`cat-file`, que muestra el contenido de un objeto](https://git-scm.com/docs/git-cat-file), en general. Por ejemplo, en este caso, para listar el contenido de un objeto de tipo `tree`
+Hay un tercer comando relacionado con el examen de directorios y ficheros locales, [`cat-file`, que muestra el contenido de un objeto](https://git-scm.com/docs/git-cat-file), en general. Por ejemplo, en este caso, para listar el contenido de un objeto de tipo `tree`:
 
 ```
 ~/repos-git/repo-ejemplo<master>$ git cat-file -p fd3846c
 100644 blob 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3	layout.jade
 ```
 
-nos muestra que ese objeto contiene un solo fichero, `layout.jade`, y sus características. Pero más curioso aún es cuando se usa sobre objetos de tipo *commit* (no sobre el objeto *commit* que aparece arriba, que se trata de un *commit* de *otro repositorio* al contener el directorio `curso` un submódulo de git. Por ejemplo, podemos hacer:
+nos muestra que ese objeto contiene un solo fichero, `layout.jade`, y sus características. Pero más curioso aún es cuando se usa sobre objetos de tipo *commit* (no sobre el objeto *commit* que aparece arriba, que se trata de un *commit* de *otro repositorio* al contener el directorio `curso` un submódulo de git). Por ejemplo, podemos hacer:
 
 ```
 ~/repos-git/repo-ejemplo<master>$ git cat-file -p HEAD
@@ -390,10 +390,10 @@ En muchos casos para procesar los cambios dentro de un gancho
 necesitaremos saber cuál es la diferencia con versiones anteriores del
 fichero. Hay que tener en cuenta que esas diferencias, dependiendo del
 estado en el que estemos, estarán en el árbol o en el índice
-preparadas para ser enviadas al repositorio,  En general, son una
+preparadas para ser enviadas al repositorio. En general, son una
 serie de órdenes con `diff` en ellas. La más simple, `git diff`, nos
 mostrará la diferencia entre los archivos en el índice y el último
-commit.
+commit:
 
 ```
 ~/repos-git/repo-ejemplo<master>$ git diff
@@ -438,13 +438,13 @@ index 97c3202..93b6255 100644
             var ruta_toda = "curso/texto/"+req.params.ruta;
 ```
 
-Esta vista de
-[`diff`](https://git-scm.com/book/es/Fundamentos-de-Git-Guardando-cambios-en-el-repositorio)
-las diferencias sigue el formato habitual en
+En esta vista de
+[`diff`](https://git-scm.com/book/es/Fundamentos-de-Git-Guardando-cambios-en-el-repositorio),
+las diferencias siguen el formato habitual en
 [la utilidad `diff`](https://es.wikipedia.org/wiki/Diff), que permite
 generar parches para aplicarlos a conjuntos de ficheros. En concreto,
 muestra qué ficheros se están comparando (pueden ser diferentes
-ficheros, si se ha cambiado el nombre) los SHA1 de los contenidos
+ficheros si se ha cambiado el nombre) los SHA1 de los contenidos
 correspondientes, y luego un `+` o `-` delante de cada una de las
 líneas que hay de diferencia. Este fichero se podría usar directamente
 con la utilidad `diff` de Linux, pero realmente no nos va a ser de
@@ -536,7 +536,7 @@ No todo el contenido que hay en el repositorio son los ficheros que
 forman parte del mismo. Hay una parte importante de la fontanería que
 son los metadatos del repositorio. Hay dos órdenes importantes, `var`
 y `config`. Con `-l` nos listan todas las variables o variables de
-configuración disponibles
+configuración disponibles:
 
 ```
 ~/repos-git/curso-git/texto<master>$ git var -l
@@ -560,8 +560,7 @@ GIT_PAGER=pager
 ```
 
 Todas excepto las cuatro últimas variables son variables de
-configuración que, por tanto, se pueden obtener también con `git
-config -l`. Por sí sólo, `config` o `var` listan el valor de una
+configuración que, por tanto, se pueden obtener también con `git config -l`. Por sí solo, `config` o `var` listan el valor de una
 variable:
 
 ```
@@ -570,17 +569,17 @@ JJ Merelo
 ```
 
 La mayoría de estos valores están disponibles o como variables de
-entorno o en ficheros; sin embargo estas órdenes dan un interfaz común
+entorno o en ficheros; sin embargo estas órdenes dan una interfaz común
 para todos los sistemas operativos.
 
 Todavía nos hacen falta una serie de órdenes para tomar decisiones
-sobre ficheros y sobre dónde estamos en el repositorio. La veremos a
-continuación
+sobre ficheros y sobre dónde estamos en el repositorio. Las veremos a
+continuación.
 
 ### Simplemente, `rev-parse`
 
 La
-[tersa descripción del comando `rev-parse`, "recoge y procesa parámetros"](https://www.kernel.org/pub/software/scm/git/docs/git-rev-parse.html)
+[tersa descripción del comando `rev-parse`, "recoge y procesa parámetros"](https://www.kernel.org/pub/software/scm/git/docs/git-rev-parse.html),
 esconde la complejidad del mismo y su potencia, que va desde el
 procesamiento de parámetros hasta la especificación de objetos, pasando
 por la búsqueda de diferentes directorios dentro del repositorio git.
@@ -593,7 +592,7 @@ Por ejemplo, se puede usar para verificar si un objeto existe o no:
 
 Nos muestra el SHA1 de la cabeza actual del repositorio de ejemplo,
 verificando que actualmente existe. No lo hará si acabamos de crear el
-repositorio, por ejemplo
+repositorio, por ejemplo,
 
 ```
 /tmp/pepe<>$ git init
@@ -643,12 +642,12 @@ lenguaje se use.
 
 Los *hooks* van en su propio directorio, `.git/hooks` que se crea
 automáticamente y que tiene, siempre, una serie de *scripts* ejemplo,
-ninguno de ellos activados. Sólo se admite un *hook* por evento, y ese
+ninguno de ellos activados. Solo se admite un *hook* por evento, y ese
 *hook* tendrá el nombre del evento asociado; es decir, un programa
 llamado `post-merge` en ese directorio se ejecutará siempre cada vez
 que se termine un *merge* con éxito. Como generalmente uno quiere que
 los scripts tengan un nombre razonable, la estrategia más general es
-usar un *enlace simbólico* de esta forma 
+usar un *enlace simbólico* de esta forma:
 
 ```
 ln -s nombre-real-del-script.sh post-merge
@@ -672,25 +671,24 @@ Los *hooks* se activarán cuando se ejecute un comando determinado y
 recibirán una serie de parámetros como argumento o en algún caso como
 entrada estándar. Este
 [cuadro](https://www.analysisandsolutions.com/code/git-hooks-summary-cheat-sheet.htm)
-resume cuando se ejecutan y también qué reciben como parámetro. En
+resume cuándo se ejecutan y también qué reciben como parámetro. En
 general, también tendrán influencia en si tiene éxito o no el comando
 determinado: salir con un valor no nulo, en algunos casos, parará la
 ejecución del comando con un mensaje de error. Por ejemplo, un *hook*
 *applypatch-msg*, que se aplica desde el comando `git am` antes de que
 se ejecute, parará la aplicación del parche si se sale con un valor 1.
 
-De todos los *hooks* posibles sólo veremos los que se refieren al
-*commit*. Son los que se pueden usar en local (los referidos a *push*
-sólo se programan en remoto, y los que se aplican a `git am` o `git
-gc` quedan fueran de los temas de este libro. Hay sólo cuatro de
+De todos los *hooks* posibles solo veremos los que se refieren al
+*commit*. Son los que se pueden usar en local; los referidos a *push*
+solo se programan en remoto, y los que se aplican a `git am` o `git gc` quedan fueran de los temas de este libro. Hay únicamente cuatro de
 estos, que veremos a continuación.
 
 ## Programando un *hook* básico
 
-En general, un *hook* hará lo siguiente
+En general, un *hook* hará lo siguiente:
 
-1. Examinar el entorno y los parámetros de entrada
-2. Hacer cambios en el entorno, los ficheros o la salida
+1. Examinar el entorno y los parámetros de entrada.
+2. Hacer cambios en el entorno, los ficheros o la salida.
 3. Salir con un mensaje si hay algún error, o ninguno.
 
 No son diferentes de ningún otro programa, en realidad, salvo que los
@@ -709,16 +707,16 @@ grep -qs "^$SOB" "$1" || echo ". Cambio por @$SOB" >> "$1"
 
 Este script tiene toda la simplicidad de estar en dos líneas y toda la
 complicación de estar escrito para el
-*shell*. [Esta introducción](http://es.tldp.org/COMO-INSFLUG/COMOs/Bash-Prog-Intro-COMO/)
-venerable te puede ayudar a empezar a trabajar con él, pero en este
-capítulo no pretendemos que aprendas a programar, sólo que tengas las
+*shell*. [Esta introducción venerable](http://es.tldp.org/COMO-INSFLUG/COMOs/Bash-Prog-Intro-COMO/)
+te puede ayudar a empezar a trabajar con él, pero en este
+capítulo no pretendemos que aprendas a programar, solo que tengas las
 nociones básicas para echar a andar y posiblemente modificar
 ligeramente un gancho. 
 
 Empecemos por la primera línea: es común a todos los guiones del
 shell. Simplemente indica el camino en el que se encuentra el mismo,
 con `#!` indicando que se trata de un fichero ejecutable (junto con el
-`chmod +x`, que se lo indica al sistema de ficheros.
+`chmod +x`, que se lo indica el sistema de ficheros).
 
 La siguiente línea define una variable, SOB, que no es acrónimo de
 nada, cuidadito. Esa variable usa el formato de ejecución de un
@@ -775,7 +773,7 @@ son correctos. Como se ha visto anteriormente, una buena práctica es
 usar una primera línea de 50 caracteres (que aparecerán como título)
 seguida por una línea vacía y el resto del mensaje. Esto se puede
 aplicar mediante programas en cualquier lenguaje, como [este en Ruby](https://gist.github.com/jasonrobertfox/8057124), o el siguiente
-en [Node](https://nodejs.org), una implementación de Javascript.
+en [Node](https://nodejs.org), una implementación de Javascript:
 
 ```
 #!/usr/bin/env node
@@ -803,7 +801,7 @@ El resto, usando el modo asíncrono que es común en Node, lee el
 fichero (creando una excepción si hay algún error), lo divide en
 líneas usando `split` y a continuación comprueba si la primera línea
 (`lines[0]`) tiene más de 50 caracteres, en cuyo caso sale del proceso
-con un código de error (1), de esta forma
+con un código de error (1), de esta forma:
 
 ```
 ~/repos-git/curso-git<master>$ git commit -am "Añadiendo un montón de cosas al capítulo de los ganchos y testeándolo a la vez"
@@ -813,13 +811,13 @@ con un código de error (1), de esta forma
 Si no es así, simplemente deja pasar el
 mensaje. En este *hook*, curiosamente, no se usa más comando de git
 que el mensaje almacenado en el fichero; realmente, no es
-imprescindible usarlo, sólo cuando vayamos a usar información de git
+imprescindible usarlo, solo cuando vayamos a usar información de git
 en el mismo. 
 
 El programa anterior es un ejemplo de cómo se pueden implementar
 políticas de formato o de cualquier otro tipo sobre un repositorio;
 sin embargo, la capacidad que tienen es limitada, ya que se aplican
-sólo sobre los mensajes. En realidad, el que actúen de esa forma es
+solo sobre los mensajes. En realidad, el que actúen de esa forma es
 convencional, porque los programas que ejecutan los *ganchos* se
 diferencian solamente en el momento en el que actúan, no en lo que
 pueden hacer. Sin embargo, si queremos [implementar una política](http://johnkpaul.com/blog/2013/10/04/git-precommit-hook-awesomeness/) sobre
@@ -859,7 +857,7 @@ La siguiente línea define un *hash* con un nombre y una expresión
 regular que será la que se tiene que implementar. Si no conoces el
 lenguaje no te preocupes, pero si lo conoces (ese u otro) es
 relativamente fácil añadir políticas nuevas, como por ejemplo que no
-se permitan .pdfs, simplemente añadiéndole una línea.
+se permitan archivos .pdf, simplemente añadiéndole una línea.
 
 El bucle `for` posterior es el que va recorriendo cada uno de los
 cambios y cada una de las políticas (aunque en este caso habrá una

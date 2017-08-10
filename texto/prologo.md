@@ -26,7 +26,7 @@ El libro está dirigido a una persona que no sepa programar, o que sepa
 sin que haga falta ningún lenguaje específico. Sí hace falta cierto
 manejo de la línea de órdenes y el uso de sistemas operativos
 adecuados para el desarrollo, lo que probablemente usas de todas
-formas si estás acostumbrado a usar la línea de órdenes. Sólo al final
+formas si estás acostumbrado a usar la línea de órdenes. Solo al final
 hay algunos programas con la idea de que se aprenda a modificarlos
 para usarlos en git, no tanto a dominarlos. En general, git va bien
 con cualquier lenguaje de programación. 
@@ -47,7 +47,7 @@ Este libro es libre. Puedes haberlo recibido de un amigo, generado por
 tu cuenta [a partir del repositorio](https://github.com/oslugr/curso-git) o
 comprado. En cualquiera de los casos, está a la venta
 [para el Kindle o en formato papel en Amazon en `amzn.to/2qggwRf`](https://www.amazon.es/dp/B00K515GL2?tag=atalaya-21&camp=3634&creative=24822&linkCode=as4&creativeASIN=B00K515GL2&adid=0J52A22GWS1MQTV0S7Y2&), a precios populares. Los autores te agradeceremos que
-lo recomiendes, hables de él, digas que te ha parecido y, por
+lo recomiendes, hables de él, digas qué te ha parecido y, por
 supuesto, que lo compres. 
 
 
@@ -56,7 +56,7 @@ supuesto, que lo compres.
 O, dicho de otro modo, qué es lo que hace falta para entender el
 contenido de este texto. En unas palabras, iría dirigido a personas
 con conocimientos de programación que no le tengan miedo a la línea de
-órdenes. Más en concreto, es conveniente saber algo de
+órdenes. Más en concreto, es conveniente saber algo sobre
 
 * Trabajo en Linux, OSX, línea de órdenes instalada con el cliente de
   GitHub para Windows u OSX o Ubuntu para Windows 10, aunque no pasa nada si se trabaja con

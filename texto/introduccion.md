@@ -2,10 +2,10 @@
 
 ## Objetivos
 
-* Saber qué es el Software Libre
-* Aprender qué es un Sistema de Control de Versiones
-* Conocer los Sistemas de Control de Versiones y sus tipos
-* Conocer las principales características de git
+* Saber qué es el Software Libre.
+* Aprender qué es un Sistema de Control de Versiones.
+* Conocer los Sistemas de Control de Versiones y sus tipos.
+* Conocer las principales características de git.
 
 ## Software Libre
 
@@ -13,23 +13,23 @@ En los últimos años, el software libre se ha ido extendiendo hasta abarcar la 
 
 Llamamos [*software libre*](https://es.wikipedia.org/wiki/Software_libre) al que permite al usuario ejercer una serie de libertades, a saber:
 
-* la libertad de usar el programa, con cualquier propósito.
-* la libertad de estudiar cómo funciona el programa y modificarlo, adaptándolo a tus necesidades.
-* la libertad de distribuir copias del programa, con lo cual puedes ayudar a tu prójimo.
-* la libertad de mejorar el programa y hacer públicas esas mejoras a los demás, de modo que toda la comunidad se beneficie.
+* La libertad de usar el programa, con cualquier propósito.
+* La libertad de estudiar cómo funciona el programa y modificarlo, adaptándolo a tus necesidades.
+* La libertad de distribuir copias del programa, con lo cual puedes ayudar a tu prójimo.
+* La libertad de mejorar el programa y hacer públicas esas mejoras a los demás, de modo que toda la comunidad se beneficie.
 
 Para que un programa sea libre hacen falta dos requisitos fundamentales:
 
 * Una licencia que permita el uso, modificación y distribución del programa.
 * Acceso al código fuente del programa.
 
-Además, en la comunidad de software libre se dan algunas peculiaridades, como la internacionalización o el trabajo colaborativo de gran cantidad de desarrolladores, que han promovido la creación de forjas, repositorios y sistemas que permitan compartir ese código de forma abierta y además, administrar y gestionar todo ese trabajo de una forma eficiente.
+Además, en la comunidad del software libre se dan algunas peculiaridades, como la internacionalización o el trabajo colaborativo de gran cantidad de desarrolladores, que han promovido la creación de forjas, repositorios y sistemas que permitan compartir ese código de forma abierta y además, administrar y gestionar todo ese trabajo de una forma eficiente.
 
 Git es uno de estos sistemas, y es software libre.
 
 ## Sistemas de control de Versiones
 
-En cualquier proyecto de desarrollo es necesario gestionar los cambios, modificaciones, añadidos etc. que se han hecho a lo largo de la historia de dicho proyecto.
+En cualquier proyecto de desarrollo es necesario gestionar los cambios, modificaciones, añadidos, etc., que se han hecho a lo largo de la historia de dicho proyecto.
 
 Si se trata de un trabajo pequeño, de corta duración y es llevado a cabo por un solo programador, quizás un archivo histórico de copias de seguridad pueda ser suficiente, pero esto se vuelve claramente insuficiente al crecer la complejidad del proyecto.
 
@@ -45,9 +45,9 @@ Algunos de los problemas más habituales a los que se enfrenta cualquier persona
 
 Llevar a cabo la administración de estos aspectos (y de muchos otros) manualmente es materialmente imposible, y es para ello para lo que se inventaron los Sistemas de Control de Versiones.
 
-Debido al crecimiento en extensión y complejidad del software los Sistemas de Control de Versiones están tomando cada vez más importancia. En especial, los proyectos de software libre, que tienden a aunar los esfuerzos de un gran número de programadores trabajando simultáneamente en múltiples versiones del código, han estado a la vanguardia del uso de estas herramientas.
+Debido al crecimiento en extensión y complejidad del software, los Sistemas de Control de Versiones están tomando cada vez más importancia. En especial, los proyectos de software libre, que tienden a aunar los esfuerzos de un gran número de programadores trabajando simultáneamente en múltiples versiones del código, han estado a la vanguardia del uso de estas herramientas.
 
-Estos sistemas nacieron para gestionar código fuente, pero pueden ser usados para cualquier tipo de documentación (aunque no pueden aprovechar todo su potencial en archivos que no sean de texto plano). Por ejemplo, este curso ha sido desarrollado bajo git y su código puede encontrarse en su repositorio oficial en [github.com/oslugr/curso-git](https://github.com/oslugr/curso-git)
+Estos sistemas nacieron para gestionar código fuente, pero pueden ser usados para cualquier tipo de documentación (aunque no pueden aprovechar todo su potencial en archivos que no sean de texto plano). Por ejemplo, este curso ha sido desarrollado bajo git y su código puede encontrarse en su repositorio oficial en [github.com/oslugr/curso-git](https://github.com/oslugr/curso-git).
 
 ## Tipos de Sistemas de Control de Versiones
 
@@ -57,13 +57,13 @@ Existen muchos Sistemas de Control de Versiones como [CVS](https://es.wikipedia.
 
 Los sistemas de control de versiones centralizados fueron los primeros en aparecer y son los de funcionamiento más simple e intuitivo.
 
-En ellos, existe un repositorio central donde se archiva el código y toda la información asociada (marcas de tiempo, autores de los cambios, etc). Los distintos desarrolladores trabajan con copias de ese código que actualizan a partir del servidor central, a donde también envían sus cambios.
+En ellos, existe un repositorio central donde se archiva el código y toda la información asociada (marcas de tiempo, autores de los cambios, etc.). Los distintos desarrolladores trabajan con copias de ese código que actualizan a partir del servidor central, a donde también envían sus cambios.
 
 Es decir, la versión "oficial" de referencia es la que hay en ese repositorio, y todos los programadores sincronizan sus versiones con esa.
 
 Los programas más conocidos de este tipo son CVS y Subversion.
 
-### Sistemas distribuidos.
+### Sistemas distribuidos
 
 Los sistemas distribuidos son más complejos, pero a cambio ofrecen una mayor flexibilidad.
 
@@ -89,6 +89,6 @@ En cualquier caso, el uso del propio git en todos ellos es similar por lo que, s
 
 Más adelante en este curso se hablará de GitHub y se darán detalles sobre su uso; por ahora, será suficiente para nosotros con saber abrir una cuenta (que usaremos para enviar nuestros ejercicios).
 
-Desde la propia [página principal de la web de GitHub](https://github.com/) y como cualquier otro registro, se nos solicitan sólo tres datos: nombre o nick, e-mail y contraseña:
+Desde la propia [página principal de la web de GitHub](https://github.com/) y como cualquier otro registro, se nos solicitan solo tres datos: nombre o nick, e-mail y contraseña:
 
 ![Formulario de GitHub](img/githubform.png)

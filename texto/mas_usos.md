@@ -2,10 +2,10 @@
 
 ## Objetivos
 
-* Aprender patrones habituales de flujo de trabajo con `git`
+* Aprender patrones habituales de flujo de trabajo con `git`.
 * Aprender a trabajar con las ramas.
 * Solucionar los conflictos cuando dos desarrolladores trabajan sobre la misma línea.
-* Interpretar la historia en sus diferentes formatos
+* Interpretar la historia en sus diferentes formatos.
 
 ## Flujos de desarrollo de software (y quizás de otras cosas)
 
@@ -24,7 +24,7 @@ que tienen ciclos más rápidos de producción y de despliegue de nuevas
 características o de arreglo de las mismas. Las metodologías ágiles
 son iterativas y en todas las iteraciones están presentes la mayoría
 de los actores del desarrollo: clientes, desarrolladores, arquitectos;
-incluso en algunas puede que esté la peña de márketing, a ver si se
+incluso en algunas puede que esté la peña de *marketing*, a ver si se
 enteran de lo que está haciendo el resto de la empresa para venderlo
 (y no al revés, vender cosas que luego obligan al resto de la empresa
 a desarrollar).
@@ -59,7 +59,7 @@ directamente desde sitios de gestión como GitHub.
 No hay reglas universales para la organización de un repositorio,
 aunque sí reglas sobre como *no* debe hacerse: todo en un único
 directorio. El repositorio debe estar organizado de forma que cada
-persona sólo tenga que *ver* los ficheros con los que tenga que
+persona solo tenga que *ver* los ficheros con los que tenga que
 trabajar y no se *distraiga* con la modificación de ficheros con los
 cuales, en principio, no tiene nada que ver; también de forma que no
 se sienta tentado en modificar esos mismos ficheros. Vamos a exponer
@@ -75,21 +75,21 @@ además, porque te permite explicar, en pocas palabras, de qué va el
 proyecto, cómo instalarlo, qué prerrequisitos tiene, la licencia, y
 todo lo demás necesario para navegar por él. 
 
-Otros ficheros que suelen ir en el directorio principal
+Otros ficheros que suelen ir en el directorio principal:
 
-* `INSTALL` por costumbre, suele contener las instrucciones para
+* `INSTALL`: por costumbre, suele contener las instrucciones para
   instalar. También por convención, hoy en día se suele escribir
   usando Markdown convirtiéndose, por tanto, en `INSTALL.md`.
   
- * `.gitignore` posiblemente ya conocido, incluye los patrones y
-   ficheros que no se deben considerar como parte del repositorio
+ * `.gitignore`: posiblemente ya conocido, incluye los patrones y
+   ficheros que no se deben considerar como parte del repositorio.
    
- * `LICENSE` incluye la licencia. También se crea automáticamente
+ * `LICENSE`: incluye la licencia. También se crea automáticamente
    desde GitHub en caso de que se haya hecho así. No hay que
    olvidar que también hay que incluir una cabecera en cada fichero
    que indique a qué paquete pertenece y cuál es la licencia.
    
- * `TODO` es una ventana abierta a la colaboración, así como una lista
+ * `TODO`: es una ventana abierta a la colaboración, así como una lista
    para recordarnos a nosotros mismos qué tareas tenemos por delante.
    
  * Otros ficheros de configuración, como `.travis.yml` para el sistema
@@ -98,7 +98,7 @@ Otros ficheros que suelen ir en el directorio principal
    similares que haga falta ejecutar o ver al instalar la
    librería. Se aconseja siempre que tengan los nombres que suelan ser
    habituales en el lenguaje de programación, si no el usuario no
-   sabrá como usarlos. 
+   sabrá cómo usarlos. 
    
  En general se debe tratar de evitar cargar demasiados ficheros, fuera
  de esos, en el directorio principal. Siempre que se pueda, se usará
@@ -110,7 +110,7 @@ Otros ficheros que suelen ir en el directorio principal
  habitualmente se va a llamar `src`. Algunos lenguajes te van a pedir
  que tengan el nombre de la librería, en cuyo caso se usará el que más
  convenga. Si no se trata de una aplicación sino de una biblioteca, se
- usará `lib` en vez de `src`, como en esta [biblioteca llamada *NodEO*](https://github.com/JJ/nodeo)
+ usará `lib` en vez de `src`, como en esta [biblioteca llamada *NodEO*](https://github.com/JJ/nodeo).
  Los tests unitarios irán aparte, en un directorio
  habitualmente llamado `test`. Finalmente, un directorio llamado
  `examples` o `apps` o `scripts` o `bin` o `exe` incluirá ejemplos de uso de la
@@ -197,25 +197,25 @@ Un *flujo de trabajo* es simplemente una forma de organizar las tareas
 de programación de forma que se conozca, de antemano, qué tareas van
 detrás de qué tareas y cuál es el destino, en cada momento, del código
 que se está haciendo. El tener un flujo de trabajo consistente hace
-que se eviten conflictos , que el resultado del trabajo sea
+que se eviten conflictos, que el resultado del trabajo sea
 más predecible, y que por tanto, se subsanen los  problemas al poder identificarlos
 fácilmente. 
 
 El flujo de trabajo básico, de un solo usuario, cuando se trabaja con un sistema de control
 de fuentes y lo hace un solo usuario es el siguiente:
 
-1. `git pull`
-2. Trabajo con el código; añadir nuevos ficheros fuentes con `git add`
+1. `git pull`.
+2. Trabajo con el código; añadir nuevos ficheros fuentes con `git add`.
 3. `git commit -a -m "[implícito: este commit] [hace] [Tal cosa]"` (o
-`git -am`, que es lo mismo)
-4. `git push`
+`git commit -am`, que es lo mismo).
+4. `git push`.
 
 Fijémonos en el tercer paso, el commit. Primero, conviene hacer siempre `-a`,
-es decir, `-all`
+es decir, `-all`,
 por [varias razones](https://git-scm.com/docs/git-commit):
 
 1. Porque examina todos los ficheros que están siendo seguidos, no
-sólo los del directorio actual y los que hay por debajo.
+solo los del directorio actual y los que hay por debajo.
 2. Porque [hace automáticamente un `git rm` sobre los mismos](https://stackoverflow.com/questions/3541647/git-add-vs-git-commit-a), si es que
 han sido borrados. 
 
@@ -240,7 +240,7 @@ los cambios que hemos hecho. Sobre qué hay que escribir hay
 pero conviene que el mensaje sea informativo, hable de porqués y de
 cómos más que de qués (no se puede decir "inserta una función", eso ya
 se ve en el código, sino por qué se inserta esa función) y se aconseja
-también un formato similar al siguiente
+también un formato similar al siguiente:
 
     Hace tal cosa arreglando el error en el issue #666
 
@@ -289,7 +289,7 @@ ramas, que más bien deberían llamarse *ramificaciones* o *caminos*,
 son *caminos divergentes* a partir de un tronco común que,
 eventualmente, pueden combinarse (aunque no es obligatorio) en uno
 solo. En la práctica y como
-[dicen aquí](http://longair.net/blog/2009/04/16/git-fetch-and-merge/)
+[dicen aquí](http://longair.net/blog/2009/04/16/git-fetch-and-merge/),
 una rama es un nombre para un *commit* específico y todos los commits
 que son antecesores del mismo. 
 
@@ -369,17 +369,16 @@ proyecto. Se suele asociar a hitos en la historia del mismo: entrada
 en producción, despliegue de los resultados, o versión mayor o menor. 
 
 Para [etiquetar](https://git-scm.com/book/en/Git-Basics-Tagging) se usa
-la orden `tag`
+la orden `tag`:
 
 	git tag v0.0.2
 	
 `tag` etiqueta el último *commit*, es decir, asigna una etiqueta al
 estado en el que estaba el repositorio tras el último commit. La
 etiqueta aparecerá de forma inmediata (sin necesidad de hacer *push*,
-puesto que se añade al último commit y se puede listar con
+puesto que se añade al último commit) y se puede listar con `git tag`:
 
 ```
-git tag
 jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git tag
 v0.0.1
 v0.0.2
@@ -406,7 +405,7 @@ usamos
 	
 por ejemplo. Esta información aparecerá añadida al commit
 correspondiente (el último que hayamos hecho) cuando hagamos, por
-ejemplo, `git show v0.0.2.1` 
+ejemplo, `git show v0.0.2.1`:
 
 ```
 tag v0.0.2.1
@@ -421,13 +420,13 @@ Date:   Sun Apr 6 09:45:38 2014 +0200
     Y edición del README para que sirva para algo
 ```
 
-(Suprimidos espacios en blanco para que aparezca como un solo
-mensaje). Que, como se ve, añade un pequeño mensaje (al principio) al
+(suprimidos espacios en blanco para que aparezca como un solo
+mensaje) que, como se ve, añade un pequeño mensaje (al principio) al
 propio del commit (a continuación). 
 
 Finalmente, `git describe` es una orden creada precisamente para
 trabajar con las etiquetas: te indica el camino que va desde la última
-etiqueta al commit actual o al que se le indique
+etiqueta al commit actual o al que se le indique:
 
 ```
 git describe
@@ -461,11 +460,11 @@ git checkout -b get-dir
 Switched to a new branch 'get-dir'
 ```
 
-Esta orden hace dos cosas: crea la rama, copia todos los ficheros en
+Esta orden hace dos cosas: crea la rama, copia todos los ficheros de
 la rama en la que estemos (que será la `master` si no hemos hecho
 nada) a la nueva rama y te cambia a la misma; a partir de ese momento
 estarás modificando ficheros en la nueva rama. Es decir, equivale a
-dos órdenes
+dos órdenes:
 
 ```
 	git branch get-dir
@@ -485,7 +484,7 @@ borrarlos, añadirlos o hacer algo totalmente diferente.
 > --index`. 
 
 
-En todo momento 
+En todo momento,
 
 ```
 git status
@@ -535,7 +534,7 @@ que, una vez más, nos muestra con un asterisco que estamos trabajando
 en la rama local `get-dir`; a la vez, nos muestra todas las ramas
 remotas que hay definidas y la relación que hay con las locales, pero
 más que nada por nombre. Si queremos ver la relación real entre ellas
-y los commits que hay en cada una
+y los commits que hay en cada una:
 
 ```
 jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git branch -vv
@@ -585,7 +584,7 @@ remota haciendo `git push` y las ramas quedarán como aparece en
 
 También podemos hacer la operación inversa. Visto que los cambios de
 `master` no afectan a la funcionalidad nueva que hemos creado,
-fusionemos la rama `get-dir` en la principal. Cambiamos primero a ésta
+fusionemos la rama `get-dir` en la principal. Cambiamos primero a esta:
 
     git checkout master
 	
@@ -593,7 +592,7 @@ fusionemos la rama `get-dir` en la principal. Cambiamos primero a ésta
 puede afectar a los editores y a las fechas de los mismos, que
 mostrarán la del último checkout si no se han modificado) y nos
 deposita en la rama principal, desde la cual podemos fusionar, usando
-también pull
+también pull:
 
 ```
 jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull origin get-dir
@@ -611,12 +610,12 @@ fusiona sin más problema la rama. En caso de que se hubiera modificado
 las mismas líneas, es decir, que los *commits* hubieran creado una
 divergencia, se habría provocado un conflicto que se puede solucionar
 como se ha visto en el apartado correspondiente. Pero, dado que no 
-la ha habido, el resultado final será el que se muestra en el gráfico.
+la ha habido, el resultado final será el que se muestra en el gráfico:
 
 ![Volviendo al redil del master](img/fusion.png)
 
 La rama, una vez fusionada con el tronco principal, se puede
-considerar una rama muerta, así que nos la cargamos
+considerar una rama muerta, así que nos la cargamos:
 
 ```
 jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git branch -d get-dir
@@ -637,7 +636,7 @@ eso tenemos la rama borrada tanto local como remotamente.
 
 `checkout` también te permite *pasar* ficheros de una rama a otra sin
 tener que fusionar una rama completa. Por ejemplo, queremos pasar
-algún fichero a `gh-pages` desde la rama `master`
+algún fichero a `gh-pages` desde la rama `master`:
 
 ```
 git checkout gh-pages
@@ -694,14 +693,14 @@ Dejando el repositorio en el estado siguiente
 
 ![Después del rebase](img/post-rebase.png)
 
-El último commit es ahora parte de la rama `master`. No sólo se han
+El último commit es ahora parte de la rama `master`. No solo se han
 fusionado los cambios en la rama principal, como se ve más abajo en la
 misma imagen e hicimos con la rama creada anteriormente, `get-dir`. En
 este caso, y a todos los efectos, se ha *reescrito la historia*,
 pasando los commits hechos sobre la rama anterior a formar parte de la
 rama principal. Una vez hecho esto, se limpia eliminando la rama
 creada. Sin embargo, un rebase no elimina una rama, que sigue ahí,
-sólo que en una parte diferente del árbol como se muestra a continuación
+solo que en una parte diferente del árbol como se muestra a continuación
 
 ![Despegando master de la rama](img/rebase-y-commit.png)
 
@@ -712,7 +711,7 @@ hemos visto antiguamente. No estorba así que no hace falta borrarla.
 
 Con todas estas ramificaciones es posible que, en un momento
 determinado, sea difícil saber quién ha hecho qué cambio. Esto puede
-ser importante no sólo para repartir las culpas cuando algo falle,
+ser importante no solo para repartir las culpas cuando algo falle,
 sino también para ver quién se responsabiliza de cada rama o
 característica y, eventualmente, también para asignar méritos. La
 herramienta `gitk` que hemos usado hasta ahora te presenta en forma de
@@ -760,7 +759,7 @@ mientras que el resto lo han sido por
 del commit seguidos por el nombre del usuario, la fecha, el número de
 línea; finalmente está el contenido de la línea. Algo un poco más
 vistoso se puede ver en algunos repositorios como GitHub, pulsando
-sobre el botón *Blame* que aparece en cada uno de los ficheros
+sobre el botón *Blame* que aparece en cada uno de los ficheros:
 
 ![Visualización de culpabilidades en GitHub](img/github-blame.png)
 
@@ -769,7 +768,6 @@ presenta además un enlace al usuario en GH en caso de serlo (porque,
 recordemos, git es un DVCS cuyos cambios pueden haberse fusionado en
 local por parte de cualquier tipo de usuario, que no tiene por qué
 estar necesariamente en GitHub). Con `blame` se puede saber
-
 [incluso quien modificó una línea en particular](https://stackoverflow.com/questions/5098256/git-blame-prior-commits). Pero,
 para un uso básico, basta lo anterior.
 
