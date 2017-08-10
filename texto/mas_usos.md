@@ -59,7 +59,7 @@ directamente desde sitios de gestión como GitHub.
 No hay reglas universales para la organización de un repositorio,
 aunque sí reglas sobre como *no* debe hacerse: todo en un único
 directorio. El repositorio debe estar organizado de forma que cada
-persona sólo tenga que *ver* los ficheros con los que tenga que
+persona solo tenga que *ver* los ficheros con los que tenga que
 trabajar y no se *distraiga* con la modificación de ficheros con los
 cuales, en principio, no tiene nada que ver; también de forma que no
 se sienta tentado en modificar esos mismos ficheros. Vamos a exponer
@@ -215,7 +215,7 @@ es decir, `-all`,
 por [varias razones](https://git-scm.com/docs/git-commit):
 
 1. Porque examina todos los ficheros que están siendo seguidos, no
-sólo los del directorio actual y los que hay por debajo.
+solo los del directorio actual y los que hay por debajo.
 2. Porque [hace automáticamente un `git rm` sobre los mismos](https://stackoverflow.com/questions/3541647/git-add-vs-git-commit-a), si es que
 han sido borrados. 
 
@@ -693,14 +693,14 @@ Dejando el repositorio en el estado siguiente
 
 ![Después del rebase](img/post-rebase.png)
 
-El último commit es ahora parte de la rama `master`. No sólo se han
+El último commit es ahora parte de la rama `master`. No solo se han
 fusionado los cambios en la rama principal, como se ve más abajo en la
 misma imagen e hicimos con la rama creada anteriormente, `get-dir`. En
 este caso, y a todos los efectos, se ha *reescrito la historia*,
 pasando los commits hechos sobre la rama anterior a formar parte de la
 rama principal. Una vez hecho esto, se limpia eliminando la rama
 creada. Sin embargo, un rebase no elimina una rama, que sigue ahí,
-sólo que en una parte diferente del árbol como se muestra a continuación
+solo que en una parte diferente del árbol como se muestra a continuación
 
 ![Despegando master de la rama](img/rebase-y-commit.png)
 
@@ -711,7 +711,7 @@ hemos visto antiguamente. No estorba así que no hace falta borrarla.
 
 Con todas estas ramificaciones es posible que, en un momento
 determinado, sea difícil saber quién ha hecho qué cambio. Esto puede
-ser importante no sólo para repartir las culpas cuando algo falle,
+ser importante no solo para repartir las culpas cuando algo falle,
 sino también para ver quién se responsabiliza de cada rama o
 característica y, eventualmente, también para asignar méritos. La
 herramienta `gitk` que hemos usado hasta ahora te presenta en forma de
@@ -759,7 +759,7 @@ mientras que el resto lo han sido por
 del commit seguidos por el nombre del usuario, la fecha, el número de
 línea; finalmente está el contenido de la línea. Algo un poco más
 vistoso se puede ver en algunos repositorios como GitHub, pulsando
-sobre el botón *Blame* que aparece en cada uno de los ficheros
+sobre el botón *Blame* que aparece en cada uno de los ficheros:
 
 ![Visualización de culpabilidades en GitHub](img/github-blame.png)
 
@@ -768,7 +768,6 @@ presenta además un enlace al usuario en GH en caso de serlo (porque,
 recordemos, git es un DVCS cuyos cambios pueden haberse fusionado en
 local por parte de cualquier tipo de usuario, que no tiene por qué
 estar necesariamente en GitHub). Con `blame` se puede saber
-
 [incluso quien modificó una línea en particular](https://stackoverflow.com/questions/5098256/git-blame-prior-commits). Pero,
 para un uso básico, basta lo anterior.
 
