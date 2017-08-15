@@ -934,7 +934,7 @@ a objetos, para trabajar con los repositorios. Algunos lenguajes van
 más allá, ofreciendo un marco de desarrollo de ganchos que permite
 configurar los más habituales tales como comprobación de ortografía o
 políticas de codificación locales simplemente con un fichero de
-conriguración; [`Git::Hooks`](https://metacpan.org/pod/Git::Hooks).
+configuración; [`Git::Hooks`](https://metacpan.org/pod/Git::Hooks).
 
 [Este artículo, por ejemplo](https://scotch.io/tutorials/using-git-hooks-in-your-development-workflow),
 te explica como usar ganchos en
