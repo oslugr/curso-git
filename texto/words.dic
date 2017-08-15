@@ -1,4 +1,4 @@
-286
+298
 ASCII
 Add
 Amazon
@@ -123,6 +123,8 @@ YAML
 Yammer
 Zendesk
 add
+adds
+adds
 an
 animalitos
 applypatch
@@ -148,6 +150,7 @@ críptica
 cualificarlo
 cuidadito
 cómos
+debugs
 default
 deploy
 descargables
@@ -164,7 +167,9 @@ email
 empaquetamiento
 empaquetarlos
 enramamiento
+feature
 features
+fetch
 foodev
 for
 fork
@@ -174,6 +179,7 @@ get
 gist
 git
 github
+gitignore
 guis
 handle
 hash
@@ -192,10 +198,13 @@ licenses
 log
 log
 logo
+logs
 m
 mail
+manuti
 markdown
 master
+matching
 md
 merge
 metadatos
@@ -220,7 +229,9 @@ org
 origin
 oslugr
 pages
+passwords
 path
+pdf
 pdfs
 plugins
 png
@@ -241,6 +252,7 @@ release
 remote
 rename
 repo
+repos
 request
 requests
 retroalimentación
@@ -259,6 +271,7 @@ sincronización
 sintácticamente
 sobreescribirá
 socialización
+ssh
 staged
 staging
 subdirectorio
@@ -284,14 +297,3 @@ vim
 vremotegit
 webhooks
 →
-repos
-feature
-logs
-adds
-fetch
-ssh
-matching
-debugs
-gitignore
-passwords
-adds
