@@ -26,17 +26,18 @@ o
 
 ## Más información
 
-Este repositorio está acompañado de un
+Este repositorio está acompañado de otro
 [repositorio de ejemplo](https://github.com/oslugr/repo-ejemplo) sobre
-el que se ponen en práctica casi todo lo que se muestra en el libro y de una
+el que se pone en práctica casi todo lo que se muestra en el libro y de una
 [plantilla de repositorio](https://github.com/JJ/repo-plantilla) usada
 sobre todo para los temas de fontanería; también contiene una serie de
-ganchos de ejemplo que puedes instalar fácilmente en tu repositorio de
+ganchos (*hooks*) de ejemplo que puedes instalar fácilmente en tu repositorio de
 forma alternativa a los que se instalan por omisión.
 
 Como alternativa a este libro tienes
 [el libro de Git: Pro Git](http://git-scm.com/book/es), que también te
-puedes descargar en diferentes formatos. También
+puedes descargar en diferentes formatos. Como ayuda complementaria,
+puedes descargarte
 la
 [chuleta de órdenes](https://elbauldelprogramador.com/mini-tutorial-y-chuleta-de-comandos-git/) de
 El Baúl del Programador. 
