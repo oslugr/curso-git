@@ -185,8 +185,10 @@ Puedes ver los cambios que hiciste en un commit si haces
 
 Esto puede ser muy útil, pero aun hay más. Si haces 
 
-    git show HASH_DE_UN_COMMIT:ruta/a/un/archivo`
-	
+```
+git show HASH_DE_UN_COMMIT:ruta/a/un/archivo
+```
+
 , te mostrará el estado de ese archivo en aquel commit.
 
 Esto nos va a servir para hacer un pequeño truco:
