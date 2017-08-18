@@ -281,7 +281,9 @@ compiler:
   - gcc
 before_install:
   - sudo apt-get install aspell-es 
-script: OUTPUT=`cat README.md | aspell list -d es -p ./.aspell.es.pws`; if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
+script: OUTPUT=`cat README.md | \
+    aspell list -d es -p ./.aspell.es.pws`;\
+	if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
 ```
 
 La estructura de YAML permite expresar vectores y matrices asociativas fácilmente. En general, nos vamos a encontrar con algo del tipo `variable: valor` que será una clave y el valor correspondiente; el valor, a su vez, puede incluir otras estructuras similares. Por ejemplo, la primera:
@@ -307,7 +309,7 @@ es decir, como un array de dos componentes. Esto hará que, sobre nuestro reposi
 before_install:
   - sudo apt-get install aspell-es 
 script: OUTPUT=`cat README.md | \
-	aspell list -d es -p ./.aspell.es.pws`; 
+	aspell list -d es -p ./.aspell.es.pws`; \
     if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
 ```
 

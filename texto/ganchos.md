@@ -316,9 +316,7 @@ git ls-files --stage
 100644 da5b5121adb42e990b9e990c3edb962ef99cb76a 0	README.md
 160000 fa8b7521968bddf235285347775b21dd121b5c11 0	curso
 100644 f8c35adaf57066d4329737c8f6ec7ce6179cc221 0	package.json
-100644 08827778af94ea4c0ddbc28194ded3081e7b0f87 0	shippable.yml
-100644 9920d80438d42e3b0a6924a0fcace2d53a6af602 0	test/route.js
-100644 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3 0	views/layout.jade
+[...]
 100644 94f151d9ef9340c81989b0c3fa8c517c068e1864 0	web.js
 ```
 que nos devuelve, en penúltimo lugar, un fichero que todavía no ha pasado al árbol. Evidentemente, tras el commit:
