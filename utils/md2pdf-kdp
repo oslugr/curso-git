@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Cambia la plantilla de latex al directorio donde esté
+
+pandoc --template=/home/jmerelo/Libros/curso-git/utils/plantilla-kdp.latex \
+    -V language=spanish -V lang=spanish \
+    -V author='Pablo Hinojosa, JJ Merelo' -V title='Aprende Git'\
+    -V documentclass=book\
+    -S --latex-engine=xelatex  \
+    -o aprendegit-kdp.pdf  \
+    prologo.md  introduccion.md  uso_basico.md \
+    solucion_problemas.md mas_usos.md \
+    github.md          ganchos.md --toc
+
+
+
