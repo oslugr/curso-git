@@ -113,7 +113,7 @@ Normalmente los conflictos suceden cuando dos usuarios han modificado
 >cambios a una persona en particular. Por otro lado, muchos ficheros
 >binarios o están generados a partir de un fuente, que sí puede estar
 >en el repositorio, con un programa que los genere a la hora del
->despliegue o de la isntalación, o incluso pueden ser demasiado
+>despliegue o de la instalación, o incluso pueden ser demasiado
 >grandes, lastrando el peso del repositorio. También pueden ser parte
 >de una publicación de lo que haya en el repositorio: un ejecutable o
 >un PDF. En ese caso, es mejor adjuntarlos como parte de un *release*,
