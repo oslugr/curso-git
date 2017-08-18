@@ -487,7 +487,7 @@ tener ningún valor por omisión:
 ~/repo-ejemplo<master>$ git diff-index  HEAD
 ```
 
-![diff-index en acción][img/diff-index.png]
+![diff-index en acción](img/diff-index.png)
 
 
 Además del estado muestra el hash inicial y final de cada uno de los
