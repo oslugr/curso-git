@@ -4,7 +4,7 @@
 
 pandoc --template=/home/jmerelo/Libros/curso-git/utils/plantilla-kdp.latex \
        -V mainfont=DroidSans \
-       -V language=spanish -V lang=spanish \
+       -V lang=es-ES\
        -V author='Pablo Hinojosa, JJ Merelo' -V title='Aprende Git'\
        -V documentclass=book\
        -S --latex-engine=xelatex  \

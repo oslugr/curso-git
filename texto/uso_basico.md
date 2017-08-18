@@ -362,10 +362,14 @@ Para añadir otro repositorio remoto se hace con la misma instrucción `remote` 
 git remote add ALIAS_DEL_REPOSITORIO DIRECCION_DEL_REPOSITORIO
 ```
 
-Donde `ALIAS_DEL_REPOSITORIO` es un nombre corto para usar en las instrucciones de git (el equivalente al "origin" que hemos visto) y `DIRECCION_DEL_REPOSITORIO` la dirección donde se encuentra. Por ejemplo:
+Donde `ALIAS_DEL_REPOSITORIO` es un nombre corto para usar en las
+instrucciones de git (el equivalente al "origin" que hemos visto) y
+DIRECCION_DEL_REPOSITORIO la dirección donde se encuentra. Por
+ejemplo:
 
 ```
-git remote add personal git://github.com/psicobyte/repo-ejemplo.git
+git remote add personal \
+    git://github.com/psicobyte/repo-ejemplo.git
 ```
 
 Esto añade un repositorio remoto llamado `personal` con la dirección que se indica.
