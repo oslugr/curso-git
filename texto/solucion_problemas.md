@@ -105,19 +105,25 @@ Has cambiado un archivo en tu directorio de trabajo, pero te arrepientes y quier
 	
 Normalmente los conflictos suceden cuando dos usuarios han modificado
     la misma línea, o bien cuando han modificado un fichero binario;
-    por eso los ficheros binarios **no** deben estar en un
-    repositorio. Te aparecerá un conflicto de esta forma cuando vayas
+    esa es una de las razones por las que los ficheros binarios **no** deben estar en un
+    repositorio. 
+	
+>Otra razón es que, simplemente, cuando se modifica un fichero binario
+>se modifica toda la estructura del mismo. Es muy difícil atribuir
+>cambios a una persona en particular. Por otro lado, muchos ficheros
+>binarios o están generados a partir de un fuente, que sí puede estar
+>en el repositorio, con un programa que los genere a la hora del
+>despliegue o de la isntalación, o incluso pueden ser demasiado
+>grandes, lastrando el peso del repositorio. También pueden ser parte
+>de una publicación de lo que haya en el repositorio: un ejecutable o
+>un PDF. En ese caso, es mejor adjuntarlos como parte de un *release*,
+>lo que se verá más adelante. 
+	
+	Te aparecerá un conflicto de esta forma cuando vayas
     a hacer `push`:
 
-```	
-To git@github.com:oslugr/curso-git.git
- ! [rejected]        master -> master (non-fast-forward)
-error: failed to push some refs to 'git@github.com:oslugr/curso-git.git'
-consejo: Updates were rejected because the tip of your current branch is behind
-consejo: its remote counterpart. Merge the remote changes (e.g. 'git pull')
-consejo: before pushing again.
-consejo: See the 'Note about fast-forwards' in 'git push --help' for details.
-```
+![Conflicto de push](img/otroconflicto.png)
+
 
 El error indica que la *punta* de tu rama está detrás de la rama remota (es decir, que hay modificaciones posteriores a tu última sincronización). Rechaza por lo tanto el `push`, pero vamos a hacer `pull` para ver qué es lo que ha fallado:
 
