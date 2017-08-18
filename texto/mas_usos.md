@@ -311,15 +311,7 @@ Por ejemplo, en caso de que se haya borrado un fichero (o, para el
 caso, hecho cualquier cambio) en un repositorio y se trate de hacer
 `push` desde el local, habrá un error de este estilo. 
 
-```
-To git@github.com:oslugr/repo-ejemplo.git
- ! [rejected]        master -> master (non-fast-forward)
-error: failed to push some refs to 'git@github.com:oslugr/repo-ejemplo.git'
-consejo: Updates were rejected because the tip of your current branch is behind
-consejo: its remote counterpart. Merge the remote changes (e.g. 'git pull')
-consejo: before pushing again.
-consejo: See the 'Note about fast-forwards' in 'git push --help' for details.
-```
+![Conflicto de fusión](img/masconflicto.png)
 
 En este caso habrá dos ramas, en la *punta* de cada una de las cuales
 habrá un commit diferente. Se siguen instrucciones, es decir, `git
