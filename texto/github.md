@@ -306,7 +306,8 @@ es decir, como un array de dos componentes. Esto hará que, sobre nuestro reposi
 ```
 before_install:
   - sudo apt-get install aspell-es 
-script: OUTPUT=`cat README.md | aspell list -d es -p ./.aspell.es.pws`; if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
+script: OUTPUT=`cat README.md | aspell list -d es -p ./.aspell.es.pws`; 
+    if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
 ```
 
 Como lo único que vamos a hacer en este caso es comprobar la ortografía del texto del fichero `README.md`, instalamos con `apt-get` (herramienta estándar para Linux) un diccionario en español; este instalará todas las dependencias a su vez.  Finalmente, la orden marcada `script` es la que lleva a cabo la comprobación. Para un programa normal sería suficiente hacer `make test` (y definir las dependencias para este objetivo, claro). No nos preocupemos mucho por lo que es, sino por lo que hace: si hay alguna palabra que no pase el test ortográfico, [fallará y enviará un mensaje de correo electrónico a la persona que haya hecho un commit indicándolo](https://travis-ci.org/oslugr/repo-ejemplo/builds/22375300). Si lo pasa sin problemas, [también enviará el mensaje indicando que todo está correcto](https://travis-ci.org/oslugr/repo-ejemplo/builds/22377799). Este tipo de cosas resulta útil solo por el hecho de que se ejecuten automáticamente, pero pueden servir también para hacer despliegues continuos.
@@ -314,10 +315,16 @@ Como lo único que vamos a hacer en este caso es comprobar la ortografía del te
 Travis también proporciona un *badge* que puedes incluir en tu repositorio para indicar si pasa los tests o no, que puedes incluir en tu fichero `README.md` (o donde quieras) con este código:
 
 ```
-[![Build Status](https://travis-ci.org/oslugr/repo-ejemplo.svg?branch=master)](https://travis-ci.org/oslugr/repo-ejemplo)
+[![Build Status]
+(https://travis-ci.org/oslugr/repo-ejemplo.svg?branch=master)]
+(https://travis-ci.org/oslugr/repo-ejemplo)
 ```
 
-sustituyendo el nombre de usuario y el nombre del repo por el correspondiente, claro. Este código está escrito en MarkDown, y GitHub lo interpretará directamente sin problemas, aunque lo mejor es que pinches en la imagen que aparece arriba a la derecha que te dará el código correspondiente.
+sustituyendo el nombre de usuario y el nombre del repo por el
+correspondiente, claro. Este código está escrito en MarkDown, y GitHub
+lo interpretará directamente sin problemas, aunque lo mejor es que
+pinches en la imagen que aparece arriba a la derecha que te dará el
+código correspondiente. 
 
 ## Cliente de GitHub
 

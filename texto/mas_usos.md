@@ -161,7 +161,7 @@ De esta forma, el repositorio queda (parcialmente) con esta estructura
 de directorios:
 
 ```
-jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ tree
+jmerelo@penny:~/txt/repo-ejemplo$ tree
 .
 ├── curso
 │   ├── LICENSE
@@ -326,7 +326,7 @@ habrá un commit diferente. Se siguen instrucciones, es decir, `git
 pull`
 
 ```
-jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull
+jmerelo@penny:~/txt/repo-ejemplo$ git pull
 remote: Counting objects: 2, done.
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 2 (delta 0), reused 0 (delta 0)
@@ -379,7 +379,7 @@ etiqueta aparecerá de forma inmediata (sin necesidad de hacer *push*,
 puesto que se añade al último commit) y se puede listar con `git tag`:
 
 ```
-jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git tag
+jmerelo@penny:~/txt/repo-ejemplo$ git tag
 v0.0.1
 v0.0.2
 ```
@@ -537,7 +537,7 @@ más que nada por nombre. Si queremos ver la relación real entre ellas
 y los commits que hay en cada una:
 
 ```
-jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git branch -vv
+jmerelo@penny:~/txt/repo-ejemplo$ git branch -vv
  * get-dir 389b383 [origin/get-dir] Pasado a glob
    master  1a93e3d [origin/master] Añade palabros al diccionario
 ```
@@ -565,7 +565,7 @@ este se puede usar simplemente. Supongamos, por ejemplo, que estamos
 en la rama `get-dir` y se han hecho cambios en la rama principal.
 
 ```
-jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull origin master
+jmerelo@penny:~/txt/repo-ejemplo$ git pull origin master
   De github.com:oslugr/repo-ejemplo
   * branch            master     -> FETCH_HEAD
   Merge made by the 'recursive' strategy.
@@ -595,7 +595,7 @@ deposita en la rama principal, desde la cual podemos fusionar, usando
 también pull:
 
 ```
-jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git pull origin get-dir
+jmerelo@penny:~/txt/repo-ejemplo$ git pull origin get-dir
 De github.com:oslugr/repo-ejemplo
  * branch            get-dir    -> FETCH_HEAD
 Updating df46a37..3705af0
@@ -618,7 +618,7 @@ La rama, una vez fusionada con el tronco principal, se puede
 considerar una rama muerta, así que nos la cargamos:
 
 ```
-jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git branch -d get-dir
+jmerelo@penny:~/txt/repo-ejemplo$ git branch -d get-dir
 Deleted branch get-dir (was 3705af0).
 ```
 
@@ -626,7 +626,7 @@ Pero eso borra solamente la rama local. Para
 [borrarla remotamente](https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-both-locally-and-remotely):
 
 ```
-jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git push origin :get-dir
+jmerelo@penny:~/txt/repo-ejemplo$ git push origin :get-dir
 To git@github.com:oslugr/repo-ejemplo.git
  - [deleted]         get-dir
 ```
@@ -684,7 +684,7 @@ checkout master`) y podemos hacer `rebase`
 ```	
 git checkout master
 Switched to branch 'master'
-jmerelo@penny:~/txt/docencia/repo-tutoriales/repo-ejemplo$ git rebase img-dir
+jmerelo@penny:~/txt/repo-ejemplo$ git rebase img-dir
 First, rewinding head to replay your work on top of it...
 Fast-forwarded master to img-dir.
 ```
