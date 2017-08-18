@@ -3,7 +3,7 @@ Aprende git
 
 [![Build Status](https://travis-ci.org/oslugr/curso-git.svg?branch=master)](https://travis-ci.org/oslugr/curso-git)
 
-Repositorio con el material para el curso de Git virtual. Se escribió originalmente usando
+Repositorio con el material para el libro "Aprende Git" y el curso que se organiz con el mismo material. Se escribió originalmente usando
 [Markdown en su versión Kramdown](http://kramdown.gettalong.org/quickref.html),
 aunque finalmente hemos encontrado que funciona mejor transformándolo
 con [Pandoc](http://pandoc.org/).
