@@ -306,7 +306,8 @@ es decir, como un array de dos componentes. Esto hará que, sobre nuestro reposi
 ```
 before_install:
   - sudo apt-get install aspell-es 
-script: OUTPUT=`cat README.md | aspell list -d es -p ./.aspell.es.pws`; 
+script: OUTPUT=`cat README.md | \
+	aspell list -d es -p ./.aspell.es.pws`; 
     if [ -n "$OUTPUT" ]; then echo $OUTPUT; exit 1; fi
 ```
 

@@ -221,7 +221,7 @@ sacarlo del repositorio:
 repo-ejemplo
 ============
 Ejemplo de repositorio para trabajar en el
-[curso de `git`](http://cevug.ugr.es/git) el contenido del cual está
+[curso de `git`](http://cevug.ugr.es/git) el contenido del cual 
 [...]
 ```
 
@@ -259,23 +259,23 @@ La orden `ls-tree` nos permite ver qué tipos de objetos tenemos almacenados y s
 040000 tree 39da6b155c821af1e6a304daca9b66efb1ac651f	test
 100644 blob 94f151d9ef9340c81989b0c3fa8c517c068e1864	web.js
 ```
-En este caso tenemos objetos de tres tipos: *blob*, *commit* y *tree*. A `ls-tree` se le pasa un *tree-ish*, es decir, algo que apunte a donde esté almacenado un árbol pero, para no preocuparnos de qué se trata esto, usaremos simplemente HEAD, que apunta como sabéis a la punta de la rama en la que nos encontramos ahora mismo. También  nos da el SHA1 de 40 caracteres que representa cada uno de los ficheros. Si queremos que se expandan los `tree` para mostrar los ficheros que hay dentro también usamos la opción `-r`:
+En este caso tenemos objetos de tres tipos: *blob*, *commit* y
+*tree*. A `ls-tree` se le pasa un *tree-ish*, es decir, algo que
+apunte a donde esté almacenado un árbol pero, para no preocuparnos de
+qué se trata esto, usaremos simplemente HEAD, que apunta como sabéis a
+la punta de la rama en la que nos encontramos ahora mismo. También
+nos da el SHA1 de 40 caracteres que representa cada uno de los
+ficheros. Si queremos que se expandan los `tree` para mostrar los
+ficheros que hay dentro también usamos la opción `-r`: 
 
 ```
 ~/repos-git/repo-ejemplo<master>$ git ls-tree -r HEAD
 100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
-100644 blob a72b52ebe897796e4a289cf95ff6270e04637aad	.gitignore
-100644 blob cc5411b5557f43c7ba2f37ad31f8dc34cccda075	.gitmodules
 100644 blob 4e7b6c1b5a6cb3a962ea05874d10c943c1923f39	.travis.yml
 100644 blob d5445e7ac8422305d107420de4ab8e1ee6227cca	LICENSE
 100644 blob d1913ebe4d9e457be617ee0e786fc8c30a237902	Procfile
-100644 blob da5b5121adb42e990b9e990c3edb962ef99cb76a	README.md
-160000 commit fa8b7521968bddf235285347775b21dd121b5c11	curso
-100644 blob f8c35adaf57066d4329737c8f6ec7ce6179cc221	package.json
-100644 blob 08827778af94ea4c0ddbc28194ded3081e7b0f87	shippable.yml
-100644 blob 9920d80438d42e3b0a6924a0fcace2d53a6af602	test/route.js
-100644 blob 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3	views/layout.jade
-100644 blob 97c32024cda29e0fb6abebf48d3f6740f0acb9e2	web.js
+[...]
+100644 blob c5badda0c484c989e958ea4e27dfe11d69f3c8ef	README.md
 ``` 
 que muestra solo los objetos de tipo `blob` (y un `commit`) con el camino completo que llega hasta ellos. 
 
@@ -283,7 +283,6 @@ Si editamos un fichero tal como el README.md, el repositorio tendrá esta aparie
 
 ```
 ~/repos-git/repo-ejemplo<master>$ git ls-tree HEAD
-100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
 [...]
 100644 blob da5b5121adb42e990b9e990c3edb962ef99cb76a	README.md
 ```
@@ -308,7 +307,7 @@ pero todavía no han pasado a ningún árbol. Para eso usamos
 
 ```
 git ls-files --stage
-100644 a6f69e4284566cd84272c6a4e4996f64643afbea 0	.aspell.es.pws
+[...]
 100644 a72b52ebe897796e4a289cf95ff6270e04637aad 0	.gitignore
 100644 cc5411b5557f43c7ba2f37ad31f8dc34cccda075 0	.gitmodules
 100644 4e7b6c1b5a6cb3a962ea05874d10c943c1923f39 0	.travis.yml
@@ -367,16 +366,12 @@ que, dado que `HEAD` apunta al último commit, nos muestra en modo *pretty-print
 
 ```
 ~/repos-git/repo-ejemplo<master>$ git cat-file -p 1c40899a
-100644 blob a6f69e4284566cd84272c6a4e4996f64643afbea	.aspell.es.pws
-100644 blob a72b52ebe897796e4a289cf95ff6270e04637aad	.gitignore
-100644 blob cc5411b5557f43c7ba2f37ad31f8dc34cccda075	.gitmodules
-100644 blob 4e7b6c1b5a6cb3a962ea05874d10c943c1923f39	.travis.yml
+[...]
 100644 blob d5445e7ac8422305d107420de4ab8e1ee6227cca	LICENSE
 100644 blob d1913ebe4d9e457be617ee0e786fc8c30a237902	Procfile
-100644 blob da5b5121adb42e990b9e990c3edb962ef99cb76a	README.md
+[...]
 160000 commit fa8b7521968bddf235285347775b21dd121b5c11	curso
-100644 blob f8c35adaf57066d4329737c8f6ec7ce6179cc221	package.json
-100644 blob 08827778af94ea4c0ddbc28194ded3081e7b0f87	shippable.yml
+[...]
 040000 tree 39da6b155c821af1e6a304daca9b66efb1ac651f	test
 040000 tree fd3846c0d6089437598004131184c61aea2b6514	views
 100644 blob 97c32024cda29e0fb6abebf48d3f6740f0acb9e2	web.js
@@ -429,8 +424,8 @@ index 97c3202..93b6255 100644
  
 +app.get('/curso/:ruta', function(req, res) {
 +           var ruta = "curso/texto/"+req.params.ruta;
-+           console.log("Request "+req.params.ruta + " doc " + ruta + " contenido " + file_conte
-+           res.render('doc', { content: routes[ruta], title: ruta });
++           console.log("Request "+req.params.ruta + " doc " //...
++           res.render('doc', { content: routes[ruta], title://...
 +})
 +
  app.get('/curso/texto/:ruta', function(req, res) {
@@ -452,7 +447,7 @@ mucha utilidad a la hora de saber, por ejemplo, qué ficheros se han
 modificado. Para hacer esto, [simplemente](https://www.kernel.org/pub/software/scm/git/docs/git-diff.html):
 
 ```
-~/repos-git/repo-ejemplo<master>$ git diff --name-only
+~/repo-ejemplo<master>$ git diff --name-only
 views/layout.jade
 web.js
 ```
@@ -460,10 +455,10 @@ web.js
 que se puede hacer un poco más completa con `--name-status`:
 
 ```
-~/repos-git/repo-ejemplo<master>$ git diff --name-status
+~/repo-ejemplo<master>$ git diff --name-status
 M       views/layout.jade
 M       web.js
-~/repos-git/repo-ejemplo<master>$ git diff --name-status --cached
+~/repo-ejemplo<master>$ git diff --name-status --cached
 A       views/doc.jade
 ```
 
@@ -478,7 +473,7 @@ ver todo junto con
 
 
 ```
-~/repos-git/repo-ejemplo<master>$ git diff --name-status  HEAD
+~/repo-ejemplo<master>$ git diff --name-status  HEAD
 A       views/doc.jade
 M       views/layout.jade
 M       web.js
@@ -491,11 +486,11 @@ diferencia es que compara siempre el índice con algún *árbol*, sin
 tener ningún valor por omisión:
 
 ```
-~/repos-git/repo-ejemplo<master>$ git diff-index  HEAD
-:000000 100644 0000000000000000000000000000000000000000 67e6d7e1ecbb64ff7d467dc2103fa2b2fead49d1 A	views/doc.jade
-:100644 100644 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3 0000000000000000000000000000000000000000 M	views/layout.jade
-:100644 100644 97c32024cda29e0fb6abebf48d3f6740f0acb9e2 0000000000000000000000000000000000000000 M	web.js
+~/repo-ejemplo<master>$ git diff-index  HEAD
 ```
+
+![diff-index en acción][img/diff-index.png]
+
 
 Además del estado muestra el hash inicial y final de cada uno de los
 ficheros. En este caso, como todavía no le hemos hecho commit, muestra
@@ -503,11 +498,11 @@ ficheros. En este caso, como todavía no le hemos hecho commit, muestra
 el árbol:
 
 ```
-~/repos-git/repo-ejemplo<master>$ git diff-tree  HEAD
-fe88e5eefff7f3b7ea95be510c6dcb87054bbcb0
-:000000 040000 0000000000000000000000000000000000000000 fd3846c0d6089437598004131184c61aea2b6514 A	views
-:100644 100644 94f151d9ef9340c81989b0c3fa8c517c068e1864 97c32024cda29e0fb6abebf48d3f6740f0acb9e2 M	web.js
+~/repo-ejemplo<master>$ git diff-tree  HEAD
 ```
+
+![diff-tree](img/diff-tree-2.png)
+
 
 Aunque en este caso muestra un árbol, `views`, que ha sido cambiado
 porque se le ha añadido un fichero nuevo, `views/doc.jade`. En el
@@ -515,11 +510,10 @@ momento que se haga el commit y pase por tanto del índice a la zona de
 *staging*, los hash ya están calculados y cambia la salida:
 
 ```
-~/repos-git/repo-ejemplo<master>$ git diff-tree  HEAD
-637c2820013188f1c4951aef0c21de20440a6fbb
-:040000 040000 fd3846c0d6089437598004131184c61aea2b6514 6bb4560a218c008bbc468f23f36f26ff639eb2e8 M	views
-:100644 100644 97c32024cda29e0fb6abebf48d3f6740f0acb9e2 93b625533c2d1752d9a8e789878512919cf92e17 M	web.js
+~/repo-ejemplo<master>$ git diff-tree  HEAD
 ```
+
+![diff-tree](img/diff-tree-3.png)
 
 `diff-index`, sin embargo, no devolverá nada puesto que todos los
 cambios que se habían hecho han pasado al árbol. 
@@ -553,8 +547,7 @@ remote.origin.url=git@github.com:oslugr/curso-git.git
 remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
 branch.master.remote=origin
 branch.master.merge=refs/heads/master
-GIT_COMMITTER_IDENT=JJ Merelo <jjmerelo@gmail.com> 1399019391 +0200
-GIT_AUTHOR_IDENT=JJ Merelo <jjmerelo@gmail.com> 1399019391 +0200
+[...]
 GIT_EDITOR=editor
 GIT_PAGER=pager
 ```
@@ -586,7 +579,7 @@ por la búsqueda de diferentes directorios dentro del repositorio git.
 Por ejemplo, se puede usar para verificar si un objeto existe o no:
 
 ```
-~/repos-git/repo-ejemplo<master>$ git rev-parse --verify HEAD
+~/repo-ejemplo<master>$ git rev-parse --verify HEAD
 637c2820013188f1c4951aef0c21de20440a6fbb
 ```
 
@@ -605,7 +598,7 @@ De hecho, con él podemos encontrar todo tipo de objetos usando la
 notación que permite especificar revisiones
 
 ```
-~/repos-git/repo-ejemplo<master>$ git rev-parse  HEAD@{1.month}
+~/repo-ejemplo<master>$ git rev-parse  HEAD@{1.month}
 61253ecba351921c96a1553f6c5b7f9910f286f3
 ```
 
@@ -804,7 +797,8 @@ líneas usando `split` y a continuación comprueba si la primera línea
 con un código de error (1), de esta forma:
 
 ```
-~/repos-git/curso-git<master>$ git commit -am "Añadiendo un montón de cosas al capítulo de los ganchos y testeándolo a la vez"
+~/repos-git/curso-git<master>$ git commit\
+-am "Añade muchas cosas y comenta con un montón de caracteres excesivo"
 [FORMATO] Primera línea > 50 caracteres
 ```
 
@@ -829,7 +823,8 @@ escrito en Perl:
 ``` 
 #!/usr/bin/env perl
 my $is_head = `git rev-parse --verify HEAD`;
-my $last_commit = $is_head?"HEAD":"4b825dc642cb6eb9a060e54bf8d69288fbee4904";
+my $last_commit = 
+    $is_head?"HEAD":"4b825dc642cb6eb9a060e54bf8d69288fbee4904";
 my @changes = `git diff-index --name-only $last_commit`;
 my %policies = ( no_underscore => qr/_/ );
 for my $f (@changes) {
@@ -903,7 +898,8 @@ if git-rev-parse --verify HEAD >/dev/null 2>&1; then
 else
 	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
 fi
-for FILE in `git diff-index --check --name-status $against -- | cut -c3-` ; do
+for FILE in 
+  `git diff-index --check --name-status $against -- | cut -c3-` ; do
 # Check if the file contains 'debugger'
 if [ "grep 'debugger' $FILE" ]
 then

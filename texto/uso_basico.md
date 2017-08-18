@@ -496,7 +496,7 @@ In Git 2.0, Git will default to the more conservative 'simple'
 behavior, which only pushes the current branch to the corresponding
 remote branch that 'git pull' uses to update the current branch.
 
-See 'git help config' and search for 'push.default' for further information.
+See 'git help config' and search for 'push.default' for further info
 (the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
 'current' instead of 'simple' if you sometimes use older versions of Git)
 ```
