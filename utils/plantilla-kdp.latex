@@ -1,8 +1,10 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
 %% My stuff
 \usepackage[paperwidth=6in,paperheight=9in]{geometry}
 \renewcommand\chaptername{\#}
 %% end my stuff
+
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
 $endif$
