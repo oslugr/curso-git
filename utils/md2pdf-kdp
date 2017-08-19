@@ -10,9 +10,9 @@ pandoc --template=/home/jmerelo/Libros/curso-git/utils/plantilla-kdp.latex \
        -V documentclass=book\
        -S --latex-engine=xelatex  \
        -o aprendegit-kdp.pdf  \
-       prologo.md  introduccion.md  uso_basico.md \
-       solucion_problemas.md mas_usos.md \
-       github.md          ganchos.md --toc
+       prologo-links.md  introduccion-links.md  uso_basico-links.md \
+       solucion_problemas-links.md mas_usos-links.md \
+       github-links.md          ganchos-links.md --toc
 rm *-links.md
 
 
