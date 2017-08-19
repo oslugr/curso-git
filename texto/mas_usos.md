@@ -735,15 +735,7 @@ blame` permite hacer lo mismo sobre un fichero, viendo quién ha
 modificado cada una de las líneas. Por ejemplo, `git blame
 uso_basico.md` devolvería, entre otras cosas, estas líneas
 
-```
- 6017d70c (Manu      2014-03-28 22:30:40 +0100  70) [GUI Mac](http://mac
- 2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  71) 
- 6017d70c (Manu      2014-03-28 22:30:40 +0100  72) [GUI Windows](http:/
- 2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  73) 
- 01b9da5a (Manu      2014-03-28 22:36:46 +0100  74) [GUI for Linux, Wind
- 75b8e467 (Manu      2014-03-28 22:29:29 +0100  75) 
- 2feb1052 (psicobyte 2014-03-10 03:35:49 +0100  76) ##Empezando a usar g
-```
+![git blame en línea de órdenes](img/blame.png)
 
 que muestran que la línea 70 y la 71 han sido modificadas por [Manu](http://github.com/Makova)
 mientras que el resto lo han sido por
