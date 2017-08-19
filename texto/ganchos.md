@@ -284,7 +284,7 @@ Si editamos un fichero tal como el README.md, el repositorio tendrá esta aparie
 ```
 ~/repos-git/repo-ejemplo<master>$ git ls-tree HEAD
 [...]
-100644 blob da5b5121adb42e990b9e990c3edb962ef99cb76a	README.md
+100644 blob da5b5121adb42e990b9e990c3edb962ef99cb76a  README.md
 ```
 
 Como vemos, ha cambiado el SHA1 (comienza con `da5`, comparadlo con el
@@ -796,7 +796,7 @@ con un código de error (1), de esta forma:
 
 ```
 ~/repos-git/curso-git<master>$ git commit\
--am "Añade muchas cosas y comenta con un montón de caracteres excesivo"
+-am "Añade muchas cosas y comenta con un montón de caracteres"
 [FORMATO] Primera línea > 50 caracteres
 ```
 
@@ -858,9 +858,9 @@ sola) y saldrá con `die` si alguno de los ficheros tiene un nombre
 incorrecto. 
 
 ```
-~/repos-git/repo-plantilla<master>$ git commit -am "A ver si me deja"
+~/repo-plantilla<master>$ git commit -am "A ver si me deja"
 [FORMATO]: no_underscore  at .git/hooks/pre-commit line 13.
-~/repos-git/repo-plantilla<master>$ git status
+~/repo-plantilla<master>$ git status
 # En la rama master
 # Cambios para hacer commit:
 #   (use «git reset HEAD <archivo>...«para eliminar stage)
@@ -897,7 +897,8 @@ else
 	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
 fi
 for FILE in 
-  `git diff-index --check --name-status $against -- | cut -c3-` ; do
+  `git diff-index --check --name-status $against -- | cut -c3-` ; 
+do
 # Check if the file contains 'debugger'
 if [ "grep 'debugger' $FILE" ]
 then

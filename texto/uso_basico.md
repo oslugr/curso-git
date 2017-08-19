@@ -476,7 +476,7 @@ Este consiste en que, al hacer push, se sincronizan todas las ramas del proyecto
 
 La versión 2 de git cambiará ese comportamiento, que pasará a ser `simple`, lo que significa que se sube solo la rama que tienes activa en este momento a la rama de la que has hecho el pull, pero te dará un error si el nombre de esa rama es distinto.
 
-Mientras tanto, actualmente, git te avisa (a cada push) de que se va a hacer este cambio y te avisa de que puedes configurar este comportamiento por defecto con un mensaje como este:
+Mientras tanto, actualmente, git te avisa (a cada push) de que se va a hacer este cambio y te avisa de que puedes configurar este comportamiento por defecto con un mensaje [como este](https://git-scm.com/docs/git-config.html):
 
 ```
 warning: push.default is unset; its implicit value is changing in
@@ -489,16 +489,8 @@ To squelch this message and adopt the new behavior now, use:
 
 git config --global push.default simple
 
-When push.default is set to 'matching', git will push local branches
-to the remote branches that already exist with the same name.
+[...]
 
-In Git 2.0, Git will default to the more conservative 'simple'
-behavior, which only pushes the current branch to the corresponding
-remote branch that 'git pull' uses to update the current branch.
-
-See 'git help config' and search for 'push.default' for further info
-(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
-'current' instead of 'simple' if you sometimes use older versions of Git)
 ```
 
 Para elegir el comportamiento que prefieres solo tienes que usar, como ya hemos visto para otras configuraciones, el comando `git config` de este modo:
