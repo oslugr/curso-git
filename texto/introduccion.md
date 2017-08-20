@@ -27,9 +27,11 @@ Además, en la comunidad del software libre se dan algunas peculiaridades, como 
 
 Git es uno de estos sistemas, y es software libre.
 
-## Sistemas de control de Versiones
+## Sistemas de control de versiones
 
-En cualquier proyecto de desarrollo es necesario gestionar los cambios, modificaciones, añadidos, etc., que se han hecho a lo largo de la historia de dicho proyecto.
+En cualquier proyecto de desarrollo es necesario gestionar los
+cambios, modificaciones o añadidos que se han hecho a lo largo de la
+historia del mismo.
 
 Si se trata de un trabajo pequeño, de corta duración y es llevado a cabo por un solo programador, quizás un archivo histórico de copias de seguridad pueda ser suficiente, pero esto se vuelve claramente insuficiente al crecer la complejidad del proyecto.
 
