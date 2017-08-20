@@ -330,12 +330,10 @@ que nos devuelve, en penúltimo lugar, un fichero que todavía no ha pasado al �
 este listado nos muestra el nuevo objeto de tipo `tree` que se ha creado y nos da su SHA1, que podemos usar para examinarlo con `ls-tree`:
 
 
-```
-~/repos-git/repo-ejemplo<master>$ git ls-tree fd3846c
-100644 blob 36cc059186e7cb247eaf7bfd6a318be6cffb9ea3	layout.jade
-```
+![Usando `git ls-tree`](img/ls-tree.png)
 
-que, si queremos ver en una vista más normal, hacemos lo mismo con `ls-file`:
+`ls-files`, por otro lado, nos mostrará un listado más parecido al que
+se puede obtener con la orden `ls` de Linux. 
 
 ```
 ~/repos-git/repo-ejemplo<master>$ git ls-files views
