@@ -706,15 +706,40 @@ determinado, sea difícil saber quién ha hecho qué cambio. Esto puede
 ser importante no solo para repartir las culpas cuando algo falle,
 sino también para ver quién se responsabiliza de cada rama o
 característica y, eventualmente, también para asignar méritos. La
-herramienta `gitk` que hemos usado hasta ahora te presenta en forma de
+herramienta `gitk` que hemos usado en alguna ocasión con anterioridad te presenta en forma de
 árbol los cambios que se han venido haciendo en el repositorio, con un
 panel a la derecha que muestra quién ha hecho cada commit:
 
 ![Quien ha hecho qué](img/gitk.png)
 
-En esta imagen se ve como cada commit está asignado a uno de los
-autores de este tutorial, junto con los mensajes correspondientes. Con
-`git log --pretty=short` se puede conseguir un efecto similar en la línea de órdenes:
+Podemos visualizar también el repositorio de forma similar sin
+necesidad de esa orden de escritorio, usando simplemente la web. Git
+lleva incorporado
+un [servidor web](https://git-scm.com/docs/git-instaweb), aunque usa
+programas ya instalados para lanzarlo. Por ejemplo, si está instalado
+`webrick` lo podemos lanzar con:
+
+```
+git instaweb -d webrick -p 8000 --start
+```
+
+Y obtendremos algo así en la página inicial
+
+![Usando la web de git](img/instaweb-1.png)
+
+Pinchando en *unnamed repository* o en *summary* se pasará a navegar
+por el repositorio
+
+> También se puede editar `.git/description` para que aparezca en ese
+lugar una descripción del repo.
+
+![Usando la web de git, log corto](img/instaweb-2.png)
+
+En esta imagen se ve como cada commit en este repositorio de ejemplo
+está asignado a su autor y al resto de los metadatos: fechas,
+etiquetas de rama, que aparecen en rosa, y otros enlaces para
+continuar navegando. Un efecto similar se puede conseguir desde la
+línea de órdenes con `git log --pretty=short`:
 
 ```
     commit 3b89bd2fffbf7f5988de16b9911b14d70c9197bd
