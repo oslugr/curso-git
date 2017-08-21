@@ -873,7 +873,7 @@ hacer algo como `git mv` (o `git rm --force`).
 ## Algunos *hooks* útiles explicados
 
 Hay múltiples posts en blogs que
-[explican diferentes ejemplos de *hooks*](https://www.sitepoint.com/git-hooks-fun-profit/)
+[publican y explican diferentes ejemplos de *hooks*](https://www.sitepoint.com/git-hooks-fun-profit/)
 y lo que se puede hacer con ellos. Por ejemplo, en
 [este conjunto](http://codeinthehole.com/tips/tips-for-using-a-Git-pre-commit-hook/)
 usa programas externos y su código de salida (`$?`) para comprobar si
