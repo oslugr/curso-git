@@ -186,10 +186,10 @@ en este caso.
 Los submódulos pueden ser un ejemplo de flujos de trabajo: en este
 caso, hay un flujo desde "las fuentes del manantial" (que puede
 cambiar de forma independiente su proyecto) hasta "la desembocadura"
-(nuestro proyecto, que lo usa). Dividir un proyecto en módulos y dejar
-que personas independientes se encarguen de cada uno, integrándolo
-todo en un submódulo, por tanto, es una forma simple y sin demasiadas
-complicaciones de hacerlo. 
+(nuestro proyecto, que lo usa). Dividir un proyecto en módulos (repositorios)
+y dejar que personas independientes se encarguen de cada uno, integrando
+los módulos de cada uno en un repositorio común en forma de submódulos,
+por tanto, es una forma simple y sin demasiadas complicaciones de hacerlo.
 
 ## Flujos de trabajo con git
 
