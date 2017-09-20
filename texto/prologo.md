@@ -38,7 +38,7 @@ Muchas personas han contribuido con
 pero está bien nombrarlas; agradecemos
 a [`manuti`](http://twitter.com/manuti) su muy exhaustiva revisión; a Miguel Ángel Pedregosa,
 Alfonso Romero y a
-Juanmi, [José Alberto](https://github.com/josealberto444), 
+Juanmi, [José Alberto](https://github.com/josealberto4444), 
 [Fernando Tricas](http://fernand0.blogalia.com) y [Diego](http://guadatech.blogspot.com.es/) su revisión
 extensiva de los fuentes y las correcciones aportadas. Israel Santana nos mandó también diversas correcciones. 
 
